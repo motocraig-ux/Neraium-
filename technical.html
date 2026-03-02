@@ -1,86 +1,108 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neraium | Technical Overview</title>
 
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --black:#05070d;
-  --navy:#0c1422;
-  --deep:#132338;
-  --accent:#1e5df0;
+:root{
+  --bg-dark:#060b12;
+  --bg-deep:#0c1626;
+  --accent:#2e6df6;
+  --accent-soft:#4f8bff;
   --text:#ffffff;
-  --muted:rgba(255,255,255,0.72);
-  --border:rgba(255,255,255,0.08);
+  --text-muted:rgba(255,255,255,0.72);
+  --border:rgba(46,109,246,0.18);
   --max:1000px;
 }
 
-*{box-sizing:border-box;}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-  margin:0;
-  background:linear-gradient(180deg,var(--black) 0%,var(--navy) 50%,var(--deep) 100%);
-  color:var(--text);
   font-family:'Sora',sans-serif;
-  line-height:1.9;
+  background:linear-gradient(160deg,var(--bg-dark),var(--bg-deep));
+  color:var(--text);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
 }
 
 .container{
   max-width:var(--max);
-  margin:0 auto;
-  padding:80px 40px 140px;
+  margin:auto;
+  padding:80px 32px 120px;
+}
+
+.header{
+  margin-bottom:100px;
 }
 
 .logo{
   font-family:'IBM Plex Mono',monospace;
   font-size:12px;
-  letter-spacing:0.18em;
+  letter-spacing:.12em;
   text-transform:uppercase;
-  color:rgba(255,255,255,0.6);
-  margin-bottom:60px;
+  color:var(--accent);
+  margin-bottom:20px;
 }
 
 h1{
-  font-size:clamp(48px,6vw,80px);
-  margin-bottom:60px;
+  font-size:clamp(44px,6vw,64px);
+  line-height:1.1;
+  margin-bottom:24px;
 }
 
-h2{
-  font-size:28px;
-  margin-top:120px;
-  margin-bottom:30px;
-}
-
-p{
+.lead{
   font-size:20px;
-  color:var(--muted);
-  margin-bottom:28px;
+  color:var(--text-muted);
+  max-width:800px;
+}
+
+.section{
+  margin-top:120px;
+  border-top:1px solid var(--border);
+  padding-top:60px;
+}
+
+.section h2{
+  font-size:28px;
+  margin-bottom:20px;
+}
+
+.section p{
+  font-size:17px;
+  color:var(--text-muted);
+  margin-bottom:18px;
 }
 
 .arch{
   margin-top:40px;
   padding:30px;
-  background:rgba(255,255,255,0.04);
   border:1px solid var(--border);
+  background:rgba(255,255,255,.03);
   font-family:'IBM Plex Mono',monospace;
-  font-size:14px;
+  font-size:13px;
   line-height:1.7;
+  color:var(--accent);
 }
 
-footer{
-  margin-top:160px;
+.footer{
+  margin-top:140px;
   border-top:1px solid var(--border);
   padding-top:60px;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:11px;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,0.45);
+  font-size:13px;
+  color:rgba(255,255,255,.45);
+  text-align:center;
 }
+
+a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+a:hover{color:var(--accent-soft)}
 </style>
 </head>
 
@@ -88,47 +110,76 @@ footer{
 
 <div class="container">
 
-<div class="logo">NERAIUM · TECHNICAL OVERVIEW</div>
-
-<h1>Read-Only Infrastructure Intelligence Architecture</h1>
-
-<p>
-Neraium operates as a non-actuating intelligence layer within high-consequence water environments.
-It ingests native telemetry streams and classifies sustained multivariate deterioration without modifying operational systems.
+<div class="header">
+<div class="logo">NERAIUM TECHNICAL OVERVIEW</div>
+<h1>Read Only Infrastructure Intelligence Architecture</h1>
+<p class="lead">
+Neraium operates as a non actuating intelligence layer within high consequence water systems. The platform analyzes live telemetry streams to identify early deterioration while preserving full operator authority.
 </p>
+</div>
 
-<h2>Operational Boundary</h2>
+<div class="section">
+<h2>System Boundary</h2>
 <p>
-The platform maintains strict separation from control systems.
-It does not actuate valves, adjust flow, modify pressure, or override operator authority.
-All outputs remain advisory and structured for institutional review.
+Neraium does not control equipment. It does not actuate valves, modify flow, adjust pressure, or override system logic. The platform remains structurally independent from operational control environments.
 </p>
-
-<h2>Drift Classification Model</h2>
 <p>
-Deterioration is identified as persistent deviation across correlated signals.
-Rather than responding to isolated threshold events, the system evaluates structural movement within telemetry relationships over time.
-This enables earlier classification while preserving human decision authority.
+All outputs are advisory classifications. Final authority remains with operators.
+</p>
+</div>
+
+<div class="section">
+<h2>Drift Detection Model</h2>
+<p>
+Deterioration rarely appears as a single alarm event. It develops as sustained multivariate drift across temperature, flow, pressure, and energy signals.
+</p>
+<p>
+Neraium evaluates correlated signal behavior over time to identify structural deviation patterns before traditional reactive thresholds trigger.
 </p>
 
 <div class="arch">
-TELEMETRY INPUT  
-→ Multivariate Signal Modeling  
+Telemetry Ingestion  
+→ Multivariate Modeling  
 → Sustained Drift Detection  
-→ Structured Classification  
-→ Institutional Review
+→ Classification Layer  
+→ Operator Review
 </div>
 
-<h2>Governed Output Layer</h2>
-<p>
-Outputs are formatted as traceable, reviewable intelligence artifacts.
-Each classification includes context, signal lineage, and temporal persistence.
-This structure supports audit, oversight, and liability-sensitive environments.
-</p>
+</div>
 
-<footer>
-© Neraium
-</footer>
+<div class="section">
+<h2>Governed Output Structure</h2>
+<p>
+Each classification is structured, traceable, and reviewable. Outputs are formatted to support audit environments and institutional oversight.
+</p>
+<p>
+Signal lineage, temporal persistence, and contextual metadata are preserved within each structured output.
+</p>
+</div>
+
+<div class="section">
+<h2>Deployment Model</h2>
+<p>
+Neraium integrates with existing telemetry sources. No equipment modification is required.
+</p>
+<p>
+The platform operates as an observational intelligence layer alongside current operational systems.
+</p>
+</div>
+
+<div class="section">
+<h2>Institutional Role</h2>
+<p>
+As infrastructure becomes intelligent, observation must remain structurally independent from actuation.
+</p>
+<p>
+Neraium defines systemic infrastructure intelligence for high consequence water environments.
+</p>
+</div>
+
+<div class="footer">
+© 2026 Neraium | Systemic Infrastructure Intelligence
+</div>
 
 </div>
 

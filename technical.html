@@ -4,247 +4,388 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neraium | Technical Overview</title>
-<meta name="description" content="Technical overview of Neraium's read only signal interpretation layer.">
+<meta name="description" content="Technical overview of Neraium's read-only signal interpretation layer.">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --bg-0:#04060c;
-  --bg-1:#0b1324;
-  --bg-2:#0e1a33;
-  --accent:#4d8dff;
-  --text:#ffffff;
-  --muted:rgba(255,255,255,0.70);
-  --muted-soft:rgba(255,255,255,0.56);
-  --border:rgba(255,255,255,0.08);
-  --max:1200px;
-  --radius:10px;
+:root {
+  --bg:           #000000;
+  --bg-raised:    #0c0c0c;
+  --text:         #ffffff;
+  --muted:        rgba(255,255,255,0.52);
+  --muted-soft:   rgba(255,255,255,0.32);
+  --border:       rgba(255,255,255,0.09);
+  --border-hi:    rgba(255,255,255,0.20);
+  --max:          1200px;
+  --mono:         'IBM Plex Mono', monospace;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-body{
-  font-family:'Inter',sans-serif;
-  background:
-    radial-gradient(circle at 14% 22%, rgba(77,141,255,0.18), transparent 34%),
-    radial-gradient(circle at 82% 68%, rgba(59,130,246,0.12), transparent 38%),
-    linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 55%, var(--bg-2) 100%);
-  color:var(--text);
-  line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 48px;
 }
 
-.container{
-  width:100%;
-  max-width:var(--max);
-  margin:0 auto;
-  padding:0 48px;
+/* ── Nav ─────────────────────────────────── */
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.90);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
-/* Intro */
-
-.intro{
-  padding:120px 0 96px;
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
 }
 
-.back-link{
-  display:inline-block;
-  margin-bottom:28px;
-  color:var(--muted-soft);
-  text-decoration:none;
-  font-size:14px;
+.nav-wordmark {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
 }
 
-.back-link:hover{
-  color:var(--text);
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
 }
 
-.intro h1{
-  font-size:56px;
-  font-weight:600;
-  line-height:1.06;
-  letter-spacing:-0.02em;
-  margin-bottom:22px;
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); }
+
+/* ── Intro ───────────────────────────────── */
+.intro {
+  padding: 148px 0 88px;
+  border-bottom: 1px solid var(--border);
 }
 
-.intro p{
-  max-width:760px;
-  font-size:18px;
-  color:var(--muted);
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 48px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-soft);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.back-link:hover { color: var(--text); }
+.back-link::before {
+  content: "←";
+  font-size: 12px;
 }
 
-/* Spec Grid */
-
-.spec{
-  border-top:1px solid var(--border);
+.intro-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.intro-eyebrow::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--muted-soft);
+  flex-shrink: 0;
+}
+.intro-eyebrow span {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
-.spec-row{
-  display:grid;
-  grid-template-columns:minmax(220px, 300px) minmax(0, 1fr);
-  gap:40px;
-  padding:72px 0;
-  border-bottom:1px solid var(--border);
+.intro h1 {
+  font-size: clamp(38px, 5vw, 60px);
+  font-weight: 300;
+  line-height: 1.06;
+  letter-spacing: -0.030em;
+  margin-bottom: 24px;
+}
+.intro h1 em {
+  font-style: normal;
+  font-weight: 600;
 }
 
-.spec-label h2{
-  font-size:24px;
-  font-weight:600;
-  line-height:1.1;
+.intro p {
+  max-width: 620px;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.74;
 }
 
-.spec-body p{
-  max-width:760px;
-  font-size:17px;
-  color:var(--muted);
+/* ── Spec layout ─────────────────────────── */
+.spec { border-top: 1px solid var(--border); }
+
+.spec-row {
+  display: grid;
+  grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);
+  gap: 48px;
+  padding: 64px 0;
+  border-bottom: 1px solid var(--border);
 }
 
-/* Architecture */
+.spec-label { padding-top: 3px; }
 
-.arch-card{
-  margin-top:24px;
-  padding:24px;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,0.022);
-  border-radius:var(--radius);
+.spec-label .section-index {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-soft);
+  letter-spacing: 0.10em;
+  margin-bottom: 8px;
 }
 
-.arch-list{
-  display:grid;
-  gap:12px;
+.spec-label h2 {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
-.arch-step{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  color:var(--accent);
-  font-size:15px;
-  font-weight:500;
-  line-height:1.4;
+.spec-body p {
+  max-width: 680px;
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.74;
 }
 
-.arch-step::before{
-  content:"";
-  width:8px;
-  height:8px;
-  border-radius:999px;
-  background:var(--accent);
-  box-shadow:0 0 0 6px rgba(77,141,255,0.08);
-  flex:0 0 auto;
+/* ── Architecture pipeline ───────────────── */
+.arch-card {
+  margin-top: 36px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.012);
+  padding: 0;
+  overflow: hidden;
 }
 
-/* Validation */
+.arch-step {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: center;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+}
+.arch-step:last-child { border-bottom: none; }
 
-.validation-card{
-  margin-top:24px;
-  padding:22px;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,0.022);
-  border-radius:var(--radius);
+.arch-step-index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 16px 0;
+  border-right: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-soft);
+  letter-spacing: 0.06em;
+  background: rgba(255,255,255,0.018);
 }
 
-.validation-card img{
-  display:block;
-  width:100%;
-  max-width:760px;
-  height:auto;
-  margin:0 auto;
-  border-radius:8px;
-  border:1px solid rgba(255,255,255,0.06);
+.arch-step-label {
+  padding: 16px 20px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
 }
 
-.validation-note{
-  margin-top:16px;
-  font-size:15px;
-  color:var(--muted-soft);
+/* Arrow connector between steps */
+.arch-connector {
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 68px;
+  height: 20px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-soft);
+  letter-spacing: 0.06em;
 }
 
-/* Footer */
-
-.site-footer{
-  padding:96px 0 56px;
+/* ── Validation image ────────────────────── */
+.validation-card {
+  margin-top: 36px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.012);
+  padding: 0;
+  overflow: hidden;
 }
 
-.site-footer p{
-  font-size:14px;
-  color:var(--muted-soft);
+.validation-card img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-bottom: 1px solid var(--border);
+  filter: brightness(0.92) contrast(1.04);
 }
 
-/* Responsive */
-
-@media (max-width: 980px){
-  .container{
-    padding:0 28px;
-  }
-
-  .intro{
-    padding:96px 0 80px;
-  }
-
-  .intro h1{
-    font-size:42px;
-  }
-
-  .spec-row{
-    grid-template-columns:1fr;
-    gap:20px;
-    padding:52px 0;
-  }
+.validation-note {
+  padding: 14px 20px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--muted-soft);
 }
 
-@media (max-width: 640px){
-  .intro h1{
-    font-size:36px;
-  }
+/* ── Footer ──────────────────────────────── */
+.site-footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+}
+.site-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.site-footer p,
+.footer-link {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted-soft);
+  letter-spacing: 0.08em;
+}
+.footer-link { text-decoration: none; text-transform: uppercase; transition: color 0.15s; }
+.footer-link:hover { color: var(--text); }
 
-  .spec-label h2{
-    font-size:22px;
-  }
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 980px) {
+  .container { padding: 0 24px; }
+  .nav-links { display: none; }
+  .intro { padding: 112px 0 72px; }
+  .intro h1 { font-size: 36px; }
+  .spec-row { grid-template-columns: 1fr; gap: 20px; padding: 48px 0; }
+}
+
+@media (max-width: 640px) {
+  .intro h1 { font-size: 30px; }
 }
 </style>
 </head>
-
 <body>
 
+<!-- Navigation -->
+<nav class="site-nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-wordmark">Neraium</a>
+      <ul class="nav-links">
+        <li><a href="index.html#system">System</a></li>
+        <li><a href="index.html#governance">Governance</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="technical.html" class="active">Technical</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Intro -->
 <section class="intro">
   <div class="container">
-    <a class="back-link" href="index.html">← Neraium</a>
+    <a class="back-link" href="index.html">Neraium</a>
 
-    <h1>Technical Overview</h1>
+    <div class="intro-eyebrow">
+      <span>Documentation</span>
+    </div>
+
+    <h1>Technical<br><em>Overview</em></h1>
+
     <p>
-      Neraium operates as a read only signal interpretation layer across live telemetry environments. Persistent structural deviation is mapped for context, persistence, and governed operator review.
+      Neraium operates as a read-only signal interpretation layer across live telemetry
+      environments. Persistent structural deviation is mapped for context, persistence,
+      and governed operator review.
     </p>
   </div>
 </section>
 
+<!-- Spec Sections -->
 <section class="spec">
   <div class="container">
 
     <div class="spec-row">
       <div class="spec-label">
+        <span class="section-index">01</span>
         <h2>Interpretation Model</h2>
       </div>
-
       <div class="spec-body">
         <p>
-          Live telemetry is normalized, compared across correlated signals, and mapped for deviation persistence before being surfaced as structured signal interpretation.
+          Live telemetry is normalized, compared across correlated signals, and mapped for
+          deviation persistence before being surfaced as structured signal interpretation.
         </p>
 
         <div class="arch-card">
-          <div class="arch-list">
-            <div class="arch-step">Live Telemetry</div>
-            <div class="arch-step">Signal Normalization</div>
-            <div class="arch-step">Cross Signal Correlation</div>
-            <div class="arch-step">Deviation Persistence Mapping</div>
-            <div class="arch-step">Structured Signal Interpretation</div>
-            <div class="arch-step">Operator Review</div>
+          <div class="arch-step">
+            <div class="arch-step-index">01</div>
+            <div class="arch-step-label">Live Telemetry</div>
+          </div>
+          <div class="arch-step">
+            <div class="arch-step-index">02</div>
+            <div class="arch-step-label">Signal Normalization</div>
+          </div>
+          <div class="arch-step">
+            <div class="arch-step-index">03</div>
+            <div class="arch-step-label">Cross-Signal Correlation</div>
+          </div>
+          <div class="arch-step">
+            <div class="arch-step-index">04</div>
+            <div class="arch-step-label">Deviation Persistence Mapping</div>
+          </div>
+          <div class="arch-step">
+            <div class="arch-step-index">05</div>
+            <div class="arch-step-label">Structured Signal Interpretation</div>
+          </div>
+          <div class="arch-step">
+            <div class="arch-step-index">06</div>
+            <div class="arch-step-label">Operator Review</div>
           </div>
         </div>
       </div>
@@ -252,55 +393,59 @@ body{
 
     <div class="spec-row">
       <div class="spec-label">
+        <span class="section-index">02</span>
         <h2>Empirical Reference</h2>
       </div>
-
       <div class="spec-body">
         <p>
-          Tested across FD001 through FD004 datasets comprising 707 degradation trajectories. In the representative reference case, sustained deviation surfaced at cycle 36 with failure at cycle 243.
+          Tested across FD001 through FD004 datasets comprising 707 degradation trajectories.
+          In the representative reference case, sustained deviation surfaced at cycle 36
+          with failure at cycle 243.
         </p>
 
         <div class="validation-card">
           <img src="IMG_9010.png" alt="Representative drift detection output" loading="lazy">
-          <div class="validation-note">
-            Reference lead time: 207 cycles.
-          </div>
+          <div class="validation-note">Reference lead time — 207 cycles prior to failure</div>
         </div>
       </div>
     </div>
 
     <div class="spec-row">
       <div class="spec-label">
+        <span class="section-index">03</span>
         <h2>Signal Integrity</h2>
       </div>
-
       <div class="spec-body">
         <p>
-          Outputs preserve signal lineage, temporal persistence, and contextual metadata. Interpretation artifacts are surfaced without asserting operational outcomes.
+          Outputs preserve signal lineage, temporal persistence, and contextual metadata.
+          Interpretation artifacts are surfaced without asserting operational outcomes.
         </p>
       </div>
     </div>
 
     <div class="spec-row">
       <div class="spec-label">
+        <span class="section-index">04</span>
         <h2>Governance</h2>
       </div>
-
       <div class="spec-body">
         <p>
-          Neraium structures outputs for institutional review. Traceable artifacts preserve lineage, persistence, and context so governance remains explicit at the point of decision.
+          Neraium structures outputs for institutional review. Traceable artifacts preserve
+          lineage, persistence, and context so governance remains explicit at the point
+          of decision.
         </p>
       </div>
     </div>
 
     <div class="spec-row">
       <div class="spec-label">
+        <span class="section-index">05</span>
         <h2>Boundary</h2>
       </div>
-
       <div class="spec-body">
         <p>
-          Neraium does not actuate, modify, override, or control infrastructure systems. Decision authority remains exclusively with operators.
+          Neraium does not actuate, modify, override, or control infrastructure systems.
+          Decision authority remains exclusively with operators.
         </p>
       </div>
     </div>
@@ -310,7 +455,10 @@ body{
 
 <footer class="site-footer">
   <div class="container">
-    <p>© 2026 Neraium</p>
+    <div class="site-footer-row">
+      <p>© 2026 Neraium</p>
+      <a class="footer-link" href="index.html">← Main</a>
+    </div>
   </div>
 </footer>
 

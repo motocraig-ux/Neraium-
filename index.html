@@ -6,31 +6,58 @@
 <title>Neraium | Systemic Infrastructure Intelligence</title>
 <meta name="description" content="Neraium defines systemic infrastructure intelligence for live telemetry environments.">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #000000;
-  --bg-raised: #0c0c0c;
-  --text: #ffffff;
-  --muted: rgba(255,255,255,0.52);
-  --muted-soft: rgba(255,255,255,0.32);
-  --border: rgba(255,255,255,0.09);
-  --border-hi: rgba(255,255,255,0.20);
-  --max: 1200px;
-  --mono: 'IBM Plex Mono', monospace;
+  --bg: #0a0e27;
+  --bg-secondary: #0f1535;
+  --bg-tertiary: #141b3d;
+  --text: #e0e6ff;
+  --text-secondary: rgba(224,230,255,0.7);
+  --text-tertiary: rgba(224,230,255,0.4);
+  --accent-cyan: #00d9ff;
+  --accent-cyan-glow: rgba(0,217,255,0.25);
+  --accent-purple: #7c3aed;
+  --accent-purple-glow: rgba(124,58,237,0.15);
+  --border: rgba(0,217,255,0.15);
+  --border-strong: rgba(0,217,255,0.35);
+  --max: 1280px;
+  --mono: 'Space Mono', monospace;
 }
 
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
+  font-family: var(--mono);
+  background: linear-gradient(135deg, var(--bg) 0%, var(--bg-secondary) 50%, var(--bg) 100%);
   color: var(--text);
-  line-height: 1.55;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(0deg, var(--accent-cyan-glow) 1px, transparent 1px),
+    linear-gradient(90deg, var(--accent-cyan-glow) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .container {
@@ -38,160 +65,699 @@ body {
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 48px;
+  position: relative;
+  z-index: 2;
 }
 
-/* ── Nav ─────────────────────────────────── */
+/* NAV */
 .site-nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
+  background: rgba(10,14,39,0.85);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
-  background: rgba(0,0,0,0.90);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 40px rgba(0,217,255,0.05);
 }
+
 .nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 56px;
+  height: 64px;
 }
+
 .nav-wordmark {
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--text);
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-decoration: none;
+  text-shadow: 0 0 30px rgba(0,217,255,0.3);
+  filter: drop-shadow(0 0 10px rgba(0,217,255,0.2));
 }
+
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 48px;
   list-style: none;
 }
-.nav-links a {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.15s;
-}
-.nav-links a:hover { color: var(--text); }
 
-/* ── Hero ────────────────────────────────── */
+.nav-links a {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-cyan), transparent);
+  box-shadow: 0 0 10px var(--accent-cyan);
+  transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-links a:hover {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px rgba(0,217,255,0.4);
+}
+
+.nav-links a:hover::before {
+  width: 100%;
+}
+
+/* HERO */
 .hero {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url("hero.png") center center / cover no-repeat;
+  padding-top: 64px;
   overflow: hidden;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10,14,39,0.78) 0%,
+      rgba(10,14,39,0.58) 42%,
+      rgba(10,14,39,0.76) 100%
+    ),
+    url("hero.png") center center / cover no-repeat;
 }
 
-/* Subtle blue atmospheric overlay */
 .hero::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
-
-  background-image:
-    linear-gradient(
-      100deg,
-      rgba(0,0,0,0.92) 0%,
-      rgba(0,0,0,0.82) 45%,
-      rgba(0,10,25,0.78) 75%,
-      rgba(0,0,0,0.88) 100%
-    ),
-    radial-gradient(
-      circle at 80% 40%,
-      rgba(0,110,255,0.08),
-      transparent 65%
-    ),
-    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
-
-  background-size: auto, auto, 72px 72px, 72px 72px;
-
-  mask-image: radial-gradient(
-    ellipse 80% 70% at 50% 50%,
-    black 40%,
-    transparent 100%
-  );
-  -webkit-mask-image: radial-gradient(
-    ellipse 80% 70% at 50% 50%,
-    black 40%,
-    transparent 100%
-  );
-
+  background:
+    radial-gradient(circle at 30% 40%, rgba(0,217,255,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(124,58,237,0.1) 0%, transparent 50%);
+  z-index: 0;
   pointer-events: none;
-
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 820px;
-  padding: 148px 0 108px;
+  max-width: 950px;
+  animation: fadeInDown 1s ease 0.2s both;
 }
 
 .eyebrow {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 36px;
-}
-.eyebrow::before {
-  content: "";
-  display: block;
-  width: 28px;
-  height: 1px;
-  background: var(--muted-soft);
-}
-.eyebrow span {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
+  gap: 12px;
+  padding: 8px 16px;
+  margin-bottom: 40px;
+  background: rgba(0,217,255,0.08);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--accent-cyan);
+  box-shadow: 0 0 20px rgba(0,217,255,0.1);
+}
+
+.eyebrow::before {
+  content: '▪';
+  display: block;
+  font-size: 8px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
 .hero h1 {
-  font-size: clamp(44px, 6vw, 72px);
-  font-weight: 300;
-  line-height: 1.04;
-  letter-spacing: -0.032em;
-  margin-bottom: 24px;
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  color: var(--text);
+  text-shadow: 0 0 40px rgba(0,217,255,0.2), 0 0 80px rgba(124,58,237,0.15);
 }
-.hero h1 em {
-  font-style: normal;
-  font-weight: 600;
+
+.hero h1 span {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero p {
-  max-width: 520px;
-  font-size: 16px;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.72;
-  margin-bottom: 44px;
+  max-width: 700px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 48px;
+  letter-spacing: 0.02em;
 }
 
 .hero-actions {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
+  animation: fadeInUp 1s ease 0.4s both;
 }
 
-/* KEEPING EVERYTHING ELSE EXACTLY AS YOU HAD IT BELOW */
-/* No sections removed. No structure altered. */
-/* Your spec, signal grid, metrics, contact, footer, and responsive blocks remain unchanged. */
+/* BUTTONS */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: transparent;
+  border: 2px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,217,255,0.1), inset 0 0 20px rgba(0,217,255,0.05);
+}
 
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cta:hover {
+  color: var(--bg);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 40px rgba(0,217,255,0.4), 0 0 80px rgba(0,217,255,0.2);
+  text-shadow: none;
+}
+
+.cta:hover::before {
+  opacity: 1;
+}
+
+.cta.secondary {
+  border-color: var(--accent-purple);
+  color: var(--accent-purple);
+  box-shadow: 0 0 20px rgba(124,58,237,0.1), inset 0 0 20px rgba(124,58,237,0.05);
+}
+
+.cta.secondary:hover {
+  color: var(--bg);
+  box-shadow: 0 0 40px rgba(124,58,237,0.4), 0 0 80px rgba(124,58,237,0.2);
+}
+
+/* SECTIONS */
+.spec {
+  border-top: 1px solid var(--border);
+  position: relative;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,217,255,0.03) 50%, transparent 100%);
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  padding: 100px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+  position: relative;
+}
+
+.spec-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(180deg, var(--accent-cyan), transparent);
+  box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+.spec-label {
+  padding-top: 2px;
+  position: sticky;
+  top: 120px;
+}
+
+.spec-label .section-index {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent-cyan);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0,217,255,0.3);
+}
+
+.spec-label h2 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.spec-body p {
+  max-width: 780px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  letter-spacing: 0.02em;
+}
+
+.spec-body p strong {
+  color: var(--accent-cyan);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0,217,255,0.3);
+}
+
+/* SIGNAL GRID */
+.signal-grid {
+  margin-top: 48px;
+  border: 1px solid var(--border-strong);
+  background: rgba(0,217,255,0.02);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0,217,255,0.1), inset 0 0 30px rgba(0,217,255,0.05);
+}
+
+.signal-row {
+  display: grid;
+  grid-template-columns: 70px 1fr 1.4fr;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.signal-row:last-child {
+  border-bottom: none;
+}
+
+.signal-row:hover {
+  background: rgba(0,217,255,0.08);
+  box-shadow: inset 0 0 20px rgba(0,217,255,0.1);
+}
+
+.signal-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 0;
+  background: linear-gradient(180deg, var(--accent-cyan), transparent);
+  transition: height 0.3s ease;
+}
+
+.signal-row:hover::before {
+  height: 100%;
+}
+
+.signal-index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  letter-spacing: 0.1em;
+  padding: 20px;
+  background: rgba(0,217,255,0.05);
+  text-shadow: 0 0 10px rgba(0,217,255,0.3);
+}
+
+.signal-name {
+  padding: 20px 24px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.signal-desc {
+  padding: 20px 24px 20px 0;
+  font-size: 10px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+  text-align: right;
+}
+
+/* METRICS */
+.metrics {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 48px;
+  background: rgba(0,217,255,0.04);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  box-shadow: 0 0 30px rgba(0,217,255,0.1);
+}
+
+.metric {
+  text-align: center;
+  padding: 20px;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+
+.metric:last-child {
+  border-right: none;
+}
+
+.metric strong {
+  display: block;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  margin-bottom: 16px;
+  text-shadow: 0 0 20px rgba(0,217,255,0.3);
+  letter-spacing: -0.02em;
+}
+
+.metric span {
+  display: block;
+  font-size: 10px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.8;
+}
+
+/* CONTACT */
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 380px) minmax(340px, 1fr);
+  gap: 80px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+.contact-copy p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  margin-bottom: 36px;
+  letter-spacing: 0.02em;
+}
+
+.contact-meta {
+  display: grid;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.contact-meta .contact-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  margin-bottom: 8px;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 10px rgba(0,217,255,0.3);
+}
+
+.contact-meta div {
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+  font-size: 10px;
+}
+
+.contact-meta a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  text-shadow: 0 0 5px rgba(0,217,255,0.2);
+}
+
+.contact-meta a:hover {
+  text-shadow: 0 0 15px rgba(0,217,255,0.5);
+}
+
+.contact-form {
+  border: 1px solid var(--border-strong);
+  background: rgba(0,217,255,0.03);
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: 0 0 30px rgba(0,217,255,0.1), inset 0 0 30px rgba(0,217,255,0.05);
+}
+
+.contact-form input,
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  margin-top: -1px;
+  background: rgba(10,14,39,0.6);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  transition: all 0.25s ease;
+  resize: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-tertiary);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  background: rgba(0,217,255,0.08);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 20px rgba(0,217,255,0.2), inset 0 0 10px rgba(0,217,255,0.05);
+}
+
+.contact-form textarea {
+  min-height: 140px;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.contact-form button {
+  padding: 12px 28px;
+  border: 2px solid var(--accent-cyan);
+  background: transparent;
+  color: var(--accent-cyan);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 20px rgba(0,217,255,0.1);
+}
+
+.contact-form button:hover {
+  background: var(--accent-cyan);
+  color: var(--bg);
+  box-shadow: 0 0 40px rgba(0,217,255,0.4);
+}
+
+/* FOOTER */
+.site-footer {
+  padding: 64px 0;
+  border-top: 1px solid var(--border);
+}
+
+.site-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+
+.site-footer p,
+.footer-link {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.footer-link {
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px rgba(0,217,255,0.3);
+}
+
+/* ANIMATIONS */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .spec-row {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .spec-label {
+    position: relative;
+    top: 0;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .metric {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+  }
+
+  .metric:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 80px;
+    min-height: auto;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .spec-row {
+    padding: 64px 0;
+  }
+
+  .signal-row {
+    grid-template-columns: 56px 1fr;
+  }
+
+  .signal-desc {
+    display: none;
+  }
+
+  .site-footer-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 12px;
+  }
+
+  .spec-label h2 {
+    font-size: 24px;
+  }
+
+  .metric strong {
+    font-size: 36px;
+  }
+
+  .contact-form {
+    padding: 24px;
+  }
+}
 </style>
 </head>
 <body>
@@ -199,7 +765,7 @@ body {
 <nav class="site-nav">
   <div class="container">
     <div class="nav-inner">
-      <a href="/" class="nav-wordmark">Neraium</a>
+      <a href="/" class="nav-wordmark">NERAIUM</a>
       <ul class="nav-links">
         <li><a href="#system">System</a></li>
         <li><a href="#water">Water</a></li>
@@ -216,25 +782,169 @@ body {
   <div class="container">
     <div class="hero-content">
       <div class="eyebrow">
-        <span>Systemic Infrastructure Intelligence</span>
+        Infrastructure Intelligence Platform
       </div>
       <h1>
-        Neraium<br>
-        <em>surfaces structural<br>deviation.</em>
+        <span>Detect</span> Structural Deviation
       </h1>
       <p>
-        Read-only signal interpretation for live telemetry environments.<br>
-        Governance preserved at the point of review.
+        Read-only signal interpretation for live telemetry environments. Neraium surfaces sustained deterioration
+        before failure occurs. Governance preserved at the point of review. Operators retain full authority.
       </p>
       <div class="hero-actions">
-        <a href="#contact" class="cta">Start Discussion</a>
-        <a href="technical.html" class="cta secondary">Technical Overview</a>
+        <a href="#contact" class="cta">Start Discussion →</a>
+        <a href="technical.html" class="cta secondary">Technical Overview ↗</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Everything below here remains exactly as your original document -->
+<section class="spec" id="system">
+  <div class="container">
+
+    <div class="spec-row">
+      <div class="spec-label">
+        <span class="section-index">01</span>
+        <h2>Operational Role</h2>
+      </div>
+      <div class="spec-body">
+        <p>
+          Neraium operates as a <strong>read-only intelligence layer</strong>. It does not actuate, modify, override,
+          or control infrastructure systems. Decision authority remains with operators at all times.
+        </p>
+      </div>
+    </div>
+
+    <div class="spec-row" id="water">
+      <div class="spec-label">
+        <span class="section-index">02</span>
+        <h2>Water Infrastructure</h2>
+      </div>
+      <div class="spec-body">
+        <p>
+          Water systems degrade silently. Pressure loss, flow irregularity, pump stress, and chemical imbalance
+          each leave a signal trace well before they produce a visible event. Neraium reads those traces continuously
+          across the full sensor environment, not in isolation, but as a correlated system.
+        </p>
+        <p>
+          Applicable across <strong>municipal distribution networks, commercial aquatic systems, industrial process water,</strong>
+          and managed recreational facilities. Any environment with live telemetry and an operator responsible for system integrity.
+        </p>
+
+        <div class="signal-grid">
+          <div class="signal-row">
+            <div class="signal-index">01</div>
+            <div class="signal-name">Pressure Deviation</div>
+            <div class="signal-desc">line loss · transient surge · zone isolation</div>
+          </div>
+          <div class="signal-row">
+            <div class="signal-index">02</div>
+            <div class="signal-name">Flow Irregularity</div>
+            <div class="signal-desc">leak signature · demand shift · blockage onset</div>
+          </div>
+          <div class="signal-row">
+            <div class="signal-index">03</div>
+            <div class="signal-name">Pump Degradation</div>
+            <div class="signal-desc">vibration drift · efficiency loss · bearing wear</div>
+          </div>
+          <div class="signal-row">
+            <div class="signal-index">04</div>
+            <div class="signal-name">Chemical Drift</div>
+            <div class="signal-desc">pH shift · chlorine variance · turbidity rise</div>
+          </div>
+          <div class="signal-row">
+            <div class="signal-index">05</div>
+            <div class="signal-name">Thermal Variance</div>
+            <div class="signal-desc">temperature stratification · heat exchanger load</div>
+          </div>
+          <div class="signal-row">
+            <div class="signal-index">06</div>
+            <div class="signal-name">Valve & Actuator State</div>
+            <div class="signal-desc">position drift · cycle count · response lag</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-row" id="governance">
+      <div class="spec-label">
+        <span class="section-index">03</span>
+        <h2>Governance</h2>
+      </div>
+      <div class="spec-body">
+        <p>
+          Neraium structures signal interpretation for <strong>institutional review</strong>. Outputs preserve signal lineage,
+          temporal persistence, and contextual traceability while decision authority remains with operators.
+        </p>
+      </div>
+    </div>
+
+    <div class="spec-row" id="validation">
+      <div class="spec-label">
+        <span class="section-index">04</span>
+        <h2>Empirical Validation</h2>
+      </div>
+      <div class="spec-body">
+        <p>
+          Tested across 707 independent degradation trajectories using NASA CMAPSS data. Sustained deviation
+          surfaced well before terminal states.
+        </p>
+        <div class="metrics">
+          <div class="metric">
+            <strong>96.9%</strong>
+            <span>Detection Coverage</span>
+          </div>
+          <div class="metric">
+            <strong>183</strong>
+            <span>Median Lead Time (Cycles)</span>
+          </div>
+          <div class="metric">
+            <strong>100+ hrs</strong>
+            <span>Prior to Failure</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-row" id="contact">
+      <div class="spec-label">
+        <span class="section-index">05</span>
+        <h2>Contact</h2>
+      </div>
+      <div class="spec-body">
+        <div class="contact-grid">
+          <div class="contact-copy">
+            <p>Start a direct conversation.</p>
+            <div class="contact-meta">
+              <div class="contact-name">Craig Curtis</div>
+              <div>Founder / CEO</div>
+              <div><a href="mailto:Craig@neraium.com">Craig@neraium.com</a></div>
+              <div><a href="tel:6028337441">602.833.7441</a></div>
+            </div>
+          </div>
+          <form class="contact-form" action="https://formspree.io/f/xzdalpzy" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Message" rows="5" required></textarea>
+            <div class="form-footer">
+              <button type="submit">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer-row">
+      <p>© 2026 Neraium</p>
+      <a class="footer-link" href="technical.html">Technical Overview →</a>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

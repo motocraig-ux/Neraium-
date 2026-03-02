@@ -14,7 +14,7 @@
   --accent:#2e6df6;
   --text:#ffffff;
   --text-muted:rgba(255,255,255,0.68);
-  --border:rgba(46,109,246,0.16);
+  --border:rgba(46,109,246,0.14);
   --max:900px;
 }
 
@@ -30,23 +30,24 @@ body{
 .container{
   max-width:var(--max);
   margin:auto;
-  padding:140px 24px 160px;
+  padding:180px 26px 200px;
 }
 
 h1{
-  font-size:clamp(48px,6vw,68px);
+  font-size:clamp(52px,6vw,72px);
   font-weight:600;
-  margin-bottom:32px;
+  margin-bottom:40px;
 }
 
 .lead{
-  font-size:20px;
+  font-size:22px;
   color:var(--text-muted);
   max-width:760px;
+  margin-bottom:120px;
 }
 
 .section{
-  margin-top:160px;
+  margin-top:180px;
   border-top:1px solid var(--border);
   padding-top:60px;
 }
@@ -54,30 +55,31 @@ h1{
 .section h2{
   font-size:26px;
   font-weight:600;
-  margin-bottom:20px;
+  margin-bottom:22px;
 }
 
 .section p{
   font-size:18px;
   color:var(--text-muted);
   margin-bottom:18px;
+  max-width:760px;
 }
 
 .arch{
-  margin-top:40px;
-  padding:36px;
+  margin-top:50px;
+  padding:50px;
   border:1px solid var(--border);
-  background:rgba(255,255,255,.03);
+  background:rgba(255,255,255,.035);
   font-family:'IBM Plex Mono',monospace;
   font-size:13px;
-  line-height:1.7;
+  line-height:1.8;
   color:var(--accent);
 }
 
 footer{
-  margin-top:180px;
+  margin-top:220px;
   border-top:1px solid var(--border);
-  padding-top:80px;
+  padding-top:100px;
   text-align:center;
   font-size:12px;
   letter-spacing:.06em;
@@ -93,37 +95,49 @@ footer{
 <h1>Technical Architecture</h1>
 
 <p class="lead">
-Neraium functions as a non actuating intelligence layer within live water telemetry environments. The platform evaluates sustained multivariate drift while preserving operational authority.
+Neraium defines a non actuating intelligence layer within live water telemetry environments. The system evaluates sustained multivariate deterioration while preserving operational authority.
 </p>
 
 <div class="section">
-<h2>System Boundary</h2>
+<h2>Structural Boundary</h2>
 <p>
-The platform does not actuate equipment or override control systems. Neraium remains structurally independent from mechanical authority.
+Neraium does not actuate valves, modify flow, override control logic, or adjust mechanical systems. The platform operates alongside existing infrastructure without altering it.
+</p>
+<p>
+All outputs are advisory classifications. Decision authority remains with operators.
 </p>
 </div>
 
 <div class="section">
-<h2>Signal Flow</h2>
+<h2>Signal Evaluation Model</h2>
+
 <div class="arch">
-Telemetry Environment  
+Live Telemetry Environment  
 → Signal Normalization  
-→ Multivariate Correlation Modeling  
-→ Sustained Drift Persistence  
-→ Structured Classification  
+→ Cross Signal Correlation Modeling  
+→ Temporal Drift Persistence Analysis  
+→ Structured Classification Output  
 → Operator Review
 </div>
+
 </div>
 
 <div class="section">
-<h2>Governed Output</h2>
+<h2>Classification Integrity</h2>
 <p>
-Classifications preserve signal lineage, temporal persistence, and contextual metadata to support institutional review environments.
+Each classification preserves signal lineage, temporal persistence, and contextual metadata. Outputs are structured for institutional review environments.
+</p>
+</div>
+
+<div class="section">
+<h2>Deployment Model</h2>
+<p>
+Integration occurs through existing telemetry interfaces. No equipment modification or system control integration is required.
 </p>
 </div>
 
 <footer>
-© 2026 Neraium
+© 2026 Neraium | Systemic Infrastructure Intelligence
 </footer>
 
 </div>

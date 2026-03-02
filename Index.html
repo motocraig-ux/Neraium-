@@ -11,10 +11,11 @@
     --bg-bottom:#03070b;
     --accent:#4da3ff;
     --text:#e6edf5;
-    --muted:#97a6b7;
 }
 
-*{box-sizing:border-box;}
+*{
+    box-sizing:border-box;
+}
 
 html, body{
     margin:0;
@@ -60,7 +61,7 @@ nav{
     display:flex;
     gap:18px;
     font-size:13px;
-    color:var(--muted);
+    color:rgba(230,237,245,0.6);
 }
 
 .nav-links a:hover{
@@ -87,7 +88,7 @@ nav{
 
 .hero p{
     font-size:18px;
-    color:var(--muted);
+    color:rgba(230,237,245,0.65);
     margin-bottom:22px;
 }
 
@@ -110,13 +111,13 @@ nav{
 .micro{
     margin-top:26px;
     font-size:13px;
-    color:var(--muted);
-    opacity:0.9;
+    color:rgba(230,237,245,0.55);
+    letter-spacing:0.5px;
 }
 
 /* SECOND SECTION */
 .section{
-    padding:70px 24px 90px;
+    padding:60px 24px 80px;
     max-width:720px;
     margin:0 auto;
     border-top:1px solid rgba(255,255,255,0.05);
@@ -129,8 +130,9 @@ nav{
 
 .section p{
     font-size:16px;
-    color:var(--muted);
+    color:rgba(230,237,245,0.65);
     max-width:520px;
+    line-height:1.6;
 }
 </style>
 </head>
@@ -161,7 +163,7 @@ nav{
     </a>
 
     <div class="micro">
-        Read-only architecture. Deterministic classification. No actuation.
+        Read-only • Deterministic • Non-actuating
     </div>
 </section>
 

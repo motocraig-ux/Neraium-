@@ -56,7 +56,7 @@ body::before {
   inset: 0;
   background-image:
     radial-gradient(circle at 15% 30%, rgba(14,165,233,0.08) 0%, transparent 40%),
-    radial-gradient(circle at 85% 70%, rgba(16,185,129,0.05) 0%, transparent 50%);
+    radial-gradient(circle at 85% 70%, rgba(14,165,233,0.05) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -95,82 +95,31 @@ body::after {
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 10px 40px rgba(14,165,233,0.05);
 }
 
 .nav-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 68px;
 }
 
 .nav-wordmark {
   font-family: var(--serif);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--text-0);
+  background: linear-gradient(135deg, var(--water-primary), var(--water-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-decoration: none;
   transition: all 0.3s ease;
-  position: relative;
+  filter: drop-shadow(0 0 15px rgba(14,165,233,0.2));
 }
 
-.nav-wordmark::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--water-primary), var(--water-secondary));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.nav-wordmark:hover::after {
-  transform: scaleX(1);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 52px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-3);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  position: relative;
-  padding-bottom: 6px;
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--water-primary), transparent);
-  box-shadow: 0 0 15px var(--water-primary);
-  transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.nav-links a:hover {
-  color: var(--water-primary);
-}
-
-.nav-links a:hover::after {
-  width: 100%;
+.nav-wordmark:hover {
+  filter: drop-shadow(0 0 25px rgba(14,165,233,0.4));
 }
 
 /* ──────────────────────────────────────── */
@@ -181,7 +130,9 @@ body::after {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding-top: 68px;
+  text-align: center;
   overflow: hidden;
 }
 
@@ -189,9 +140,7 @@ body::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: 
-    radial-gradient(ellipse 800px 600px at 20% 50%, rgba(14,165,233,0.15) 0%, transparent 50%),
-    radial-gradient(ellipse 600px 500px at 80% 40%, rgba(16,185,129,0.08) 0%, transparent 50%);
+  background: radial-gradient(ellipse 900px 700px at 50% 50%, rgba(14,165,233,0.2) 0%, transparent 60%);
   z-index: 0;
   pointer-events: none;
 }
@@ -199,56 +148,21 @@ body::after {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 1050px;
+  max-width: 1000px;
   animation: fadeInDown 1s ease 0.2s both;
 }
 
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  padding: 12px 24px;
-  margin-bottom: 48px;
-  background: rgba(14,165,233,0.08);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--water-primary);
-  box-shadow: 0 0 25px rgba(14,165,233,0.1);
-  backdrop-filter: blur(10px);
-}
-
-.eyebrow::before {
-  content: '';
-  display: block;
-  width: 8px;
-  height: 8px;
-  background: var(--water-primary);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--water-primary);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-.hero h1 {
+.hero-title {
   font-family: var(--serif);
-  font-size: clamp(56px, 8vw, 92px);
+  font-size: clamp(56px, 10vw, 100px);
   font-weight: 700;
-  line-height: 1.06;
-  letter-spacing: -0.015em;
-  margin-bottom: 40px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
   color: var(--text-0);
 }
 
-.hero h1 span {
+.hero-title span {
   background: linear-gradient(135deg, var(--water-primary) 0%, var(--water-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -256,19 +170,23 @@ body::after {
   filter: drop-shadow(0 0 20px rgba(14,165,233,0.3));
 }
 
-.hero p {
-  max-width: 780px;
-  font-size: 17px;
+.hero-subtitle {
+  font-family: var(--serif);
+  font-size: clamp(18px, 2.5vw, 28px);
   font-weight: 300;
-  line-height: 1.85;
+  line-height: 1.4;
   color: var(--text-1);
   margin-bottom: 56px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-actions {
   display: flex;
-  gap: 18px;
+  gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* ──────────────────────────────────────── */
@@ -278,7 +196,7 @@ body::after {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 44px;
+  padding: 16px 48px;
   background: transparent;
   border: 2px solid var(--water-primary);
   color: var(--water-primary);
@@ -791,31 +709,30 @@ body::after {
     padding: 0 36px;
   }
 
-  .nav-links {
-    display: none;
-  }
-
   .hero {
     padding-top: 80px;
     min-height: auto;
   }
 
-  .hero h1 {
-    font-size: 44px;
-    margin-bottom: 32px;
+  .hero-title {
+    font-size: 40px;
+    margin-bottom: 24px;
   }
 
-  .hero p {
-    font-size: 15px;
-    margin-bottom: 44px;
+  .hero-subtitle {
+    font-size: 16px;
+    margin-bottom: 40px;
   }
 
   .hero-actions {
     flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
 
   .cta {
     width: 100%;
+    max-width: 280px;
     justify-content: center;
   }
 
@@ -847,8 +764,12 @@ body::after {
     padding: 0 20px;
   }
 
-  .hero h1 {
-    font-size: 36px;
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
   }
 
   .spec-label h2 {
@@ -872,31 +793,19 @@ body::after {
   <div class="container">
     <div class="nav-inner">
       <a href="/" class="nav-wordmark">Neraium</a>
-      <ul class="nav-links">
-        <li><a href="#system">System</a></li>
-        <li><a href="#water">Parameters</a></li>
-        <li><a href="#governance">Governance</a></li>
-        <li><a href="#validation">Data</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="technical.html">Technical</a></li>
-      </ul>
     </div>
   </div>
 </nav>
 
-<section class="hero">
+<section class="hero" id="top">
   <div class="container">
     <div class="hero-content">
-      <div class="eyebrow">
-        Water Intelligence Platform
-      </div>
-      <h1>
-        <span>Detect</span> structural deviation in water systems
+      <h1 class="hero-title">
+        <span>Detect</span> Structural Deviation in Water Systems
       </h1>
-      <p>
+      <p class="hero-subtitle">
         Real-time signal interpretation across live telemetry. Neraium surfaces sustained deterioration 
-        before failure occurs: pressure loss, flow irregularity, pump degradation, chemical drift. Read-only 
-        intelligence. Operator authority preserved.
+        before failure occurs. Read-only intelligence. Operator authority preserved.
       </p>
       <div class="hero-actions">
         <a href="#contact" class="cta">Start Discussion →</a>
@@ -932,9 +841,8 @@ body::after {
   <div class="spec-body">
     <p>
       Water systems fail silently. A distribution network doesn't announce degradation. It simply 
-      becomes less reliable. Pressure drifts. Flow patterns shift. Pumps work harder. Chemistry 
-      becomes unstable. Neraium reads these signals continuously, across your entire sensor network, 
-      as an integrated system.
+      becomes less reliable. Pressure drifts. Flow patterns shift. Pumps work harder. Chemistry becomes 
+      unstable. Neraium reads these signals continuously, across your entire sensor network, as an integrated system.
     </p>
     <p>
       <strong>Applicable across municipal systems, commercial facilities, industrial process water, 
@@ -946,32 +854,32 @@ body::after {
       <div class="signal-row">
         <div class="signal-index">01</div>
         <div class="signal-name">Pressure Deviation</div>
-        <div class="signal-desc">line loss · transient surge · zone isolation</div>
+        <div class="signal-desc">line loss . transient surge . zone isolation</div>
       </div>
       <div class="signal-row">
         <div class="signal-index">02</div>
         <div class="signal-name">Flow Irregularity</div>
-        <div class="signal-desc">leak signature · demand shift · blockage onset</div>
+        <div class="signal-desc">leak signature . demand shift . blockage onset</div>
       </div>
       <div class="signal-row">
         <div class="signal-index">03</div>
         <div class="signal-name">Pump Degradation</div>
-        <div class="signal-desc">vibration drift · efficiency loss · bearing wear</div>
+        <div class="signal-desc">vibration drift . efficiency loss . bearing wear</div>
       </div>
       <div class="signal-row">
         <div class="signal-index">04</div>
         <div class="signal-name">Chemical Drift</div>
-        <div class="signal-desc">pH shift · chlorine variance · turbidity rise</div>
+        <div class="signal-desc">pH shift . chlorine variance . turbidity rise</div>
       </div>
       <div class="signal-row">
         <div class="signal-index">05</div>
         <div class="signal-name">Thermal Variance</div>
-        <div class="signal-desc">temperature stratification · heat exchanger load</div>
+        <div class="signal-desc">temperature stratification . heat exchanger load</div>
       </div>
       <div class="signal-row">
         <div class="signal-index">06</div>
         <div class="signal-name">Valve & Actuator State</div>
-        <div class="signal-desc">position drift · cycle count · response lag</div>
+        <div class="signal-desc">position drift . cycle count . response lag</div>
       </div>
     </div>
   </div>

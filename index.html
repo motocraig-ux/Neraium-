@@ -32,18 +32,18 @@ body{
 .container{
   max-width:var(--max);
   margin:auto;
-  padding:0 26px;
+  padding:0 28px;
 }
 
 header{
-  padding:48px 0;
+  padding:50px 0;
   display:flex;
   justify-content:flex-end;
 }
 
 nav{
   display:flex;
-  gap:32px;
+  gap:34px;
 }
 
 nav a{
@@ -58,9 +58,9 @@ nav a{
 nav a:hover{color:var(--accent)}
 
 .hero{
-  padding:220px 0 260px;
+  padding:240px 0 280px;
   background:
-    linear-gradient(rgba(5,9,18,0.55),rgba(5,9,18,0.90)),
+    linear-gradient(rgba(5,9,18,0.6),rgba(5,9,18,0.92)),
     url('hero.png') center/cover no-repeat;
   background-blend-mode:multiply;
 }
@@ -69,19 +69,19 @@ nav a:hover{color:var(--accent)}
   font-size:clamp(80px,10vw,130px);
   font-weight:700;
   letter-spacing:0.05em;
-  margin-bottom:40px;
+  margin-bottom:42px;
 }
 
 .tagline{
   font-size:30px;
   font-weight:500;
-  margin-bottom:24px;
+  margin-bottom:26px;
 }
 
 .subline{
   font-size:21px;
   color:var(--text-muted);
-  max-width:700px;
+  max-width:720px;
 }
 
 .section{
@@ -103,13 +103,13 @@ nav a:hover{color:var(--accent)}
 }
 
 .validation-list{
-  margin-top:30px;
+  margin-top:24px;
   font-size:19px;
   color:var(--text-muted);
 }
 
 .validation-list li{
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
 .contact{
@@ -143,6 +143,12 @@ footer{
   letter-spacing:.06em;
   color:rgba(255,255,255,0.45);
 }
+
+@media (max-width:768px){
+  .hero{padding:160px 0 180px;}
+  .section{padding:160px 0;}
+  .contact{padding:180px 0;}
+}
 </style>
 </head>
 
@@ -173,7 +179,7 @@ Early detection of structural deterioration in live water systems using existing
 <div class="container">
 <h2>Empirical Validation</h2>
 <p>
-Multivariate drift detection validated across 707 turbofan degradation trajectories using NASA CMAPSS datasets.
+Detection methodology validated across 707 turbofan degradation trajectories using NASA CMAPSS datasets.
 </p>
 <ul class="validation-list">
 <li>96.9 percent detection coverage</li>
@@ -185,7 +191,7 @@ Multivariate drift detection validated across 707 turbofan degradation trajector
 
 <section class="section">
 <div class="container">
-<h2>The Structural Boundary</h2>
+<h2>Structural Independence</h2>
 <p>
 Observation remains structurally independent from control. Neraium does not actuate, modify, or override infrastructure systems.
 </p>

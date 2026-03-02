@@ -21,7 +21,6 @@ html, body{
     scroll-behavior:smooth;
 }
 
-/* EXTENDED + SHARPER DEPTH */
 body{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
     -webkit-font-smoothing:antialiased;
@@ -42,7 +41,7 @@ nav{
     left:0;
     width:100%;
     height:64px;
-    padding:0 32px;
+    padding:0 24px; /* aligned with hero */
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -110,7 +109,7 @@ nav{
 /* HERO */
 .hero{
     padding:140px 24px 120px;
-    max-width:760px;
+    max-width:720px; /* tightened for visual centering */
     margin:0 auto;
 }
 
@@ -120,6 +119,7 @@ nav{
     margin:0 0 20px 0;
     font-weight:700;
     letter-spacing:-0.7px;
+    transform:translateX(1px); /* optical balance */
 }
 
 .hero p{
@@ -156,7 +156,7 @@ nav{
 /* SECTIONS */
 .section{
     padding:110px 24px 130px;
-    max-width:760px;
+    max-width:720px;
     margin:0 auto;
     border-top:1px solid rgba(255,255,255,0.06);
 }
@@ -182,7 +182,7 @@ nav{
     line-height:1.7;
 }
 
-/* TECH BOX - SHARPER */
+/* TECH BOX */
 .tech-box{
     margin-top:48px;
     padding:32px;
@@ -208,7 +208,7 @@ nav{
 /* STEWARDSHIP */
 .steward{
     padding:110px 24px 150px;
-    max-width:760px;
+    max-width:720px;
     margin:0 auto;
     border-top:1px solid rgba(255,255,255,0.06);
 }
@@ -312,4 +312,4 @@ footer{
 </footer>
 
 </body>
-</html>
+</html

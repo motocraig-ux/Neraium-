@@ -46,10 +46,7 @@ nav{
 
 .brand{
     font-weight:600;
-    letter-spacing:4px;
-    font-size:14px;
-    color:white;
-}
+    letter-spacing:3px;
 
 .nav-links{
     display:flex;
@@ -69,7 +66,7 @@ nav{
 }
 
 .hero h1{
-    font-size:64px;
+    font-size:clamp(42px, 7vw, 64px);
     line-height:1.05;
     margin:0 0 28px 0;
     font-weight:600;
@@ -79,17 +76,17 @@ nav{
     font-size:20px;
     color:var(--muted);
     max-width:640px;
-    margin-bottom:48px;
+    margin-bottom:36px;
 }
 
 .cta{
     display:inline-block;
-    padding:18px 36px;
+    padding:16px 32px;
     background:linear-gradient(135deg,#4da3ff,#3a8de0);
     color:#04111c !important;
     font-weight:600;
-    border-radius:12px;
-    box-shadow:0 20px 60px rgba(77,163,255,0.25);
+    border-radius:10px;
+    box-shadow:0 18px 50px rgba(77,163,255,0.25);
     transition:all 0.25s ease;
 }
 

@@ -14,7 +14,6 @@
   --accent:#2e6df6;
   --text:#ffffff;
   --text-muted:rgba(255,255,255,0.68);
-  --border:rgba(46,109,246,0.10);
   --max:1080px;
 }
 
@@ -25,14 +24,11 @@ body{
   background:linear-gradient(160deg,var(--bg),var(--bg-deep));
   color:var(--text);
   line-height:1.65;
+  text-align:center;
 }
 
 header{
   padding:60px 0 20px;
-  max-width:var(--max);
-  margin:auto;
-  padding-left:36px;
-  padding-right:36px;
 }
 
 header a{
@@ -62,7 +58,7 @@ h1{
   font-size:22px;
   color:var(--text-muted);
   max-width:860px;
-  margin-bottom:120px;
+  margin:0 auto 120px;
 }
 
 .section{
@@ -79,13 +75,14 @@ h1{
   font-size:20px;
   color:var(--text-muted);
   max-width:860px;
-  margin-bottom:22px;
+  margin:0 auto 22px;
 }
 
 .arch{
-  margin-top:50px;
+  margin:50px auto 0;
   padding:60px;
-  border:1px solid var(--border);
+  max-width:820px;
+  border:1px solid rgba(46,109,246,0.12);
   background:rgba(255,255,255,.03);
   font-family:'IBM Plex Mono',monospace;
   font-size:14px;
@@ -95,14 +92,13 @@ h1{
 }
 
 .validation-image{
-  margin-top:40px;
+  margin:40px auto;
   max-width:100%;
-  border:1px solid var(--border);
+  border:1px solid rgba(46,109,246,0.12);
 }
 
 footer{
   padding:100px 0 120px;
-  text-align:center;
   font-size:12px;
   letter-spacing:.06em;
   color:rgba(255,255,255,0.45);
@@ -129,16 +125,16 @@ Neraium is a read only intelligence layer operating within live telemetry enviro
 
 <div class="arch">
 Live Telemetry
-
-→ Signal Normalization
-
-→ Cross Signal Correlation
-
-→ Temporal Drift Persistence
-
-→ Structured Classification
-
-→ Operator Review
+↓
+Signal Normalization
+↓
+Cross Signal Correlation
+↓
+Temporal Drift Persistence
+↓
+Structured Classification
+↓
+Operator Review
 </div>
 </section>
 

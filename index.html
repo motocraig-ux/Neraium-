@@ -124,17 +124,12 @@ nav a:hover {
   font-family: 'IBM Plex Mono', monospace;
   text-transform: uppercase;
   border: 2px solid var(--accent);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .cta:hover {
   transform: translateY(-3px);
   box-shadow: 0 20px 60px rgba(0, 217, 255, 0.35);
-}
-
-.cta.secondary {
-  background: transparent;
-  color: var(--accent);
 }
 
 .section {
@@ -150,7 +145,6 @@ nav a:hover {
   font-family: 'Abril Fatface', serif;
   font-size: clamp(42px, 6vw, 72px);
   margin: 0 0 40px 0;
-  line-height: 1.1;
 }
 
 .section p {
@@ -199,8 +193,20 @@ nav a:hover {
   line-height: 1.8;
 }
 
-.cta-center {
+.contact-block {
   margin-top: 60px;
+  padding: 40px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(0,217,255,0.04);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--text-muted);
+}
+
+.contact-block strong {
+  color: var(--text);
 }
 
 .footer {
@@ -232,8 +238,7 @@ nav a:hover {
     <nav>
       <a href="#now">Why Now</a>
       <a href="#model">Model</a>
-      <a href="#formation">Formation</a>
-      <a href="mailto:founder@neraium.com">Contact</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 </div>
@@ -250,8 +255,7 @@ nav a:hover {
     </p>
 
     <div class="cta-group">
-      <a class="cta" href="mailto:founder@neraium.com">Start Discussion</a>
-      <a class="cta secondary" href="#model">Learn More</a>
+      <a class="cta" href="mailto:Craig@neraium.com">Start Discussion</a>
     </div>
   </div>
 </section>
@@ -296,16 +300,15 @@ nav a:hover {
   </div>
 </section>
 
-<section class="section alt" id="formation">
+<section class="section alt" id="contact">
   <div class="container">
-    <h2>Institutional Formation</h2>
-    <p>
-      As infrastructure digitizes, intelligence becomes infrastructure.
-      Neraium establishes the systemic intelligence layer for high-consequence water systems.
-    </p>
+    <h2>Contact</h2>
 
-    <div class="cta-center">
-      <a class="cta" href="mailto:founder@neraium.com">Request Discussion</a>
+    <div class="contact-block">
+      <strong>Craig Curtis</strong><br>
+      Founder / CEO<br>
+      <a href="mailto:Craig@neraium.com" style="color: var(--accent); text-decoration: none;">Craig@neraium.com</a><br>
+      602-833-7441
     </div>
   </div>
 </section>

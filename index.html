@@ -14,13 +14,12 @@
   --bg-1:#0b1324;
   --bg-2:#0e1a33;
   --accent:#4d8dff;
-  --accent-soft:rgba(77,141,255,0.14);
   --text:#ffffff;
   --muted:rgba(255,255,255,0.70);
   --muted-soft:rgba(255,255,255,0.56);
   --border:rgba(255,255,255,0.08);
   --max:1200px;
-  --radius:14px;
+  --radius:10px;
 }
 
 *{
@@ -52,40 +51,6 @@ body{
   padding:0 48px;
 }
 
-/* Header */
-
-.site-header{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:10;
-  padding:34px 0;
-}
-
-.site-header .container{
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-}
-
-.site-header nav{
-  display:flex;
-  gap:32px;
-}
-
-.site-header a{
-  color:var(--muted-soft);
-  text-decoration:none;
-  font-size:14px;
-  font-weight:500;
-  transition:color 0.2s ease;
-}
-
-.site-header a:hover{
-  color:var(--text);
-}
-
 /* Hero */
 
 .hero{
@@ -103,24 +68,23 @@ body{
   inset:0;
   background:
     linear-gradient(100deg,
-      rgba(4,6,12,0.86) 0%,
-      rgba(4,6,12,0.68) 42%,
-      rgba(4,6,12,0.30) 72%,
+      rgba(4,6,12,0.84) 0%,
+      rgba(4,6,12,0.64) 42%,
+      rgba(4,6,12,0.28) 72%,
       rgba(4,6,12,0.56) 100%
     ),
     linear-gradient(180deg,
-      rgba(4,6,12,0.14) 0%,
-      rgba(4,6,12,0.52) 100%
+      rgba(4,6,12,0.12) 0%,
+      rgba(4,6,12,0.48) 100%
     ),
-    radial-gradient(circle at 76% 42%, rgba(77,141,255,0.16), transparent 34%);
+    radial-gradient(circle at 76% 42%, rgba(77,141,255,0.14), transparent 34%);
 }
 
 .hero-content{
   position:relative;
   z-index:2;
   max-width:760px;
-  padding-top:90px;
-  padding-bottom:80px;
+  padding:96px 0 84px;
 }
 
 .eyebrow{
@@ -194,12 +158,12 @@ body{
 /* Sections */
 
 .section{
-  padding:160px 0;
+  padding:150px 0;
   border-top:1px solid var(--border);
 }
 
 .section.compact{
-  padding:120px 0;
+  padding:110px 0;
 }
 
 .section-header{
@@ -225,13 +189,13 @@ body{
   margin-top:56px;
   display:grid;
   grid-template-columns:repeat(3, minmax(0,1fr));
-  gap:24px;
+  gap:22px;
 }
 
 .metric{
-  padding:28px 24px;
+  padding:26px 22px;
   border:1px solid var(--border);
-  background:rgba(255,255,255,0.025);
+  background:rgba(255,255,255,0.022);
   border-radius:var(--radius);
 }
 
@@ -255,7 +219,7 @@ body{
 .contact-grid{
   display:grid;
   grid-template-columns:minmax(280px, 360px) minmax(320px, 1fr);
-  gap:48px;
+  gap:44px;
   align-items:start;
 }
 
@@ -269,7 +233,7 @@ body{
 .contact-copy p{
   font-size:17px;
   color:var(--muted);
-  margin-bottom:28px;
+  margin-bottom:26px;
 }
 
 .contact-meta{
@@ -293,9 +257,9 @@ body{
 
 .contact-form{
   width:100%;
-  padding:28px;
+  padding:26px;
   border:1px solid var(--border);
-  background:rgba(255,255,255,0.025);
+  background:rgba(255,255,255,0.022);
   border-radius:var(--radius);
 }
 
@@ -308,7 +272,7 @@ body{
   border:1px solid var(--border);
   color:var(--text);
   font:inherit;
-  border-radius:10px;
+  border-radius:8px;
 }
 
 .contact-form input:focus,
@@ -330,7 +294,7 @@ body{
   text-transform:uppercase;
   cursor:pointer;
   transition:all 0.2s ease;
-  border-radius:10px;
+  border-radius:8px;
 }
 
 .contact-form button:hover{
@@ -341,13 +305,30 @@ body{
 /* Footer */
 
 .site-footer{
-  padding:100px 0 56px;
+  padding:96px 0 56px;
   border-top:1px solid var(--border);
+}
+
+.site-footer-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
 }
 
 .site-footer p{
   font-size:14px;
   color:var(--muted-soft);
+}
+
+.footer-link{
+  color:var(--muted-soft);
+  text-decoration:none;
+  font-size:14px;
+}
+
+.footer-link:hover{
+  color:var(--text);
 }
 
 /* Responsive */
@@ -362,8 +343,7 @@ body{
   }
 
   .hero-content{
-    padding-top:120px;
-    padding-bottom:84px;
+    padding:120px 0 84px;
   }
 
   .hero h1{
@@ -386,21 +366,14 @@ body{
     grid-template-columns:1fr;
     gap:28px;
   }
+
+  .site-footer-row{
+    flex-direction:column;
+    align-items:flex-start;
+  }
 }
 
 @media (max-width: 640px){
-  .site-header .container{
-    justify-content:center;
-  }
-
-  .site-header nav{
-    gap:22px;
-  }
-
-  .site-header a{
-    font-size:13px;
-  }
-
   .hero h1{
     font-size:36px;
   }
@@ -423,15 +396,6 @@ body{
 </head>
 
 <body>
-
-<header class="site-header">
-  <div class="container">
-    <nav>
-      <a href="technical.html">Technical</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
 
 <section class="hero">
   <div class="container">
@@ -523,7 +487,10 @@ body{
 
 <footer class="site-footer">
   <div class="container">
-    <p>© 2026 Neraium</p>
+    <div class="site-footer-row">
+      <p>© 2026 Neraium</p>
+      <a class="footer-link" href="technical.html">Technical Overview</a>
+    </div>
   </div>
 </footer>
 

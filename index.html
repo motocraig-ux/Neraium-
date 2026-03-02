@@ -11,19 +11,19 @@
 
 <style>
 :root {
-  --bg-0: #0a0f1a;
-  --bg-1: #0e1420;
-  --bg-2: #131b2e;
-  --text-0: #e8f0f8;
-  --text-1: rgba(232,240,248,0.8);
-  --text-2: rgba(232,240,248,0.5);
-  --text-3: rgba(232,240,248,0.28);
-  --water-primary: #0ea5e9;
-  --water-secondary: #06b6d4;
-  --water-accent: #0284c7;
-  --accent-dim: rgba(14,165,233,0.12);
-  --border: rgba(14,165,233,0.18);
-  --border-strong: rgba(14,165,233,0.32);
+  --bg-0: #050a15;
+  --bg-1: #0a0f1f;
+  --bg-2: #0f152d;
+  --text-0: #f0f6ff;
+  --text-1: rgba(240,246,255,0.85);
+  --text-2: rgba(240,246,255,0.55);
+  --text-3: rgba(240,246,255,0.32);
+  --water-primary: #00b8ff;
+  --water-secondary: #00d4ff;
+  --water-accent: #0099ff;
+  --accent-dim: rgba(0,184,255,0.15);
+  --border: rgba(0,184,255,0.25);
+  --border-strong: rgba(0,184,255,0.4);
   --max: 1320px;
   --serif: 'Merriweather', serif;
   --mono: 'IBM Plex Mono', monospace;
@@ -48,6 +48,8 @@ body {
   text-rendering: optimizeLegibility;
   position: relative;
   overflow-x: hidden;
+  font-weight: 400;
+  letter-spacing: 0.3px;
 }
 
 body::before {
@@ -55,8 +57,8 @@ body::before {
   position: fixed;
   inset: 0;
   background-image:
-    radial-gradient(circle at 15% 30%, rgba(14,165,233,0.08) 0%, transparent 40%),
-    radial-gradient(circle at 85% 70%, rgba(14,165,233,0.05) 0%, transparent 50%);
+    radial-gradient(circle at 15% 30%, rgba(0,184,255,0.12) 0%, transparent 35%),
+    radial-gradient(circle at 85% 70%, rgba(0,184,255,0.08) 0%, transparent 45%);
   pointer-events: none;
   z-index: 0;
 }
@@ -66,8 +68,8 @@ body::after {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(0deg, rgba(14,165,233,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14,165,233,0.02) 1px, transparent 1px);
+    linear-gradient(0deg, rgba(0,184,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,184,255,0.04) 1px, transparent 1px);
   background-size: 70px 70px;
   pointer-events: none;
   z-index: 0;
@@ -86,40 +88,56 @@ body::after {
 /* NAV                                     */
 /* ──────────────────────────────────────── */
 .site-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background: rgba(10,15,26,0.9);
+  display: none !important;
+}
+
+/* ──────────────────────────────────────── */
+/* HERO BRANDING                           */
+/* ──────────────────────────────────────── */
+.hero-brand {
+  position: relative;
+  padding: 120px 0 100px;
   border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  text-align: center;
+  overflow: hidden;
 }
 
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 68px;
+.hero-brand::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 900px 700px at 50% 50%, rgba(0,184,255,0.15) 0%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
 }
 
-.nav-wordmark {
+.brand-name {
+  position: relative;
+  z-index: 2;
   font-family: var(--serif);
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  background: linear-gradient(135deg, var(--water-primary), var(--water-secondary));
+  font-size: clamp(72px, 12vw, 140px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, var(--water-primary) 0%, var(--water-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  filter: drop-shadow(0 0 15px rgba(14,165,233,0.2));
+  filter: drop-shadow(0 0 40px rgba(0,184,255,0.6)) drop-shadow(0 0 20px rgba(0,184,255,0.4));
+  animation: fadeInDown 0.8s ease 0.1s both;
 }
 
-.nav-wordmark:hover {
-  filter: drop-shadow(0 0 25px rgba(14,165,233,0.4));
+.brand-subtitle {
+  position: relative;
+  z-index: 2;
+  font-family: var(--serif);
+  font-size: clamp(14px, 1.8vw, 20px);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-2);
+  text-transform: uppercase;
+  animation: fadeInUp 0.8s ease 0.2s both;
 }
 
 /* ──────────────────────────────────────── */
@@ -127,11 +145,11 @@ body::after {
 /* ──────────────────────────────────────── */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 68px;
+  padding: 100px 0;
   text-align: center;
   overflow: hidden;
 }
@@ -140,7 +158,7 @@ body::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 900px 700px at 50% 50%, rgba(14,165,233,0.2) 0%, transparent 60%);
+  background: radial-gradient(ellipse 900px 700px at 50% 50%, rgba(0,184,255,0.12) 0%, transparent 60%);
   z-index: 0;
   pointer-events: none;
 }
@@ -149,15 +167,15 @@ body::after {
   position: relative;
   z-index: 2;
   max-width: 1000px;
-  animation: fadeInDown 1s ease 0.2s both;
+  animation: fadeInDown 1s ease 0.3s both;
 }
 
 .hero-title {
   font-family: var(--serif);
-  font-size: clamp(56px, 10vw, 100px);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-size: clamp(44px, 8vw, 72px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
   margin-bottom: 32px;
   color: var(--text-0);
 }
@@ -167,19 +185,20 @@ body::after {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 20px rgba(14,165,233,0.3));
+  filter: drop-shadow(0 0 20px rgba(0,184,255,0.3));
 }
 
 .hero-subtitle {
   font-family: var(--serif);
-  font-size: clamp(18px, 2.5vw, 28px);
-  font-weight: 300;
-  line-height: 1.4;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 400;
+  line-height: 1.6;
   color: var(--text-1);
   margin-bottom: 56px;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  letter-spacing: 0.2px;
 }
 
 .hero-actions {
@@ -210,7 +229,7 @@ body::after {
   transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 25px rgba(14,165,233,0.2), inset 0 0 20px rgba(14,165,233,0.08);
+  box-shadow: 0 0 25px rgba(0,184,255,0.2), inset 0 0 20px rgba(0,184,255,0.08);
 }
 
 .cta::before {
@@ -226,7 +245,7 @@ body::after {
 .cta:hover {
   color: var(--bg-0);
   border-color: var(--water-primary);
-  box-shadow: 0 0 50px rgba(14,165,233,0.5), 0 0 100px rgba(14,165,233,0.2);
+  box-shadow: 0 0 50px rgba(0,184,255,0.5), 0 0 100px rgba(0,184,255,0.2);
 }
 
 .cta:hover::before {
@@ -249,7 +268,7 @@ body::after {
 /* ──────────────────────────────────────── */
 .spec {
   border-top: 1px solid var(--border);
-  background: linear-gradient(180deg, transparent 0%, rgba(14,165,233,0.04) 50%, transparent 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(0,184,255,0.04) 50%, transparent 100%);
 }
 
 .spec-row {
@@ -297,13 +316,13 @@ body::after {
   color: var(--water-primary);
   margin-bottom: 20px;
   opacity: 0.75;
-  text-shadow: 0 0 10px rgba(14,165,233,0.3);
+  text-shadow: 0 0 10px rgba(0,184,255,0.3);
 }
 
 .spec-label h2 {
   font-family: var(--serif);
   font-size: 40px;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.1;
   color: var(--text-0);
   letter-spacing: -0.01em;
@@ -312,10 +331,11 @@ body::after {
 .spec-body p {
   max-width: 880px;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.88;
   color: var(--text-1);
   margin-bottom: 36px;
+  letter-spacing: 0.25px;
 }
 
 .spec-body p strong {
@@ -329,10 +349,10 @@ body::after {
 .signal-grid {
   margin-top: 64px;
   border: 1px solid var(--border-strong);
-  background: rgba(14,165,233,0.05);
+  background: rgba(0,184,255,0.05);
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 0 40px rgba(14,165,233,0.12), inset 0 0 40px rgba(14,165,233,0.05);
+  box-shadow: 0 0 40px rgba(0,184,255,0.12), inset 0 0 40px rgba(0,184,255,0.05);
 }
 
 .signal-row {
@@ -350,8 +370,8 @@ body::after {
 }
 
 .signal-row:hover {
-  background: rgba(14,165,233,0.1);
-  box-shadow: inset 0 0 25px rgba(14,165,233,0.15);
+  background: rgba(0,184,255,0.1);
+  box-shadow: inset 0 0 25px rgba(0,184,255,0.15);
 }
 
 .signal-row::before {
@@ -383,8 +403,8 @@ body::after {
   color: var(--water-primary);
   letter-spacing: 0.1em;
   padding: 26px 20px;
-  background: rgba(14,165,233,0.06);
-  text-shadow: 0 0 8px rgba(14,165,233,0.4);
+  background: rgba(0,184,255,0.06);
+  text-shadow: 0 0 8px rgba(0,184,255,0.4);
 }
 
 .signal-name {
@@ -415,10 +435,10 @@ body::after {
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
   border: 1px solid var(--border-strong);
-  background: rgba(14,165,233,0.05);
+  background: rgba(0,184,255,0.05);
   overflow: hidden;
   border-radius: 4px;
-  box-shadow: 0 0 40px rgba(14,165,233,0.12), inset 0 0 40px rgba(14,165,233,0.05);
+  box-shadow: 0 0 40px rgba(0,184,255,0.12), inset 0 0 40px rgba(0,184,255,0.05);
 }
 
 .metric {
@@ -461,7 +481,7 @@ body::after {
   background-clip: text;
   margin-bottom: 18px;
   letter-spacing: -0.02em;
-  filter: drop-shadow(0 0 15px rgba(14,165,233,0.2));
+  filter: drop-shadow(0 0 15px rgba(0,184,255,0.2));
 }
 
 .metric span {
@@ -506,7 +526,7 @@ body::after {
   color: var(--water-primary);
   margin-bottom: 10px;
   letter-spacing: 0.08em;
-  text-shadow: 0 0 8px rgba(14,165,233,0.3);
+  text-shadow: 0 0 8px rgba(0,184,255,0.3);
 }
 
 .contact-meta div {
@@ -523,15 +543,15 @@ body::after {
 
 .contact-meta a:hover {
   color: var(--water-primary);
-  text-shadow: 0 0 10px rgba(14,165,233,0.4);
+  text-shadow: 0 0 10px rgba(0,184,255,0.4);
 }
 
 .contact-form {
   border: 1px solid var(--border-strong);
-  background: rgba(14,165,233,0.05);
+  background: rgba(0,184,255,0.05);
   padding: 52px;
   border-radius: 4px;
-  box-shadow: 0 0 40px rgba(14,165,233,0.12), inset 0 0 40px rgba(14,165,233,0.05);
+  box-shadow: 0 0 40px rgba(0,184,255,0.12), inset 0 0 40px rgba(0,184,255,0.05);
 }
 
 .contact-form input,
@@ -562,9 +582,9 @@ body::after {
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  background: rgba(14,165,233,0.12);
+  background: rgba(0,184,255,0.12);
   border-color: var(--water-primary);
-  box-shadow: 0 0 25px rgba(14,165,233,0.2), inset 0 0 15px rgba(14,165,233,0.08);
+  box-shadow: 0 0 25px rgba(0,184,255,0.2), inset 0 0 15px rgba(0,184,255,0.08);
 }
 
 .contact-form textarea {
@@ -589,13 +609,13 @@ body::after {
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 0 20px rgba(14,165,233,0.15);
+  box-shadow: 0 0 20px rgba(0,184,255,0.15);
 }
 
 .contact-form button:hover {
   background: var(--water-primary);
   color: var(--bg-0);
-  box-shadow: 0 0 40px rgba(14,165,233,0.4);
+  box-shadow: 0 0 40px rgba(0,184,255,0.4);
 }
 
 /* ──────────────────────────────────────── */
@@ -604,7 +624,7 @@ body::after {
 .site-footer {
   padding: 88px 0;
   border-top: 1px solid var(--border);
-  background: linear-gradient(180deg, transparent 0%, rgba(14,165,233,0.04) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(0,184,255,0.04) 100%);
 }
 
 .site-footer-row {
@@ -630,7 +650,7 @@ body::after {
 
 .footer-link:hover {
   color: var(--water-primary);
-  text-shadow: 0 0 10px rgba(14,165,233,0.3);
+  text-shadow: 0 0 10px rgba(0,184,255,0.3);
 }
 
 /* ──────────────────────────────────────── */
@@ -709,18 +729,31 @@ body::after {
     padding: 0 36px;
   }
 
+  .hero-brand {
+    padding: 80px 0 60px;
+  }
+
+  .brand-name {
+    font-size: 56px;
+    margin-bottom: 16px;
+  }
+
+  .brand-subtitle {
+    font-size: 12px;
+  }
+
   .hero {
-    padding-top: 80px;
+    padding: 80px 0;
     min-height: auto;
   }
 
   .hero-title {
-    font-size: 40px;
+    font-size: 36px;
     margin-bottom: 24px;
   }
 
   .hero-subtitle {
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 40px;
   }
 
@@ -764,16 +797,24 @@ body::after {
     padding: 0 20px;
   }
 
+  .hero-brand {
+    padding: 60px 0 40px;
+  }
+
+  .brand-name {
+    font-size: 40px;
+  }
+
   .hero-title {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .hero-subtitle {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .spec-label h2 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .metric strong {
@@ -789,24 +830,18 @@ body::after {
 </head>
 <body>
 
-<nav class="site-nav">
+<section class="hero-brand">
   <div class="container">
-    <div class="nav-inner">
-      <a href="/" class="nav-wordmark">Neraium</a>
-    </div>
+    <h1 class="brand-name">Neraium</h1>
+    <p class="brand-subtitle">Systemic Infrastructure Intelligence</p>
   </div>
-</nav>
+</section>
 
 <section class="hero" id="top">
   <div class="container">
     <div class="hero-content">
-      <h1 class="hero-title">
-        <span>Detect</span> Structural Deviation in Water Systems
-      </h1>
-      <p class="hero-subtitle">
-        Real-time signal interpretation across live telemetry. Neraium surfaces sustained deterioration 
-        before failure occurs. Read-only intelligence. Operator authority preserved.
-      </p>
+      <h2 class="hero-title"><span>Detect</span> Structural Deviation</h2>
+      <p class="hero-subtitle">Sustained structural deviation detection before failure. Operator authority preserved.</p>
       <div class="hero-actions">
         <a href="#contact" class="cta">Start Discussion →</a>
         <a href="technical.html" class="cta secondary">Technical Overview ↗</a>
@@ -825,11 +860,7 @@ body::after {
     <h2>Operational Principle</h2>
   </div>
   <div class="spec-body">
-    <p>
-      Neraium operates as a <strong>read-only intelligence layer</strong>. It observes, analyzes, 
-      and communicates. It does not actuate, override, or control. Water operators maintain full authority 
-      over all system decisions. Intelligence informs. Operators decide.
-    </p>
+    <p>Neraium is a <strong>read-only intelligence layer</strong>. It does not actuate, control, or override infrastructure systems. Water operators retain full authority over all decisions.</p>
   </div>
 </div>
 
@@ -839,16 +870,8 @@ body::after {
     <h2>Water Parameters</h2>
   </div>
   <div class="spec-body">
-    <p>
-      Water systems fail silently. A distribution network doesn't announce degradation. It simply 
-      becomes less reliable. Pressure drifts. Flow patterns shift. Pumps work harder. Chemistry becomes 
-      unstable. Neraium reads these signals continuously, across your entire sensor network, as an integrated system.
-    </p>
-    <p>
-      <strong>Applicable across municipal systems, commercial facilities, industrial process water, 
-      and managed recreational environments.</strong> Any operation with live telemetry and an operator 
-      responsible for system integrity.
-    </p>
+    <p>Water systems fail silently. Pressure loss, flow irregularity, pump degradation, and chemical drift accumulate before becoming visible. Neraium detects these signal patterns continuously across your entire sensor network as a correlated system, not isolated signals.</p>
+    <p><strong>Applicable to municipal distribution networks, commercial facilities, industrial process water, and managed recreational systems.</strong> Any operation with live telemetry and an operator responsible for system integrity.</p>
 
     <div class="signal-grid">
       <div class="signal-row">
@@ -891,11 +914,7 @@ body::after {
     <h2>Institutional Framework</h2>
   </div>
   <div class="spec-body">
-    <p>
-      Neraium structures signal interpretation for <strong>institutional review, liability, and oversight</strong>. 
-      Every output preserves signal lineage, temporal context, and analytical reasoning. Decision authority 
-      remains with water operators. All intelligence remains read-only.
-    </p>
+    <p>Neraium structures outputs for <strong>institutional review and liability environments</strong>. All intelligence preserves signal lineage, temporal context, and analytical reasoning. Operators retain decision authority.</p>
   </div>
 </div>
 
@@ -905,10 +924,7 @@ body::after {
     <h2>Empirical Foundation</h2>
   </div>
   <div class="spec-body">
-    <p>
-      Validated across 707 independent degradation trajectories using NASA CMAPSS dataset. 
-      Structural deviation detected consistently before terminal failure states.
-    </p>
+    <p>Tested across 707 degradation trajectories using NASA CMAPSS data. Sustained deviation surfaces consistently before terminal failure.</p>
     <div class="metrics">
       <div class="metric">
         <strong>96.9%</strong>
@@ -934,11 +950,11 @@ body::after {
   <div class="spec-body">
     <div class="contact-grid">
       <div class="contact-copy">
-        <p>Start a conversation about your system.</p>
+        <p>Direct contact.</p>
         <div class="contact-meta">
           <div class="contact-name">Craig Curtis</div>
           <div>Founder / CEO</div>
-          <div><a href="mailto:Craig@neraium.com">Craig@neraium.com</a></div>
+          <div><a href="/cdn-cgi/l/email-protection#abe8d9cac2ccebc5ced9cac2dec685c8c4c6"><span class="__cf_email__" data-cfemail="501322313937103e35223139253d7e333f3d">[email&#160;protected]</span></a></div>
           <div><a href="tel:6028337441">602.833.7441</a></div>
         </div>
       </div>
@@ -961,11 +977,4 @@ body::after {
 <footer class="site-footer">
   <div class="container">
     <div class="site-footer-row">
-      <p>© 2026 Neraium</p>
-      <a class="footer-link" href="technical.html">Technical Overview →</a>
-    </div>
-  </div>
-</footer>
-
-</body>
-</html>
+      <p>© 2026 Nerai

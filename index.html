@@ -1,147 +1,228 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neraium | Systemic Infrastructure Intelligence</title>
 
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --black:#05070d;
-  --navy:#0c1422;
-  --deep:#132338;
-  --accent:#1e5df0;
+:root{
+  --bg-black:#060b12;
+  --bg-deep:#0b1626;
+  --accent:#2e6df6;
+  --accent-soft:#4f8bff;
   --text:#ffffff;
-  --muted:rgba(255,255,255,0.72);
-  --faint:rgba(255,255,255,0.45);
-  --border:rgba(255,255,255,0.08);
-  --max:1100px;
+  --text-muted:rgba(255,255,255,0.65);
+  --border:rgba(46,109,246,0.18);
+  --max:1200px;
 }
 
-*{box-sizing:border-box;}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-  margin:0;
-  background:linear-gradient(180deg,var(--black) 0%,var(--navy) 45%,var(--deep) 100%);
-  color:var(--text);
   font-family:'Sora',sans-serif;
-  line-height:1.9;
+  background:linear-gradient(160deg,var(--bg-black),var(--bg-deep));
+  color:var(--text);
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
 
 .container{
   max-width:var(--max);
-  margin:0 auto;
-  padding:0 40px;
+  margin:auto;
+  padding:0 32px;
 }
 
+/* Header */
+
 header{
-  padding:48px 0;
+  padding:40px 0;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
 .logo{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:12px;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-
-nav{
-  display:flex;
-  gap:36px;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:11px;
-  letter-spacing:0.16em;
-  text-transform:uppercase;
+  font-weight:700;
+  font-size:20px;
+  letter-spacing:2px;
+  color:var(--accent);
 }
 
 nav a{
-  color:var(--muted);
+  margin-left:30px;
   text-decoration:none;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:13px;
+  color:var(--text-muted);
+  text-transform:uppercase;
+  letter-spacing:.08em;
 }
 
-nav a:hover{color:var(--text);}
+nav a:hover{color:var(--accent)}
+
+/* Hero */
 
 .hero{
-  padding:180px 0 140px;
+  padding:120px 0 100px;
+  position:relative;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:60px;
+  align-items:center;
 }
 
 .hero h1{
-  font-size:clamp(60px,8vw,110px);
-  line-height:0.95;
-  font-weight:700;
-  margin-bottom:50px;
-  letter-spacing:-0.03em;
+  font-size:clamp(44px,6vw,72px);
+  line-height:1.1;
+  margin-bottom:24px;
+}
+
+.hero h1 span{
+  color:var(--accent);
 }
 
 .hero p{
-  font-size:24px;
-  max-width:1000px;
-  color:var(--muted);
-  margin-bottom:60px;
-}
-
-.signal{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:11px;
-  letter-spacing:0.22em;
-  text-transform:uppercase;
-  color:var(--accent);
-  margin-bottom:60px;
+  font-size:18px;
+  color:var(--text-muted);
+  margin-bottom:40px;
+  max-width:600px;
 }
 
 .cta{
   display:inline-block;
-  padding:18px 46px;
+  padding:16px 36px;
   background:var(--accent);
   color:#fff;
   text-decoration:none;
+  border-radius:6px;
   font-weight:600;
-  font-size:13px;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  border-radius:4px;
+  transition:.25s ease;
 }
 
+.cta:hover{
+  background:var(--accent-soft);
+}
+
+.hero img{
+  width:100%;
+  border-radius:10px;
+  box-shadow:0 40px 80px rgba(0,0,0,.6);
+  border:1px solid var(--border);
+}
+
+/* Sections */
+
 .section{
-  padding:160px 0;
-  border-top:1px solid var(--border);
+  padding:120px 0;
 }
 
 .section h2{
-  font-size:clamp(42px,6vw,72px);
-  margin-bottom:40px;
-  letter-spacing:-0.02em;
+  font-size:38px;
+  margin-bottom:20px;
 }
 
 .section p{
-  font-size:22px;
-  max-width:1050px;
-  color:var(--muted);
+  color:var(--text-muted);
+  max-width:800px;
+  font-size:18px;
 }
 
-.footer{
+/* Grid */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  margin-top:60px;
+}
+
+.card{
+  background:rgba(255,255,255,.02);
+  border:1px solid var(--border);
+  padding:40px;
+  border-radius:8px;
+  transition:.3s ease;
+}
+
+.card:hover{
+  border-color:var(--accent);
+  transform:translateY(-6px);
+}
+
+.card h3{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:14px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:16px;
+}
+
+.card p{
+  color:var(--text-muted);
+  font-size:16px;
+}
+
+/* Contact */
+
+.contact{
   padding:120px 0;
   border-top:1px solid var(--border);
-  text-align:center;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:11px;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  color:var(--faint);
 }
 
-@media(max-width:768px){
-  .container{padding:0 24px;}
-  header{flex-direction:column;gap:20px;}
-  .hero{padding:120px 0 100px;}
-  .section{padding:100px 0;}
+form{
+  margin-top:40px;
+  max-width:600px;
+}
+
+input,textarea{
+  width:100%;
+  padding:14px;
+  margin-bottom:16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+  border-radius:6px;
+  color:#fff;
+  font-family:'Sora',sans-serif;
+}
+
+input:focus,textarea:focus{
+  outline:none;
+  border-color:var(--accent);
+}
+
+button{
+  padding:16px 36px;
+  background:var(--accent);
+  border:none;
+  color:#fff;
+  font-weight:600;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:var(--accent-soft);
+}
+
+/* Footer */
+
+footer{
+  padding:80px 0;
+  text-align:center;
+  font-size:13px;
+  color:rgba(255,255,255,.4);
+  border-top:1px solid var(--border);
+}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -152,6 +233,7 @@ nav a:hover{color:var(--text);}
 <header>
 <div class="logo">NERAIUM</div>
 <nav>
+<a href="#model">Model</a>
 <a href="technical.html">Technical</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -160,44 +242,94 @@ nav a:hover{color:var(--text);}
 
 <section class="hero">
 <div class="container">
-<h1>Infrastructure Is Becoming Intelligence Dependent.</h1>
+<div class="hero-grid">
+
+<div>
+<h1>
+Systemic <span>Infrastructure Intelligence</span>
+</h1>
+
 <p>
-High-consequence water systems now operate within dense telemetry environments.
-As instrumentation expands, analytical capability expands with it.
-Without structural separation, intelligence collapses into automation risk.
-Neraium defines the boundary between signal and authority.
+Neraium transforms operational telemetry into governed deterioration insight — 
+without actuating or controlling physical systems.
 </p>
-<div class="signal">Read-Only · Non-Actuating · Governed Outputs</div>
-<a class="cta" href="technical.html">View Architecture</a>
+
+<a href="#contact" class="cta">Engage</a>
+</div>
+
+<div>
+<img src="hero.png" alt="Infrastructure system overview">
+</div>
+
+</div>
 </div>
 </section>
 
-<section class="section">
+<section class="section" id="model">
 <div class="container">
-<h2>Institutional Shift</h2>
+<h2>The Structural Shift</h2>
 <p>
-Deterioration rarely appears as immediate failure. It emerges as sustained multivariate drift across temperature, flow, pressure, and energy signals.
-Traditional thresholds respond late.
-Institutions require earlier classification without surrendering control.
-Neraium operates as a read-only intelligence layer, preserving operational authority while elevating visibility.
+Infrastructure is becoming intelligence dependent.  
+As systems digitize, observation must remain structurally separated from control.  
+Neraium defines the read-only intelligence layer for high-consequence water systems.
 </p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Drift Detection</h3>
+<p>
+Identifies sustained multivariate deterioration before reactive failure thresholds trigger.
+</p>
+</div>
+
+<div class="card">
+<h3>Read-Only Boundary</h3>
+<p>
+No actuation. No control. Authority remains with operators.
+</p>
+</div>
+
+<div class="card">
+<h3>Governed Output</h3>
+<p>
+Structured classifications aligned with institutional review, audit, and liability environments.
+</p>
+</div>
+
+</div>
 </div>
 </section>
 
-<section class="section" id="contact">
+<section class="contact" id="contact">
 <div class="container">
 <h2>Engage</h2>
+
+<p>
+For investors and operators evaluating systemic intelligence integration:
+</p>
+
+<form action="https://formspree.io/f/xzdalpzy" method="POST">
+<input type="text" name="name" placeholder="Name" required>
+<input type="email" name="email" placeholder="Email" required>
+<textarea name="message" rows="5" placeholder="Message"></textarea>
+<button type="submit">Submit</button>
+</form>
+
+<br><br>
+
 <p>
 Craig Curtis  
-Founder & Chief Executive Officer  
+Founder / CEO  
 Craig@neraium.com  
 602-833-7441
 </p>
+
 </div>
 </section>
 
-<footer class="footer">
-© Neraium
+<footer>
+© 2026 Neraium. Systemic Infrastructure Intelligence.
 </footer>
 
 </body>

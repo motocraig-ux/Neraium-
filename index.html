@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -15,8 +16,8 @@
   --bg-2: #0f152d;
   --text-0: #f0f6ff;
   --text-1: rgba(240,246,255,0.85);
-  --text-2: rgba(240,246,255,0.55);
-  --text-3: rgba(240,246,255,0.32);
+  --text-2: rgba(240,246,255,0.65);
+  --text-3: rgba(240,246,255,0.45);
   --water-primary: #00b8ff;
   --water-secondary: #00d4ff;
   --water-accent: #0099ff;
@@ -80,6 +81,70 @@ body::after {
   z-index:2;
 }
 
+/* ANIMATIONS */
+
+@keyframes fadeInScale {
+  from {
+    opacity:0;
+    transform:scale(0.95);
+  }
+  to {
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to {
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    filter:drop-shadow(0 0 25px rgba(0,184,255,0.4));
+  }
+  50% {
+    filter:drop-shadow(0 0 50px rgba(0,184,255,0.7));
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity:0;
+    transform:translateX(-40px);
+  }
+  to {
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity:0;
+    transform:translateX(40px);
+  }
+  to {
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+@keyframes signalRowGlow {
+  0%, 100% {
+    background:rgba(0,184,255,0.02);
+  }
+  50% {
+    background:rgba(0,184,255,0.08);
+  }
+}
+
 /* HERO BRAND */
 
 .hero-brand {
@@ -106,6 +171,7 @@ body::after {
   -webkit-text-fill-color:transparent;
   filter:drop-shadow(0 0 50px rgba(0,184,255,0.7));
   margin-bottom:32px;
+  animation:fadeInScale 1s ease-out;
 }
 
 .brand-subtitle {
@@ -113,6 +179,7 @@ body::after {
   letter-spacing:0.08em;
   text-transform:uppercase;
   color:var(--text-2);
+  animation:fadeInUp 1s ease-out 0.2s both;
 }
 
 /* HERO */
@@ -131,6 +198,7 @@ body::after {
   font-size:clamp(44px,8vw,72px);
   font-weight:800;
   margin-bottom:32px;
+  animation:fadeInUp 1s ease-out 0.1s both;
 }
 
 .hero-title span {
@@ -146,6 +214,11 @@ body::after {
   max-width:800px;
   margin-left:auto;
   margin-right:auto;
+  animation:fadeInUp 1s ease-out 0.2s both;
+}
+
+.cta-group {
+  animation:fadeInUp 1s ease-out 0.3s both;
 }
 
 /* BUTTONS */
@@ -159,15 +232,38 @@ body::after {
   font-size:10px;
   letter-spacing:0.12em;
   text-transform:uppercase;
-  transition:0.3s;
+  transition:all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   display:inline-block;
   margin:0 10px;
+  position:relative;
+  cursor:pointer;
+  background:transparent;
+  overflow:hidden;
+}
+
+.cta::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:var(--water-primary);
+  opacity:0;
+  transition:opacity 0.4s ease-out;
+  z-index:-1;
 }
 
 .cta:hover {
-  background:var(--water-primary);
   color:var(--bg-0);
-  box-shadow:0 0 50px rgba(0,184,255,0.5);
+  box-shadow:0 0 40px rgba(0,184,255,0.6), inset 0 0 40px rgba(0,184,255,0.2);
+  transform:translateY(-2px);
+}
+
+.cta:hover::before {
+  opacity:1;
+}
+
+.cta:focus-visible {
+  outline:2px solid var(--water-secondary);
+  outline-offset:4px;
 }
 
 /* SPEC SECTIONS */
@@ -178,6 +274,15 @@ body::after {
   gap:90px;
   padding:140px 0;
   border-bottom:1px solid var(--border);
+  animation:fadeInUp 0.8s ease-out both;
+}
+
+.spec-row:nth-child(1) { animation-delay:0s; }
+.spec-row:nth-child(2) { animation-delay:0.1s; }
+.spec-row:nth-child(3) { animation-delay:0.2s; }
+
+.spec-label {
+  animation:slideInLeft 0.8s ease-out;
 }
 
 .spec-label .section-index {
@@ -191,6 +296,10 @@ body::after {
 
 .spec-label h2 {
   font-size:40px;
+}
+
+.spec-body {
+  animation:slideInRight 0.8s ease-out;
 }
 
 .spec-body p {
@@ -212,9 +321,20 @@ body::after {
   display:grid;
   grid-template-columns:100px 1fr 1.6fr;
   border-bottom:1px solid var(--border);
+  transition:all 0.4s ease;
+  animation:fadeInUp 0.6s ease-out both;
 }
 
+.signal-row:nth-child(1) { animation-delay:0.1s; }
+.signal-row:nth-child(2) { animation-delay:0.2s; }
+.signal-row:nth-child(3) { animation-delay:0.3s; }
+
 .signal-row:last-child { border-bottom:none; }
+
+.signal-row:hover {
+  background:rgba(0,184,255,0.1);
+  animation:signalRowGlow 2s ease-in-out;
+}
 
 .signal-index {
   text-align:center;
@@ -227,6 +347,11 @@ body::after {
   padding:26px;
   font-family:var(--mono);
   text-transform:uppercase;
+  transition:color 0.3s ease;
+}
+
+.signal-row:hover .signal-name {
+  color:var(--water-secondary);
 }
 
 .signal-desc {
@@ -235,6 +360,11 @@ body::after {
   font-size:11px;
   color:var(--text-2);
   text-align:right;
+  transition:color 0.3s ease;
+}
+
+.signal-row:hover .signal-desc {
+  color:var(--text-1);
 }
 
 /* METRICS */
@@ -251,9 +381,20 @@ body::after {
   text-align:center;
   padding:64px;
   border-right:1px solid var(--border);
+  transition:all 0.4s ease;
+  animation:fadeInUp 0.8s ease-out both;
 }
 
+.metric:nth-child(1) { animation-delay:0.1s; }
+.metric:nth-child(2) { animation-delay:0.2s; }
+.metric:nth-child(3) { animation-delay:0.3s; }
+
 .metric:last-child { border-right:none; }
+
+.metric:hover {
+  background:rgba(0,184,255,0.08);
+  transform:translateY(-4px);
+}
 
 .metric strong {
   display:block;
@@ -262,6 +403,11 @@ body::after {
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   margin-bottom:18px;
+  transition:filter 0.4s ease;
+}
+
+.metric:hover strong {
+  filter:drop-shadow(0 0 20px rgba(0,184,255,0.5));
 }
 
 .metric span {
@@ -270,6 +416,11 @@ body::after {
   letter-spacing:0.12em;
   text-transform:uppercase;
   color:var(--text-2);
+  transition:color 0.3s ease;
+}
+
+.metric:hover span {
+  color:var(--text-1);
 }
 
 /* FOOTER */
@@ -278,6 +429,7 @@ body::after {
   padding:88px 0;
   border-top:1px solid var(--border);
   text-align:center;
+  animation:fadeInUp 0.8s ease-out 0.4s both;
 }
 
 .site-footer p {
@@ -286,8 +438,221 @@ body::after {
   letter-spacing:0.12em;
   text-transform:uppercase;
   color:var(--text-3);
+  transition:color 0.3s ease;
+}
+
+.site-footer:hover p {
+  color:var(--text-2);
+}
+
+/* RESPONSIVE */
+
+@media (max-width:1024px) {
+  .container {
+    padding:0 40px;
+  }
+
+  .spec-row {
+    grid-template-columns:200px 1fr;
+    gap:60px;
+  }
+
+  .spec-label h2 {
+    font-size:32px;
+  }
+
+  .metrics {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .metric:nth-child(2) {
+    border-right:none;
+    border-bottom:1px solid var(--border);
+  }
+
+  .metric:nth-child(3) {
+    grid-column:1 / -1;
+  }
+}
+
+@media (max-width:768px) {
+  .container {
+    padding:0 30px;
+  }
+
+  .hero-brand {
+    padding:120px 0 100px;
+  }
+
+  .brand-name {
+    font-size:clamp(60px,15vw,100px);
+  }
+
+  .hero {
+    min-height:auto;
+    padding:60px 0;
+  }
+
+  .hero-title {
+    font-size:clamp(32px,7vw,52px);
+    margin-bottom:24px;
+  }
+
+  .hero-subtitle {
+    font-size:clamp(14px,1.8vw,18px);
+    margin-bottom:40px;
+  }
+
+  .cta {
+    padding:14px 32px;
+    font-size:9px;
+    margin:8px;
+    display:block;
+    width:calc(100% - 16px);
+    margin-left:8px;
+    margin-right:8px;
+  }
+
+  .cta-group {
+    display:flex;
+    flex-direction:column;
+  }
+
+  .spec-row {
+    grid-template-columns:1fr;
+    gap:40px;
+    padding:80px 0;
+  }
+
+  .spec-label h2 {
+    font-size:28px;
+  }
+
+  .spec-body p {
+    font-size:15px;
+    margin-bottom:24px;
+  }
+
+  .signal-row {
+    grid-template-columns:60px 1fr 1fr;
+  }
+
+  .signal-index,
+  .signal-name,
+  .signal-desc {
+    padding:16px;
+    font-size:10px;
+  }
+
+  .signal-desc {
+    text-align:left;
+  }
+
+  .metrics {
+    grid-template-columns:1fr;
+  }
+
+  .metric {
+    padding:40px;
+    border-right:none;
+    border-bottom:1px solid var(--border);
+  }
+
+  .metric:last-child {
+    border-bottom:none;
+  }
+
+  .metric strong {
+    font-size:48px;
+  }
+
+  .site-footer {
+    padding:60px 0;
+  }
+}
+
+@media (max-width:480px) {
+  .container {
+    padding:0 20px;
+  }
+
+  .hero-brand {
+    padding:100px 0 80px;
+  }
+
+  .brand-name {
+    font-size:clamp(48px,14vw,80px);
+    margin-bottom:16px;
+  }
+
+  .brand-subtitle {
+    font-size:clamp(12px,1.5vw,14px);
+  }
+
+  .hero {
+    padding:40px 0;
+  }
+
+  .hero-title {
+    font-size:clamp(28px,6vw,40px);
+    margin-bottom:16px;
+  }
+
+  .hero-subtitle {
+    font-size:clamp(13px,1.6vw,16px);
+    margin-bottom:30px;
+  }
+
+  .cta {
+    padding:12px 24px;
+    font-size:8px;
+    margin:6px;
+    width:calc(100% - 12px);
+  }
+
+  .spec-row {
+    padding:60px 0;
+  }
+
+  .spec-label h2 {
+    font-size:24px;
+  }
+
+  .spec-body p {
+    font-size:14px;
+  }
+
+  .signal-row {
+    grid-template-columns:50px 1fr;
+  }
+
+  .signal-desc {
+    display:none;
+  }
+
+  .metric {
+    padding:30px 20px;
+  }
+
+  .metric strong {
+    font-size:40px;
+    margin-bottom:12px;
+  }
+
+  .metric span {
+    font-size:9px;
+  }
+
+  .site-footer {
+    padding:40px 0;
+  }
+
+  .site-footer p {
+    font-size:9px;
+  }
 }
 </style>
+
 </head>
 
 <body>
@@ -306,8 +671,10 @@ body::after {
       Continuous multi-signal deviation detection across live water telemetry before failure.
       Read-only. No control. Operator authority preserved.
     </p>
-    <a href="#contact" class="cta">Start Discussion →</a>
-    <a href="technical.html" class="cta">Technical Overview ↗</a>
+    <div class="cta-group">
+      <a href="#contact" class="cta">Start Discussion →</a>
+      <a href="technical.html" class="cta">Technical Overview ↗</a>
+    </div>
   </div>
 </section>
 
@@ -333,23 +700,26 @@ body::after {
   <div class="spec-body">
     <p>Infrastructure degradation begins with correlated drift across pressure, flow, vibration, thermal, and chemical domains.</p>
 
-    <div class="signal-grid">
-      <div class="signal-row">
-        <div class="signal-index">01</div>
-        <div class="signal-name">Pressure Deviation</div>
-        <div class="signal-desc">line loss . surge behavior</div>
-      </div>
-      <div class="signal-row">
-        <div class="signal-index">02</div>
-        <div class="signal-name">Flow Irregularity</div>
-        <div class="signal-desc">leak signature . blockage onset</div>
-      </div>
-      <div class="signal-row">
-        <div class="signal-index">03</div>
-        <div class="signal-name">Pump Degradation</div>
-        <div class="signal-desc">vibration drift . efficiency decay</div>
-      </div>
-    </div>
+```
+<div class="signal-grid">
+  <div class="signal-row">
+    <div class="signal-index">01</div>
+    <div class="signal-name">Pressure Deviation</div>
+    <div class="signal-desc">line loss . surge behavior</div>
+  </div>
+  <div class="signal-row">
+    <div class="signal-index">02</div>
+    <div class="signal-name">Flow Irregularity</div>
+    <div class="signal-desc">leak signature . blockage onset</div>
+  </div>
+  <div class="signal-row">
+    <div class="signal-index">03</div>
+    <div class="signal-name">Pump Degradation</div>
+    <div class="signal-desc">vibration drift . efficiency decay</div>
+  </div>
+</div>
+```
+
   </div>
 </div>
 
@@ -361,20 +731,23 @@ body::after {
   <div class="spec-body">
     <p>Validated across 707 degradation trajectories using NASA CMAPSS telemetry.</p>
 
-    <div class="metrics">
-      <div class="metric">
-        <strong>96.9%</strong>
-        <span>Detection Rate</span>
-      </div>
-      <div class="metric">
-        <strong>183</strong>
-        <span>Mean Lead Time</span>
-      </div>
-      <div class="metric">
-        <strong>100+ hrs</strong>
-        <span>Warning Window</span>
-      </div>
-    </div>
+```
+<div class="metrics">
+  <div class="metric">
+    <strong>96.9%</strong>
+    <span>Detection Rate</span>
+  </div>
+  <div class="metric">
+    <strong>183</strong>
+    <span>Mean Lead Time</span>
+  </div>
+  <div class="metric">
+    <strong>100+ hrs</strong>
+    <span>Warning Window</span>
+  </div>
+</div>
+```
+
   </div>
 </div>
 

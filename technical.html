@@ -1,110 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Technical architecture of Neraium's systemic infrastructure intelligence layer.">
-<title>Neraium | Technical Architecture</title>
+<title>Neraium | Technical Overview</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --bg:#060c18;
-  --bg2:#0e1628;
-  --accent:#2e6df6;
-  --text:#ffffff;
-  --muted:rgba(255,255,255,0.7);
-  --max:1000px;
+:root {
+  --bg-top: #0a0f1c;
+  --bg-bottom: #0d1f3a;
+  --accent: #2e6df6;
+  --text: #ffffff;
+  --muted: rgba(255,255,255,0.65);
+  --border: rgba(255,255,255,0.08);
+  --max: 1040px;
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
+* { box-sizing: border-box; margin:0; padding:0; }
 
-body{
-  font-family:'Inter',sans-serif;
-  background:linear-gradient(160deg,var(--bg),var(--bg2));
-  color:var(--text);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  color: var(--text);
+  text-align: center;
+  line-height: 1.65;
 }
 
-.container{
-  max-width:var(--max);
-  margin:auto;
-  padding:0 32px;
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 28px;
 }
 
-header{
-  padding:56px 0 24px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+header {
+  padding: 60px 0 20px;
 }
 
-.logo{
-  font-weight:600;
-  letter-spacing:0.08em;
-  font-size:18px;
+nav {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  text-transform: uppercase;
 }
 
-nav{
-  display:flex;
-  gap:36px;
+nav a {
+  color: var(--muted);
+  text-decoration: none;
 }
 
-nav a{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:11px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:var(--muted);
-  text-decoration:none;
+nav a:hover {
+  color: var(--accent);
 }
 
-nav a:hover{color:var(--accent)}
-
-.section{
-  padding:120px 0;
-  text-align:center;
+.section {
+  padding: 140px 0;
+  border-top: 1px solid var(--border);
 }
 
-.section h1{
-  font-size:48px;
-  margin-bottom:40px;
+.section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
 }
 
-.section h3{
-  font-size:22px;
-  margin-bottom:18px;
+.section p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--muted);
 }
 
-.section p{
-  font-size:17px;
-  color:var(--muted);
-  max-width:720px;
-  margin:auto;
+.arch {
+  margin-top: 60px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--accent);
 }
 
-.arch{
-  margin:40px auto;
-  padding:40px;
-  border:1px solid rgba(46,109,246,0.15);
-  font-family:'IBM Plex Mono',monospace;
-  color:var(--accent);
-  max-width:720px;
+footer {
+  padding: 120px 0 60px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--muted);
 }
 
-.validation-image{
-  margin:40px auto;
-  max-width:100%;
-  border:1px solid rgba(46,109,246,0.15);
-}
-
-footer{
-  padding:80px 0;
-  text-align:center;
-  font-size:11px;
-  color:rgba(255,255,255,0.4);
+@media (max-width: 768px) {
+  .section { padding: 100px 0; }
 }
 </style>
 </head>
@@ -113,49 +94,53 @@ footer{
 
 <div class="container">
 <header>
-<div class="logo">NERAIUM</div>
-<nav>
-<a href="index.html">Home</a>
-<a href="index.html#contact">Contact</a>
-</nav>
+  <nav>
+    <a href="index.html">← Neraium</a>
+  </nav>
 </header>
 </div>
 
 <section class="section">
-<div class="container">
-<h1>Technical Architecture</h1>
+  <div class="container">
+    <h2>Interpretation Model</h2>
+    <p>
+      Live telemetry is normalized and evaluated across correlated signals.  
+      Sustained deviation patterns are mapped for persistence and contextualized for operator review.
+    </p>
 
-<h3>Signal Evaluation Model</h3>
-<div class="arch">
-Live Telemetry  
-Signal Normalization  
-Cross Signal Correlation  
-Temporal Drift Persistence  
-Structured Classification  
+    <div class="arch">
+Live Telemetry<br>
+Signal Normalization<br>
+Cross Signal Correlation<br>
+Deviation Persistence Mapping<br>
+Structured Signal Interpretation<br>
 Operator Review
-</div>
+    </div>
+  </div>
+</section>
 
-<h3>Validation</h3>
-<p>
-Admission at cycle 36. Failure at cycle 243. Lead time 207 cycles.
-</p>
+<section class="section">
+  <div class="container">
+    <h2>Signal Integrity</h2>
+    <p>
+      Outputs include signal lineage, temporal persistence, and contextual metadata.  
+      The system surfaces interpretation artifacts without asserting operational outcomes.
+    </p>
+  </div>
+</section>
 
-<img src="image_9010.png" alt="Representative drift detection output" class="validation-image" loading="lazy">
-
-<p>
-Tested across FD001 through FD004 datasets comprising 707 degradation trajectories.
-</p>
-
-<h3>Boundary</h3>
-<p>
-Neraium does not actuate, modify, or override infrastructure systems.
-</p>
-
-</div>
+<section class="section">
+  <div class="container">
+    <h2>Boundary</h2>
+    <p>
+      Neraium does not actuate, modify, or override infrastructure.  
+      Decision authority remains with operators at all times.
+    </p>
+  </div>
 </section>
 
 <footer>
-© 2026 Neraium
+  © 2026 Neraium
 </footer>
 
 </body>

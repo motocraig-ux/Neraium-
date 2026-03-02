@@ -21,8 +21,6 @@
 html, body{
     margin:0;
     padding:0;
-    min-height:100%;
-    overflow-x:hidden;
 }
 
 body{
@@ -37,6 +35,7 @@ a{
     color:inherit;
 }
 
+/* NAV */
 nav{
     position:fixed;
     top:0;
@@ -61,7 +60,7 @@ nav{
 
 .nav-links{
     display:flex;
-    gap:20px;
+    gap:18px;
     font-size:13px;
     color:var(--muted);
 }
@@ -70,19 +69,15 @@ nav{
     color:white;
 }
 
-.section{
-    padding:120px 24px;
-}
-
+/* HERO */
 .hero{
-    padding-top:140px; /* pushes content below fixed nav cleanly */
-    padding-bottom:100px;
+    padding:120px 24px 80px;
     max-width:760px;
     margin:0 auto;
 }
 
 .hero h1{
-    font-size:clamp(38px, 8vw, 64px);
+    font-size:clamp(36px, 8vw, 64px);
     line-height:1.05;
     margin:0 0 18px 0;
     font-weight:600;
@@ -97,7 +92,7 @@ nav{
 
 .cta{
     display:inline-block;
-    padding:14px 26px;
+    padding:14px 24px;
     background:linear-gradient(135deg,#4da3ff,#3a8de0);
     color:#04111c !important;
     font-weight:600;
@@ -112,21 +107,33 @@ nav{
 }
 
 .footer-note{
-    margin-top:40px;
+    margin-top:36px;
     font-size:14px;
     color:var(--muted);
 }
 
-/* Responsive improvements */
-@media (max-width: 600px){
-    .nav-links{
-        gap:14px;
-        font-size:12px;
-    }
+/* SECOND SECTION */
+.section{
+    padding:100px 24px;
+    max-width:760px;
+    margin:0 auto;
+    border-top:1px solid rgba(255,255,255,0.05);
+}
 
-    .hero{
-        padding-top:120px;
-    }
+.section h2{
+    font-size:28px;
+    margin-bottom:16px;
+}
+
+.section p{
+    color:var(--muted);
+    font-size:17px;
+    max-width:600px;
+}
+
+/* Prevent nav overlap */
+.spacer{
+    height:64px;
 }
 </style>
 </head>
@@ -142,6 +149,8 @@ nav{
         <a href="#">About</a>
     </div>
 </nav>
+
+<div class="spacer"></div>
 
 <section class="hero">
     <h1>Structural Deterioration Identified Before Failure.</h1>
@@ -159,8 +168,13 @@ nav{
     </div>
 </section>
 
-<!-- Spacer section to allow natural scroll behavior -->
-<section class="section"></section>
+<section class="section">
+    <h2>Institutional Infrastructure Layer</h2>
+    <p>
+        Neraium operates as a read-only intelligence layer for high-consequence water environments. 
+        It classifies sustained structural degradation before operational failure or emergency response becomes necessary.
+    </p>
+</section>
 
 </body>
 </html>

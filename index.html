@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neraium | Systemic Infrastructure Intelligence</title>
 
+<link rel="preload" as="image" href="hero.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -34,7 +36,6 @@ body{
   padding:0 26px;
 }
 
-/* Header */
 header{
   padding:42px 0;
   display:flex;
@@ -57,7 +58,6 @@ nav a{
 
 nav a:hover{color:var(--accent)}
 
-/* Hero */
 .hero{
   padding:220px 0 260px;
   background:
@@ -82,28 +82,26 @@ nav a:hover{color:var(--accent)}
 .subline{
   font-size:21px;
   color:var(--text-muted);
-  max-width:720px;
+  max-width:700px;
 }
 
-/* Major Section */
 .section{
   padding:240px 0;
   border-top:1px solid var(--border);
 }
 
 .section h2{
-  font-size:36px;
+  font-size:34px;
   font-weight:600;
-  margin-bottom:32px;
+  margin-bottom:30px;
 }
 
 .section p{
   font-size:21px;
   color:var(--text-muted);
-  max-width:760px;
+  max-width:720px;
 }
 
-/* Contact */
 .contact{
   padding:260px 0;
   border-top:1px solid var(--border);
@@ -112,7 +110,7 @@ nav a:hover{color:var(--accent)}
 .contact p{
   font-size:19px;
   color:var(--text-muted);
-  margin-bottom:50px;
+  margin-bottom:48px;
   line-height:1.7;
 }
 
@@ -127,7 +125,6 @@ nav a:hover{color:var(--accent)}
   font-size:14px;
 }
 
-/* Footer */
 footer{
   padding:140px 0;
   border-top:1px solid var(--border);
@@ -137,18 +134,17 @@ footer{
   color:rgba(255,255,255,0.45);
 }
 
-/* Mobile refinement */
 @media (max-width:768px){
   .hero{
     padding:160px 0 180px;
   }
 
   .section{
-    padding:140px 0;
+    padding:160px 0;
   }
 
   .contact{
-    padding:160px 0;
+    padding:180px 0;
   }
 
   .brand{
@@ -170,12 +166,14 @@ footer{
 
 <div class="container">
 <header>
-<nav>
+<nav aria-label="Primary">
 <a href="technical.html">Technical</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
 </div>
+
+<main>
 
 <section class="hero">
 <div class="container">
@@ -191,7 +189,7 @@ Early detection of structural deterioration in live water systems using existing
 <div class="container">
 <h2>The Shift</h2>
 <p>
-Infrastructure is becoming intelligent. In high consequence environments, observation must remain structurally independent from control. Structural separation becomes necessary.
+Infrastructure is becoming intelligent. In high consequence systems, observation must remain structurally independent from control.
 </p>
 </div>
 </section>
@@ -200,7 +198,7 @@ Infrastructure is becoming intelligent. In high consequence environments, observ
 <div class="container">
 <h2>The Role</h2>
 <p>
-Neraium operates as a read only intelligence layer alongside existing systems. It identifies sustained multivariate deterioration patterns and produces structured classifications for institutional review.
+Neraium operates as a read only intelligence layer. It identifies sustained multivariate deterioration and produces structured classifications for institutional review.
 </p>
 </div>
 </section>
@@ -213,9 +211,11 @@ Founder and Chief Executive Officer<br>
 Craig@neraium.com<br>
 602 833 7441
 </p>
-<a href="mailto:Craig@neraium.com" class="cta">Engage</a>
+<a href="mailto:Craig@neraium.com" class="cta">Contact</a>
 </div>
 </section>
+
+</main>
 
 <footer>
 © 2026 Neraium

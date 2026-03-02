@@ -8,160 +8,146 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg-0: #04060c;
-  --bg-1: #0b1324;
-  --accent: #3b82f6;
-  --text: #ffffff;
-  --muted: rgba(255,255,255,0.62);
-  --border: rgba(255,255,255,0.08);
-  --max: 1200px;
+:root{
+  --accent:#3b82f6;
+  --text:#ffffff;
+  --muted:rgba(255,255,255,0.65);
+  --border:rgba(255,255,255,0.08);
+  --max:1200px;
 }
 
-* { margin:0; padding:0; box-sizing:border-box; }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-html { scroll-behavior:smooth; }
-
-body {
+body{
   font-family:'Inter',sans-serif;
-  background:linear-gradient(180deg,var(--bg-0),var(--bg-1));
+  background:
+    radial-gradient(circle at 15% 25%, rgba(59,130,246,0.25), transparent 40%),
+    radial-gradient(circle at 85% 70%, rgba(37,99,235,0.18), transparent 45%),
+    linear-gradient(180deg,#020409 0%,#0b1324 55%,#0e1a33 100%);
   color:var(--text);
   line-height:1.5;
 }
 
-.container {
-  max-width:var(--max);
-  margin:0 auto;
-  padding:0 48px;
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle at 50% -10%, rgba(59,130,246,0.25), transparent 60%);
+  pointer-events:none;
+  z-index:-1;
 }
 
-/* HEADER */
-header {
+.container{max-width:var(--max);margin:0 auto;padding:0 48px;}
+
+header{
   padding:32px 0;
-  position:relative;
-  z-index:10;
-}
-
-.nav {
   display:flex;
   justify-content:flex-end;
+  border-bottom:1px solid var(--border);
 }
 
-.nav a {
+header a{
   text-decoration:none;
   font-size:14px;
   color:var(--muted);
   margin-left:32px;
 }
 
-.nav a:hover { color:var(--text); }
+header a:hover{color:var(--text);}
 
-/* HERO */
-.hero {
-  position:relative;
+.hero{
   min-height:92vh;
   display:flex;
   align-items:center;
   background:
-    linear-gradient(90deg, rgba(4,6,12,0.95) 0%, rgba(4,6,12,0.82) 45%, rgba(4,6,12,0.65) 70%, rgba(4,6,12,0.92) 100%),
-    url("hero.png") center / cover no-repeat;
+    linear-gradient(90deg, rgba(2,4,9,0.95) 0%, rgba(2,4,9,0.8) 50%, rgba(2,4,9,0.95) 100%),
+    url("hero.png") center/cover no-repeat;
 }
 
-.hero-content { max-width:760px; }
+.hero-content{max-width:760px;}
 
-.hero h1 {
-  font-size:70px;
+.hero h1{
+  font-size:64px;
   font-weight:600;
-  line-height:1.03;
-  letter-spacing:-0.025em;
-  margin-bottom:32px;
+  line-height:1.05;
+  letter-spacing:-0.02em;
+  margin-bottom:28px;
 }
 
-.hero h1 span {
+.hero h1 span{
   display:block;
   color:var(--accent);
 }
 
-.hero p {
+.hero p{
   font-size:18px;
   color:var(--muted);
-  margin-bottom:44px;
+  margin-bottom:40px;
   max-width:640px;
 }
 
-.cta {
+.cta{
   display:inline-block;
-  padding:14px 34px;
+  padding:14px 32px;
   border:1px solid var(--accent);
   color:var(--accent);
   text-decoration:none;
   font-size:13px;
   letter-spacing:0.1em;
   text-transform:uppercase;
-  transition:0.2s ease;
+  transition:0.2s;
 }
 
-.cta:hover {
+.cta:hover{
   background:var(--accent);
   color:#000;
 }
 
-/* SECTION */
-.section {
+.section{
   padding:170px 0;
   border-top:1px solid var(--border);
 }
 
-.section h2 {
+.section.compact{padding:120px 0;}
+
+.section h2{
   font-size:32px;
   font-weight:600;
   margin-bottom:28px;
 }
 
-.section p {
+.section p{
   max-width:720px;
   font-size:17px;
   color:var(--muted);
 }
 
-/* METRIC GRID */
-.metrics {
+.metrics{
   margin-top:70px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:40px;
 }
 
-.metric {
-  font-size:14px;
-  color:var(--muted);
-}
-
-.metric strong {
+.metric strong{
   display:block;
   font-size:26px;
   color:var(--accent);
   margin-bottom:8px;
 }
 
-/* DENSITY CONTRAST */
-.section.compact {
-  padding:120px 0;
-}
-
-footer {
+footer{
   padding:120px 0 60px;
   border-top:1px solid var(--border);
   font-size:14px;
   color:var(--muted);
 }
 
-/* RESPONSIVE */
-@media (max-width:900px) {
-  .container { padding:0 28px; }
-  .hero { min-height:auto; padding:140px 0; }
-  .hero h1 { font-size:42px; }
-  .metrics { grid-template-columns:1fr; }
+@media(max-width:900px){
+  .container{padding:0 28px;}
+  .hero{padding:140px 0;}
+  .hero h1{font-size:42px;}
+  .metrics{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -169,24 +155,20 @@ footer {
 <body>
 
 <header>
-  <div class="container nav">
-    <a href="technical.html">Technical</a>
-    <a href="#contact">Contact</a>
-  </div>
+  <a href="technical.html">Technical</a>
+  <a href="#contact">Contact</a>
 </header>
 
 <section class="hero">
   <div class="container">
     <div class="hero-content">
       <h1>
-        Neraium<br>
-        <span>defines systemic infrastructure intelligence</span>
+        Neraium
+        <span>Systemic Infrastructure Intelligence</span>
       </h1>
-
       <p>
         Neraium surfaces sustained structural deviation across live telemetry environments while operational authority remains preserved.
       </p>
-
       <a href="#contact" class="cta">Start Discussion</a>
     </div>
   </div>
@@ -195,26 +177,14 @@ footer {
 <section class="section">
   <div class="container">
     <h2>Empirical Testing</h2>
-
     <p>
-      Tested across 707 independent degradation trajectories using NASA CMAPSS data. Sustained structural deviation surfaced well before terminal states.
+      Tested across 707 independent degradation trajectories using NASA CMAPSS data. Sustained deviation surfaced well before terminal states.
     </p>
 
     <div class="metrics">
-      <div class="metric">
-        <strong>96.9%</strong>
-        detection coverage
-      </div>
-
-      <div class="metric">
-        <strong>183 cycles</strong>
-        median lead time
-      </div>
-
-      <div class="metric">
-        <strong>Hundreds of hours</strong>
-        prior to failure
-      </div>
+      <div class="metric"><strong>96.9%</strong>detection coverage</div>
+      <div class="metric"><strong>183 cycles</strong>median lead time</div>
+      <div class="metric"><strong>Hundreds of hours</strong>prior to failure</div>
     </div>
   </div>
 </section>
@@ -231,28 +201,17 @@ footer {
 <section class="section" id="contact">
   <div class="container">
     <h2>Contact</h2>
-
     <p>
       Craig Curtis<br>
       Founder / CEO<br>
       Craig@neraium.com<br>
       602-833-7441
     </p>
-
-    <form action="https://formspree.io/f/xzdalpzy" method="POST" style="margin-top:50px; max-width:600px;">
-      <input type="text" name="name" placeholder="Name" required style="width:100%; margin-bottom:18px; padding:14px; background:rgba(255,255,255,0.04); border:1px solid var(--border); color:var(--text);">
-      <input type="email" name="email" placeholder="Email" required style="width:100%; margin-bottom:18px; padding:14px; background:rgba(255,255,255,0.04); border:1px solid var(--border); color:var(--text);">
-      <textarea name="message" placeholder="Message" rows="5" required style="width:100%; margin-bottom:20px; padding:14px; background:rgba(255,255,255,0.04); border:1px solid var(--border); color:var(--text);"></textarea>
-      <button type="submit" class="cta">Send</button>
-    </form>
-
   </div>
 </section>
 
 <footer>
-  <div class="container">
-    © 2026 Neraium
-  </div>
+  © 2026 Neraium
 </footer>
 
 </body>

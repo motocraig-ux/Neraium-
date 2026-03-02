@@ -3,41 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neraium | Infrastructure Intelligence</title>
+<title>Neraium | Infrastructure Intelligence Layer</title>
+<meta name="description" content="Neraium is a read-only infrastructure intelligence layer for high-consequence water systems.">
 
 <style>
+:root{
+  --bg0:#060f1d;
+  --bg1:#0d223f;
+  --accent:#2e6df6;
+  --text:#ffffff;
+  --muted:rgba(255,255,255,.72);
+  --border:rgba(255,255,255,.12);
+  --card:rgba(255,255,255,.05);
+  --max:1000px;
+}
+
+*{box-sizing:border-box}
+
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  background:linear-gradient(180deg,#060f1d,#0d223f);
-  color:white;
-  text-align:center;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,sans-serif;
+  background:
+    radial-gradient(800px 400px at 20% -10%, rgba(46,109,246,.25), transparent 60%),
+    radial-gradient(800px 400px at 80% 0%, rgba(120,120,255,.18), transparent 60%),
+    linear-gradient(180deg,var(--bg0),var(--bg1));
+  color:var(--text);
+  line-height:1.5;
 }
 
 .container{
-  max-width:900px;
+  max-width:var(--max);
   margin:0 auto;
-  padding:80px 20px;
+  padding:0 22px;
 }
 
-h1{
-  font-size:42px;
-  margin-bottom:20px;
+header{
+  padding:28px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-p{
-  font-size:18px;
-  opacity:.75;
-  margin-bottom:40px;
+.logo{
+  font-weight:800;
+  letter-spacing:.12em;
+  font-size:13px;
+  text-transform:uppercase;
 }
 
-button{
-  padding:14px 28px;
-  font-size:16px;
-  background:#2e6df6;
+.hero{
+  padding:110px 0 70px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:clamp(32px,4.5vw,54px);
+  margin-bottom:22px;
+  line-height:1.05;
+}
+
+.hero p{
+  max-width:780px;
+  margin:0 auto 36px;
+  font-size:19px;
+  color:var(--muted);
+}
+
+.cta{
+  display:inline-block;
+  padding:16px 34px;
+  background:var(--accent);
   color:white;
-  border:none;
-  border-radius:6px;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:600;
+}
+
+.section{
+  padding:80px 0;
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
+}
+
+.section h2{
+  font-size:30px;
+  margin-bottom:18px;
+}
+
+.section p{
+  max-width:760px;
+  margin:0 auto;
+  font-size:17px;
+  color:var(--muted);
+}
+
+.grid{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:var(--card);
+  padding:30px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  text-align:left;
+}
+
+.card h3{
+  margin-bottom:14px;
+  font-size:18px;
+}
+
+.card p{
+  font-size:15px;
+  color:var(--muted);
+}
+
+.footer{
+  padding:70px 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+  border-top:1px solid rgba(255,255,255,.08);
 }
 </style>
 </head>
@@ -45,11 +135,81 @@ button{
 <body>
 
 <div class="container">
-  <h1>Infrastructure Intelligence for High-Consequence Water Systems</h1>
-  <p>
-    Neraium is a read-only infrastructure intelligence layer that converts operational telemetry into governed deterioration insight.
-  </p>
-  <button>Investor Access</button>
+  <header>
+    <div class="logo">NERAIUM</div>
+  </header>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <h1>The Infrastructure Intelligence Layer for High-Consequence Water Systems</h1>
+    <p>
+      Neraium converts native operational telemetry into governed deterioration insight.
+      Fully read-only. Non-actuating. Architecturally boundary-preserving.
+    </p>
+    <a class="cta" href="mailto:founder@neraium.com">Investor Access</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Why This Layer Is Inevitable</h2>
+    <p>
+      As high-consequence infrastructure becomes increasingly instrumented,
+      intelligence must be structurally separated from control.
+      Read-only, boundary-preserving classification becomes an institutional requirement,
+      not an optional feature.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Neraium’s Position</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Multivariate Drift Classification</h3>
+        <p>
+          Identifies persistent structural deviation across correlated signals
+          before reactive failure thresholds are reached.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Strict Boundary Discipline</h3>
+        <p>
+          Neraium does not control, actuate, or modify physical systems.
+          Intelligence remains separated from operational authority.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Governed Evidence Output</h3>
+        <p>
+          Produces structured deterioration artifacts aligned with institutional
+          audit, liability, and infrastructure oversight requirements.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Institutional Formation</h2>
+    <p>
+      Neraium is engaging strategic infrastructure operators and early institutional capital
+      to define the category of systemic infrastructure intelligence.
+    </p>
+    <div style="margin-top:30px;">
+      <a class="cta" href="mailto:founder@neraium.com">Request Discussion</a>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  © 2026 Neraium. Infrastructure Intelligence.
 </div>
 
 </body>

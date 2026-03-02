@@ -9,43 +9,39 @@
 
 <style>
 :root {
-  --black: #05070d;
-  --navy: #0b1220;
-  --deep: #0f1c34;
+  --bg-0: #04060c;
+  --bg-1: #0b1324;
   --accent: #3b82f6;
   --text: #ffffff;
   --muted: rgba(255,255,255,0.65);
   --border: rgba(255,255,255,0.08);
-  --max: 1180px;
+  --max: 1200px;
 }
 
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(180deg, var(--black), var(--navy));
+  background: linear-gradient(180deg, var(--bg-0), var(--bg-1));
   color: var(--text);
-  line-height: 1.6;
-}
-
-/* HEADER */
-header {
-  padding: 40px 0;
+  line-height: 1.55;
 }
 
 .container {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 48px;
+}
+
+/* HEADER */
+header {
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .back {
-  font-size:14px;
-  text-decoration:none;
+  font-size: 14px;
+  text-decoration: none;
   color: var(--muted);
 }
 
@@ -55,54 +51,59 @@ header {
 
 /* HERO */
 .hero {
-  padding: 160px 0 120px;
-  border-bottom: 1px solid var(--border);
+  padding: 140px 0 120px;
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 52px;
   font-weight: 600;
-  margin-bottom: 20px;
+  line-height: 1.08;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
 }
 
 .hero p {
+  max-width: 760px;
   font-size: 18px;
   color: var(--muted);
-  max-width: 680px;
 }
 
-/* SECTION */
+/* SECTIONS */
 .section {
-  padding: 120px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 140px 0;
+  border-top: 1px solid var(--border);
 }
 
 .section h2 {
-  font-size: 28px;
+  font-size: 30px;
   margin-bottom: 20px;
 }
 
 .section p {
-  max-width: 720px;
+  max-width: 760px;
+  font-size: 17px;
   color: var(--muted);
 }
 
 .arch {
   margin-top: 50px;
   font-size: 15px;
-  color: var(--accent);
   line-height: 2.2;
+  color: var(--accent);
   font-weight: 500;
 }
 
 footer {
-  padding: 100px 0 60px;
-  font-size:14px;
+  padding: 120px 0 60px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
   color: var(--muted);
 }
 
+/* RESPONSIVE */
 @media (max-width:900px) {
-  .hero h1 { font-size:36px; }
+  .container { padding: 0 28px; }
+  .hero h1 { font-size: 38px; }
 }
 </style>
 </head>
@@ -119,8 +120,8 @@ footer {
   <div class="container">
     <h1>Interpretation Model</h1>
     <p>
-      Live telemetry is normalized and evaluated across correlated signals. 
-      Sustained deviation patterns are mapped for persistence and structured for operator review.
+      Neraium operates as a read only intelligence layer across live telemetry environments. 
+      Sustained structural deviation is mapped for persistence and structured for operator review.
     </p>
   </div>
 </section>
@@ -128,13 +129,14 @@ footer {
 <section class="section">
   <div class="container">
     <h2>Model Structure</h2>
+
     <div class="arch">
-      Live Telemetry<br>
-      Signal Normalization<br>
-      Cross Signal Correlation<br>
-      Deviation Persistence Mapping<br>
-      Structured Signal Interpretation<br>
-      Operator Review
+Live Telemetry<br>
+Signal Normalization<br>
+Cross Signal Correlation<br>
+Deviation Persistence Mapping<br>
+Structured Signal Interpretation<br>
+Operator Review
     </div>
   </div>
 </section>
@@ -144,7 +146,7 @@ footer {
     <h2>Signal Integrity</h2>
     <p>
       Outputs include signal lineage, temporal persistence, and contextual metadata. 
-      Interpretation artifacts are surfaced without asserting operational outcomes.
+      Interpretation artifacts are surfaced without asserting operational outcomes or triggering automated control.
     </p>
   </div>
 </section>
@@ -153,8 +155,8 @@ footer {
   <div class="container">
     <h2>Boundary</h2>
     <p>
-      Neraium does not actuate, modify, or override infrastructure. 
-      Operational authority remains preserved at all times.
+      Neraium does not actuate, modify, override, or control infrastructure systems. 
+      Decision authority remains exclusively with operators.
     </p>
   </div>
 </section>

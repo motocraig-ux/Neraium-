@@ -1,193 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neraium</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neraium</title>
+  <style>
+    :root {
+      --navy: #0a1a2f;
+      --deep: #0f2747;
+      --accent: #2e6df6;
+      --light: #f5f7fa;
+      --gray: #8a94a6;
+    }
 
-<style>
-:root{
-  --ink:#eaf1ff;
-  --muted:rgba(234,241,255,.7);
-  --line:rgba(255,255,255,.08);
-  --accent:#4da3ff;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
 
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-  color:var(--ink);
-  background:
-    radial-gradient(1200px 600px at 20% -10%, rgba(77,163,255,.25), transparent 60%),
-    radial-gradient(1000px 800px at 80% 10%, rgba(77,163,255,.12), transparent 65%),
-    linear-gradient(180deg,#07192b 0%,#07111b 40%,#050810 100%);
-}
+    body {
+      background: linear-gradient(180deg, var(--navy), var(--deep));
+      color: white;
+      line-height: 1.6;
+    }
 
-/* NAV */
-header{
-  position:sticky;
-  top:0;
-  backdrop-filter:blur(10px);
-  background:rgba(6,10,16,.8);
-  border-bottom:1px solid var(--line);
-}
-.wrap{
-  max-width:1100px;
-  margin:auto;
-  padding:0 22px;
-}
-.nav{
-  height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.brand{
-  font-weight:800;
-  letter-spacing:.12em;
-  font-size:20px;
-}
-.nav a{
-  color:var(--muted);
-  text-decoration:none;
-  margin-left:24px;
-}
-.nav a:hover{color:white;}
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-/* HERO */
-.hero{
-  padding:90px 0 60px;
-}
-h1{
-  font-size:clamp(44px,6vw,70px);
-  line-height:1.05;
-  margin:0 0 20px;
-}
-.sub{
-  font-size:20px;
-  color:var(--muted);
-  max-width:60ch;
-  margin-bottom:30px;
-}
+    header {
+      padding: 28px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.btn{
-  display:inline-block;
-  padding:16px 28px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:600;
-  background:linear-gradient(135deg,var(--accent),#2f86ff);
-  color:#04111c;
-}
+    .logo {
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
 
-/* SECTION */
-.section{
-  padding:60px 0;
-  border-top:1px solid var(--line);
-}
-.kicker{
-  font-size:12px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:rgba(234,241,255,.4);
-  margin-bottom:12px;
-}
-.h2{
-  font-size:32px;
-  margin-bottom:14px;
-}
-.lead{
-  font-size:18px;
-  color:var(--muted);
-  max-width:75ch;
-}
+    nav a {
+      color: var(--gray);
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
 
-.grid{
-  margin-top:25px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:18px;
-}
-.tile{
-  background:rgba(255,255,255,.03);
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:20px;
-}
-.tile h4{margin:0 0 10px;}
-.tile p{margin:0;color:var(--muted);font-size:15px;}
+    nav a:hover {
+      color: white;
+    }
 
-footer{
-  border-top:1px solid var(--line);
-  padding:30px 0;
-  font-size:13px;
-  color:rgba(234,241,255,.5);
-}
-</style>
+    .hero {
+      padding: 100px 0 80px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--gray);
+      max-width: 750px;
+      margin: 0 auto 40px;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .cta:hover {
+      background: #1f56d9;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      padding: 32px;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .card p {
+      color: var(--gray);
+      font-size: 15px;
+    }
+
+    footer {
+      padding: 60px 0;
+      text-align: center;
+      color: var(--gray);
+      font-size: 14px;
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-  <div class="wrap nav">
-    <div class="brand">NERAIUM</div>
-    <nav>
-      <a href="#platform">Platform</a>
-      <a href="#contractors">Contractors</a>
-      <a href="#governance">Governance</a>
-    </nav>
+  <div class="container">
+    <header>
+      <div class="logo">NERAIUM</div>
+      <nav>
+        <a href="#">Platform</a>
+        <a href="#">Use Cases</a>
+        <a href="#">Governance</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
   </div>
-</header>
 
-<section class="hero wrap">
-  <h1>Early Failure Signals for Mission-Critical Water.</h1>
-  <p class="sub">
-    Neraium converts live telemetry into governed deterioration signals weeks before reactive failure.
-  </p>
-  <a class="btn" href="#platform">Initiate Alignment Discussion</a>
-</section>
+  <section class="hero">
+    <div class="container">
+      <h1>Systemic Infrastructure Intelligence for High-Consequence Water Systems</h1>
+      <p>
+        Neraium transforms native operational telemetry into structured, governed deterioration insight — without controlling, actuating, or modifying physical systems.
+      </p>
+      <a href="#" class="cta">Request Early Access</a>
+    </div>
+  </section>
 
-<section id="platform" class="section">
-  <div class="wrap">
-    <div class="kicker">Platform</div>
-    <div class="h2">Infrastructure Intelligence Layer</div>
-    <p class="lead">
-      Neraium classifies sustained structural deterioration from existing site signals without modifying physical systems.
-    </p>
-
-    <div class="grid">
-      <div class="tile">
-        <h4>Earlier visibility</h4>
-        <p>Surface sustained deviation before downtime and emergency response.</p>
-      </div>
-      <div class="tile">
-        <h4>Non-interfering</h4>
-        <p>Strict read-only architecture. No actuation or control modification.</p>
-      </div>
-      <div class="tile">
-        <h4>Contractor wedge</h4>
-        <p>Embed inside service relationships without shifting operational authority.</p>
+  <section class="section">
+    <div class="container">
+      <h2>What We Do</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Multivariate Drift Detection</h3>
+          <p>
+            Identifies persistent structural deviation patterns before reactive failure occurs.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Read-Only Intelligence Layer</h3>
+          <p>
+            Fully non-actuating architecture that preserves system boundary integrity.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Governed Evidence Output</h3>
+          <p>
+            Structured decision artifacts aligned with institutional audit requirements.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="governance" class="section">
-  <div class="wrap">
-    <div class="kicker">Governance</div>
-    <div class="h2">Deterministic Model</div>
-    <p class="lead">
-      Outputs are bound to defined architectural guardrails. Neraium does not actuate or modify systems.
-    </p>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    © 2026 Neraium. Read-only architecture.
-  </div>
-</footer>
+  <footer>
+    © 2026 Neraium. All rights reserved.
+  </footer>
 
 </body>
 </html>

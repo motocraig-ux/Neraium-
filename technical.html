@@ -20,6 +20,10 @@
 
 * { margin:0; padding:0; box-sizing:border-box; }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(180deg, var(--bg-0), var(--bg-1));
@@ -39,14 +43,21 @@ header {
   border-bottom: 1px solid var(--border);
 }
 
-.back {
-  font-size: 14px;
-  text-decoration: none;
-  color: var(--muted);
+.nav {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.back:hover {
-  color: var(--text);
+.nav a {
+  text-decoration:none;
+  font-size:14px;
+  color:var(--muted);
+  margin-left:32px;
+}
+
+.nav a:hover {
+  color:var(--text);
 }
 
 /* HERO */
@@ -58,7 +69,7 @@ header {
   font-size: 52px;
   font-weight: 600;
   line-height: 1.08;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   letter-spacing: -0.02em;
 }
 
@@ -93,6 +104,7 @@ header {
   font-weight: 500;
 }
 
+/* FOOTER */
 footer {
   padding: 120px 0 60px;
   border-top: 1px solid var(--border);
@@ -111,8 +123,13 @@ footer {
 <body>
 
 <header>
-  <div class="container">
-    <a href="index.html" class="back">← Neraium</a>
+  <div class="container nav">
+    <div>
+      <a href="index.html">← Neraium</a>
+    </div>
+    <div>
+      <a href="index.html#contact">Contact</a>
+    </div>
   </div>
 </header>
 
@@ -120,7 +137,7 @@ footer {
   <div class="container">
     <h1>Interpretation Model</h1>
     <p>
-      Neraium operates as a read only intelligence layer across live telemetry environments. 
+      Neraium operates as a read only intelligence layer across live telemetry environments.
       Sustained structural deviation is mapped for persistence and structured for operator review.
     </p>
   </div>
@@ -145,7 +162,7 @@ Operator Review
   <div class="container">
     <h2>Signal Integrity</h2>
     <p>
-      Outputs include signal lineage, temporal persistence, and contextual metadata. 
+      Outputs include signal lineage, temporal persistence, and contextual metadata.
       Interpretation artifacts are surfaced without asserting operational outcomes or triggering automated control.
     </p>
   </div>
@@ -155,7 +172,7 @@ Operator Review
   <div class="container">
     <h2>Boundary</h2>
     <p>
-      Neraium does not actuate, modify, override, or control infrastructure systems. 
+      Neraium does not actuate, modify, override, or control infrastructure systems.
       Decision authority remains exclusively with operators.
     </p>
   </div>

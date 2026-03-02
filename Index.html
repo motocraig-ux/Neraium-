@@ -7,11 +7,12 @@
 
 <style>
 :root{
-    --bg:#0b1117;
-    --panel:#121a23;
+    --bg1:#0b1117;
+    --bg2:#0f1823;
+    --panel:rgba(18,26,35,0.75);
     --border:#1d2834;
     --text:#e6edf3;
-    --muted:#97a6b5;
+    --muted:#93a3b3;
     --accent:#3da9fc;
 }
 
@@ -20,34 +21,30 @@
 body{
     margin:0;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,sans-serif;
-    background:var(--bg);
+    background:linear-gradient(to bottom,var(--bg1),var(--bg2));
     color:var(--text);
     line-height:1.6;
-}
-
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:90px 24px;
 }
 
 header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 24px;
+    padding:22px 28px;
     border-bottom:1px solid var(--border);
+    background:rgba(11,17,23,0.8);
+    backdrop-filter:blur(6px);
 }
 
 .logo{
     font-weight:700;
-    letter-spacing:1px;
+    letter-spacing:1.5px;
 }
 
 nav a{
     color:var(--muted);
     text-decoration:none;
-    margin-left:24px;
+    margin-left:28px;
     font-size:14px;
 }
 
@@ -55,30 +52,30 @@ nav a:hover{
     color:var(--text);
 }
 
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:110px 24px;
+}
+
 h1{
-    font-size:clamp(36px,5vw,58px);
-    line-height:1.1;
-    margin:0 0 24px 0;
+    font-size:clamp(40px,5vw,62px);
+    line-height:1.05;
+    margin:0 0 28px 0;
     font-weight:700;
     letter-spacing:-1px;
 }
 
-h2{
-    font-size:30px;
-    margin-bottom:40px;
-    font-weight:600;
-}
-
 .lead{
-    font-size:20px;
+    font-size:21px;
     color:var(--muted);
-    max-width:750px;
-    margin-bottom:40px;
+    max-width:760px;
+    margin-bottom:50px;
 }
 
 .button{
     display:inline-block;
-    padding:14px 28px;
+    padding:15px 32px;
     background:var(--accent);
     color:#0b1117;
     font-weight:600;
@@ -88,36 +85,48 @@ h2{
 }
 
 .button:hover{
-    transform:translateY(-2px);
-    opacity:0.9;
+    transform:translateY(-3px);
+    box-shadow:0 6px 20px rgba(61,169,252,0.35);
+}
+
+.subnote{
+    margin-top:22px;
+    font-size:14px;
+    color:var(--muted);
 }
 
 .section{
     border-top:1px solid var(--border);
 }
 
+h2{
+    font-size:32px;
+    margin-bottom:50px;
+    font-weight:600;
+}
+
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:24px;
+    gap:26px;
 }
 
 .card{
     background:var(--panel);
-    padding:28px;
+    padding:30px;
     border:1px solid var(--border);
-    border-radius:8px;
-    transition:0.2s ease;
+    border-radius:10px;
+    backdrop-filter:blur(10px);
+    transition:0.25s ease;
 }
 
 .card:hover{
     border-color:var(--accent);
-    transform:translateY(-4px);
+    transform:translateY(-6px);
 }
 
 .card h3{
-    margin-top:0;
-    margin-bottom:12px;
+    margin:0 0 14px 0;
     font-size:20px;
 }
 
@@ -129,18 +138,25 @@ h2{
 .steps{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:24px;
+    gap:26px;
 }
 
 .step{
-    padding:20px;
-    border-left:3px solid var(--accent);
     background:var(--panel);
+    padding:24px;
+    border-left:4px solid var(--accent);
+    border-radius:6px;
+}
+
+.infrastructure{
+    max-width:850px;
+    font-size:18px;
+    color:var(--muted);
 }
 
 .footer{
     text-align:center;
-    padding:40px 20px;
+    padding:50px 20px;
     color:var(--muted);
     font-size:14px;
     border-top:1px solid var(--border);
@@ -161,17 +177,18 @@ h2{
 
 <div class="container">
     <h1>
-        Structural Intelligence for Water Contractors
+        Structural Deterioration Classified Before Failure.
     </h1>
 
     <p class="lead">
-        Classify structural deterioration in live water systems before failure occurs. 
-        Deliver proactive service instead of reactive dispatch.
+        Purpose-built for water contractors who compete on performance, 
+        not price. Neraium classifies sustained structural degradation 
+        in live systems weeks before emergency response becomes necessary.
     </p>
 
-    <a href="#" class="button">Strengthen Your Service Model</a>
+    <a href="#" class="button">Request a Strategic Conversation</a>
 
-    <p style="margin-top:20px;color:var(--muted);font-size:14px;">
+    <p class="subnote">
         No new hardware. Read-only architecture. Delivered through contractors.
     </p>
 </div>
@@ -183,52 +200,60 @@ h2{
         <div class="card">
             <h3>Protect Margin</h3>
             <p>
-                Detect sustained deterioration before emergency dispatch 
-                compresses labor efficiency and project profitability.
+                Identify deterioration before emergency dispatch 
+                compresses labor efficiency and profitability.
             </p>
         </div>
 
         <div class="card">
             <h3>Win Renewals</h3>
             <p>
-                Differentiate from price-based competitors with measurable,
-                proactive structural insight.
+                Differentiate with measurable structural intelligence 
+                competitors cannot offer.
             </p>
         </div>
 
         <div class="card">
             <h3>Reduce Reactive Volatility</h3>
             <p>
-                Shift work from crisis response to planned intervention windows.
+                Shift intervention from crisis response to planned 
+                service windows.
             </p>
         </div>
     </div>
 </div>
 
 <div class="container section">
-    <h2>How Neraium Fits Into Your Workflow</h2>
+    <h2>Workflow Integration</h2>
 
     <div class="steps">
         <div class="step">
             <strong>1. Ingest Existing Telemetry</strong>
-            <p>Uses current BMS, SCADA, and historian exports.</p>
+            <p>BMS, SCADA, and historian exports.</p>
         </div>
-
         <div class="step">
             <strong>2. Classify Sustained Drift</strong>
-            <p>Multivariate analysis isolates structural deterioration patterns.</p>
+            <p>Multivariate structural deterioration detection.</p>
         </div>
-
         <div class="step">
-            <strong>3. Identify Deterioration Windows</strong>
-            <p>Flag progressive degradation weeks before visible failure.</p>
+            <strong>3. Identify Degradation Windows</strong>
+            <p>Weeks before visible system failure.</p>
         </div>
-
         <div class="step">
-            <strong>4. Deliver Proactive Action</strong>
-            <p>Contractors act before emergency response becomes necessary.</p>
+            <strong>4. Deliver Proactive Contractor Action</strong>
+            <p>Before emergency response becomes required.</p>
         </div>
     </div>
+</div>
+
+<div class="container section">
+    <h2>Built as Infrastructure, Not Software</h2>
+    <p class="infrastructure">
+        Neraium operates as a read-only structural intelligence layer. 
+        No control authority. No actuation. No system modification. 
+        Designed for high-consequence water environments where reliability 
+        and non-interference are mandatory.
+    </p>
 </div>
 
 <div class="footer">

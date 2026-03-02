@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neraium | Infrastructure Intelligence</title>
-<meta name="description" content="Neraium is a read-only infrastructure intelligence layer for high-consequence water systems.">
 
 <style>
 :root{
-  --bg0:#040c18;
-  --bg1:#0b1f36;
-  --accent:#2e6df6;
-  --accent-soft:rgba(46,109,246,.15);
+  --black:#04070d;
+  --navy:#071427;
+  --deep:#0d2445;
+  --blue:#2e6df6;
+  --blue-soft:rgba(46,109,246,.18);
   --text:#ffffff;
-  --muted:rgba(255,255,255,.70);
+  --muted:rgba(255,255,255,.72);
   --muted2:rgba(255,255,255,.45);
   --border:rgba(255,255,255,.10);
-  --card:rgba(255,255,255,.04);
-  --max:1120px;
+  --glass:rgba(255,255,255,.04);
+  --max:1150px;
 }
 
 *{box-sizing:border-box}
@@ -26,10 +26,11 @@ body{
   margin:0;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,sans-serif;
   background:
-    radial-gradient(1000px 600px at 50% -20%, rgba(46,109,246,.18), transparent 60%),
-    linear-gradient(180deg,var(--bg0),var(--bg1));
+    radial-gradient(1200px 600px at 50% -10%, var(--blue-soft), transparent 65%),
+    radial-gradient(800px 500px at 80% 20%, rgba(46,109,246,.12), transparent 60%),
+    linear-gradient(180deg, var(--black) 0%, var(--navy) 40%, var(--deep) 100%);
   color:var(--text);
-  line-height:1.55;
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
 
@@ -40,10 +41,7 @@ body{
 }
 
 header{
-  padding:34px 0;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  padding:36px 0;
 }
 
 .logo{
@@ -51,97 +49,98 @@ header{
   letter-spacing:.18em;
   font-size:12px;
   text-transform:uppercase;
-  color:rgba(255,255,255,.85);
+  opacity:.85;
 }
 
 .hero{
-  padding:140px 0 110px;
+  padding:150px 0 120px;
   text-align:center;
 }
 
 .hero h1{
-  font-size:clamp(40px,5vw,64px);
+  font-size:clamp(40px,5vw,68px);
   line-height:1.02;
-  margin-bottom:28px;
+  margin-bottom:30px;
   font-weight:700;
 }
 
 .hero p{
-  max-width:860px;
-  margin:0 auto 44px;
-  font-size:20px;
+  max-width:880px;
+  margin:0 auto 50px;
+  font-size:21px;
   color:var(--muted);
 }
 
 .cta{
   display:inline-block;
-  padding:18px 40px;
-  background:var(--accent);
+  padding:18px 44px;
+  background:var(--blue);
   color:white;
   text-decoration:none;
-  border-radius:12px;
+  border-radius:14px;
   font-weight:600;
-  transition:.2s ease;
-  box-shadow:0 10px 30px var(--accent-soft);
+  transition:.25s ease;
+  box-shadow:0 12px 40px rgba(46,109,246,.35);
 }
 
 .cta:hover{
-  transform:translateY(-2px);
+  transform:translateY(-3px);
 }
 
 .section{
-  padding:120px 0;
+  padding:140px 0;
   border-top:1px solid rgba(255,255,255,.06);
   text-align:center;
 }
 
 .section h2{
-  font-size:38px;
-  margin-bottom:22px;
+  font-size:40px;
+  margin-bottom:28px;
 }
 
 .section p{
-  max-width:880px;
+  max-width:900px;
   margin:0 auto;
-  font-size:20px;
+  font-size:21px;
   color:var(--muted);
 }
 
 .grid{
-  margin-top:70px;
+  margin-top:80px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:34px;
+  gap:36px;
 }
 
 .card{
-  background:var(--card);
-  padding:40px;
-  border-radius:18px;
+  background:var(--glass);
+  padding:46px;
+  border-radius:22px;
   border:1px solid var(--border);
+  backdrop-filter:blur(18px);
   text-align:left;
-  backdrop-filter:blur(10px);
-  transition:.25s ease;
+  transition:.3s ease;
 }
 
 .card:hover{
-  background:rgba(255,255,255,.06);
+  background:rgba(255,255,255,.07);
   border-color:rgba(255,255,255,.18);
+  transform:translateY(-6px);
 }
 
 .card h3{
-  margin-bottom:16px;
-  font-size:19px;
+  margin-bottom:18px;
+  font-size:20px;
   font-weight:600;
 }
 
 .card p{
-  font-size:17px;
+  font-size:18px;
   color:var(--muted);
 }
 
 .footer{
-  padding:100px 0;
+  padding:120px 0;
   border-top:1px solid rgba(255,255,255,.06);
   text-align:center;
   color:var(--muted2);
@@ -164,8 +163,8 @@ header{
     <h1>Infrastructure Intelligence for High-Consequence Water</h1>
     <p>
       Neraium detects sustained deterioration in live water systems before failure occurs.
-      We operate as a fully read-only intelligence layer, producing governed outputs
-      without controlling or modifying physical infrastructure.
+      We operate as a read-only intelligence layer, combining multivariate drift detection
+      with governance to produce outputs institutions can trust.
     </p>
     <a class="cta" href="mailto:founder@neraium.com">Investor Discussion</a>
   </div>
@@ -173,42 +172,40 @@ header{
 
 <section class="section">
   <div class="container">
-    <h2>The Problem</h2>
+    <h2>The Structural Gap</h2>
     <p>
-      Water infrastructure degrades gradually.
-      Most organizations discover deterioration only after alarms trigger,
-      efficiency drops, or failures occur.
-      Existing systems generate data, but they do not classify sustained structural decline early enough to act decisively.
+      Water systems degrade gradually, yet most deterioration is discovered reactively.
+      Telemetry exists. Insight exists. Governance does not.
+      Intelligence must remain separated from operational control while still becoming actionable.
     </p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <h2>The Neraium Approach</h2>
+    <h2>The Neraium Model</h2>
 
     <div class="grid">
       <div class="card">
         <h3>Drift Detection</h3>
         <p>
-          We identify persistent deviation across operational signals over time,
-          surfacing deterioration before reactive thresholds are crossed.
+          Persistent multivariate deviation is identified before alarms or failure thresholds are crossed.
         </p>
       </div>
 
       <div class="card">
-        <h3>Read-Only Architecture</h3>
+        <h3>Read-Only Boundary</h3>
         <p>
           Neraium does not actuate, control, or modify physical systems.
-          Intelligence remains structurally separate from operations.
+          System authority remains intact.
         </p>
       </div>
 
       <div class="card">
         <h3>Governed Outputs</h3>
         <p>
-          Every classification is structured, traceable, and defensible
-          for institutional review, audit, and oversight environments.
+          Classifications are structured, traceable, and defensible for institutional review,
+          audit, and oversight.
         </p>
       </div>
     </div>
@@ -217,20 +214,19 @@ header{
 
 <section class="section">
   <div class="container">
-    <h2>Institutional Impact</h2>
+    <h2>Institutional Formation</h2>
     <p>
-      As infrastructure becomes more digitized, intelligence must become more accountable.
-      Early detection reduces reactive cost exposure, operational disruption,
-      and liability. Governance ensures insight can be trusted at institutional scale.
+      As infrastructure digitizes, intelligence becomes infrastructure.
+      Neraium is defining the systemic intelligence layer for high-consequence water environments.
     </p>
-    <div style="margin-top:50px;">
+    <div style="margin-top:60px;">
       <a class="cta" href="mailto:founder@neraium.com">Request Discussion</a>
     </div>
   </div>
 </section>
 
 <div class="footer">
-  © 2026 Neraium. Read-Only Infrastructure Intelligence.
+  © 2026 Neraium. Systemic Infrastructure Intelligence.
 </div>
 
 </body>

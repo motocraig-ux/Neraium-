@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neraium | Technical Overview</title>
+
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black: #05070d;
+  --navy: #0c1422;
+  --deep: #132338;
+  --accent: #1e5df0;
+  --text: #ffffff;
+  --muted: rgba(255,255,255,0.72);
+  --faint: rgba(255,255,255,0.45);
+  --border: rgba(255,255,255,0.08);
+  --max: 1000px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--black) 0%, var(--navy) 50%, var(--deep) 100%);
+  color: var(--text);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 80px 40px 120px;
+}
+
+header {
+  margin-bottom: 120px;
+}
+
+.logo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: clamp(48px, 6vw, 78px);
+  margin: 0 0 40px 0;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 30px;
+  margin-top: 120px;
+  margin-bottom: 30px;
+  letter-spacing: -0.01em;
+}
+
+p {
+  font-size: 20px;
+  color: var(--muted);
+  margin: 0 0 28px 0;
+}
+
+ul {
+  margin: 20px 0 40px 20px;
+  color: var(--muted);
+  font-size: 19px;
+}
+
+li {
+  margin-bottom: 12px;
+}
+
+.section-divider {
+  margin-top: 100px;
+  border-top: 1px solid var(--border);
+}
+
+.code-block {
+  margin-top: 40px;
+  padding: 30px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--faint);
+}
+
+footer {
+  margin-top: 160px;
+  padding-top: 60px;
+  border-top: 1px solid var(--border);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 60px 24px 100px; }
+  h2 { margin-top: 80px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+<div class="logo">NERAIUM · TECHNICAL

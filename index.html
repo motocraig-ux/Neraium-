@@ -15,7 +15,7 @@
   --text:#ffffff;
   --text-muted:rgba(255,255,255,0.70);
   --border:rgba(46,109,246,0.18);
-  --max:1100px;
+  --max:1000px;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -68,8 +68,8 @@ nav a:hover{color:var(--accent)}
 }
 
 .hero h1{
-  font-size:clamp(56px,6vw,88px);
-  line-height:1.03;
+  font-size:clamp(56px,6vw,86px);
+  line-height:1.04;
   letter-spacing:-0.02em;
   max-width:900px;
   margin-bottom:32px;
@@ -78,70 +78,23 @@ nav a:hover{color:var(--accent)}
 .hero p{
   font-size:24px;
   color:var(--text-muted);
-  max-width:760px;
-  margin-bottom:70px;
+  max-width:720px;
 }
 
-.cta{
-  display:inline-block;
-  padding:18px 44px;
-  background:var(--accent);
-  color:#fff;
-  text-decoration:none;
-  border-radius:6px;
-  font-weight:600;
-}
-
-.cta:hover{opacity:0.9}
-
-.thesis{
+.section{
   padding:200px 0;
   border-top:1px solid var(--border);
 }
 
-.thesis p{
-  font-size:30px;
-  line-height:1.4;
-  max-width:900px;
-  color:var(--text-muted);
+.section h2{
+  font-size:36px;
+  margin-bottom:28px;
 }
 
-.structure{
-  padding:200px 0;
-  border-top:1px solid var(--border);
-}
-
-.structure h2{
-  font-size:40px;
-  margin-bottom:40px;
-}
-
-.structure p{
-  font-size:20px;
+.section p{
+  font-size:22px;
   color:var(--text-muted);
   max-width:820px;
-}
-
-.pillars{
-  padding:200px 0;
-  border-top:1px solid var(--border);
-  display:grid;
-  gap:80px;
-}
-
-.pillar h3{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:13px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  color:var(--accent);
-  margin-bottom:20px;
-}
-
-.pillar p{
-  font-size:20px;
-  color:var(--text-muted);
-  max-width:800px;
 }
 
 .contact{
@@ -153,6 +106,16 @@ nav a:hover{color:var(--accent)}
   font-size:20px;
   color:var(--text-muted);
   margin-bottom:40px;
+}
+
+.cta{
+  display:inline-block;
+  padding:18px 44px;
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:600;
 }
 
 footer{
@@ -180,56 +143,29 @@ footer{
 <section class="hero">
 <div class="container">
 <h1>
-We Define Systemic Infrastructure Intelligence
+Systemic Infrastructure Intelligence
 </h1>
 <p>
-Neraium detects early deterioration in live water systems using existing telemetry while preserving full operator authority.
-</p>
-<a href="#contact" class="cta">Engage</a>
-</div>
-</section>
-
-<section class="thesis">
-<div class="container">
-<p>
-Infrastructure is becoming intelligent. In high consequence environments, observation must remain structurally independent from control. Neraium defines the read only intelligence layer that separates insight from actuation.
+Early detection of structural deterioration in live water systems using existing telemetry.
 </p>
 </div>
 </section>
 
-<section class="structure">
+<section class="section">
 <div class="container">
-<h2>The Structural Role</h2>
+<h2>The Shift</h2>
 <p>
-Neraium operates alongside existing systems. It does not actuate equipment. It does not override operators. It analyzes sustained multivariate drift and produces governed classifications for institutional review.
+Infrastructure is becoming increasingly instrumented and intelligence dependent. In high consequence environments, observation must remain independent from control. Structural separation becomes necessary.
 </p>
 </div>
 </section>
 
-<section class="pillars">
+<section class="section">
 <div class="container">
-
-<div class="pillar">
-<h3>Early Deterioration Detection</h3>
+<h2>The Role</h2>
 <p>
-Persistent multivariate signal analysis identifies structural decay before reactive failure thresholds trigger.
+Neraium operates as a read only intelligence layer alongside existing systems. It identifies sustained multivariate deterioration patterns and produces structured classifications for institutional review.
 </p>
-</div>
-
-<div class="pillar">
-<h3>Boundary Integrity</h3>
-<p>
-Operational authority remains with human operators. Neraium remains read only and non actuating.
-</p>
-</div>
-
-<div class="pillar">
-<h3>Governed Intelligence Output</h3>
-<p>
-Classifications are structured, traceable, and aligned with institutional audit environments.
-</p>
-</div>
-
 </div>
 </section>
 
@@ -241,11 +177,12 @@ Founder and Chief Executive Officer<br>
 Craig@neraium.com<br>
 602 833 7441
 </p>
+<a href="mailto:Craig@neraium.com" class="cta">Engage</a>
 </div>
 </section>
 
 <footer>
-© 2026 Neraium. Systemic Infrastructure Intelligence.
+© 2026 Neraium
 </footer>
 
 </body>

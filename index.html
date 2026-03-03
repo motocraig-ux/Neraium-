@@ -13,6 +13,7 @@
   --bg-0:#04070c;
   --bg-1:#070d18;
   --bg-2:#0d1424;
+  --bg-3:#0a101c;
   --text:#eaf1ff;
   --text-muted:rgba(234,241,255,0.65);
   --accent:#00c8e8;
@@ -44,7 +45,7 @@ nav{
   left:0;
   right:0;
   background:rgba(4,7,12,0.92);
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid var(--border);
   z-index:100;
 }
@@ -79,7 +80,7 @@ nav{
   background:
     linear-gradient(
       to bottom,
-      rgba(30,80,180,0.55) 0%,
+      rgba(25,75,180,0.55) 0%,
       rgba(10,25,60,0.75) 45%,
       rgba(4,7,12,0.95) 100%
     ),
@@ -109,20 +110,9 @@ nav{
 section{
   padding:120px 0;
   border-top:1px solid var(--border);
-  background:var(--bg-1);
 }
 section:nth-child(even){
-  background:var(--bg-2);
-}
-.section-title{
-  font-size:28px;
-  margin-bottom:30px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-.section-body{
-  max-width:850px;
-  color:var(--text-muted);
+  background:var(--bg-1);
 }
 
 /* GRID */
@@ -135,15 +125,46 @@ section:nth-child(even){
 .card{
   padding:40px;
   border:1px solid var(--border);
-  background:rgba(0,0,0,0.3);
+  background:rgba(0,0,0,0.35);
 }
 .card h3{
   margin-bottom:15px;
-  font-size:16px;
-  letter-spacing:1px;
+  font-size:15px;
 }
 .card p{
   color:var(--text-muted);
+}
+
+/* SYSTEM BOUNDARY */
+.boundary-wrapper{
+  margin-top:50px;
+  border:1px solid var(--border);
+}
+.boundary-layer{
+  padding:60px;
+}
+.boundary-layer h3{
+  font-size:14px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:30px;
+}
+.boundary-item{
+  font-size:20px;
+  margin-bottom:20px;
+  color:var(--text-muted);
+}
+.boundary-divider{
+  padding:20px;
+  text-align:center;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--accent);
+  background:var(--bg-3);
 }
 
 /* STATS */
@@ -212,7 +233,7 @@ footer{
 /* MOBILE */
 @media(max-width:900px){
   .hero h1{font-size:60px}
-  .hero h2{font-size:28px}
+  .hero h2{font-size:26px}
   .grid{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr}
   .contact-grid{grid-template-columns:1fr}
@@ -237,36 +258,42 @@ footer{
     <h1>NERAIUM</h1>
     <h2>Systemic Infrastructure Intelligence</h2>
     <p>
-      Read-only telemetry analysis for sustained structural deviation.
-      Multivariate drift detection validated against the NASA CMAPSS dataset.
+      Read only telemetry analysis for sustained structural deviation.
+      Multivariate drift detection validated against NASA CMAPSS trajectories.
     </p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <div class="section-title">Platform</div>
-    <div class="section-body">
-      Neraium ingests live operational telemetry and evaluates structural deviation
-      using multivariate statistical baselines. The system is read-only and produces
-      reviewable records without controlling equipment.
-    </div>
-    <div class="grid">
-      <div class="card">
-        <h3>Baseline Modeling</h3>
-        <p>30-cycle baseline construction with covariance modeling and variance validation.</p>
+    <h2>System Boundary Model</h2>
+
+    <div class="boundary-wrapper">
+
+      <div class="boundary-layer">
+        <h3>Neraium</h3>
+        <div class="boundary-item">Structured multivariate analysis</div>
+        <div class="boundary-item">Drift detection and classification</div>
+        <div class="boundary-item">Structured analytical records</div>
       </div>
-      <div class="card">
-        <h3>Drift Detection</h3>
-        <p>Mahalanobis distance with 7-cycle smoothing and 2-hit 4 sigma threshold logic.</p>
+
+      <div class="boundary-divider">Read Only Interface</div>
+
+      <div class="boundary-layer">
+        <h3>Operational Systems</h3>
+        <div class="boundary-item">No actuation capability</div>
+        <div class="boundary-item">Existing control authority retained</div>
+        <div class="boundary-item">Operator review and response</div>
       </div>
+
     </div>
+
   </div>
 </section>
 
 <section>
   <div class="container">
-    <div class="section-title">Validation</div>
+    <h2>Validation</h2>
 
     <div class="stats">
       <div class="stat">
@@ -292,7 +319,7 @@ footer{
 
 <section id="contact">
   <div class="container">
-    <div class="section-title">Contact</div>
+    <h2>Contact</h2>
 
     <div class="contact-grid">
       <div class="contact-info">

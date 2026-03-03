@@ -4,61 +4,69 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neraium | Systemic Infrastructure Intelligence</title>
-<meta name="description" content="Neraium is a read-only infrastructure intelligence layer for telemetry analysis, deviation detection, and evidence-grade records.">
+<meta name="description" content="Read-only infrastructure intelligence for telemetry analysis and evidence-grade records.">
 
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#0f1623;
-  --bg2:#182133;
-  --card:#1f273d;
-  --text:#e8eff9;
-  --muted:#8b97b1;
-  --accent:#3aa5ff;
-  --border:rgba(255,255,255,.08);
-  --mono:'IBM Plex Mono',monospace;
-  --sans:'Inter',sans-serif;
+  --bg:#0b111c;
+  --surface:#121a2b;
+  --border:rgba(255,255,255,.06);
+  --text:#f4f7fb;
+  --muted:#8c99b3;
+  --accent:#4da3ff;
+  --mono:'IBM Plex Mono', monospace;
+  --sans:'Inter', sans-serif;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-  font-family:var(--sans);
   background:var(--bg);
   color:var(--text);
+  font-family:var(--sans);
   line-height:1.6;
 }
+
 .container{
-  width:100%;
-  max-width:1200px;
+  max-width:1100px;
   margin:0 auto;
-  padding:0 32px;
+  padding:0 28px;
 }
+
+/* Navigation */
+
 nav{
   position:fixed;
   top:0;left:0;right:0;
-  background:rgba(15,22,35,.96);
+  background:rgba(11,17,28,.96);
+  backdrop-filter:blur(8px);
   border-bottom:1px solid var(--border);
   z-index:100;
 }
+
 .nav-inner{
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  height:60px;
+  align-items:center;
+  height:64px;
 }
-.nav-brand{
+
+.brand{
   font-family:var(--mono);
   letter-spacing:3px;
-  font-weight:700;
+  font-size:14px;
   color:var(--accent);
   text-decoration:none;
 }
+
 .nav-links{
   list-style:none;
   display:flex;
-  gap:24px;
+  gap:28px;
 }
+
 .nav-links a{
   font-family:var(--mono);
   font-size:10px;
@@ -66,113 +74,191 @@ nav{
   text-transform:uppercase;
   color:var(--muted);
   text-decoration:none;
+  transition:.2s;
 }
-.nav-links a:hover{color:var(--text)}
+
+.nav-links a:hover{
+  color:var(--text);
+}
+
+/* Hero */
 
 .hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  padding:140px 0 80px;
-  background:linear-gradient(180deg,var(--bg)0%,var(--bg2)100%);
+  padding:180px 0 140px;
+  text-align:left;
 }
+
 .hero h1{
-  font-size:90px;
+  font-size:96px;
   font-weight:700;
+  letter-spacing:-2px;
 }
+
 .hero h2{
   font-size:36px;
-  margin-top:8px;
+  font-weight:500;
+  margin-top:10px;
+  color:var(--text);
 }
+
 .hero p{
-  margin-top:16px;
-  max-width:600px;
+  margin-top:22px;
+  max-width:560px;
+  font-size:16px;
   color:var(--muted);
 }
 
+.hero-divider{
+  margin-top:40px;
+  width:80px;
+  height:2px;
+  background:var(--accent);
+}
+
+/* Sections */
+
 section{
-  padding:100px 0;
+  padding:110px 0;
   border-top:1px solid var(--border);
 }
+
+.section-label{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:14px;
+}
+
 .section-title{
-  font-size:30px;
-  margin-bottom:12px;
+  font-size:32px;
+  font-weight:600;
+  margin-bottom:16px;
 }
-.section-text{
-  max-width:650px;
+
+.section-body{
+  max-width:620px;
+  font-size:15px;
   color:var(--muted);
-  margin-bottom:32px;
+  margin-bottom:40px;
 }
+
+/* Grid Cards */
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:1px;
   background:var(--border);
-}
-.card{
-  background:var(--card);
-  padding:28px;
-}
-.card h3{margin-bottom:8px}
-.card p{color:var(--muted)}
-
-.contact-grid{
-  display:grid;
-  grid-template-columns:300px 1fr;
-  gap:40px;
-}
-.contact-box{
   border:1px solid var(--border);
-  background:var(--card);
 }
-.info-row{
-  display:grid;
-  grid-template-columns:110px 1fr;
-  border-bottom:1px solid var(--border);
+
+.card{
+  background:var(--surface);
+  padding:36px;
 }
-.info-row:last-child{border-bottom:none}
-.info-key{
-  padding:12px;
-  font-family:var(--mono);
-  font-size:10px;
-  color:var(--muted);
-  border-right:1px solid var(--border);
+
+.card h3{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:10px;
 }
-.info-val{
-  padding:12px;
+
+.card p{
   font-size:14px;
   color:var(--muted);
 }
-.info-val a{color:var(--accent);text-decoration:none}
 
-form{padding:20px}
-form input,form textarea,form select{
+/* Contact */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:60px;
+}
+
+.contact-box{
+  border:1px solid var(--border);
+  background:var(--surface);
+}
+
+.info-row{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  border-bottom:1px solid var(--border);
+}
+
+.info-row:last-child{border-bottom:none}
+
+.info-key{
+  padding:16px;
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:2px;
+  color:var(--muted);
+  border-right:1px solid var(--border);
+}
+
+.info-val{
+  padding:16px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.info-val a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+/* Form */
+
+form{
+  padding:32px;
+}
+
+input,textarea{
   width:100%;
-  padding:10px;
-  margin-bottom:14px;
+  padding:12px;
+  margin-bottom:16px;
   background:var(--bg);
   border:1px solid var(--border);
   color:var(--text);
+  font-family:var(--sans);
 }
+
+input:focus,textarea:focus{
+  outline:none;
+  border-color:var(--accent);
+}
+
 button{
-  padding:10px 20px;
+  padding:12px 28px;
   font-family:var(--mono);
   font-size:10px;
+  letter-spacing:2px;
   text-transform:uppercase;
   background:var(--accent);
   border:none;
-  color:#000;
   cursor:pointer;
+  font-weight:600;
 }
+
+/* Footer */
+
 footer{
-  padding:50px 0;
+  padding:60px 0;
   border-top:1px solid var(--border);
   text-align:center;
+  font-size:13px;
   color:var(--muted);
 }
-@media(max-width:768px){
-  .hero h1{font-size:56px}
+
+/* Responsive */
+
+@media(max-width:900px){
+  .hero h1{font-size:64px}
+  .hero h2{font-size:26px}
   .contact-grid{grid-template-columns:1fr}
 }
 </style>
@@ -182,7 +268,7 @@ footer{
 
 <nav>
   <div class="container nav-inner">
-    <a href="#" class="nav-brand">NERAIUM</a>
+    <a href="#" class="brand">NERAIUM</a>
     <ul class="nav-links">
       <li><a href="#platform">Platform</a></li>
       <li><a href="#evidence">Evidence</a></li>
@@ -196,33 +282,34 @@ footer{
     <h1>NERAIUM</h1>
     <h2>Systemic Infrastructure Intelligence</h2>
     <p>
-      Neraium is a read-only infrastructure intelligence layer. It ingests telemetry,
-      analyzes sustained deviation patterns, and produces reviewable records without
-      issuing control commands.
+      Neraium is a read-only infrastructure intelligence layer.
+      It ingests telemetry, analyzes sustained deviation patterns,
+      and produces reviewable records without issuing control commands.
     </p>
+    <div class="hero-divider"></div>
   </div>
 </section>
 
 <section id="platform">
   <div class="container">
-    <h2 class="section-title">Platform</h2>
-    <p class="section-text">
-      Neraium operates as a read-only analytical layer for physical infrastructure.
-      It evaluates telemetry and produces contextual outputs for operator review.
-    </p>
+    <div class="section-label">Platform</div>
+    <div class="section-title">Infrastructure Intelligence Layer</div>
+    <div class="section-body">
+      Designed to evaluate telemetry from existing systems and produce contextual analytical outputs for operator review.
+    </div>
 
     <div class="grid">
       <div class="card">
         <h3>Telemetry Ingestion</h3>
-        <p>Receives existing system telemetry without sending control signals.</p>
+        <p>Receives existing system data without issuing control signals.</p>
       </div>
       <div class="card">
-        <h3>Deviation Analysis</h3>
-        <p>Detects sustained multi-signal drift relative to baseline behavior.</p>
+        <h3>Multivariate Deviation Analysis</h3>
+        <p>Detects sustained multi-signal drift relative to established baselines.</p>
       </div>
       <div class="card">
-        <h3>Review Records</h3>
-        <p>Preserves context-rich outputs for operator interpretation.</p>
+        <h3>Evidence Records</h3>
+        <p>Preserves contextual output for structured operator review.</p>
       </div>
     </div>
   </div>
@@ -230,17 +317,19 @@ footer{
 
 <section id="evidence">
   <div class="container">
-    <h2 class="section-title">Evidence Basis</h2>
-    <p class="section-text">
-      Current demonstrations reference the NASA C-MAPSS dataset as an algorithm
-      development benchmark. This does not represent live water infrastructure validation.
-    </p>
+    <div class="section-label">Evidence</div>
+    <div class="section-title">Current Demonstration Basis</div>
+    <div class="section-body">
+      Algorithmic demonstrations reference the NASA C-MAPSS benchmark dataset for degradation analysis.
+      This serves as a development environment and does not represent live water infrastructure validation.
+    </div>
   </div>
 </section>
 
 <section id="contact">
   <div class="container">
-    <h2 class="section-title">Contact</h2>
+    <div class="section-label">Contact</div>
+    <div class="section-title">Direct Inquiry</div>
 
     <div class="contact-grid">
       <div class="contact-box">

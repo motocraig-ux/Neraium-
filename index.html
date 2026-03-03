@@ -4,233 +4,311 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neraium | Systemic Infrastructure Intelligence</title>
-<meta name="description" content="Read-only infrastructure intelligence for telemetry analysis and empirical multivariate drift detection.">
+<meta name="description" content="Read only infrastructure intelligence for telemetry analysis and structured evidence generation.">
 
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#0b111c;
-  --surface:#121a2b;
-  --border:rgba(255,255,255,.06);
-  --text:#f4f7fb;
-  --muted:#8c99b3;
-  --accent:#4da3ff;
+  --bg-0:#050b16;
+  --bg-1:#0b1424;
+  --surface:#111c2e;
+  --border:rgba(255,255,255,0.06);
+  --text:#f2f6ff;
+  --muted:#8ea0c2;
+  --accent:#3f82ff;
   --mono:'IBM Plex Mono', monospace;
   --sans:'Inter', sans-serif;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6}
-.container{max-width:1100px;margin:0 auto;padding:0 28px}
+
+body{
+  font-family:var(--sans);
+  background:var(--bg-0);
+  color:var(--text);
+  line-height:1.6;
+}
+
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 40px;
+}
 
 /* NAV */
 
 nav{
-  position:fixed;top:0;left:0;right:0;
-  background:rgba(11,17,28,.96);
-  backdrop-filter:blur(8px);
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  background:rgba(5,11,22,0.95);
   border-bottom:1px solid var(--border);
   z-index:100;
 }
-.nav-inner{display:flex;justify-content:space-between;align-items:center;height:64px}
+
+.nav-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:70px;
+}
+
 .brand{
   font-family:var(--mono);
-  letter-spacing:3px;
   font-size:14px;
+  letter-spacing:3px;
   color:var(--accent);
   text-decoration:none;
 }
-.nav-links{list-style:none;display:flex;gap:28px}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:36px;
+}
+
 .nav-links a{
   font-family:var(--mono);
-  font-size:10px;
+  font-size:11px;
   letter-spacing:2px;
   text-transform:uppercase;
   color:var(--muted);
   text-decoration:none;
 }
-.nav-links a:hover{color:var(--text)}
+
+.nav-links a:hover{
+  color:var(--text);
+}
 
 /* HERO */
 
 .hero{
-  position:relative;
-  padding:200px 0 160px;
-  background:linear-gradient(
-    180deg,
-    #0d1e3a 0%,
-    #0b111c 60%,
-    #05080f 100%
-  );
-  overflow:hidden;
+  padding:220px 0 160px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15,30,60,0.75) 0%,
+      rgba(8,16,28,0.88) 60%,
+      rgba(5,11,22,1) 100%
+    ),
+    url("hero.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 }
-.hero::before{
-  content:"";
-  position:absolute;inset:0;
-  background:url("hero.png") center center/cover no-repeat;
-  opacity:.18;
-  z-index:0;
-}
-.hero::after{
-  content:"";
-  position:absolute;inset:0;
-  background:linear-gradient(
-    180deg,
-    rgba(13,30,58,.85) 0%,
-    rgba(11,17,28,.95) 70%,
-    rgba(5,8,15,1) 100%
-  );
-  z-index:1;
-}
-.hero .container{position:relative;z-index:2}
 
 .hero h1{
-  font-size:96px;
+  font-size:100px;
   font-weight:700;
-  letter-spacing:-2px;
+  letter-spacing:-3px;
 }
+
 .hero h2{
-  font-size:36px;
-  margin-top:10px;
+  font-size:38px;
+  margin-top:8px;
 }
+
 .hero p{
-  margin-top:22px;
-  max-width:580px;
+  margin-top:24px;
+  max-width:640px;
   color:var(--muted);
-}
-.hero-divider{
-  margin-top:40px;
-  width:80px;
-  height:2px;
-  background:var(--accent);
 }
 
 /* SECTIONS */
 
 section{
-  padding:110px 0;
+  padding:120px 0;
   border-top:1px solid var(--border);
 }
+
 .section-label{
   font-family:var(--mono);
-  font-size:10px;
+  font-size:11px;
   letter-spacing:3px;
   text-transform:uppercase;
   color:var(--accent);
-  margin-bottom:14px;
+  margin-bottom:18px;
 }
+
 .section-title{
-  font-size:32px;
+  font-size:34px;
   font-weight:600;
-  margin-bottom:16px;
+  margin-bottom:18px;
 }
+
 .section-body{
-  max-width:650px;
+  max-width:700px;
   color:var(--muted);
-  margin-bottom:40px;
+  margin-bottom:60px;
 }
 
 /* GRID */
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:1px;
   background:var(--border);
   border:1px solid var(--border);
 }
+
 .card{
   background:var(--surface);
-  padding:36px;
+  padding:42px;
 }
-.card h3{font-size:18px;margin-bottom:10px}
-.card p{font-size:14px;color:var(--muted)}
+
+.card h3{
+  font-size:19px;
+  margin-bottom:12px;
+}
+
+.card p{
+  font-size:15px;
+  color:var(--muted);
+}
 
 /* STATS */
 
 .stats{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:1px;
   background:var(--border);
   border:1px solid var(--border);
 }
+
 .stat{
   background:var(--surface);
-  padding:30px;
+  padding:36px;
 }
+
 .stat-label{
   font-family:var(--mono);
-  font-size:10px;
+  font-size:11px;
   letter-spacing:2px;
   text-transform:uppercase;
   color:var(--muted);
-  margin-bottom:8px;
+  margin-bottom:12px;
 }
+
 .stat-value{
-  font-size:20px;
+  font-size:26px;
   font-weight:600;
+}
+
+/* TABLE */
+
+.table{
+  border:1px solid var(--border);
+}
+
+.table-row{
+  display:grid;
+  grid-template-columns:220px 1fr 1fr;
+  border-bottom:1px solid var(--border);
+}
+
+.table-row:last-child{
+  border-bottom:none;
+}
+
+.cell{
+  padding:22px;
+  color:var(--muted);
+}
+
+.cell.header{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+
+.cell.label{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
 /* CONTACT */
 
 .contact-grid{
   display:grid;
-  grid-template-columns:320px 1fr;
-  gap:60px;
+  grid-template-columns:380px 1fr;
+  gap:80px;
 }
+
 .contact-box{
   border:1px solid var(--border);
   background:var(--surface);
 }
+
 .info-row{
   display:grid;
   grid-template-columns:120px 1fr;
   border-bottom:1px solid var(--border);
 }
-.info-row:last-child{border-bottom:none}
+
+.info-row:last-child{
+  border-bottom:none;
+}
+
 .info-key{
-  padding:16px;
+  padding:18px;
   font-family:var(--mono);
-  font-size:10px;
+  font-size:11px;
   letter-spacing:2px;
   color:var(--muted);
   border-right:1px solid var(--border);
 }
-.info-val{padding:16px;color:var(--muted)}
-.info-val a{color:var(--accent);text-decoration:none}
+
+.info-val{
+  padding:18px;
+  color:var(--muted);
+}
+
+.info-val a{
+  color:var(--accent);
+  text-decoration:none;
+}
 
 /* FORM */
 
-form{padding:32px}
+form{
+  padding:40px;
+}
+
 input,textarea{
   width:100%;
-  padding:12px;
-  margin-bottom:16px;
-  background:var(--bg);
+  padding:14px;
+  margin-bottom:18px;
+  background:var(--bg-1);
   border:1px solid var(--border);
   color:var(--text);
 }
-input:focus,textarea:focus{outline:none;border-color:var(--accent)}
+
 button{
-  padding:12px 28px;
+  padding:14px 34px;
   font-family:var(--mono);
-  font-size:10px;
+  font-size:11px;
   letter-spacing:2px;
   text-transform:uppercase;
   background:var(--accent);
   border:none;
-  cursor:pointer;
   font-weight:600;
+  cursor:pointer;
 }
 
 /* FOOTER */
 
 footer{
-  padding:60px 0;
-  border-top:1px solid var(--border);
+  padding:80px 0;
   text-align:center;
+  border-top:1px solid var(--border);
   color:var(--muted);
 }
 
@@ -240,6 +318,7 @@ footer{
   .hero h1{font-size:64px}
   .hero h2{font-size:26px}
   .contact-grid{grid-template-columns:1fr}
+  .table-row{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -252,6 +331,7 @@ footer{
     <ul class="nav-links">
       <li><a href="#platform">Platform</a></li>
       <li><a href="#validation">Validation</a></li>
+      <li><a href="#architecture">Architecture</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -262,11 +342,10 @@ footer{
     <h1>NERAIUM</h1>
     <h2>Systemic Infrastructure Intelligence</h2>
     <p>
-      Neraium is a read-only infrastructure intelligence layer.
-      It ingests telemetry, performs multivariate drift analysis,
+      Neraium operates as a read only infrastructure intelligence layer.
+      It ingests telemetry, performs multivariate deviation analysis,
       and produces structured outputs for operator review without issuing control commands.
     </p>
-    <div class="hero-divider"></div>
   </div>
 </section>
 
@@ -275,21 +354,21 @@ footer{
     <div class="section-label">Platform</div>
     <div class="section-title">Infrastructure Intelligence Layer</div>
     <div class="section-body">
-      Designed to evaluate telemetry from existing systems and produce contextual analytical outputs while preserving system boundary integrity.
+      Designed to evaluate telemetry from existing systems and generate contextual analytical records while preserving strict system boundary discipline.
     </div>
 
     <div class="grid">
       <div class="card">
-        <h3>Read-Only Telemetry Ingestion</h3>
-        <p>Receives operational data without modifying system state.</p>
+        <h3>Telemetry Ingestion</h3>
+        <p>Receives operational data streams without altering system state.</p>
       </div>
       <div class="card">
-        <h3>Multivariate Drift Detection</h3>
-        <p>Mahalanobis-based deviation modeling across correlated parameters.</p>
+        <h3>Multivariate Drift Modeling</h3>
+        <p>Mahalanobis based deviation detection across correlated parameters.</p>
       </div>
       <div class="card">
-        <h3>Structured Evidence Outputs</h3>
-        <p>Preserves analytical state for review and governance documentation.</p>
+        <h3>Structured Evidence Output</h3>
+        <p>Preserves analytical state for governance and review processes.</p>
       </div>
     </div>
   </div>
@@ -298,23 +377,23 @@ footer{
 <section id="validation">
   <div class="container">
     <div class="section-label">Empirical Validation</div>
-    <div class="section-title">Multivariate Drift Detection — Benchmark Results</div>
+    <div class="section-title">NASA C MAPSS Benchmark Results</div>
 
     <div class="section-body">
-      Validation conducted using NASA C-MAPSS FD001–FD004 subsets.
-      Methodology: 30-cycle baseline, Mahalanobis drift, 7-cycle smoothing,
-      2-hit admission logic, 4σ threshold.
-      Benchmark environment only.
+      Validation conducted across FD001 through FD004 subsets using 30 cycle baseline modeling,
+      Mahalanobis multivariate drift computation, 7 cycle smoothing,
+      2 hit admission logic, and 4 sigma threshold.
+      Benchmark dataset environment only.
     </div>
 
     <div class="stats">
       <div class="stat">
         <div class="stat-label">Engines Evaluated</div>
-        <div class="stat-value">707 (FD001–FD004)</div>
+        <div class="stat-value">707</div>
       </div>
       <div class="stat">
         <div class="stat-label">Detection Coverage</div>
-        <div class="stat-value">96.9%</div>
+        <div class="stat-value">96.9 Percent</div>
       </div>
       <div class="stat">
         <div class="stat-label">Median Lead Time</div>
@@ -325,11 +404,36 @@ footer{
         <div class="stat-value">0</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div style="margin-top:40px;color:var(--muted);max-width:640px;">
-      Stress-tested under baseline variation and telemetry degradation.
+<section id="architecture">
+  <div class="container">
+    <div class="section-label">Architecture</div>
+    <div class="section-title">System Boundary Model</div>
+
+    <div class="table">
+      <div class="table-row">
+        <div class="cell header"></div>
+        <div class="cell header">Neraium</div>
+        <div class="cell header">Operational Systems</div>
+      </div>
+      <div class="table-row">
+        <div class="cell label">Control</div>
+        <div class="cell">No actuation capability</div>
+        <div class="cell">Existing control authority retained</div>
+      </div>
+      <div class="table-row">
+        <div class="cell label">Data Flow</div>
+        <div class="cell">Read only ingestion</div>
+        <div class="cell">Native telemetry generation</div>
+      </div>
+      <div class="table-row">
+        <div class="cell label">Output</div>
+        <div class="cell">Structured analytical records</div>
+        <div class="cell">Operator review and response</div>
+      </div>
     </div>
-
   </div>
 </section>
 
@@ -346,11 +450,11 @@ footer{
         </div>
         <div class="info-row">
           <div class="info-key">Role</div>
-          <div class="info-val">Founder & CEO</div>
+          <div class="info-val">Founder and CEO</div>
         </div>
         <div class="info-row">
           <div class="info-key">Phone</div>
-          <div class="info-val"><a href="tel:+16028337441">602-833-7441</a></div>
+          <div class="info-val"><a href="tel:+16028337441">602 833 7441</a></div>
         </div>
         <div class="info-row">
           <div class="info-key">Email</div>

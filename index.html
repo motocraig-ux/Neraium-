@@ -3,1043 +3,279 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NERAIUM | Infrastructure Intelligence Platform</title>
-<meta name="description" content="Neraium is a read-only systemic infrastructure intelligence platform for telemetry review, deviation analysis, and reviewable records.">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Neraium | Systemic Infrastructure Intelligence</title>
+<meta name="description" content="Neraium is a read-only infrastructure intelligence layer for telemetry analysis, deviation detection, and evidence-grade records.">
+
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg: #0f1623;
-  --bg-light: #182133;
-  --bg-card: #1f273d;
-  --text-primary: #e8eff9;
-  --text-secondary: #8b97b1;
-  --text-muted: #5d6c85;
-  --accent: #3aa5ff;
-  --accent-light: #5fb9ff;
-  --border: rgba(255,255,255,0.08);
-  --border-hover: rgba(58,165,255,0.25);
-  --font-mono: 'IBM Plex Mono', monospace;
-  --font-sans: 'Inter', sans-serif;
-}
-
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-sans);
-  background: var(--bg);
-  color: var(--text-primary);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* subtle grid overlay */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* container */
-.container {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 48px;
-  position: relative;
-  z-index: 2;
-}
-
-/* navigation */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background: rgba(15,22,35,0.95);
-  border-bottom: 1px solid var(--border);
-}
-
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-}
-
-.nav-brand {
-  font-family: var(--font-mono);
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.nav-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-  align-items: center;
-}
-
-.nav-links a {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  text-decoration: none;
-  position: relative;
-  padding-bottom: 5px;
-  transition: color 0.2s;
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: width 0.2s;
-}
-
-.nav-links a:hover {
-  color: var(--text-primary);
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-.nav-cta {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 600;
-  padding: 8px 20px;
-  border: 1px solid var(--border);
-  color: var(--accent);
-  text-decoration: none;
-  transition: background 0.25s;
-}
-
-.nav-cta:hover {
-  background: var(--accent);
-  color: var(--bg);
-}
-
-/* hero */
-.hero-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 160px 0 120px;
-  position: relative;
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-light) 100%);
-}
-
-.hero-content {
-  max-width: 900px;
-  z-index: 1;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--accent);
-  border: 1px solid var(--border);
-  padding: 6px 12px;
-  margin-bottom: 20px;
-}
-
-.hero-badge::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-}
-
-.hero-wordmark {
-  font-family: var(--font-sans);
-  font-size: 100px;
-  font-weight: 700;
-  letter-spacing: -2px;
-  margin-bottom: 8px;
-  color: var(--text-primary);
-}
-
-.hero-title {
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--text-primary);
-  margin-bottom: 18px;
-}
-
-.hero-body {
-  font-size: 16px;
-  color: var(--text-secondary);
-  max-width: 640px;
-  margin-bottom: 36px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
-}
-
-.btn {
-  padding: 12px 28px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 600;
-  border: 1px solid var(--border);
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: var(--bg);
-}
-
-.btn-primary:hover {
-  background: var(--accent-light);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--text-primary);
-}
-
-.btn-secondary:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.hero-status {
-  display: flex;
-  gap: 24px;
-  border-top: 1px solid var(--border);
-  padding-top: 12px;
-}
-
-.status-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-.status-item::before {
-  content: '';
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-
-/* sections */
-section {
-  padding: 100px 0;
-  border-top: 1px solid var(--border);
-}
-
-.section-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  margin-bottom: 48px;
-}
-
-.section-header .left {
-  width: 180px;
-  margin-right: 60px;
-}
-
-.sec-tag {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 6px;
-}
-
-.sec-title {
-  font-size: 32px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 12px;
-}
-
-.sec-body {
-  font-size: 15px;
-  color: var(--text-secondary);
-  line-height: 1.75;
-  max-width: 640px;
-}
-
-/* card grids */
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-
-.card {
-  background: var(--bg-card);
-  padding: 32px 24px;
-  transition: background 0.3s;
-}
-
-.card:hover {
-  background: var(--bg-light);
-}
-
-.card-num {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--accent);
-  margin-bottom: 12px;
-}
-
-.card-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 10px;
-}
-
-.card-text {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-/* architecture flow */
-.flow {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  align-items: center;
-  gap: 24px;
-}
-
-.flow-node {
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-  padding: 32px 24px;
-  text-align: center;
-}
-
-.flow-tag {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
-.flow-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-}
-
-.flow-text {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-/* evidence list */
-.table {
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-}
-
-.table-row {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  border-bottom: 1px solid var(--border);
-}
-
-.table-row:last-child {
-  border-bottom: none;
-}
-
-.table-key {
-  padding: 20px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--accent);
-  border-right: 1px solid var(--border);
-}
-
-.table-value {
-  padding: 20px;
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-/* positioning table */
-.pos-table {
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-}
-
-.pos-header,
-.pos-row {
-  display: grid;
-  grid-template-columns: 200px 1fr 1fr;
-  border-bottom: 1px solid var(--border);
-}
-
-.pos-header {
-  background: var(--bg-light);
-}
-
-.pos-cell {
-  padding: 16px;
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.pos-cell.header {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-.pos-cell.label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 600;
-}
-
-/* contact section */
-.contact-section {
-  padding: 100px 0;
-  border-top: 1px solid var(--border);
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 60px;
-  align-items: flex-start;
-}
-
-.contact-left h3 {
-  font-size: 32px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: var(--text-primary);
-}
-
-.contact-left p {
-  font-size: 15px;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 24px;
-}
-
-.contact-info {
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-}
-
-.contact-info-row {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  border-bottom: 1px solid var(--border);
-}
-
-.contact-info-row:last-child {
-  border-bottom: none;
-}
-
-.ci-key {
-  padding: 14px 16px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  border-right: 1px solid var(--border);
-}
-
-.ci-val {
-  padding: 14px 16px;
-  font-size: 14px;
-  color: var(--text-secondary);
-}
-
-.ci-val a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.contact-form-wrapper {
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-}
-
-.contact-form-wrapper h4 {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--accent);
-  padding: 18px 24px;
-  border-bottom: 1px solid var(--border);
-}
-
-.contact-form {
-  padding: 24px;
-}
-
-.form-row {
-  margin-bottom: 16px;
-}
-
-.form-row label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 6px;
-}
-
-.form-row input,
-.form-row textarea,
-.form-row select {
-  width: 100%;
-  padding: 10px 12px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  color: var(--text-primary);
-  font-family: var(--font-sans);
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.form-row input:focus,
-.form-row textarea:focus,
-.form-row select:focus {
-  border-color: var(--accent);
-}
-
-.form-row select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%238b97b1'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-}
-
-.form-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 18px;
-}
-
-.form-footer small {
-  font-size: 10px;
-  color: var(--text-muted);
-}
-
-.form-submit {
-  padding: 10px 24px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  background: var(--accent);
-  color: var(--bg);
-  border: 1px solid var(--accent);
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.form-submit:hover {
-  background: var(--accent-light);
-}
-
-/* footer */
-footer {
-  padding: 60px 0;
-  border-top: 1px solid var(--border);
-  background: var(--bg-light);
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 40px;
-}
-
-.footer-brand {
-  font-family: var(--font-mono);
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: var(--accent);
-  margin-bottom: 8px;
-}
-
-.footer-desc {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
-
-.footer-links {
-  list-style: none;
-  padding-left: 0;
-}
-
-.footer-links a {
-  display: block;
-  font-size: 13px;
-  color: var(--text-secondary);
-  text-decoration: none;
-  margin-bottom: 8px;
-}
-
-.footer-links a:hover {
-  color: var(--accent);
-}
-
-.footer-bottom {
-  margin-top: 40px;
-  font-size: 12px;
-  color: var(--text-muted);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+:root{
+  --bg:#0f1623;
+  --bg2:#182133;
+  --card:#1f273d;
+  --text:#e8eff9;
+  --muted:#8b97b1;
+  --accent:#3aa5ff;
+  --border:rgba(255,255,255,.08);
+  --mono:'IBM Plex Mono',monospace;
+  --sans:'Inter',sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+.container{
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 32px;
+}
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  background:rgba(15,22,35,.96);
+  border-bottom:1px solid var(--border);
+  z-index:100;
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:60px;
+}
+.nav-brand{
+  font-family:var(--mono);
+  letter-spacing:3px;
+  font-weight:700;
+  color:var(--accent);
+  text-decoration:none;
+}
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:24px;
+}
+.nav-links a{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+}
+.nav-links a:hover{color:var(--text)}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:140px 0 80px;
+  background:linear-gradient(180deg,var(--bg)0%,var(--bg2)100%);
+}
+.hero h1{
+  font-size:90px;
+  font-weight:700;
+}
+.hero h2{
+  font-size:36px;
+  margin-top:8px;
+}
+.hero p{
+  margin-top:16px;
+  max-width:600px;
+  color:var(--muted);
+}
+
+section{
+  padding:100px 0;
+  border-top:1px solid var(--border);
+}
+.section-title{
+  font-size:30px;
+  margin-bottom:12px;
+}
+.section-text{
+  max-width:650px;
+  color:var(--muted);
+  margin-bottom:32px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1px;
+  background:var(--border);
+}
+.card{
+  background:var(--card);
+  padding:28px;
+}
+.card h3{margin-bottom:8px}
+.card p{color:var(--muted)}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:40px;
+}
+.contact-box{
+  border:1px solid var(--border);
+  background:var(--card);
+}
+.info-row{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  border-bottom:1px solid var(--border);
+}
+.info-row:last-child{border-bottom:none}
+.info-key{
+  padding:12px;
+  font-family:var(--mono);
+  font-size:10px;
+  color:var(--muted);
+  border-right:1px solid var(--border);
+}
+.info-val{
+  padding:12px;
+  font-size:14px;
+  color:var(--muted);
+}
+.info-val a{color:var(--accent);text-decoration:none}
+
+form{padding:20px}
+form input,form textarea,form select{
+  width:100%;
+  padding:10px;
+  margin-bottom:14px;
+  background:var(--bg);
+  border:1px solid var(--border);
+  color:var(--text);
+}
+button{
+  padding:10px 20px;
+  font-family:var(--mono);
+  font-size:10px;
+  text-transform:uppercase;
+  background:var(--accent);
+  border:none;
+  color:#000;
+  cursor:pointer;
+}
+footer{
+  padding:50px 0;
+  border-top:1px solid var(--border);
+  text-align:center;
+  color:var(--muted);
+}
+@media(max-width:768px){
+  .hero h1{font-size:56px}
+  .contact-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
-<!-- navigation -->
 <nav>
-  <div class="container">
-    <div class="nav-inner">
-      <a href="#" class="nav-brand">NERAIUM</a>
-      <ul class="nav-links">
-        <li><a href="#platform">Platform</a></li>
-        <li><a href="#architecture">Architecture</a></li>
-        <li><a href="#evidence">Evidence</a></li>
-        <li><a href="#deployment">Deployment</a></li>
-        <li><a href="#positioning">Positioning</a></li>
-      </ul>
-      <a href="#contact" class="nav-cta">Contact</a>
-    </div>
+  <div class="container nav-inner">
+    <a href="#" class="nav-brand">NERAIUM</a>
+    <ul class="nav-links">
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#evidence">Evidence</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </div>
 </nav>
 
-<!-- hero -->
-<section class="hero-section">
+<section class="hero">
   <div class="container">
-    <div class="hero-content">
-      <span class="hero-badge">Infrastructure Layer</span>
-      <div class="hero-wordmark">NERAIUM</div>
-      <h1 class="hero-title">Systemic Infrastructure Intelligence</h1>
-      <p class="hero-body">
-        Neraium is built as a read-only infrastructure intelligence layer. It ingests telemetry, analyzes persistent deviation patterns, and preserves reviewable records without issuing control commands.
-      </p>
-      <div class="hero-actions">
-        <a href="#evidence" class="btn btn-primary">Evidence</a>
-        <a href="#platform" class="btn btn-secondary">Platform</a>
-        <a href="#contact" class="btn btn-secondary">Contact</a>
-      </div>
-      <div class="hero-status">
-        <div class="status-item">Read-Only Model</div>
-        <div class="status-item">Telemetry Analysis</div>
-        <div class="status-item">Reviewable Records</div>
-      </div>
-    </div>
+    <h1>NERAIUM</h1>
+    <h2>Systemic Infrastructure Intelligence</h2>
+    <p>
+      Neraium is a read-only infrastructure intelligence layer. It ingests telemetry,
+      analyzes sustained deviation patterns, and produces reviewable records without
+      issuing control commands.
+    </p>
   </div>
 </section>
 
-<!-- section: platform -->
 <section id="platform">
   <div class="container">
-    <div class="section-header">
-      <div class="left">
-        <div class="sec-tag">01</div>
-        <div class="sec-tag">Platform</div>
-      </div>
-      <div>
-        <h2 class="sec-title">What Neraium Is</h2>
-        <p class="sec-body">
-          Neraium operates as a read-only infrastructure intelligence layer. It receives telemetry, analyzes sustained deviations, preserves evidence trails, and delivers information to operators. Autonomous control or actuation is intentionally excluded.
-        </p>
-      </div>
-    </div>
-    <div class="grid-3">
+    <h2 class="section-title">Platform</h2>
+    <p class="section-text">
+      Neraium operates as a read-only analytical layer for physical infrastructure.
+      It evaluates telemetry and produces contextual outputs for operator review.
+    </p>
+
+    <div class="grid">
       <div class="card">
-        <div class="card-num">CAP-001</div>
-        <div class="card-title">Telemetry Ingestion</div>
-        <p class="card-text">Receives streams from existing systems without issuing commands. Built to handle varied signal domains with minimal disruption.</p>
+        <h3>Telemetry Ingestion</h3>
+        <p>Receives existing system telemetry without sending control signals.</p>
       </div>
       <div class="card">
-        <div class="card-num">CAP-002</div>
-        <div class="card-title">Deviation Analysis</div>
-        <p class="card-text">Detects sustained multi-signal changes that reveal emerging patterns beyond isolated events or thresholds.</p>
+        <h3>Deviation Analysis</h3>
+        <p>Detects sustained multi-signal drift relative to baseline behavior.</p>
       </div>
       <div class="card">
-        <div class="card-num">CAP-003</div>
-        <div class="card-title">Operator Review</div>
-        <p class="card-text">Results are provided for review by licensed personnel, maintaining clear boundaries between analysis and decision-making.</p>
-      </div>
-      <div class="card">
-        <div class="card-num">CAP-004</div>
-        <div class="card-title">Evidence Records</div>
-        <p class="card-text">Maintains structured context of inputs and analysis states to ensure accurate review and future reference.</p>
-      </div>
-      <div class="card">
-        <div class="card-num">CAP-005</div>
-        <div class="card-title">Infrastructure Focus</div>
-        <p class="card-text">Aimed at physical systems where telemetry review and traceability are essential to operational integrity.</p>
-      </div>
-      <div class="card">
-        <div class="card-num">CAP-006</div>
-        <div class="card-title">Current Stage</div>
-        <p class="card-text">Current public proof is a technical foundation intended for demonstration. Production validation awaits domain-specific data.</p>
+        <h3>Review Records</h3>
+        <p>Preserves context-rich outputs for operator interpretation.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- section: architecture -->
-<section id="architecture">
-  <div class="container">
-    <div class="section-header">
-      <div class="left">
-        <div class="sec-tag">02</div>
-        <div class="sec-tag">Architecture</div>
-      </div>
-      <div>
-        <h2 class="sec-title">System Architecture</h2>
-        <p class="sec-body">
-          A three-stage design—ingest, analyze, review—keeps boundaries clear and avoids overstated capabilities. Each layer is independently responsible for a specific function.
-        </p>
-      </div>
-    </div>
-    <div class="flow">
-      <div class="flow-node">
-        <div class="flow-tag">Layer 01</div>
-        <div class="flow-title">Ingest</div>
-        <p class="flow-text">Receive and normalize incoming sequences, retaining raw context for later review.</p>
-      </div>
-      <div class="flow-node">
-        <div class="flow-tag">Layer 02</div>
-        <div class="flow-title">Analyze</div>
-        <p class="flow-text">Apply multivariate deviation logic and compare against baselines to flag persistent changes.</p>
-      </div>
-      <div class="flow-node">
-        <div class="flow-tag">Layer 03</div>
-        <div class="flow-title">Review</div>
-        <p class="flow-text">Deliver context-rich output for interpretation without directly acting on the system.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- section: evidence -->
 <section id="evidence">
   <div class="container">
-    <div class="section-header">
-      <div class="left">
-        <div class="sec-tag">03</div>
-        <div class="sec-tag">Evidence</div>
-      </div>
-      <div>
-        <h2 class="sec-title">Evidence Basis</h2>
-        <p class="sec-body">
-          Current public demonstrations reference the NASA C-MAPSS dataset as an algorithm-development benchmark. This should be clearly distinguished from claims of field performance.
-        </p>
-      </div>
-    </div>
-    <div class="table">
-      <div class="table-row">
-        <div class="table-key">Dataset</div>
-        <div class="table-value">NASA C-MAPSS, a public turbofan engine benchmark used for run-to-failure sequence analysis.</div>
-      </div>
-      <div class="table-row">
-        <div class="table-key">Support</div>
-        <div class="table-value">Useful for developing and testing multivariate drift logic, baseline comparisons, and scoring methods.</div>
-      </div>
-      <div class="table-row">
-        <div class="table-key">Limit</div>
-        <div class="table-value">Does not establish proven performance in water systems or live infrastructure environments on its own.</div>
-      </div>
-      <div class="table-row">
-        <div class="table-key">Framing</div>
-        <div class="table-value">Best described as a technical demonstration, not a field-validated solution.</div>
-      </div>
-    </div>
+    <h2 class="section-title">Evidence Basis</h2>
+    <p class="section-text">
+      Current demonstrations reference the NASA C-MAPSS dataset as an algorithm
+      development benchmark. This does not represent live water infrastructure validation.
+    </p>
   </div>
 </section>
 
-<!-- section: deployment -->
-<section id="deployment">
+<section id="contact">
   <div class="container">
-    <div class="section-header">
-      <div class="left">
-        <div class="sec-tag">04</div>
-        <div class="sec-tag">Deployment</div>
-      </div>
-      <div>
-        <h2 class="sec-title">Deployment Model</h2>
-        <p class="sec-body">
-          An intended design—connect to existing telemetry, remain read-only, validate on domain data—guides the deployment path. It does not imply completed field rollout without evidence.
-        </p>
-      </div>
-    </div>
-    <div class="grid-3">
-      <div class="card">
-        <div class="card-num">PLAN-001</div>
-        <div class="card-title">Use Existing Telemetry</div>
-        <p class="card-text">Designed to integrate with current systems rather than requiring proprietary sensing equipment.</p>
-      </div>
-      <div class="card">
-        <div class="card-num">PLAN-002</div>
-        <div class="card-title">Preserve Boundaries</div>
-        <p class="card-text">Remains read-only, ensuring that operators maintain responsibility for decisions and actions.</p>
-      </div>
-      <div class="card">
-        <div class="card-num">PLAN-003</div>
-        <div class="card-title">Validate with Domain Data</div>
-        <p class="card-text">Next steps involve analysis on infrastructure-specific telemetry to align results with actual systems.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <h2 class="section-title">Contact</h2>
 
-<!-- section: positioning -->
-<section id="positioning">
-  <div class="container">
-    <div class="section-header">
-      <div class="left">
-        <div class="sec-tag">05</div>
-        <div class="sec-tag">Positioning</div>
-      </div>
-      <div>
-        <h2 class="sec-title">Positioning Guide</h2>
-        <p class="sec-body">
-          Each row highlights language that aligns with current scope and language that should be avoided until further evidence exists.
-        </p>
-      </div>
-    </div>
-    <div class="pos-table">
-      <div class="pos-header">
-        <div class="pos-cell header">Dimension</div>
-        <div class="pos-cell header">Preferred Framing</div>
-        <div class="pos-cell header">Avoid</div>
-      </div>
-      <div class="pos-row">
-        <div class="pos-cell label">System Role</div>
-        <div class="pos-cell">Infrastructure intelligence, not autonomous control</div>
-        <div class="pos-cell">AI-driven system that manages infrastructure</div>
-      </div>
-      <div class="pos-row">
-        <div class="pos-cell label">Detection Claim</div>
-        <div class="pos-cell">Multivariate deviation analysis on benchmark data</div>
-        <div class="pos-cell">Proven leak detection in live water systems</div>
-      </div>
-      <div class="pos-row">
-        <div class="pos-cell label">Records</div>
-        <div class="pos-cell">Reviewable records preserved for operators</div>
-        <div class="pos-cell">Automated compliance reporting</div>
-      </div>
-      <div class="pos-row">
-        <div class="pos-cell label">Current Stage</div>
-        <div class="pos-cell">Algorithm demonstration and prototype logic</div>
-        <div class="pos-cell">Production-validated field deployment</div>
-      </div>
-      <div class="pos-row">
-        <div class="pos-cell label">Authority</div>
-        <div class="pos-cell">Read-only; operators retain authority</div>
-        <div class="pos-cell">Automated intervention and remediation</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- contact section -->
-<section id="contact" class="contact-section">
-  <div class="container">
     <div class="contact-grid">
-      <div class="contact-left">
-        <h3>Contact</h3>
-        <p>
-          For technical briefings, pilot discussions, partnership inquiries, or investment conversations, please reach out directly.
-        </p>
-        <div class="contact-info">
-          <div class="contact-info-row">
-            <div class="ci-key">Name</div>
-            <div class="ci-val">Craig Curtis</div>
-          </div>
-          <div class="contact-info-row">
-            <div class="ci-key">Role</div>
-            <div class="ci-val">Founder &amp; CEO</div>
-          </div>
-          <div class="contact-info-row">
-            <div class="ci-key">Phone</div>
-            <div class="ci-val"><a href="tel:+16028337441">602-833-7441</a></div>
-          </div>
-          <div class="contact-info-row">
-            <div class="ci-key">Email</div>
-            <div class="ci-val"><a href="mailto:craig@neraium.com">craig@neraium.com</a></div>
-          </div>
-          <div class="contact-info-row">
-            <div class="ci-key">Website</div>
-            <div class="ci-val"><a href="https://neraium.com" target="_blank">neraium.com</a></div>
-          </div>
+      <div class="contact-box">
+        <div class="info-row">
+          <div class="info-key">Name</div>
+          <div class="info-val">Craig Curtis</div>
+        </div>
+        <div class="info-row">
+          <div class="info-key">Role</div>
+          <div class="info-val">Founder & CEO</div>
+        </div>
+        <div class="info-row">
+          <div class="info-key">Phone</div>
+          <div class="info-val"><a href="tel:+16028337441">602-833-7441</a></div>
+        </div>
+        <div class="info-row">
+          <div class="info-key">Email</div>
+          <div class="info-val"><a href="mailto:craig@neraium.com">craig@neraium.com</a></div>
         </div>
       </div>
-      <div>
-        <div class="contact-form-wrapper">
-          <h4>Send an Inquiry</h4>
-          <form class="contact-form" action="https://formspree.io/f/xzdalpzy" method="POST">
-            <div class="form-row">
-              <label for="name">Full Name *</label>
-              <input id="name" name="name" type="text" required>
-            </div>
-            <div class="form-row">
-              <label for="organization">Organization</label>
-              <input id="organization" name="organization" type="text">
-            </div>
-            <div class="form-row">
-              <label for="email">Email *</label>
-              <input id="email" name="email" type="email" required>
-            </div>
-            <div class="form-row">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel">
-            </div>
-            <div class="form-row">
-              <label for="inquiry_type">Inquiry Type</label>
-              <select id="inquiry_type" name="inquiry_type">
-                <option value="" disabled selected>Select one</option>
-                <option value="general">General</option>
-                <option value="technical">Technical Briefing</option>
-                <option value="pilot">Pilot Discussion</option>
-                <option value="partnership">Partnership</option>
-                <option value="investment">Investment</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <label for="message">Message *</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <div class="form-footer">
-              <small>We respond within 24 hours.</small>
-              <button type="submit" class="form-submit">Submit</button>
-            </div>
-          </form>
-        </div>
+
+      <div class="contact-box">
+        <form action="https://formspree.io/f/xzdalpzy" method="POST">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message" rows="4" placeholder="Message" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">NERAIUM</div>
-        <p class="footer-desc">
-          A minimal infrastructure intelligence platform built for telemetry review, deviation analysis, and evidence-grade records.
-        </p>
-      </div>
-      <div>
-        <div class="footer-brand">Platform</div>
-        <ul class="footer-links">
-          <li><a href="#platform">Features</a></li>
-          <li><a href="#architecture">Architecture</a></li>
-          <li><a href="#evidence">Evidence</a></li>
-          <li><a href="#deployment">Deployment</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-brand">Positioning</div>
-        <ul class="footer-links">
-          <li><a href="#positioning">Language Guide</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class "footer-brand">Connect</div>
-        <ul class="footer-links">
-          <li><a href="tel:+16028337441">602-833-7441</a></li>
-          <li><a href="mailto:craig@neraium.com">craig@neraium.com</a></li>
-          <li><a href="https://neraium.com" target="_blank">neraium.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Neraium. All rights reserved.</span>
-      <span><a href="#" style="text-decoration:none;color:var(--text-secondary)">Privacy</a> · <a href="#" style="text-decoration:none;color:var(--text-secondary)">Terms</a></span>
-    </div>
-  </div>
+  © 2026 Neraium. All rights reserved.
 </footer>
 
 </body>

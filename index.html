@@ -4,17 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neraium | Systemic Infrastructure Intelligence</title>
-<meta name="description" content="Read only systemic infrastructure intelligence. Neraium ingests existing telemetry and detects sustained structural deviation before failure.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#020308;
+  --bg:#03060d;
   --text:#f2f6ff;
-  --sub:rgba(242,246,255,0.80);
-  --muted:rgba(242,246,255,0.55);
-  --accent:#00b4ff;
+  --sub:rgba(242,246,255,0.88);
   --border:rgba(255,255,255,0.08);
   --mono:'IBM Plex Mono', monospace;
   --sans:'Inter', sans-serif;
@@ -29,7 +26,6 @@ body{
   font-family:var(--sans);
   background:var(--bg);
   color:var(--text);
-  -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
 
@@ -45,8 +41,8 @@ nav{
   position:fixed;
   top:0;left:0;right:0;
   height:var(--nav-h);
-  background:rgba(2,3,8,0.75);
-  backdrop-filter:blur(12px);
+  background:rgba(3,6,13,0.65);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid var(--border);
   z-index:100;
 }
@@ -70,12 +66,12 @@ nav{
   letter-spacing:2px;
   text-transform:uppercase;
   text-decoration:none;
-  color:rgba(242,246,255,0.75);
+  color:rgba(242,246,255,0.8);
   transition:color .2s;
 }
 
 .nav-links a:hover{
-  color:var(--accent);
+  color:#00b4ff;
 }
 
 /* HERO */
@@ -85,7 +81,7 @@ nav{
   min-height:100vh;
   display:flex;
   align-items:center;
-  padding:calc(var(--nav-h) + 90px) 0 120px;
+  padding:calc(var(--nav-h) + 80px) 0 120px;
   overflow:hidden;
 }
 
@@ -96,7 +92,7 @@ nav{
   transition:transform 0.1s linear;
 }
 
-/* Zoomed out, dimmed image */
+/* Brighter zoomed-out image */
 .hero-bg:after{
   content:"";
   position:absolute;
@@ -108,21 +104,21 @@ nav{
   background-size:95%;
   background-position:center 0%;
   background-repeat:no-repeat;
-  opacity:0.45;
-  filter:brightness(0.9) contrast(1.02);
+  opacity:0.75;
+  filter:brightness(1.15) contrast(1.05);
   z-index:1;
 }
 
-/* Subtle dark overlay for readability */
+/* Much lighter overlay */
 .hero-bg:before{
   content:"";
   position:absolute;
   inset:0;
   background:linear-gradient(
     180deg,
-    rgba(6,10,18,0.45) 0%,
-    rgba(4,8,14,0.65) 55%,
-    rgba(2,4,8,0.92) 100%
+    rgba(5,10,20,0.20) 0%,
+    rgba(5,10,20,0.35) 60%,
+    rgba(3,6,13,0.75) 100%
   );
   z-index:2;
 }
@@ -143,7 +139,6 @@ nav{
 .hero h2{
   font-size:clamp(20px,2.4vw,30px);
   font-weight:500;
-  color:var(--sub);
   margin-bottom:30px;
 }
 
@@ -158,21 +153,6 @@ nav{
 section{
   padding:120px 0;
   border-top:1px solid var(--border);
-  position:relative;
-}
-
-section:first-of-type:before{
-  content:"";
-  position:absolute;
-  top:-120px;
-  left:0;
-  right:0;
-  height:120px;
-  background:linear-gradient(
-    180deg,
-    rgba(2,4,8,0) 0%,
-    rgba(2,4,8,1) 100%
-  );
 }
 
 .section-title{
@@ -195,7 +175,7 @@ section:first-of-type:before{
 
 .card{
   padding:28px;
-  background:rgba(255,255,255,0.03);
+  background:rgba(255,255,255,0.04);
   border:1px solid var(--border);
   border-radius:18px;
 }
@@ -215,19 +195,11 @@ footer{
   padding:90px 0;
   border-top:1px solid var(--border);
   font-size:13px;
-  color:var(--muted);
+  color:rgba(242,246,255,0.6);
 }
 
-/* MOBILE */
-
 @media(max-width:720px){
-  .hero{
-    min-height:95vh;
-    padding:calc(var(--nav-h) + 60px) 0 100px;
-  }
-  .nav-inner{
-    justify-content:center;
-  }
+  .nav-inner{justify-content:center}
 }
 </style>
 </head>
@@ -262,8 +234,7 @@ footer{
   <div class="container">
     <div class="section-title">Read Only Infrastructure Intelligence</div>
     <div class="section-lead">
-      Neraium operates as a strictly read only analytical layer.
-      We connect to existing BAS, SCADA, historians, and sensor systems
+      Neraium connects to existing BAS, SCADA, historians, and sensor systems
       without altering operational infrastructure.
     </div>
 
@@ -284,16 +255,6 @@ footer{
   </div>
 </section>
 
-<section id="contact">
-  <div class="container">
-    <div class="section-title">Contact</div>
-    <div class="section-lead">
-      Craig Curtis<br>
-      craig@neraium.com
-    </div>
-  </div>
-</section>
-
 <footer>
   <div class="container">
     © 2026 Neraium. Read only infrastructure intelligence.
@@ -303,8 +264,7 @@ footer{
 <script>
 window.addEventListener("scroll", function() {
   const hero = document.querySelector(".hero-bg");
-  const scroll = window.scrollY;
-  hero.style.transform = "translateY(" + scroll * 0.10 + "px)";
+  hero.style.transform = "translateY(" + window.scrollY * 0.10 + "px)";
 });
 </script>
 

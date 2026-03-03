@@ -6,7 +6,7 @@
 <title>Neraium | Systemic Infrastructure Intelligence</title>
 <meta name="description" content="Read only infrastructure intelligence for telemetry analysis and structured evidence generation.">
 
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -16,18 +16,23 @@
   --border:rgba(255,255,255,0.06);
   --text:#f2f6ff;
   --muted:#8ea0c2;
-  --accent:#3f82ff;
+  --accent:#4a8cff;
   --mono:'IBM Plex Mono', monospace;
   --sans:'Inter', sans-serif;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   font-family:var(--sans);
   background:var(--bg-0);
   color:var(--text);
-  line-height:1.6;
+  line-height:1.65;
+  overflow-x:hidden;
 }
 
 .container{
@@ -43,7 +48,7 @@ nav{
   top:0;
   left:0;
   right:0;
-  background:rgba(5,11,22,0.95);
+  background:rgba(5,11,22,0.96);
   border-bottom:1px solid var(--border);
   z-index:100;
 }
@@ -52,7 +57,7 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  height:70px;
+  height:74px;
 }
 
 .brand{
@@ -66,7 +71,8 @@ nav{
 .nav-links{
   list-style:none;
   display:flex;
-  gap:36px;
+  gap:32px;
+  align-items:center;
 }
 
 .nav-links a{
@@ -76,6 +82,8 @@ nav{
   text-transform:uppercase;
   color:var(--muted);
   text-decoration:none;
+  padding:6px 0;
+  transition:color 0.2s ease;
 }
 
 .nav-links a:hover{
@@ -85,41 +93,58 @@ nav{
 /* HERO */
 
 .hero{
-  padding:220px 0 160px;
+  position:relative;
+  padding:280px 0 220px;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
   background:
     linear-gradient(
       180deg,
-      rgba(15,30,60,0.75) 0%,
-      rgba(8,16,28,0.88) 60%,
-      rgba(5,11,22,1) 100%
+      rgba(55,110,255,0.65) 0%,
+      rgba(20,45,95,0.82) 45%,
+      rgba(5,11,22,0.96) 100%
     ),
     url("hero.png");
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
+  background-attachment:fixed;
+  z-index:0;
+}
+
+.hero .container{
+  position:relative;
+  z-index:1;
 }
 
 .hero h1{
-  font-size:100px;
-  font-weight:700;
-  letter-spacing:-3px;
+  font-size:110px;
+  font-weight:800;
+  letter-spacing:-4px;
 }
 
 .hero h2{
-  font-size:38px;
-  margin-top:8px;
+  font-size:42px;
+  font-weight:500;
+  margin-top:12px;
 }
 
 .hero p{
-  margin-top:24px;
-  max-width:640px;
-  color:var(--muted);
+  margin-top:30px;
+  max-width:700px;
+  font-size:18px;
+  color:#d4def3;
 }
 
 /* SECTIONS */
 
 section{
-  padding:120px 0;
+  padding:140px 0;
   border-top:1px solid var(--border);
 }
 
@@ -133,13 +158,13 @@ section{
 }
 
 .section-title{
-  font-size:34px;
-  font-weight:600;
-  margin-bottom:18px;
+  font-size:36px;
+  font-weight:700;
+  margin-bottom:20px;
 }
 
 .section-body{
-  max-width:700px;
+  max-width:720px;
   color:var(--muted);
   margin-bottom:60px;
 }
@@ -148,7 +173,7 @@ section{
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap:1px;
   background:var(--border);
   border:1px solid var(--border);
@@ -156,16 +181,16 @@ section{
 
 .card{
   background:var(--surface);
-  padding:42px;
+  padding:48px;
 }
 
 .card h3{
-  font-size:19px;
-  margin-bottom:12px;
+  font-size:20px;
+  margin-bottom:14px;
 }
 
 .card p{
-  font-size:15px;
+  font-size:16px;
   color:var(--muted);
 }
 
@@ -173,7 +198,7 @@ section{
 
 .stats{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:1px;
   background:var(--border);
   border:1px solid var(--border);
@@ -181,7 +206,7 @@ section{
 
 .stat{
   background:var(--surface);
-  padding:36px;
+  padding:44px;
 }
 
 .stat-label{
@@ -190,12 +215,12 @@ section{
   letter-spacing:2px;
   text-transform:uppercase;
   color:var(--muted);
-  margin-bottom:12px;
+  margin-bottom:14px;
 }
 
 .stat-value{
-  font-size:26px;
-  font-weight:600;
+  font-size:30px;
+  font-weight:700;
 }
 
 /* TABLE */
@@ -206,7 +231,7 @@ section{
 
 .table-row{
   display:grid;
-  grid-template-columns:220px 1fr 1fr;
+  grid-template-columns:240px 1fr 1fr;
   border-bottom:1px solid var(--border);
 }
 
@@ -215,7 +240,7 @@ section{
 }
 
 .cell{
-  padding:22px;
+  padding:24px;
   color:var(--muted);
 }
 
@@ -238,7 +263,7 @@ section{
 
 .contact-grid{
   display:grid;
-  grid-template-columns:380px 1fr;
+  grid-template-columns:400px 1fr;
   gap:80px;
 }
 
@@ -258,7 +283,7 @@ section{
 }
 
 .info-key{
-  padding:18px;
+  padding:20px;
   font-family:var(--mono);
   font-size:11px;
   letter-spacing:2px;
@@ -267,7 +292,7 @@ section{
 }
 
 .info-val{
-  padding:18px;
+  padding:20px;
   color:var(--muted);
 }
 
@@ -276,23 +301,22 @@ section{
   text-decoration:none;
 }
 
-/* FORM */
-
 form{
-  padding:40px;
+  padding:48px;
 }
 
 input,textarea{
   width:100%;
-  padding:14px;
-  margin-bottom:18px;
+  padding:16px;
+  margin-bottom:20px;
   background:var(--bg-1);
   border:1px solid var(--border);
   color:var(--text);
+  font-size:15px;
 }
 
 button{
-  padding:14px 34px;
+  padding:16px 38px;
   font-family:var(--mono);
   font-size:11px;
   letter-spacing:2px;
@@ -306,7 +330,7 @@ button{
 /* FOOTER */
 
 footer{
-  padding:80px 0;
+  padding:90px 0;
   text-align:center;
   border-top:1px solid var(--border);
   color:var(--muted);
@@ -315,7 +339,7 @@ footer{
 /* MOBILE */
 
 @media(max-width:900px){
-  .hero h1{font-size:64px}
+  .hero h1{font-size:70px}
   .hero h2{font-size:26px}
   .contact-grid{grid-template-columns:1fr}
   .table-row{grid-template-columns:1fr}
@@ -327,11 +351,12 @@ footer{
 
 <nav>
   <div class="container nav-inner">
-    <a href="#" class="brand">NERAIUM</a>
+    <a href="index.html" class="brand">NERAIUM</a>
     <ul class="nav-links">
       <li><a href="#platform">Platform</a></li>
       <li><a href="#validation">Validation</a></li>
       <li><a href="#architecture">Architecture</a></li>
+      <li><a href="technical.html">Technical</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -356,7 +381,6 @@ footer{
     <div class="section-body">
       Designed to evaluate telemetry from existing systems and generate contextual analytical records while preserving strict system boundary discipline.
     </div>
-
     <div class="grid">
       <div class="card">
         <h3>Telemetry Ingestion</h3>
@@ -378,14 +402,6 @@ footer{
   <div class="container">
     <div class="section-label">Empirical Validation</div>
     <div class="section-title">NASA C MAPSS Benchmark Results</div>
-
-    <div class="section-body">
-      Validation conducted across FD001 through FD004 subsets using 30 cycle baseline modeling,
-      Mahalanobis multivariate drift computation, 7 cycle smoothing,
-      2 hit admission logic, and 4 sigma threshold.
-      Benchmark dataset environment only.
-    </div>
-
     <div class="stats">
       <div class="stat">
         <div class="stat-label">Engines Evaluated</div>
@@ -411,7 +427,6 @@ footer{
   <div class="container">
     <div class="section-label">Architecture</div>
     <div class="section-title">System Boundary Model</div>
-
     <div class="table">
       <div class="table-row">
         <div class="cell header"></div>
@@ -441,7 +456,6 @@ footer{
   <div class="container">
     <div class="section-label">Contact</div>
     <div class="section-title">Direct Inquiry</div>
-
     <div class="contact-grid">
       <div class="contact-box">
         <div class="info-row">
@@ -461,7 +475,6 @@ footer{
           <div class="info-val"><a href="mailto:craig@neraium.com">craig@neraium.com</a></div>
         </div>
       </div>
-
       <div class="contact-box">
         <form action="https://formspree.io/f/xzdalpzy" method="POST">
           <input type="text" name="name" placeholder="Full Name" required>

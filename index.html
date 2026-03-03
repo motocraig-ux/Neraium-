@@ -150,14 +150,18 @@
 
     /* Background photo */
     .hero-bg{
-      position:absolute;
-      inset:0;
-      z-index:0;
-      background-image:url("hero.png");
-      background-size:cover;
-      background-position:48% 52%;
-      background-repeat:no-repeat;
+  position:absolute;
+  inset:0;
+  z-index:0;
 
+  background-image:url("hero.png");
+  background-size:115% auto;     /* slightly wider, less crop */
+  background-position:50% 25%;   /* pulls image upward to show more towers */
+  background-repeat:no-repeat;
+
+  filter: brightness(0.85) contrast(1.05) saturate(0.92);
+  transform:none;                /* remove zoom */
+}
       /* This is what makes it scroll in a nice way */
       background-attachment:scroll;
 

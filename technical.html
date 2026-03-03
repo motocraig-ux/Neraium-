@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neraium | Technical Overview</title>
+<title>Neraium | Technical Specification</title>
+<meta name="description" content="System boundary, analytical workflow, and current validation basis for the Neraium infrastructure intelligence layer.">
 
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -21,8 +22,9 @@
 
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65}
-
 .container{max-width:1000px;margin:0 auto;padding:0 28px}
+
+/* NAV */
 
 nav{
   position:fixed;top:0;left:0;right:0;
@@ -31,28 +33,134 @@ nav{
   z-index:100;
 }
 .nav-inner{display:flex;justify-content:space-between;align-items:center;height:64px}
-.brand{font-family:var(--mono);letter-spacing:3px;font-size:14px;color:var(--accent);text-decoration:none}
+.brand{
+  font-family:var(--mono);
+  letter-spacing:3px;
+  font-size:14px;
+  color:var(--accent);
+  text-decoration:none;
+}
 
-header{padding:180px 0 120px;border-bottom:1px solid var(--border)}
-.header-label{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-header h1{font-size:44px;margin-bottom:20px}
-header p{max-width:640px;color:var(--muted)}
+/* HEADER */
 
-section{padding:110px 0;border-bottom:1px solid var(--border)}
+header{
+  padding:180px 0 120px;
+  border-bottom:1px solid var(--border);
+}
+.header-label{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:16px;
+}
+header h1{
+  font-size:42px;
+  font-weight:600;
+  margin-bottom:20px;
+}
+header p{
+  max-width:650px;
+  color:var(--muted);
+}
+
+/* SECTIONS */
+
+section{
+  padding:110px 0;
+  border-bottom:1px solid var(--border);
+}
+.section-number{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:14px;
+}
+.section-title{
+  font-size:28px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+.section-body{
+  max-width:650px;
+  color:var(--muted);
+  margin-bottom:40px;
+}
+
+/* GRID BLOCKS */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+}
+.block{
+  background:var(--surface);
+  padding:36px;
+}
+.block h3{
+  font-size:17px;
+  margin-bottom:10px;
+}
+.block p{
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* DATASET STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  margin-bottom:40px;
+}
+.stat{
+  background:var(--surface);
+  padding:28px;
+}
+.stat-label{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+.stat-value{
+  font-size:18px;
+  font-weight:600;
+}
+
+/* IMAGE */
 
 .evidence-image{
-  margin-top:40px;
   border:1px solid var(--border);
   background:var(--surface);
   padding:20px;
+  margin-top:20px;
 }
-
 .evidence-image img{
   width:100%;
   display:block;
 }
 
-footer{padding:70px 0;text-align:center;color:var(--muted)}
+/* FOOTER */
+
+footer{
+  padding:70px 0;
+  text-align:center;
+  color:var(--muted);
+}
+
+/* MOBILE */
 
 @media(max-width:800px){
   header h1{font-size:32px}
@@ -73,26 +181,87 @@ footer{padding:70px 0;text-align:center;color:var(--muted)}
     <div class="header-label">Technical Specification</div>
     <h1>System Boundary and Demonstration Environment</h1>
     <p>
-      Neraium is designed as a read-only infrastructure intelligence layer.
+      Neraium operates as a read-only infrastructure intelligence layer.
       It ingests telemetry, performs multivariate deviation analysis,
-      and produces reviewable outputs without executing control actions.
+      and produces reviewable outputs without executing control commands
+      or automated remediation.
     </p>
   </div>
 </header>
 
 <section>
   <div class="container">
-    <div class="header-label">Benchmark Evidence</div>
-    <p>
-      The following visualization references the NASA C-MAPSS turbofan degradation dataset.
-      It illustrates admission threshold detection and lead time prior to failure.
-      This benchmark environment does not represent live infrastructure deployment.
-    </p>
+    <div class="section-number">01 — System Boundary</div>
+    <div class="section-title">Operational Scope</div>
+    <div class="section-body">
+      The platform receives telemetry and produces analytical outputs.
+      It does not manage equipment, alter control states,
+      or perform automated system intervention.
+    </div>
+
+    <div class="grid">
+      <div class="block">
+        <h3>Read-Only Ingestion</h3>
+        <p>Telemetry is received without issuing control signals downstream.</p>
+      </div>
+      <div class="block">
+        <h3>Multivariate Drift Logic</h3>
+        <p>Correlated signal deviation is evaluated relative to established baselines.</p>
+      </div>
+      <div class="block">
+        <h3>Operator Review Output</h3>
+        <p>Outputs are structured for human review and governance documentation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-number">02 — Demonstration Dataset</div>
+    <div class="section-title">NASA C-MAPSS Benchmark</div>
+    <div class="section-body">
+      Current analytical validation references the NASA C-MAPSS turbofan degradation dataset.
+      This benchmark environment provides multivariate run-to-failure sequences
+      used for drift detection modeling.
+      It does not represent validation within water infrastructure systems.
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-label">Dataset</div>
+        <div class="stat-value">NASA C-MAPSS</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Trajectories</div>
+        <div class="stat-value">707 Run-to-Failure Sequences</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Sensors</div>
+        <div class="stat-value">21 Operational Parameters</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Use Case</div>
+        <div class="stat-value">Multivariate Degradation Modeling</div>
+      </div>
+    </div>
 
     <div class="evidence-image">
       <img src="IMG_9010.png" alt="C-MAPSS Drift Detection Example">
     </div>
 
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-number">03 — Lead Time Example</div>
+    <div class="section-title">Admission Threshold Detection</div>
+    <div class="section-body">
+      In the illustrated example, deviation admission occurs at cycle 36
+      with failure at cycle 243, yielding a lead interval of 207 cycles.
+      This represents benchmark behavior within the dataset environment.
+    </div>
   </div>
 </section>
 

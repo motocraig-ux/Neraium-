@@ -77,35 +77,37 @@ nav{
 
 .hero{
   position:relative;
-  min-height:125vh;
+  height:100vh;
+  min-height:720px;
   display:flex;
-  align-items:flex-start;
-  padding-top:calc(var(--nav-h) + 120px);
-  padding-bottom:200px;
+  align-items:center;
+  padding-top:var(--nav-h);
   overflow:hidden;
 }
 
-.hero-bg{
+/* True full bleed background */
+.hero::before{
+  content:"";
   position:absolute;
   inset:0;
   background-image:url("hero.png");
-  background-size:108% auto;
-  background-position:center top;
+  background-size:cover;
+  background-position:center center;
   background-repeat:no-repeat;
-  filter:brightness(1.12) contrast(1.06);
+  filter:brightness(1.1) contrast(1.05);
   z-index:0;
 }
 
-/* Much lighter cinematic fade */
-.hero::before{
+/* Subtle bottom fade only */
+.hero::after{
   content:"";
   position:absolute;
   inset:0;
   background:linear-gradient(
     to bottom,
-    rgba(2,5,11,0.10) 0%,
-    rgba(2,5,11,0.25) 55%,
-    rgba(2,5,11,0.55) 100%
+    rgba(2,5,11,0.05) 0%,
+    rgba(2,5,11,0.2) 50%,
+    rgba(2,5,11,0.6) 100%
   );
   z-index:1;
 }
@@ -123,7 +125,7 @@ nav{
   font-weight:800;
   letter-spacing:-2px;
   margin-bottom:16px;
-  text-shadow:0 4px 24px rgba(0,0,0,0.45);
+  text-shadow:0 4px 24px rgba(0,0,0,0.5);
 }
 
 .hero h2{
@@ -138,10 +140,10 @@ nav{
   font-size:clamp(16px,1.3vw,18px);
   line-height:1.7;
   color:var(--sub);
-  text-shadow:0 2px 12px rgba(0,0,0,0.45);
+  text-shadow:0 2px 14px rgba(0,0,0,0.45);
 }
 
-/* SECTION */
+/* Next Section */
 
 section{
   padding:120px 0;
@@ -178,8 +180,8 @@ footer{
     margin-left:0;
   }
 
-  .hero-bg{
-    background-size:125% auto;
+  .hero{
+    min-height:650px;
   }
 }
 </style>
@@ -198,7 +200,6 @@ footer{
 </nav>
 
 <header class="hero">
-  <div class="hero-bg"></div>
   <div class="hero-inner">
     <h1>NERAIUM</h1>
     <h2>Systemic Infrastructure Intelligence</h2>

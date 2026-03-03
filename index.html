@@ -4,20 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NERAIUM | Systemic Infrastructure Intelligence</title>
+<meta name="description" content="A read only intelligence layer for high consequence physical systems.">
 
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --bg-0:#04070c;
-  --bg-1:#070d18;
-  --bg-2:#0d1424;
+  --bg-1:#07101f;
+  --bg-2:#0c1629;
+  --bg-3:#101c33;
   --text:#eaf1ff;
-  --text-muted:rgba(234,241,255,0.65);
+  --muted:rgba(234,241,255,0.65);
   --accent:#00c8e8;
   --border:rgba(0,200,232,0.12);
+  --container:1300px;
   --mono:'IBM Plex Mono', monospace;
-  --container:1200px;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -31,110 +33,151 @@ body{
   width:100%;
   max-width:var(--container);
   margin:0 auto;
-  padding:0 40px;
+  padding:0 48px;
 }
 a{text-decoration:none;color:inherit}
 
 /* NAV */
+
 nav{
   position:fixed;
   top:0;
   left:0;
   right:0;
-  background:rgba(4,7,12,0.92);
+  background:rgba(4,7,12,0.95);
   border-bottom:1px solid var(--border);
   z-index:100;
 }
 .nav-inner{
+  height:75px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  height:70px;
 }
 .brand{
-  font-weight:600;
-  letter-spacing:3px;
   font-size:14px;
+  letter-spacing:3px;
+  font-weight:600;
 }
 .nav-links{
   list-style:none;
   display:flex;
-  gap:32px;
+  gap:36px;
 }
 .nav-links a{
   font-size:12px;
   letter-spacing:2px;
   text-transform:uppercase;
-  color:var(--text-muted);
+  color:var(--muted);
 }
 .nav-links a:hover{color:var(--text)}
 
-/* HERO WITH IMAGE + BLUE TO BLACK GRADIENT */
+/* HERO */
+
 .hero{
-  padding:260px 0 200px;
-  background-image:
+  padding:320px 0 260px;
+  background:
     linear-gradient(
       to bottom,
-      rgba(35,80,180,0.55) 0%,
-      rgba(15,35,85,0.75) 40%,
+      rgba(40,95,220,0.5) 0%,
+      rgba(15,40,100,0.75) 45%,
       rgba(4,7,12,0.95) 100%
     ),
-    url("hero.png");
+    url("/hero.png");
   background-size:cover;
-  background-position:center center;
+  background-position:center;
   background-repeat:no-repeat;
 }
 .hero h1{
-  font-size:100px;
+  font-size:120px;
+  letter-spacing:-5px;
   font-weight:700;
-  letter-spacing:-4px;
 }
 .hero h2{
-  font-size:40px;
-  font-weight:400;
+  font-size:48px;
   margin-top:10px;
+  font-weight:400;
 }
 .hero p{
-  margin-top:30px;
-  max-width:720px;
+  margin-top:40px;
+  max-width:900px;
   font-size:18px;
-  color:var(--text-muted);
+  color:var(--muted);
 }
 
 /* SECTIONS */
+
 section{
-  padding:120px 0;
+  padding:160px 0;
   border-top:1px solid var(--border);
 }
 section:nth-child(even){
   background:var(--bg-1);
 }
 
-/* SYSTEM BOUNDARY */
-.boundary-wrapper{
-  margin-top:50px;
+.section-header{
+  max-width:950px;
+  margin-bottom:70px;
+}
+.section-header h2{
+  font-size:44px;
+  margin-bottom:25px;
+}
+.section-header p{
+  font-size:17px;
+  color:var(--muted);
+}
+
+/* ARCH GRID */
+
+.arch-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
   border:1px solid var(--border);
 }
-.boundary-layer{
+.arch-card{
   padding:60px;
+  background:var(--bg-2);
 }
-.boundary-layer h3{
-  font-size:13px;
+.arch-card h3{
+  font-size:14px;
   letter-spacing:2px;
   text-transform:uppercase;
   color:var(--accent);
   margin-bottom:25px;
 }
+.arch-card p{
+  color:var(--muted);
+}
+
+/* BOUNDARY */
+
+.boundary{
+  border:1px solid var(--border);
+  margin-top:80px;
+}
+.boundary-layer{
+  padding:80px;
+}
+.boundary-layer h3{
+  font-size:14px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:30px;
+}
 .boundary-item{
-  font-size:20px;
-  margin-bottom:18px;
-  color:var(--text-muted);
+  font-size:22px;
+  margin-bottom:20px;
+  color:var(--muted);
 }
 .boundary-divider{
-  padding:18px;
   text-align:center;
+  padding:25px;
   border-top:1px solid var(--border);
   border-bottom:1px solid var(--border);
+  background:var(--bg-3);
   font-size:12px;
   letter-spacing:2px;
   text-transform:uppercase;
@@ -142,63 +185,66 @@ section:nth-child(even){
 }
 
 /* STATS */
+
 .stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:1px;
   border:1px solid var(--border);
-  margin-top:60px;
+  margin-top:80px;
 }
 .stat{
-  padding:40px;
+  padding:60px;
   background:var(--bg-2);
   text-align:center;
 }
 .stat-value{
-  font-size:30px;
+  font-size:40px;
   font-weight:600;
 }
 .stat-label{
   font-size:12px;
-  margin-top:8px;
-  color:var(--text-muted);
+  margin-top:10px;
+  color:var(--muted);
 }
 
 /* CONTACT */
+
 .contact-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:60px;
+  gap:80px;
 }
 .contact-info{
-  font-size:14px;
+  font-size:15px;
   line-height:1.8;
 }
 form{
   display:flex;
   flex-direction:column;
-  gap:20px;
+  gap:22px;
 }
 input,textarea{
   background:#000;
   border:1px solid var(--border);
-  padding:14px;
+  padding:18px;
   color:var(--text);
   font-family:var(--mono);
 }
 button{
-  padding:14px;
-  border:none;
+  padding:18px;
   background:var(--accent);
-  color:#000;
+  border:none;
   font-weight:600;
   cursor:pointer;
 }
 
 /* MOBILE */
-@media(max-width:900px){
-  .hero h1{font-size:60px}
-  .hero h2{font-size:24px}
+
+@media(max-width:1000px){
+  .hero h1{font-size:70px}
+  .hero h2{font-size:28px}
+  .arch-grid{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr}
   .contact-grid{grid-template-columns:1fr}
 }
@@ -222,44 +268,85 @@ button{
     <h1>NERAIUM</h1>
     <h2>Systemic Infrastructure Intelligence</h2>
     <p>
-      Read only telemetry analysis for sustained structural deviation.
-      Multivariate drift detection validated against NASA CMAPSS trajectories.
+      A read only intelligence layer for high consequence physical systems.
+      As telemetry density increases, sustained structural deviation becomes visible prior to reactive failure.
+      Neraium classifies that deviation without modifying operational control authority.
     </p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>System Boundary Model</h2>
-
-    <div class="boundary-wrapper">
-      <div class="boundary-layer">
-        <h3>Neraium</h3>
-        <div class="boundary-item">Structured multivariate analysis</div>
-        <div class="boundary-item">Drift detection and classification</div>
-        <div class="boundary-item">Structured analytical records</div>
-      </div>
-
-      <div class="boundary-divider">Read Only Interface</div>
-
-      <div class="boundary-layer">
-        <h3>Operational Systems</h3>
-        <div class="boundary-item">No actuation capability</div>
-        <div class="boundary-item">Existing control authority retained</div>
-        <div class="boundary-item">Operator review and response</div>
-      </div>
+    <div class="section-header">
+      <h2>Infrastructure Visibility Without Control</h2>
+      <p>
+        Industrial telemetry has expanded across critical systems.
+        Control architectures remain reactive.
+        Dashboards increase institutional exposure.
+        There is no neutral analytical layer between raw telemetry and operational action.
+      </p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Validation</h2>
+    <div class="section-header">
+      <h2>Architectural Model</h2>
+      <p>
+        Neraium operates as a read only classification layer positioned above native telemetry and below institutional response.
+      </p>
+    </div>
+
+    <div class="arch-grid">
+      <div class="arch-card">
+        <h3>Telemetry Ingestion</h3>
+        <p>Multivariate sensor ingestion across industrial environments.</p>
+      </div>
+      <div class="arch-card">
+        <h3>Deviation Classification</h3>
+        <p>Structured statistical identification of sustained structural drift.</p>
+      </div>
+      <div class="arch-card">
+        <h3>Record Formation</h3>
+        <p>Deterministic analytical outputs suitable for governance review.</p>
+      </div>
+    </div>
+
+    <div class="boundary">
+      <div class="boundary-layer">
+        <h3>Neraium</h3>
+        <div class="boundary-item">Read only ingestion</div>
+        <div class="boundary-item">Multivariate deviation classification</div>
+        <div class="boundary-item">No control authority</div>
+      </div>
+
+      <div class="boundary-divider">Read Only Interface</div>
+
+      <div class="boundary-layer">
+        <h3>Operational Systems</h3>
+        <div class="boundary-item">Existing control logic retained</div>
+        <div class="boundary-item">No actuation from Neraium</div>
+        <div class="boundary-item">Operator review and response</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-header">
+      <h2>Empirical Validation</h2>
+      <p>
+        NASA CMAPSS FD001 through FD004 degradation trajectories demonstrate sustained deviation detection prior to terminal failure.
+      </p>
+    </div>
 
     <div class="stats">
       <div class="stat">
         <div class="stat-value">707</div>
-        <div class="stat-label">Engines FD001 to FD004</div>
+        <div class="stat-label">Engines</div>
       </div>
       <div class="stat">
         <div class="stat-value">96.9%</div>
@@ -274,12 +361,15 @@ button{
         <div class="stat-label">Baseline Admissions</div>
       </div>
     </div>
+
   </div>
 </section>
 
 <section id="contact">
   <div class="container">
-    <h2>Contact</h2>
+    <div class="section-header">
+      <h2>Contact</h2>
+    </div>
 
     <div class="contact-grid">
       <div class="contact-info">
@@ -293,7 +383,7 @@ button{
       <form action="https://formspree.io/f/xzdalpzy" method="POST">
         <input type="text" name="name" placeholder="Name" required>
         <input type="email" name="email" placeholder="Email" required>
-        <textarea name="message" placeholder="Message" rows="5" required></textarea>
+        <textarea name="message" rows="5" placeholder="Message" required></textarea>
         <button type="submit">Submit</button>
       </form>
     </div>

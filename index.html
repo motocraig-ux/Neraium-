@@ -1,201 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neraium | Systemic Infrastructure Intelligence</title>
-<meta name="description" content="Neraium delivers systemic infrastructure intelligence for infrastructure operators and stakeholders. We ingest existing telemetry and provide trustworthy, reviewable insights." />
+<meta name="description" content="Read-only systemic infrastructure intelligence. Neraium ingests existing telemetry and identifies sustained structural deviation before failure.">
 
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg-0:#050b16;
-  --bg-1:#091a33;
-  --bg-2:#0f2649;
-  --bg-3:#132d50;
-  --card:#0b1730;
-  --card-2:#0d1f3f;
+:root{
+  --bg-dark:#05070c;
+  --bg-darker:#020308;
   --text:#f2f6ff;
-  --sub:rgba(242,246,255,0.78);
+  --sub:rgba(242,246,255,0.82);
   --muted:rgba(242,246,255,0.55);
   --accent:#00b4ff;
-  --accent-2:#46d0ff;
-  --border:rgba(255,255,255,0.10);
-  --border-2:rgba(255,255,255,0.16);
-  --glow:rgba(0,180,255,0.28);
-  --shadow:0 18px 60px rgba(0,0,0,0.45);
+  --border:rgba(255,255,255,0.08);
   --mono:'IBM Plex Mono', monospace;
   --sans:'Inter', sans-serif;
-  --radius:14px;
-  --radius-sm:10px;
+  --nav-h:70px;
   --max:1200px;
   --pad:24px;
-  --nav-h:68px;
 }
 
-/* Reset & base styles */
 *{box-sizing:border-box;margin:0;padding:0}
+
 body{
   font-family:var(--sans);
-  background: radial-gradient(1200px 800px at 20% -10%, rgba(70,208,255,0.10), transparent 60%),
-              radial-gradient(1000px 700px at 90% 10%, rgba(0,180,255,0.08), transparent 62%),
-              linear-gradient(180deg, var(--bg-1), var(--bg-0) 55%, #03060d 100%);
+  background:
+    linear-gradient(180deg, #0a111c 0%, #05070c 60%, #020308 100%);
   color:var(--text);
-  line-height:1.65;
-  overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
-}
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:0;
-  background-image:
-    linear-gradient(rgba(0,180,255,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,180,255,0.035) 1px, transparent 1px);
-  background-size:46px 46px;
-  opacity:0.55;
+  overflow-x:hidden;
 }
 
 .container{
-  width:100%;
   max-width:var(--max);
   margin:0 auto;
   padding:0 var(--pad);
-  position:relative;
-  z-index:1;
 }
 
-/* Navigation */
+/* NAV */
+
 nav{
   position:fixed;
-  top:0; left:0; right:0;
+  top:0;left:0;right:0;
   height:var(--nav-h);
+  background:rgba(5,7,12,0.75);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
   z-index:100;
-  background:rgba(5,11,22,0.72);
-  backdrop-filter: blur(14px);
-  border-bottom:1px solid rgba(255,255,255,0.08);
 }
+
 .nav-inner{
   height:100%;
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:flex-end;
 }
+
 .nav-links{
   display:flex;
-  gap:18px;
+  gap:28px;
   list-style:none;
 }
-.nav-links a, .nav-cta{
+
+.nav-links a{
   font-family:var(--mono);
   font-size:11px;
   letter-spacing:2px;
   text-transform:uppercase;
-  color:rgba(242,246,255,0.72);
   text-decoration:none;
-  padding:10px 12px;
-  border-radius:10px;
-  transition:color .2s, background .2s;
+  color:rgba(242,246,255,0.75);
+  transition:color .2s;
 }
-.nav-links a:hover{color:var(--accent);}
-.nav-cta{
-  color:var(--bg-0);
-  background:linear-gradient(135deg, var(--accent), var(--accent-2));
-  border:1px solid rgba(255,255,255,0.10);
-  box-shadow:0 10px 28px rgba(0,180,255,0.16);
-}
-.nav-cta:hover{filter:brightness(1.05);}
 
-/* Hero Section */
+.nav-links a:hover{
+  color:var(--accent);
+}
+
+/* HERO */
+
 .hero{
   position:relative;
-  min-height:100vh;
+  min-height:82vh;
   display:flex;
   align-items:center;
-  padding: calc(var(--nav-h) + 64px) 0 90px;
+  padding:calc(var(--nav-h) + 60px) 0 80px;
   overflow:hidden;
 }
+
 .hero-bg{
   position:absolute;
   inset:0;
-  background-color:#02040a;
+  z-index:0;
 }
-.hero-bg::before{
+
+.hero-bg:before{
   content:"";
   position:absolute;
   inset:0;
-  background: linear-gradient(
+  background:
+    linear-gradient(
       180deg,
-      rgba(25,70,190,0.6) 0%,
-      rgba(12,32,78,0.8) 40%,
-      rgba(4,8,18,0.94) 100%
+      rgba(8,16,28,0.55) 0%,
+      rgba(5,10,20,0.75) 55%,
+      rgba(2,4,8,0.95) 100%
     );
   z-index:2;
 }
-.hero-bg::after{
+
+.hero-bg:after{
   content:"";
   position:absolute;
   inset:0;
   background-image:url("hero.png");
-  background-size:cover;
-  background-position:center;
+  background-size:108%;
+  background-position:center top;
   background-repeat:no-repeat;
-  opacity:0.45; /* dim image more */
-  transform:scale(0.9); /* smaller image */
+  opacity:0.8;
+  filter:brightness(1.2) contrast(1.05);
   z-index:1;
 }
-@media (min-width: 980px){
-  .hero-bg::after{ background-attachment:scroll; }
-}
+
 .hero-inner{
   position:relative;
   z-index:3;
-  text-align:left;
+  max-width:760px;
 }
-.hero h2{
-  font-size:clamp(42px, 6.2vw, 90px);
-  letter-spacing:-2px;
-  margin:0 0 12px;
+
+.hero h1{
+  font-size:clamp(48px,7vw,92px);
   font-weight:800;
+  letter-spacing:-2px;
+  margin-bottom:14px;
 }
-.hero h3{
-  font-size:clamp(18px, 2.2vw, 28px);
+
+.hero h2{
+  font-size:clamp(18px,2.2vw,28px);
   font-weight:500;
-  color:rgba(242,246,255,0.85);
-  margin-bottom:24px;
+  color:var(--sub);
+  margin-bottom:26px;
 }
-/* Additional sections omitted for brevity.  You can maintain your cards, system model, evidence, positioning, contact form, and footer from previous versions. */
+
+.hero p{
+  font-size:clamp(15px,1.3vw,18px);
+  line-height:1.7;
+  color:var(--sub);
+}
+
+/* SECTION */
+
+section{
+  padding:90px 0;
+  border-top:1px solid var(--border);
+}
+
+.section-title{
+  font-size:28px;
+  margin-bottom:18px;
+}
+
+.section-lead{
+  max-width:800px;
+  color:var(--sub);
+  line-height:1.7;
+}
+
+/* SIMPLE GRID */
+
+.grid{
+  margin-top:40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+.card{
+  padding:24px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--border);
+  border-radius:14px;
+}
+
+.card h3{
+  font-size:16px;
+  margin-bottom:10px;
+}
+
+.card p{
+  font-size:14px;
+  color:var(--sub);
+  line-height:1.6;
+}
+
+/* FOOTER */
+
+footer{
+  padding:60px 0;
+  border-top:1px solid var(--border);
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* MOBILE */
+
+@media(max-width:720px){
+  .nav-inner{justify-content:center}
+  .hero{padding:calc(var(--nav-h) + 40px) 0 60px}
+}
 </style>
 </head>
 
 <body>
+
 <nav>
   <div class="container nav-inner">
-    <!-- brand mark removed -->
     <ul class="nav-links">
-      <li><a href="#contact">Contact</a></li>
       <li><a href="technical.html">Technical</a></li>
-      <li><a href="#governance">Governance</a></li>
+      <li><a href="governance.html">Governance</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-    <a class="nav-cta" href="#contact">Get in Touch</a>
   </div>
 </nav>
 
-<header class="hero" id="top">
-  <div class="hero-bg" aria-hidden="true"></div>
+<header class="hero">
+  <div class="hero-bg"></div>
+
   <div class="container hero-inner">
-    <h2>NERAIUM</h2>
-    <h3>Systemic Infrastructure Intelligence</h3>
-    <p style="max-width:700px;color:var(--sub)">
-      We ingest your telemetry, detect structural deviation, and deliver reviewable intelligence for better infrastructure management. No control, no interference—just clarity.
+    <h1>NERAIUM</h1>
+    <h2>Systemic Infrastructure Intelligence</h2>
+    <p>
+      We ingest your existing telemetry, detect sustained structural deviation,
+      and deliver reviewable intelligence before failure occurs.
+      No control commands. No automation. No system modification.
+      Operator authority remains fully preserved.
     </p>
   </div>
 </header>
 
-<!-- Continue with your existing sections (platform, system model, evidence, positioning, contact form, etc.) adapted for clients rather than investors. -->
+<section>
+  <div class="container">
+    <div class="section-title">Connect to Existing Telemetry</div>
+    <div class="section-lead">
+      Neraium operates as a read-only intelligence layer. We connect to BAS, SCADA, historians, and existing sensor networks without altering infrastructure or introducing operational risk.
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Read Only</h3>
+        <p>Data ingestion without actuation capability. No control authority. No system intervention.</p>
+      </div>
+      <div class="card">
+        <h3>Multi Signal Analysis</h3>
+        <p>Correlates pressure, flow, thermal, and structural indicators to identify deterioration trajectories.</p>
+      </div>
+      <div class="card">
+        <h3>Reviewable Intelligence</h3>
+        <p>Produces defensible analytical records that support maintenance planning and operational clarity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-title">Contact</div>
+    <div class="section-lead">
+      For deployment discussions, pilot inquiries, or technical review, contact:
+      <br><br>
+      Craig Curtis<br>
+      craig@neraium.com
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 Neraium. Read only infrastructure intelligence.
+  </div>
+</footer>
 
 </body>
 </html>

@@ -12,7 +12,7 @@
 :root{
   --bg:#020308;
   --text:#f2f6ff;
-  --sub:rgba(242,246,255,0.82);
+  --sub:rgba(242,246,255,0.80);
   --muted:rgba(242,246,255,0.55);
   --accent:#00b4ff;
   --border:rgba(255,255,255,0.08);
@@ -96,7 +96,7 @@ nav{
   transition:transform 0.1s linear;
 }
 
-/* Zoomed out and dimmed */
+/* Zoomed out, dimmed image */
 .hero-bg:after{
   content:"";
   position:absolute;
@@ -108,11 +108,12 @@ nav{
   background-size:95%;
   background-position:center 0%;
   background-repeat:no-repeat;
-  opacity:0.50;             /* lower opacity */
+  opacity:0.45;
   filter:brightness(0.9) contrast(1.02);
   z-index:1;
 }
 
+/* Subtle dark overlay for readability */
 .hero-bg:before{
   content:"";
   position:absolute;
@@ -303,7 +304,7 @@ footer{
 window.addEventListener("scroll", function() {
   const hero = document.querySelector(".hero-bg");
   const scroll = window.scrollY;
-  hero.style.transform = "translateY(" + scroll * 0.12 + "px)";
+  hero.style.transform = "translateY(" + scroll * 0.10 + "px)";
 });
 </script>
 

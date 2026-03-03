@@ -97,8 +97,11 @@ nav{
   content:"";
   position:absolute;
   inset:0;
-  background:url("hero.png") no-repeat center 32%;
-  background-size:105%;
+  background-image:url("hero.png");
+  background-size:cover;
+  background-position:center 25%; /* was 30% */
+  background-repeat:no-repeat;
+  transform:scale(1.08); /* subtle zoom in */
   z-index:0;
 }
 

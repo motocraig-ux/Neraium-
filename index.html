@@ -3,23 +3,29 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Neraium | Systemic Infrastructure Intelligence</title>
+<title>Neraium | Infrastructure Intelligence</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:#000;color:#fff;}
+section{padding:120px 60px;}
+h1,h2,h3{letter-spacing:-.02em;}
+.container{max-width:1200px;margin:auto;}
+.btn{
+  display:inline-block;
+  padding:14px 28px;
+  background:#fff;
+  color:#000;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  letter-spacing:.08em;
+  margin-top:30px;
+  transition:.3s;
 }
-
-body{
-  font-family:'Inter',sans-serif;
-  background:#000;
-  color:#fff;
-}
-
+.btn:hover{background:#ddd;}
 /* NAV */
 nav{
   position:fixed;
@@ -27,161 +33,134 @@ nav{
   left:0;
   right:0;
   height:70px;
-  background:rgba(0,0,0,0.85);
-  backdrop-filter:blur(12px);
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(10px);
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 40px;
+  padding:0 60px;
+  border-bottom:1px solid rgba(255,255,255,.06);
   z-index:1000;
-  border-bottom:1px solid rgba(255,255,255,0.06);
 }
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  font-weight:600;
-  letter-spacing:.08em;
-}
-
-.logo-box{
-  width:34px;
-  height:34px;
-  border-radius:8px;
-  background:#fff;
-  color:#000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:700;
-}
-
-nav ul{
-  list-style:none;
-  display:flex;
-  gap:40px;
-}
-
+nav ul{list-style:none;display:flex;gap:40px;}
 nav a{
   text-decoration:none;
-  color:rgba(255,255,255,0.6);
+  color:rgba(255,255,255,.6);
   font-size:12px;
   letter-spacing:.18em;
   text-transform:uppercase;
-  transition:0.3s;
 }
-
-nav a:hover{
-  color:#fff;
+nav a:hover{color:#fff;}
+.logo{display:flex;align-items:center;gap:12px;font-weight:600;letter-spacing:.1em;}
+.logo-box{
+  width:34px;height:34px;border-radius:8px;
+  background:#fff;color:#000;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;
 }
 
 /* HERO */
 .hero{
-  position:relative;
   height:100vh;
   display:flex;
   align-items:center;
-  padding-top:70px;
+  position:relative;
   overflow:hidden;
+  padding-top:70px;
 }
-
-/* Image */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background-image:url("hero.png");
-  background-size:125%; /* ZOOMED IN */
-  background-position:center 25%;
-  background-repeat:no-repeat;
-  filter:brightness(.75);
-  z-index:0;
+  background:url("hero.png") center 25% / 125% no-repeat;
+  filter:brightness(.7);
 }
-
-/* Dark gradient overlay */
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.4) 0%,
-    rgba(0,0,0,0.6) 40%,
-    rgba(0,0,0,0.9) 100%
-  );
-  z-index:1;
+  background:linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.85));
 }
-
-/* Content */
 .hero-content{
   position:relative;
   z-index:2;
   max-width:900px;
-  padding:0 60px;
+}
+.hero h1{
+  font-size:clamp(50px,8vw,90px);
+  font-weight:800;
+}
+.hero h2{
+  font-size:clamp(20px,2vw,28px);
+  color:rgba(255,255,255,.8);
+  margin:15px 0 30px;
+}
+.hero p{
+  font-size:18px;
+  line-height:1.7;
+  color:rgba(255,255,255,.85);
+  max-width:700px;
 }
 
-/* Eyebrow */
-.eyebrow{
-  font-size:12px;
-  letter-spacing:.25em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,0.5);
+/* CAPABILITIES */
+.capabilities{
+  background:#050505;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
+  margin-top:60px;
+}
+.card{
+  background:#0b0b0b;
+  padding:40px;
+  border:1px solid rgba(255,255,255,.05);
+}
+.card h3{
+  margin-bottom:15px;
+  font-size:20px;
+}
+.card p{
+  color:rgba(255,255,255,.6);
+  line-height:1.6;
+}
+
+/* WHO */
+.who{
+  background:#000;
+}
+.who p{
+  max-width:800px;
+  margin-top:30px;
+  color:rgba(255,255,255,.7);
+  line-height:1.8;
+}
+
+/* CTA */
+.cta{
+  background:#050505;
+  text-align:center;
+}
+.cta h2{
+  font-size:40px;
   margin-bottom:20px;
 }
 
-/* Main Title */
-.hero h1{
-  font-size:clamp(48px,8vw,96px);
-  font-weight:800;
-  letter-spacing:-.03em;
-  margin-bottom:10px;
+/* FOOTER */
+footer{
+  padding:60px;
+  border-top:1px solid rgba(255,255,255,.05);
+  color:rgba(255,255,255,.4);
+  font-size:14px;
 }
 
-/* Subtitle */
-.hero h2{
-  font-size:clamp(18px,2.5vw,26px);
-  font-weight:400;
-  color:rgba(255,255,255,0.8);
-  margin-bottom:30px;
-}
-
-/* Paragraph */
-.hero p{
-  font-size:18px;
-  line-height:1.8;
-  color:rgba(255,255,255,0.85);
-  max-width:700px;
-  text-shadow:0 4px 18px rgba(0,0,0,0.9); /* MAKES TEXT POP */
-}
-
-.hero p strong{
-  color:#fff;
-  font-weight:600;
-}
-
-/* Responsive */
 @media(max-width:768px){
-  nav{
-    padding:0 20px;
-  }
-
-  nav ul{
-    gap:20px;
-  }
-
-  .hero-content{
-    padding:0 25px;
-  }
-
-  .hero p{
-    font-size:16px;
-  }
+  section{padding:80px 30px;}
+  nav{padding:0 30px;}
 }
-
 </style>
 </head>
-
 <body>
 
 <nav>
@@ -197,17 +176,59 @@ nav a:hover{
 </nav>
 
 <section class="hero">
-  <div class="hero-content">
-    <div class="eyebrow">Infrastructure Intelligence</div>
-    <h1>NERAIUM</h1>
-    <h2>Systemic Infrastructure Intelligence</h2>
+  <div class="container hero-content">
+    <h1>Operational Intelligence for Critical Infrastructure</h1>
+    <h2>Early signal detection for high-consequence water and mechanical systems</h2>
     <p>
-      We ingest live telemetry, detect sustained structural deviation, and deliver reviewable intelligence before failure occurs. 
-      No automation. No control commands. No system modification. 
-      <strong>Operator authority remains preserved.</strong>
+      Neraium ingests live telemetry and identifies sustained structural deviation before failure occurs. 
+      We do not automate, actuate, or override. 
+      We deliver reviewable intelligence that strengthens operator authority and reduces reactive risk.
+    </p>
+    <a href="#" class="btn">Request a Pilot</a>
+  </div>
+</section>
+
+<section class="capabilities">
+  <div class="container">
+    <h2>Core Capabilities</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Live Telemetry Ingestion</h3>
+        <p>Integrates directly with existing monitoring infrastructure without introducing control risk.</p>
+      </div>
+      <div class="card">
+        <h3>Structural Deviation Detection</h3>
+        <p>Identifies sustained deterioration patterns before alarms or catastrophic failure events.</p>
+      </div>
+      <div class="card">
+        <h3>Reviewable Intelligence</h3>
+        <p>Outputs human-readable signals suitable for operational review and governance audit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="who">
+  <div class="container">
+    <h2>Built for High-Consequence Environments</h2>
+    <p>
+      Neraium is designed for contractors, operators, and infrastructure owners responsible for water systems, 
+      district cooling, industrial loops, and critical facility environments where reactive maintenance 
+      exposes operational and financial risk.
     </p>
   </div>
 </section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Deploy Intelligence Without Losing Control</h2>
+    <a href="#" class="btn">Contact Neraium</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Neraium. All rights reserved.
+</footer>
 
 </body>
 </html>

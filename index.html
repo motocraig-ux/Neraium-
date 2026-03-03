@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+(<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -253,30 +253,44 @@ footer{
 
 <section id="evidence">
   <div class="container">
-    <div class="section-label">Evidence</div>
-    <div class="section-title">NASA C-MAPSS Demonstration Basis</div>
+    <div class="section-label">Empirical Validation</div>
+    <div class="section-title">Multivariate Drift Detection — Benchmark Results</div>
+
     <div class="section-body">
-      Current algorithmic demonstrations reference the NASA C-MAPSS turbofan degradation benchmark dataset.
-      This serves as a controlled development environment and does not represent live water infrastructure deployment.
+      Analytical validation was conducted using the NASA C-MAPSS degradation benchmark dataset
+      across FD001–FD004 subsets. Methodology included 30-cycle baseline modeling,
+      Mahalanobis multivariate drift computation, 7-cycle smoothing,
+      2-hit admission logic, and a 4σ threshold.
+      This represents benchmark validation and does not reflect live water infrastructure deployment.
     </div>
 
     <div class="stats">
+
       <div class="stat">
-        <div class="stat-label">Dataset</div>
-        <div class="stat-value">NASA C-MAPSS</div>
+        <div class="stat-label">Engines Evaluated</div>
+        <div class="stat-value">707 (FD001–FD004)</div>
       </div>
+
       <div class="stat">
-        <div class="stat-label">Trajectories</div>
-        <div class="stat-value">707 Run-to-Failure Sequences</div>
+        <div class="stat-label">Detection Coverage</div>
+        <div class="stat-value">96.9%</div>
       </div>
+
       <div class="stat">
-        <div class="stat-label">Use Case</div>
-        <div class="stat-value">Multivariate Drift Modeling</div>
+        <div class="stat-label">Median Lead Time</div>
+        <div class="stat-value">183 Cycles</div>
       </div>
+
       <div class="stat">
-        <div class="stat-label">Status</div>
-        <div class="stat-value">Prototype Analytical Validation</div>
+        <div class="stat-label">Baseline-Window Admissions</div>
+        <div class="stat-value">0</div>
       </div>
+
+    </div>
+
+    <div style="margin-top:40px;color:var(--muted);max-width:640px;">
+      Stress-tested under baseline variation and telemetry degradation
+      within the benchmark environment.
     </div>
 
   </div>

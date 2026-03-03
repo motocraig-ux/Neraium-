@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neraium | Technical Overview</title>
-<meta name="description" content="Technical boundary, architecture, and current evidence basis of the Neraium infrastructure intelligence layer.">
 
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -21,174 +20,42 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--sans);
-  line-height:1.65;
-}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65}
 
-.container{
-  max-width:1000px;
-  margin:0 auto;
-  padding:0 28px;
-}
-
-/* Navigation */
+.container{max-width:1000px;margin:0 auto;padding:0 28px}
 
 nav{
-  position:fixed;
-  top:0;left:0;right:0;
+  position:fixed;top:0;left:0;right:0;
   background:rgba(11,17,28,.96);
-  backdrop-filter:blur(8px);
   border-bottom:1px solid var(--border);
   z-index:100;
 }
+.nav-inner{display:flex;justify-content:space-between;align-items:center;height:64px}
+.brand{font-family:var(--mono);letter-spacing:3px;font-size:14px;color:var(--accent);text-decoration:none}
 
-.nav-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  height:64px;
-}
+header{padding:180px 0 120px;border-bottom:1px solid var(--border)}
+.header-label{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+header h1{font-size:44px;margin-bottom:20px}
+header p{max-width:640px;color:var(--muted)}
 
-.brand{
-  font-family:var(--mono);
-  letter-spacing:3px;
-  font-size:14px;
-  color:var(--accent);
-  text-decoration:none;
-}
+section{padding:110px 0;border-bottom:1px solid var(--border)}
 
-/* Header */
-
-header{
-  padding:180px 0 120px;
-  border-bottom:1px solid var(--border);
-}
-
-.header-label{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:var(--accent);
-  margin-bottom:16px;
-}
-
-header h1{
-  font-size:44px;
-  font-weight:600;
-  margin-bottom:20px;
-}
-
-header p{
-  max-width:640px;
-  font-size:16px;
-  color:var(--muted);
-}
-
-/* Sections */
-
-section{
-  padding:110px 0;
-  border-bottom:1px solid var(--border);
-}
-
-.section-number{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:var(--accent);
-  margin-bottom:14px;
-}
-
-.section-title{
-  font-size:28px;
-  font-weight:600;
-  margin-bottom:16px;
-}
-
-.section-body{
-  max-width:650px;
-  font-size:15px;
-  color:var(--muted);
-  margin-bottom:40px;
-}
-
-/* Structured Blocks */
-
-.block-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:1px;
-  background:var(--border);
+.evidence-image{
+  margin-top:40px;
   border:1px solid var(--border);
-}
-
-.block{
   background:var(--surface);
-  padding:36px;
+  padding:20px;
 }
 
-.block h3{
-  font-size:17px;
-  font-weight:600;
-  margin-bottom:10px;
+.evidence-image img{
+  width:100%;
+  display:block;
 }
 
-.block p{
-  font-size:14px;
-  color:var(--muted);
-}
-
-/* Evidence Table */
-
-.table{
-  border:1px solid var(--border);
-}
-
-.table-row{
-  display:grid;
-  grid-template-columns:220px 1fr;
-  border-bottom:1px solid var(--border);
-}
-
-.table-row:last-child{border-bottom:none}
-
-.table-key{
-  padding:18px;
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--accent);
-  border-right:1px solid var(--border);
-}
-
-.table-val{
-  padding:18px;
-  font-size:14px;
-  color:var(--muted);
-}
-
-/* Footer */
-
-footer{
-  padding:70px 0;
-  text-align:center;
-  font-size:13px;
-  color:var(--muted);
-}
-
-/* Responsive */
+footer{padding:70px 0;text-align:center;color:var(--muted)}
 
 @media(max-width:800px){
   header h1{font-size:32px}
-  .table-row{grid-template-columns:1fr}
-  .table-key{border-right:none;border-bottom:1px solid var(--border)}
 }
 </style>
 </head>
@@ -204,96 +71,28 @@ footer{
 <header>
   <div class="container">
     <div class="header-label">Technical Specification</div>
-    <h1>Infrastructure Intelligence Layer — System Boundary and Evidence Basis</h1>
+    <h1>System Boundary and Demonstration Environment</h1>
     <p>
-      This document outlines the architectural boundaries, analytical workflow,
-      and current validation status of the Neraium platform. The system is designed
-      as a read-only infrastructure intelligence layer and does not execute
-      control actions or automated remediation.
+      Neraium is designed as a read-only infrastructure intelligence layer.
+      It ingests telemetry, performs multivariate deviation analysis,
+      and produces reviewable outputs without executing control actions.
     </p>
   </div>
 </header>
 
 <section>
   <div class="container">
-    <div class="section-number">01 — System Boundary</div>
-    <div class="section-title">Operational Scope</div>
-    <div class="section-body">
-      Neraium ingests telemetry, performs multivariate analysis, and produces
-      reviewable outputs. It does not manage equipment, issue control commands,
-      or automate system intervention.
+    <div class="header-label">Benchmark Evidence</div>
+    <p>
+      The following visualization references the NASA C-MAPSS turbofan degradation dataset.
+      It illustrates admission threshold detection and lead time prior to failure.
+      This benchmark environment does not represent live infrastructure deployment.
+    </p>
+
+    <div class="evidence-image">
+      <img src="IMG_9010.png" alt="C-MAPSS Drift Detection Example">
     </div>
 
-    <div class="block-grid">
-      <div class="block">
-        <h3>Read-Only Ingestion</h3>
-        <p>Receives telemetry from existing infrastructure without sending signals downstream.</p>
-      </div>
-      <div class="block">
-        <h3>Analytical Processing</h3>
-        <p>Evaluates sustained multi-signal deviation relative to baseline behavior.</p>
-      </div>
-      <div class="block">
-        <h3>Operator Review</h3>
-        <p>Outputs are structured for interpretation by licensed personnel.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-number">02 — Analytical Workflow</div>
-    <div class="section-title">Reference Data Flow</div>
-    <div class="section-body">
-      The current architecture follows a three-stage model: ingest, analyze, review.
-    </div>
-
-    <div class="block-grid">
-      <div class="block">
-        <h3>Signal Intake</h3>
-        <p>Normalize and align incoming telemetry sequences.</p>
-      </div>
-      <div class="block">
-        <h3>Multivariate Deviation Logic</h3>
-        <p>Identify correlated drift across multiple parameters.</p>
-      </div>
-      <div class="block">
-        <h3>Contextual Output</h3>
-        <p>Generate structured records preserving signal state and scoring.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-number">03 — Evidence Basis</div>
-    <div class="section-title">Current Demonstration Environment</div>
-    <div class="section-body">
-      Algorithmic validation references the NASA C-MAPSS turbofan degradation dataset.
-      This dataset serves as a benchmark environment for run-to-failure sequence analysis.
-      It does not constitute validation within water infrastructure systems.
-    </div>
-
-    <div class="table">
-      <div class="table-row">
-        <div class="table-key">Dataset</div>
-        <div class="table-val">NASA C-MAPSS public turbofan degradation benchmark.</div>
-      </div>
-      <div class="table-row">
-        <div class="table-key">Purpose</div>
-        <div class="table-val">Algorithm development and multivariate drift testing.</div>
-      </div>
-      <div class="table-row">
-        <div class="table-key">Limitation</div>
-        <div class="table-val">Does not represent live water or municipal infrastructure.</div>
-      </div>
-      <div class="table-row">
-        <div class="table-key">Status</div>
-        <div class="table-val">Prototype analytical validation only.</div>
-      </div>
-    </div>
   </div>
 </section>
 

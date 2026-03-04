@@ -17,6 +17,7 @@ font-family:Inter, sans-serif;
 background:#050505;
 color:white;
 line-height:1.6;
+scroll-behavior:smooth;
 }
 
 /* NAVBAR */
@@ -74,6 +75,34 @@ left:0;
 right:0;
 bottom:0;
 background:rgba(0,0,0,.65);
+}
+
+/* GRID EFFECT */
+
+.hero-grid{
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background-image:
+linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+background-size:60px 60px;
+pointer-events:none;
+}
+
+/* GLOW */
+
+.hero-glow{
+position:absolute;
+width:600px;
+height:600px;
+background:radial-gradient(circle, rgba(77,184,255,.15), transparent 70%);
+filter:blur(120px);
+top:40%;
+left:50%;
+transform:translate(-50%,-50%);
 }
 
 .hero-content{
@@ -156,25 +185,21 @@ color:rgba(255,255,255,.4);
 <body>
 
 <nav>
-
 <div class="nav-inner">
-
 <a href="technical.html">TECHNICAL</a>
 <a href="#contact">CONTACT</a>
-
 </div>
-
 </nav>
 
 <section class="hero">
 
 <div class="overlay"></div>
+<div class="hero-grid"></div>
+<div class="hero-glow"></div>
 
 <div class="hero-content">
-
 <h1>Neraium</h1>
 <h2>Systemic Infrastructure Intelligence</h2>
-
 </div>
 
 </section>
@@ -185,14 +210,14 @@ color:rgba(255,255,255,.4);
 
 <p>
 Neraium is a read-only infrastructure intelligence layer that ingests
-existing telemetry from critical systems and identifies sustained structural
-deviation before failure occurs.
+existing telemetry from critical systems and identifies sustained
+structural deviation before failure occurs.
 </p>
 
 <p>
-The platform focuses on deterioration signals that appear weeks or months
-before operational alarms. This allows operators to detect degradation earlier
-in the lifecycle of infrastructure assets.
+The platform focuses on deterioration signals that appear weeks or
+months before operational alarms, allowing operators to detect
+degradation earlier in the lifecycle of infrastructure assets.
 </p>
 
 </section>
@@ -204,60 +229,33 @@ in the lifecycle of infrastructure assets.
 <div class="grid">
 
 <div class="card">
-
 <h4>Telemetry Ingestion</h4>
-
 <p>
-Neraium connects to existing telemetry sources such as
-SCADA, BAS, BMS, and industrial monitoring systems
-without modifying equipment or control systems.
+Connects to existing telemetry sources such as SCADA, BAS,
+BMS and industrial monitoring systems without modifying
+equipment or control systems.
 </p>
-
 </div>
 
 <div class="card">
-
 <h4>Deviation Detection</h4>
-
 <p>
-The platform analyzes multi-signal telemetry
-to detect persistent structural drift patterns
-that precede equipment failure or efficiency loss.
+Analyzes multi-signal telemetry to identify persistent
+structural drift patterns that precede failure or
+efficiency degradation.
 </p>
-
 </div>
 
 <div class="card">
-
 <h4>Operator Intelligence</h4>
-
 <p>
 Results are presented as clear analytical outputs
-for operators and engineers to review and act upon.
+for operators and engineers to review and act on.
 Neraium does not automate control decisions.
 </p>
-
 </div>
 
 </div>
-
-</section>
-
-<section class="section">
-
-<h3>System Boundary</h3>
-
-<p>
-Neraium is intentionally designed as a read-only system.
-It does not control equipment and does not modify
-operational environments.
-</p>
-
-<p>
-Existing control systems continue to operate normally,
-and operators retain full authority over infrastructure
-systems and maintenance decisions.
-</p>
 
 </section>
 
@@ -266,20 +264,15 @@ systems and maintenance decisions.
 <h3>Contact</h3>
 
 <p>
-
 Craig Curtis<br>
 Founder<br><br>
-
 craig@neraium.com
-
 </p>
 
 </section>
 
 <footer>
-
 © 2026 Neraium
-
 </footer>
 
 </body>

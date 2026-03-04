@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Neraium Technical Architecture</title>
+<title>Neraium | Technical Architecture</title>
 
 <link rel="icon" href="favicon.ico">
 
@@ -13,23 +14,26 @@
 
 body{
 margin:0;
-font-family:Arial;
-background:radial-gradient(circle at 30% 20%, #111b36 0%, #050a15 60%);
-color:white;
+font-family:Inter, Arial, sans-serif;
+background:#050a15;
+color:#ffffff;
+line-height:1.7;
 }
 
 header{
 display:flex;
 justify-content:space-between;
-padding:28px 40px;
+align-items:center;
+padding:26px 40px;
 border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 nav a{
 color:white;
 text-decoration:none;
-margin-left:30px;
-opacity:.7;
+margin-left:28px;
+opacity:.75;
+font-size:15px;
 }
 
 nav a:hover{
@@ -37,9 +41,57 @@ opacity:1;
 }
 
 .section{
-padding:120px 40px;
-max-width:900px;
+max-width:1000px;
 margin:auto;
+padding:110px 40px;
+}
+
+h1{
+font-size:44px;
+margin-bottom:25px;
+}
+
+h2{
+margin-top:70px;
+font-size:28px;
+}
+
+p{
+opacity:.8;
+max-width:760px;
+}
+
+.diagram{
+margin-top:60px;
+text-align:center;
+}
+
+.diagram img{
+max-width:100%;
+border-radius:10px;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:#0c1326;
+padding:28px;
+border-radius:10px;
+border:1px solid rgba(255,255,255,0.06);
+}
+
+footer{
+padding:40px;
+text-align:center;
+opacity:.5;
+font-size:13px;
+border-top:1px solid rgba(255,255,255,0.08);
 }
 
 </style>
@@ -60,27 +112,133 @@ margin:auto;
 
 </header>
 
+
+
 <section class="section">
 
 <h1>Technical Architecture</h1>
 
 <p>
-The Neraium platform ingests operational telemetry streams from infrastructure systems.
+Neraium is a read-only infrastructure intelligence layer designed to detect structural deviation across complex water systems before failure occurs.
 </p>
 
 <p>
-Signal vectors are analyzed using multivariate drift detection to identify sustained structural deviation.
+The platform ingests existing telemetry streams and analyzes multivariate system behavior to classify deterioration patterns that traditional monitoring systems fail to detect.
+</p>
+
+
+
+<h2>System Overview</h2>
+
+<div class="diagram">
+
+<img src="IMG_9010.png">
+
+</div>
+
+<p>
+Telemetry is collected from existing operational infrastructure including pumps, cooling systems, treatment systems, and distribution networks. Neraium analyzes signal relationships across the system rather than relying on individual alarm thresholds.
+</p>
+
+
+
+<h2>Telemetry Ingestion</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Native Infrastructure Data</h3>
+<p>
+Neraium ingests telemetry from existing sensors and infrastructure systems including SCADA, BAS, historians, and control system data exports.
+</p>
+</div>
+
+<div class="card">
+<h3>No Control Integration</h3>
+<p>
+The platform never connects to control paths and does not modify operational systems. All telemetry is ingested as observational data.
+</p>
+</div>
+
+<div class="card">
+<h3>System Level Context</h3>
+<p>
+Signals are analyzed within the context of the full infrastructure system rather than isolated sensor thresholds.
+</p>
+</div>
+
+</div>
+
+
+
+<h2>Deviation Detection</h2>
+
+<p>
+Instead of relying on simple alarm thresholds, Neraium analyzes persistent deviation across multiple correlated signals.
 </p>
 
 <p>
-Deterioration classification occurs when correlated system variables diverge persistently from baseline behavior.
+When system relationships drift from baseline behavior in a sustained pattern, the platform classifies the deviation as potential structural deterioration.
 </p>
 
 <p>
-The system remains strictly read-only and never interacts with operational controls.
+This enables operators to detect infrastructure degradation significantly earlier than reactive maintenance models.
+</p>
+
+
+
+<h2>Operational Boundary</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Read Only</h3>
+<p>
+Neraium never writes to operational systems or modifies infrastructure settings.
+</p>
+</div>
+
+<div class="card">
+<h3>No Actuation</h3>
+<p>
+The platform does not control pumps, valves, chemical dosing systems, or treatment processes.
+</p>
+</div>
+
+<div class="card">
+<h3>Operator Authority</h3>
+<p>
+All operational decisions remain entirely with system operators and infrastructure owners.
+</p>
+</div>
+
+</div>
+
+
+
+<h2>Deployment Model</h2>
+
+<p>
+Neraium integrates with existing infrastructure environments with minimal operational disruption.
+</p>
+
+<p>
+Telemetry is analyzed externally without altering system configuration or introducing new operational dependencies.
+</p>
+
+<p>
+This architecture allows infrastructure operators to gain system-level visibility while preserving strict operational control boundaries.
 </p>
 
 </section>
+
+
+
+<footer>
+
+Neraium Infrastructure Intelligence Platform
+
+</footer>
 
 </body>
 </html>

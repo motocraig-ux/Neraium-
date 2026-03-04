@@ -100,7 +100,7 @@ padding-top:70px;
 overflow:hidden;
 }
 
-/* PARALLAX BACKGROUND */
+/* BACKGROUND */
 
 .hero-bg{
 position:absolute;
@@ -111,7 +111,20 @@ height:140%;
 background:url("hero.png") center center / cover no-repeat;
 filter:brightness(.6);
 z-index:0;
-will-change:transform;
+}
+
+/* SPOTLIGHT EFFECT */
+
+.spotlight{
+position:absolute;
+width:900px;
+height:900px;
+background:radial-gradient(circle, rgba(80,120,255,.18), transparent 70%);
+top:50%;
+left:50%;
+transform:translate(-50%,-40%);
+z-index:1;
+pointer-events:none;
 }
 
 /* TELEMETRY SCAN */
@@ -131,7 +144,7 @@ transparent
 transform:rotate(8deg);
 animation:scanMove 14s linear infinite;
 pointer-events:none;
-z-index:1;
+z-index:2;
 }
 
 @keyframes scanMove{
@@ -153,14 +166,14 @@ to bottom,
 rgba(0,0,0,.3),
 rgba(0,0,0,.9)
 );
-z-index:2;
+z-index:3;
 }
 
-/* HERO CONTENT */
+/* HERO TEXT */
 
 .hero-content{
 position:relative;
-z-index:3;
+z-index:4;
 max-width:760px;
 padding:0 30px;
 }
@@ -300,6 +313,8 @@ padding:90px 25px;
 
 <div class="hero-bg" id="heroBg"></div>
 
+<div class="spotlight"></div>
+
 <div class="scan"></div>
 
 <div class="hero-content">
@@ -316,65 +331,6 @@ Read-only intelligence. No automation. No system control.
 </div>
 
 </section>
-
-<section class="section" id="technical">
-
-<h3>Technical</h3>
-
-<div class="grid">
-
-<div class="card">
-<h4>Telemetry Ingestion</h4>
-<p>Neraium connects to existing monitoring infrastructure and ingests operational telemetry without modifying systems.</p>
-</div>
-
-<div class="card">
-<h4>Deterioration Detection</h4>
-<p>Structural deviation is detected before alarms trigger or equipment failure occurs.</p>
-</div>
-
-<div class="card">
-<h4>Operator Intelligence</h4>
-<p>Signals are delivered as reviewable intelligence with no automation, control, or system modification.</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="section" id="deployment">
-
-<h3>Deployment</h3>
-
-<p>
-Neraium deploys alongside existing infrastructure monitoring systems. The system remains read-only and preserves full operator authority.
-</p>
-
-</section>
-
-<section class="cta" id="contact">
-
-<h3>Request a Pilot</h3>
-
-<a class="button" href="mailto:craig@neraium.com">Contact Neraium</a>
-
-</section>
-
-<script>
-
-/* PARALLAX EFFECT */
-
-const heroBg = document.getElementById("heroBg");
-
-window.addEventListener("scroll", () => {
-
-const offset = window.pageYOffset;
-
-heroBg.style.transform = `translateY(${offset * 0.3}px)`;
-
-});
-
-</script>
 
 </body>
 </html>

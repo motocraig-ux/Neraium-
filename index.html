@@ -202,7 +202,34 @@ Neraium ingests telemetry from critical infrastructure and detects sustained str
 <section>
 
 <h3>System Architecture</h3>
+<section>
 
+<h3>System Boundary</h3>
+
+<p>
+Neraium operates strictly as an infrastructure intelligence layer. The system analyzes telemetry and produces governed analytical output, but it does not control infrastructure systems.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h4>Read Only</h4>
+<p>Neraium ingests operational telemetry but does not write commands or modify system state.</p>
+</div>
+
+<div class="card">
+<h4>No Control Layer</h4>
+<p>The platform does not replace or override existing control systems such as BAS or SCADA.</p>
+</div>
+
+<div class="card">
+<h4>Operator Authority</h4>
+<p>Infrastructure operators retain full authority over system decisions and actions.</p>
+</div>
+
+</div>
+
+</section>
 <p>
 Neraium sits above operational infrastructure as a read-only intelligence layer. Analytical output passes through governance before institutional acknowledgement.
 </p>

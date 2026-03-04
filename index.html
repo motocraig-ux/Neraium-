@@ -1,31 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"><title>Neraium | Sovereign Infrastructure Intelligence</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Neraium | Infrastructure Intelligence</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter, sans-serif;
+}
+
+body{
+background:#050a15;
+color:white;
+line-height:1.6;
+}
+
+/* NAV */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 80px;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.logo{
+font-weight:700;
+font-size:22px;
+letter-spacing:1px;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+nav a{
+color:#cfd8ff;
+text-decoration:none;
+font-size:15px;
+}
+
+nav a:hover{
+color:white;
+}
+
+/* HERO */
+
+.hero{
+padding:120px 80px 140px;
+max-width:1200px;
+margin:auto;
+}
+
+.hero h1{
+font-size:60px;
+font-weight:700;
+margin-bottom:25px;
+}
+
+.hero p{
+font-size:20px;
+color:#b4c0ff;
+max-width:700px;
+}
+
+/* SECTION */
+
+.section{
+padding:100px 80px;
+max-width:1200px;
+margin:auto;
+}
+
+.section h2{
+font-size:38px;
+margin-bottom:20px;
+}
+
+.section p{
+color:#c8d0ff;
+max-width:850px;
+}
+
+/* GRID */
+
+.grid{
+margin-top:60px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.card{
+background:#0d1428;
+padding:35px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.05);
+}
+
+.card h3{
+margin-bottom:12px;
+}
+
+.card p{
+color:#a7b1e6;
+font-size:14px;
+}
+
+/* CTA */
+
+.cta{
+text-align:center;
+padding:120px 20px;
+}
+
+.cta h2{
+font-size:36px;
+margin-bottom:15px;
+}
+
+.cta p{
+color:#aab4ff;
+margin-bottom:25px;
+}
+
+.button{
+display:inline-block;
+padding:14px 30px;
+background:#6d7cff;
+border-radius:6px;
+color:white;
+text-decoration:none;
+font-weight:500;
+}
+
+/* FOOTER */
+
+footer{
+padding:40px;
+text-align:center;
+color:#7c87b6;
+border-top:1px solid rgba(255,255,255,.05);
+margin-top:100px;
+}
+
+</style>
+
 </head>
+
 <body>
-    <nav>
-        <a href="index.html" class="nav-logo mono"><span class="nav-dot"></span> NERAIUM</a>
-        <div class="nav-links">
-            <a href="platform.html">Platform</a>
-            <a href="technical.html">Technical</a>
-            <a href="governance.html">Governance</a>
-        </div>
-    </nav>
-    <section>
-        <p class="mono" style="color: var(--accent);">[ STATUS: ACTIVE // EPOCH 2026 ]</p>
-        <h1>Sovereign <br>Infrastructure.</h1>
-        <div class="grid-stack" style="display: grid; grid-template-columns: 2fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 4rem;">
-            <div class="module">
-                <p style="font-size: 1.5rem; line-height: 1.4;">Neraium provides systemic intelligence for critical infrastructure. We detect the mathematical signatures of structural deviation before physical failure occurs.</p>
-            </div>
-            <div class="module" style="background: var(--accent-dim);">
-                <p class="mono">Network Ingestion</p>
-                <p style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0;">READ-ONLY</p>
-                <p class="mono" style="color: var(--text-muted);">Unidirectional Protocol</p>
-            </div>
-        </div>
-    </section>
+
+<nav>
+
+<div class="logo">NERAIUM</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="platform.html">Platform</a></li>
+<li><a href="technical.html">Technical</a></li>
+<li><a href="governance.html">Governance</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<h1>Infrastructure Intelligence</h1>
+
+<p>
+Neraium provides systemic intelligence for complex infrastructure environments.
+We analyze multivariate telemetry from operational systems to detect structural
+deviation and deterioration before failure occurs.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>What Neraium Does</h2>
+
+<p>
+Most infrastructure monitoring systems focus on alarms and thresholds. Neraium
+analyzes entire telemetry environments simultaneously, identifying structural
+drift and system behavior changes long before operational failure occurs.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Multivariate Analysis</h3>
+<p>
+Instead of single metrics or thresholds, Neraium evaluates entire telemetry
+environments across pumps, exchangers, cooling loops and other infrastructure.
+</p>
+</div>
+
+<div class="card">
+<h3>Early Structural Detection</h3>
+<p>
+The platform identifies sustained deviation patterns weeks or months before
+traditional monitoring tools detect failures.
+</p>
+</div>
+
+<div class="card">
+<h3>Operational Intelligence</h3>
+<p>
+Operators gain visibility into system behavior, degradation patterns and
+efficiency losses across complex infrastructure networks.
+</p>
+</div>
+
+<div class="card">
+<h3>Read Only Architecture</h3>
+<p>
+Neraium provides intelligence without controlling equipment. It observes and
+analyzes systems while leaving operational control unchanged.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Where It Is Used</h2>
+
+<p>
+Neraium is designed for environments where infrastructure failure carries
+significant operational or financial impact.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Industrial Manufacturing</h3>
+<p>
+Process cooling loops, pumping systems and production infrastructure.
+</p>
+</div>
+
+<div class="card">
+<h3>Data Centers</h3>
+<p>
+Cooling infrastructure, chilled water systems and heat rejection systems.
+</p>
+</div>
+
+<div class="card">
+<h3>Hospitality</h3>
+<p>
+Large resort and hospitality water infrastructure environments.
+</p>
+</div>
+
+<div class="card">
+<h3>Municipal Infrastructure</h3>
+<p>
+Water treatment systems, pumping stations and infrastructure networks.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>Infrastructure Should Be Predictable</h2>
+
+<p>
+Neraium transforms operational telemetry into early infrastructure intelligence.
+</p>
+
+<a class="button" href="platform.html">Explore Platform</a>
+
+</section>
+
+<footer>
+
+© 2026 Neraium
+
+</footer>
+
 </body>
 </html>

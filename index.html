@@ -100,13 +100,18 @@ padding-top:70px;
 overflow:hidden;
 }
 
-/* HERO IMAGE */
+/* PARALLAX BACKGROUND */
 
 .hero-bg{
 position:absolute;
-inset:0;
+top:-20%;
+left:-10%;
+width:120%;
+height:140%;
 background:url("hero.png") center center / cover no-repeat;
 filter:brightness(.6);
+z-index:0;
+will-change:transform;
 }
 
 /* TELEMETRY SCAN */
@@ -126,6 +131,7 @@ transparent
 transform:rotate(8deg);
 animation:scanMove 14s linear infinite;
 pointer-events:none;
+z-index:1;
 }
 
 @keyframes scanMove{
@@ -147,13 +153,14 @@ to bottom,
 rgba(0,0,0,.3),
 rgba(0,0,0,.9)
 );
+z-index:2;
 }
 
 /* HERO CONTENT */
 
 .hero-content{
 position:relative;
-z-index:2;
+z-index:3;
 max-width:760px;
 padding:0 30px;
 }
@@ -291,7 +298,7 @@ padding:90px 25px;
 
 <section class="hero">
 
-<div class="hero-bg"></div>
+<div class="hero-bg" id="heroBg"></div>
 
 <div class="scan"></div>
 
@@ -352,6 +359,22 @@ Neraium deploys alongside existing infrastructure monitoring systems. The system
 <a class="button" href="mailto:craig@neraium.com">Contact Neraium</a>
 
 </section>
+
+<script>
+
+/* PARALLAX EFFECT */
+
+const heroBg = document.getElementById("heroBg");
+
+window.addEventListener("scroll", () => {
+
+const offset = window.pageYOffset;
+
+heroBg.style.transform = `translateY(${offset * 0.3}px)`;
+
+});
+
+</script>
 
 </body>
 </html>

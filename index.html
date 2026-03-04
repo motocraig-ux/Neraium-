@@ -1,316 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Neraium | Systemic Infrastructure Intelligence</title>
-
 <link rel="icon" href="favicon.ico">
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
-
 <style>
-body{
-margin:0;
-font-family:Inter;
-background:#050505;
-color:white;
-position:relative;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* infrastructure grid */
-
-body:before{
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
-background-image:
-linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-background-size:60px 60px;
-opacity:.4;
-z-index:0;
-}
-body{
-margin:0;
-font-family:Inter;
-background:#050505;
-color:white;
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: #050505;
+  color: white;
+  position: relative;
+  overflow-x: hidden;
 }
 
-nav{
-position:fixed;
-top:0;
-width:100%;
-height:70px;
-background:rgba(0,0,0,.75);
-backdrop-filter:blur(14px);
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 40px;
-box-sizing:border-box;
-border-bottom:1px solid rgba(255,255,255,.08);
-z-index:100;
+/* Infrastructure grid */
+body:before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: .4;
+  z-index: 0;
 }
 
-nav span{
-font-family:"IBM Plex Mono";
-letter-spacing:3px;
-font-size:11px;
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(0,0,0,.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  z-index: 100;
 }
 
-nav a{
-color:rgba(255,255,255,.7);
-text-decoration:none;
-font-size:11px;
-margin-left:22px;
-font-family:"IBM Plex Mono";
-letter-spacing:2px;
+nav span {
+  font-family: "IBM Plex Mono", monospace;
+  letter-spacing: 3px;
+  font-size: 11px;
 }
 
-nav a:hover{
-color:#69d2ff;
+.nav-links {
+  display: flex;
+  gap: 22px;
 }
 
-.hero{
-height:100vh;
-display:flex;
-align-items:center;
-padding:0 80px;
-position:relative;
-overflow:hidden;
+nav a {
+  color: rgba(255,255,255,.7);
+  text-decoration: none;
+  font-size: 11px;
+  font-family: "IBM Plex Mono", monospace;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
 }
 
-.hero:before{
-content:"";
-position:absolute;
-inset:0;
-background:url("hero.png");
-background-size:cover;
-background-position:center;
-filter:brightness(.75);
+nav a:hover {
+  color: #69d2ff;
 }
 
-.hero:after{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(to bottom,
-rgba(0,0,0,.2),
-rgba(0,0,0,.65));
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 80px 80px;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-inner{
-position:relative;
-z-index:2;
+.hero:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("hero.png");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(.75);
 }
 
-.hero h1{
-font-size:110px;
-margin:0;
+.hero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(0,0,0,.2),
+    rgba(0,0,0,.65));
 }
 
-.hero h2{
-margin-top:10px;
-font-weight:400;
-color:rgba(255,255,255,.75);
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
 }
 
-section{
-padding:120px 80px;
-border-top:1px solid rgba(255,255,255,.08);
+.hero h1 {
+  font-size: clamp(48px, 10vw, 110px);
+  margin: 0;
+  line-height: 1.1;
 }
 
-h3{
-font-size:34px;
-margin-bottom:20px;
+.hero h2 {
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: clamp(18px, 3vw, 24px);
+  color: rgba(255,255,255,.75);
+  max-width: 600px;
 }
 
-p{
-max-width:700px;
-line-height:1.7;
-color:rgba(255,255,255,.7);
+section {
+  padding: 120px 80px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  position: relative;
+  z-index: 1;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:40px;
-margin-top:40px;
+h3 {
+  font-size: clamp(28px, 4vw, 34px);
+  margin-bottom: 20px;
 }
 
-.card{
-border:1px solid rgba(255,255,255,.08);
-padding:30px;
-border-radius:10px;
-background:rgba(255,255,255,.03);
+h4 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #69d2ff;
 }
 
-footer{
-padding:100px;
-text-align:center;
-border-top:1px solid rgba(255,255,255,.08);
-color:rgba(255,255,255,.6);
+p {
+  max-width: 700px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.7);
+  font-size: 16px;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.card {
+  border: 1px solid rgba(255,255,255,.08);
+  padding: 30px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.03);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(105, 210, 255, 0.3);
+}
+
+footer {
+  padding: 80px 40px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,.08);
+  color: rgba(255,255,255,.6);
+  position: relative;
+  z-index: 1;
+}
+
+footer a {
+  color: rgba(255,255,255,.6);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #69d2ff;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 101;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background: rgba(255,255,255,.7);
+  transition: all 0.3s ease;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 0 20px;
+    height: 60px;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,.95);
+    flex-direction: column;
+    padding: 30px;
+    gap: 20px;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  nav a {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  .hero {
+    padding: 100px 24px 60px;
+    min-height: auto;
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+  
+  section {
+    padding: 80px 24px;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .card {
+    padding: 24px;
+  }
+  
+  footer {
+    padding: 60px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 42px;
+  }
+  
+  .hero h2 {
+    font-size: 16px;
+  }
+  
+  h3 {
+    font-size: 24px;
+  }
+  
+  h4 {
+    font-size: 18px;
+  }
+  
+  p {
+    font-size: 15px;
+  }
+}
 </style>
-
 </head>
-
 <body>
 
 <nav>
-
-<span>NERAIUM</span>
-
-<div>
-
-<a href="platform.html">Platform</a>
-<a href="technical.html">Technical</a>
-<a href="governance.html">Governance</a>
-
-</div>
-
+  <span>NERAIUM</span>
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="platform.html">Platform</a>
+    <a href="technical.html">Technical</a>
+    <a href="governance.html">Governance</a>
+  </div>
 </nav>
 
 <div class="hero">
-
-<div class="hero-inner">
-
-<h1>Neraium</h1>
-
-<h2>Systemic Infrastructure Intelligence</h2>
-
-</div>
-
+  <div class="hero-inner">
+    <h1>Neraium</h1>
+    <h2>Systemic Infrastructure Intelligence</h2>
+  </div>
 </div>
 
 <section>
-
-<h3>Infrastructure Intelligence</h3>
-
-<p>
-Neraium ingests telemetry from critical infrastructure and detects sustained structural deviation before failure occurs. The platform operates strictly in read-only mode and never issues control commands or modifies infrastructure.
-</p>
-
-<div class="grid">
-
-<div class="card">
-<h4>Detection</h4>
-<p>Identify sustained structural deviation before operational alarms occur.</p>
-</div>
-
-<div class="card">
-<h4>Governance</h4>
-<p>Outputs pass through deterministic governance before institutional acknowledgement.</p>
-</div>
-
-<div class="card">
-<h4>Authority</h4>
-<p>Operators retain full authority over infrastructure systems.</p>
-</div>
-
-</div>
-
+  <h3>Infrastructure Intelligence</h3>
+  <p>
+    Neraium ingests telemetry from critical infrastructure and detects sustained structural deviation before failure occurs. The platform operates strictly in read-only mode and never issues control commands or modifies infrastructure.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h4>Detection</h4>
+      <p>Identify sustained structural deviation before operational alarms occur.</p>
+    </div>
+    <div class="card">
+      <h4>Governance</h4>
+      <p>Outputs pass through deterministic governance before institutional acknowledgement.</p>
+    </div>
+    <div class="card">
+      <h4>Authority</h4>
+      <p>Operators retain full authority over infrastructure systems.</p>
+    </div>
+  </div>
 </section>
-
 
 <section>
+  <h3>System Architecture</h3>
+  <p>
+    Neraium sits above operational infrastructure as a read-only intelligence layer. Analytical output passes through governance before institutional acknowledgement.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h4>Telemetry Ingestion</h4>
+      <p>BAS, SCADA, and historian signals are ingested without modifying infrastructure behavior.</p>
+    </div>
+    <div class="card">
+      <h4>Deviation Detection</h4>
+      <p>Signals are analyzed for sustained structural deviation across operational systems.</p>
+    </div>
+    <div class="card">
+      <h4>Governance Gate</h4>
+      <p>Analytical outputs pass through Aletheia's Gate under Ananke governance before institutional acknowledgement.</p>
+    </div>
+  </div>
+</section>
 
-<h3>System Architecture</h3>
 <section>
+  <h3>System Boundary</h3>
+  <p>
+    Neraium operates strictly as an infrastructure intelligence layer. The system analyzes telemetry and produces governed analytical output, but it does not control infrastructure systems.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h4>Read Only</h4>
+      <p>Neraium ingests operational telemetry but does not write commands or modify system state.</p>
+    </div>
+    <div class="card">
+      <h4>No Control Layer</h4>
+      <p>The platform does not replace or override existing control systems such as BAS or SCADA.</p>
+    </div>
+    <div class="card">
+      <h4>Operator Authority</h4>
+      <p>Infrastructure operators retain full authority over system decisions and actions.</p>
+    </div>
+  </div>
+</section>
 
-<h3>System Boundary</h3>
 <section>
-
-<h3>Operational Outcomes</h3>
-
-<p>
-Neraium enables infrastructure operators to detect structural deviation earlier, respond to deterioration sooner, and maintain institutional accountability for operational decisions.
-</p>
-
-<div class="grid">
-
-<div class="card">
-<h4>Earlier Detection</h4>
-<p>Structural deterioration signals appear before traditional alarms or system failures.</p>
-</div>
-
-<div class="card">
-<h4>Reduced Reactive Maintenance</h4>
-<p>Operators gain visibility into emerging system conditions before they escalate into urgent repairs.</p>
-</div>
-
-<div class="card">
-<h4>Defensible Infrastructure Intelligence</h4>
-<p>Governance architecture ensures analytical outputs are traceable, auditable, and institutionally accountable.</p>
-</div>
-
-</div>
-
+  <h3>Operational Outcomes</h3>
+  <p>
+    Neraium enables infrastructure operators to detect structural deviation earlier, respond to deterioration sooner, and maintain institutional accountability for operational decisions.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h4>Earlier Detection</h4>
+      <p>Structural deterioration signals appear before traditional alarms or system failures.</p>
+    </div>
+    <div class="card">
+      <h4>Reduced Reactive Maintenance</h4>
+      <p>Operators gain visibility into emerging system conditions before they escalate into urgent repairs.</p>
+    </div>
+    <div class="card">
+      <h4>Defensible Infrastructure Intelligence</h4>
+      <p>Governance architecture ensures analytical outputs are traceable, auditable, and institutionally accountable.</p>
+    </div>
+  </div>
 </section>
-<p>
-Neraium operates strictly as an infrastructure intelligence layer. The system analyzes telemetry and produces governed analytical output, but it does not control infrastructure systems.
-</p>
-
-<div class="grid">
-
-<div class="card">
-<h4>Read Only</h4>
-<p>Neraium ingests operational telemetry but does not write commands or modify system state.</p>
-</div>
-
-<div class="card">
-<h4>No Control Layer</h4>
-<p>The platform does not replace or override existing control systems such as BAS or SCADA.</p>
-</div>
-
-<div class="card">
-<h4>Operator Authority</h4>
-<p>Infrastructure operators retain full authority over system decisions and actions.</p>
-</div>
-
-</div>
-
-</section>
-<p>
-Neraium sits above operational infrastructure as a read-only intelligence layer. Analytical output passes through governance before institutional acknowledgement.
-</p>
-
-<div class="grid">
-
-<div class="card">
-<h4>Telemetry Ingestion</h4>
-<p>BAS, SCADA, and historian signals are ingested without modifying infrastructure behavior.</p>
-</div>
-
-<div class="card">
-<h4>Deviation Detection</h4>
-<p>Signals are analyzed for sustained structural deviation across operational systems.</p>
-</div>
-
-<div class="card">
-<h4>Governance Gate</h4>
-<p>Analytical outputs pass through Aletheia’s Gate under Ananke governance before institutional acknowledgement.</p>
-</div>
-
-</div>
-
-</section>
-
 
 <footer>
-
-Craig Curtis<br>
-craig@neraium.com<br><br>
-© Neraium
-
+  Craig Curtis<br>
+  <a href="mailto:craig@neraium.com">craig@neraium.com</a><br><br>
+  © Neraium
 </footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
+</script>
 
 </body>
 </html>

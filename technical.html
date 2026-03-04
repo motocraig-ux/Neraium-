@@ -114,6 +114,12 @@ img {
   color: rgba(255,255,255,.5);
   margin-top: 16px;
   font-style: italic;
+  line-height: 1.6;
+}
+
+.image-caption strong {
+  color: rgba(255,255,255,.7);
+  font-weight: 600;
 }
 
 /* Back link */
@@ -212,11 +218,14 @@ Neraium integrates with existing telemetry infrastructure including BAS, SCADA, 
 <li><strong>Telemetry Layer</strong> — operational signals from BAS, SCADA, and historian systems</li>
 <li><strong>Analytical Layer</strong> — deviation detection across infrastructure telemetry</li>
 <li><strong>Aletheia's Gate</strong> — governance layer evaluating analytical outputs (owned by Ananke)</li>
-<li><strong>Mnemosyne</strong> — custody and institutional memory (owns Evidence Vault Protocol)</li>
+<li><strong>Mnemosyne</strong> — custody, institutional memory, and cryptographic evidence storage (EVP)</li>
 </ul>
 
-<img src="IMG_9010.png" alt="Technical Architecture Diagram">
-<p class="image-caption">Figure 1: Data flow from infrastructure telemetry through analytical layers to governed output</p>
+<img src="IMG_9010.png" alt="Representative Engine Plot showing degradation detection with 207 cycle lead time">
+<p class="image-caption">
+<strong>Representative Engine Plot (FD004):</strong> Degradation signal detected at cycle 36, failure at cycle 243. 
+<strong>207-cycle lead time</strong> demonstrates early detection capability. Admission timing scales with engine life.
+</p>
 
 </body>
 </html>

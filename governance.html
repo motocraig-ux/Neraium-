@@ -43,7 +43,7 @@ opacity:1;
 .section{
 max-width:1000px;
 margin:auto;
-padding:110px 40px;
+padding:100px 40px;
 }
 
 h1{
@@ -87,6 +87,54 @@ border:1px solid rgba(255,255,255,0.08);
 background:#0a1123;
 }
 
+.diagram{
+margin-top:60px;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:14px;
+}
+
+.box{
+background:#0c1326;
+padding:18px 28px;
+border-radius:10px;
+border:1px solid rgba(255,255,255,0.08);
+font-size:15px;
+}
+
+.arrow{
+opacity:.6;
+}
+
+.gate{
+border:1px solid rgba(255,255,255,0.08);
+padding:18px;
+border-radius:10px;
+background:#0a1123;
+text-align:center;
+}
+
+.ananke{
+font-size:12px;
+opacity:.6;
+margin-bottom:10px;
+}
+
+.mnemosyne{
+border:1px solid rgba(255,255,255,0.08);
+padding:18px;
+border-radius:10px;
+background:#0a1123;
+text-align:center;
+}
+
+.evp{
+margin-top:10px;
+font-size:13px;
+opacity:.7;
+}
+
 footer{
 padding:40px;
 text-align:center;
@@ -120,11 +168,11 @@ border-top:1px solid rgba(255,255,255,0.08);
 <h1>Governance</h1>
 
 <p>
-Neraium is designed as a governance-aligned intelligence layer for critical infrastructure.
+Neraium is designed as a governance-aligned infrastructure intelligence system.
 </p>
 
 <p>
-The platform provides earlier infrastructure visibility while preserving strict operational boundaries and institutional accountability.
+The platform provides earlier visibility into infrastructure behavior while preserving strict operational boundaries and institutional accountability.
 </p>
 
 
@@ -136,21 +184,21 @@ The platform provides earlier infrastructure visibility while preserving strict 
 <div class="card">
 <h3>Read Only Architecture</h3>
 <p>
-Neraium ingests telemetry and performs analysis without modifying infrastructure systems or operational configurations.
+Neraium observes and analyzes telemetry but never modifies operational infrastructure systems.
 </p>
 </div>
 
 <div class="card">
 <h3>No System Control</h3>
 <p>
-The platform does not actuate pumps, valves, treatment systems, or control processes. No commands are issued to operational systems.
+The platform does not actuate pumps, valves, treatment processes, or control systems.
 </p>
 </div>
 
 <div class="card">
 <h3>Operator Authority</h3>
 <p>
-All operational decisions remain entirely with licensed operators, infrastructure owners, and responsible engineering teams.
+All operational decisions remain with licensed operators and infrastructure owners.
 </p>
 </div>
 
@@ -161,53 +209,83 @@ All operational decisions remain entirely with licensed operators, infrastructur
 <h2>Evidence Discipline</h2>
 
 <p>
-Infrastructure intelligence must be defensible. Neraium structures analytical outputs so that observations can be reviewed, validated, and retained as structured operational evidence.
+Infrastructure intelligence must remain defensible. Neraium structures analytical outputs so they can be reviewed, validated, and preserved as structured operational evidence.
 </p>
 
 <p>
-The Evidence Vault Protocol establishes disciplined custody of analytical outputs, ensuring that system observations are recorded with context and traceability.
+The Evidence Vault Protocol ensures that admitted analytical outputs maintain traceability and contextual integrity throughout their lifecycle.
 </p>
 
 
 
-<h2>System Roles</h2>
+<h2>System Architecture</h2>
+
+<div class="diagram">
+
+<div class="box">Telemetry Sources</div>
+<div class="arrow">↓</div>
+
+<div class="box">Ingestion / Normalization</div>
+<div class="arrow">↓</div>
+
+<div class="box">Analysis Layer</div>
+<div class="arrow">↓</div>
+
+<div class="box">Analytical Output</div>
+<div class="arrow">↓</div>
+
+<div class="gate">
+
+<div class="ananke">Ananke</div>
+
+<div class="box">Aletheia’s Gate</div>
+
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="mnemosyne">
+
+<div class="box">Mnemosyne</div>
+
+<div class="evp">Evidence Vault Protocol (EVP)</div>
+
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="box">Human Review</div>
+
+</div>
+
+
+
+<h2>Governance Roles</h2>
 
 <div class="grid">
 
 <div class="card">
 <h3>Neraium</h3>
 <p>
-The systemic infrastructure intelligence platform responsible for telemetry analysis and deviation detection.
-</p>
-</div>
-
-<div class="card">
-<h3>Mnemosyne</h3>
-<p>
-Custody layer responsible for evidence retention, traceability, and structured record discipline.
+Stewardship entity responsible for governance of the infrastructure intelligence system.
 </p>
 </div>
 
 <div class="card">
 <h3>Ananke</h3>
 <p>
-Doctrine authority defining governance principles and operational boundary conditions for infrastructure intelligence systems.
+Doctrine authority that defines admissibility rules and operational boundaries.
+</p>
+</div>
+
+<div class="card">
+<h3>Mnemosyne</h3>
+<p>
+Custody layer responsible for preserving structured infrastructure evidence.
 </p>
 </div>
 
 </div>
-
-
-
-<h2>Institutional Alignment</h2>
-
-<p>
-Critical infrastructure operators must balance visibility with responsibility. Increased system insight can introduce institutional duty if intelligence is not structured carefully.
-</p>
-
-<p>
-Neraium is designed to provide earlier signal detection while preserving clear boundaries between observation, interpretation, and operational action.
-</p>
 
 
 
@@ -218,22 +296,12 @@ Neraium does not control infrastructure systems.
 </p>
 
 <p>
-The platform observes, analyzes, and records system behavior. Decisions remain with human operators and infrastructure owners.
+The platform observes, analyzes, and records system behavior while operators retain full authority over operational decisions.
 </p>
 
 </div>
 
 
-
-<h2>Deployment Principle</h2>
-
-<p>
-Infrastructure intelligence must integrate without destabilizing operational governance.
-</p>
-
-<p>
-Neraium is deployed as a read-only analytical layer that enhances system visibility while maintaining strict separation from control systems.
-</p>
 
 </section>
 

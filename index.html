@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Neraium | Systemic Infrastructure Intelligence</title>
+<title>Neraium | Infrastructure Intelligence</title>
 
 <link rel="icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -19,7 +18,7 @@
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
-background:#050a15;
+background:radial-gradient(circle at 30% 20%, #111b36 0%, #050a15 60%);
 color:white;
 }
 
@@ -27,7 +26,7 @@ header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:25px 40px;
+padding:28px 40px;
 border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
@@ -36,23 +35,41 @@ color:white;
 text-decoration:none;
 margin-left:30px;
 font-size:15px;
+opacity:.7;
+transition:opacity .2s;
+}
+
+nav a:hover{
+opacity:1;
 }
 
 .hero{
-padding:120px 40px;
+padding:140px 40px;
 text-align:center;
 }
 
 .hero h1{
-font-size:52px;
+font-size:58px;
+letter-spacing:-1px;
 margin-bottom:20px;
 }
 
 .hero p{
 font-size:20px;
 opacity:.75;
-max-width:700px;
+max-width:650px;
 margin:auto;
+}
+
+.cta{
+display:inline-block;
+margin-top:35px;
+padding:14px 30px;
+background:#3c6cff;
+border-radius:6px;
+text-decoration:none;
+color:white;
+font-weight:600;
 }
 
 .section{
@@ -92,17 +109,17 @@ opacity:.5;
 
 </header>
 
-
 <section class="hero">
 
-<h1>Systemic Infrastructure Intelligence</h1>
+<h1>Infrastructure Intelligence</h1>
 
 <p>
-Neraium provides read-only infrastructure intelligence for high-consequence water systems.
+A read-only intelligence layer for high consequence water systems.
 </p>
 
-</section>
+<a class="cta" href="platform.html">Explore Platform</a>
 
+</section>
 
 <section class="section">
 
@@ -111,22 +128,20 @@ Neraium provides read-only infrastructure intelligence for high-consequence wate
 <div class="card">
 
 <p>
-Neraium ingests telemetry from pumps, cooling systems, heat exchangers, and treatment infrastructure.
+Neraium ingests telemetry from pumps, treatment systems, cooling loops, and water infrastructure.
 </p>
 
 <p>
-The platform identifies sustained structural deviation across sensor streams before failure occurs.
+The platform identifies sustained structural deviation across sensor streams long before system failure occurs.
 </p>
 
 <p>
-Neraium never controls equipment.  
-The system is strictly read-only and designed for infrastructure observability.
+Neraium never controls equipment. The system is strictly read-only and designed for infrastructure intelligence.
 </p>
 
 </div>
 
 </section>
-
 
 <footer>
 

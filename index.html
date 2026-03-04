@@ -43,8 +43,6 @@ border-bottom:1px solid rgba(255,255,255,.06);
 z-index:100;
 }
 
-/* LEFT SIDE */
-
 .nav-left{
 display:flex;
 align-items:center;
@@ -69,8 +67,6 @@ font-weight:600;
 letter-spacing:.12em;
 font-size:14px;
 }
-
-/* RIGHT SIDE */
 
 nav ul{
 display:flex;
@@ -101,6 +97,7 @@ justify-content:center;
 text-align:center;
 position:relative;
 padding-top:70px;
+overflow:hidden;
 }
 
 /* HERO IMAGE */
@@ -110,6 +107,33 @@ position:absolute;
 inset:0;
 background:url("hero.png") center center / cover no-repeat;
 filter:brightness(.6);
+}
+
+/* TELEMETRY SCAN */
+
+.scan{
+position:absolute;
+top:-20%;
+left:-40%;
+width:60%;
+height:200%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(0,180,255,.12),
+transparent
+);
+transform:rotate(8deg);
+animation:scanMove 14s linear infinite;
+pointer-events:none;
+}
+
+@keyframes scanMove{
+
+0%{ left:-60%; }
+
+100%{ left:140%; }
+
 }
 
 /* DARK OVERLAY */
@@ -166,8 +190,6 @@ margin:auto;
 font-size:34px;
 margin-bottom:40px;
 }
-
-/* GRID */
 
 .grid{
 display:grid;
@@ -271,6 +293,8 @@ padding:90px 25px;
 
 <div class="hero-bg"></div>
 
+<div class="scan"></div>
+
 <div class="hero-content">
 
 <h1>Neraium</h1>
@@ -316,8 +340,7 @@ Read-only intelligence. No automation. No system control.
 <h3>Deployment</h3>
 
 <p>
-Neraium deploys alongside existing infrastructure monitoring systems. 
-No control authority is introduced. The system operates strictly as a read-only intelligence layer.
+Neraium deploys alongside existing infrastructure monitoring systems. The system remains read-only and preserves full operator authority.
 </p>
 
 </section>

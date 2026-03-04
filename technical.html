@@ -96,6 +96,13 @@ ul li strong {
   font-weight: 600;
 }
 
+.owner {
+  color: rgba(255,255,255,.5);
+  font-size: 14px;
+  font-style: italic;
+  margin-left: 8px;
+}
+
 img {
   width: 100%;
   margin-top: 40px;
@@ -151,6 +158,12 @@ img {
     padding-left: 16px;
   }
   
+  .owner {
+    display: block;
+    margin-left: 0;
+    margin-top: 4px;
+  }
+  
   p {
     font-size: 15px;
   }
@@ -175,7 +188,7 @@ img {
   }
   
   ul li {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
   }
 }
 </style>
@@ -195,10 +208,10 @@ Neraium integrates with existing telemetry infrastructure including BAS, SCADA, 
 <ul>
 <li><strong>Telemetry Layer</strong> — operational signals from BAS, SCADA, and historian systems</li>
 <li><strong>Analytical Layer</strong> — deviation detection across infrastructure telemetry</li>
-<li><strong>Aletheia's Gate</strong> — governance layer evaluating analytical outputs</li>
+<li><strong>Aletheia's Gate</strong> — governance layer evaluating analytical outputs <span class="owner">(owned by Ananke)</span></li>
 <li><strong>Ananke</strong> — authority framework governing system acknowledgement</li>
 <li><strong>Mnemosyne</strong> — custody and institutional memory</li>
-<li><strong>Evidence Vault Protocol</strong> — cryptographic evidence storage</li>
+<li><strong>Evidence Vault Protocol</strong> — cryptographic evidence storage <span class="owner">(owned by Mnemosyne)</span></li>
 </ul>
 
 <img src="IMG_9010.png" alt="Technical Architecture Diagram">

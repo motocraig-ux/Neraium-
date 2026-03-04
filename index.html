@@ -5,492 +5,570 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neraium | Systemic Infrastructure Intelligence</title>
 
-<!-- Favicon / Icons -->
 <link rel="icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: Inter, sans-serif;
-  background: #050505;
-  color: white;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* Infrastructure grid */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-  opacity: .4;
-  z-index: 0;
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 70px;
-  background: rgba(0,0,0,.75);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  z-index: 100;
-}
-
-nav > span {
-  font-family: "IBM Plex Mono", monospace;
-  letter-spacing: 3px;
-  font-size: 11px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 22px;
-}
-
-nav a {
-  color: rgba(255,255,255,.7);
-  text-decoration: none;
-  font-size: 11px;
-  font-family: "IBM Plex Mono", monospace;
-  letter-spacing: 2px;
-  transition: color 0.3s ease;
-}
-
-nav a:hover,
-nav a:focus {
-  color: #69d2ff;
-  outline: none;
-}
-
-/* Hero with improved image handling */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 100px 80px 80px;
-  padding-top: 170px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.hero-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  filter: brightness(.6) contrast(1.1);
-  transform: scale(1.05);
-  animation: heroZoom 20s ease-out forwards;
-  display: block;
-}
-
-@keyframes heroZoom {
-  from {
-    transform: scale(1.1);
+  :root {
+    --bg: #050505;
+    --accent: #69d2ff;
+    --border: rgba(255, 255, 255, 0.08);
+    --text-muted: rgba(255, 255, 255, 0.65);
+    --nav-height: 70px;
   }
-  to {
-    transform: scale(1.05);
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
-}
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom,
-    rgba(0,0,0,.3) 0%,
-    rgba(0,0,0,.5) 50%,
-    rgba(0,0,0,.85) 100%);
-  z-index: 1;
-}
+  html { scroll-behavior: smooth; }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 200px;
-  background: linear-gradient(to top, #050505, transparent);
-  z-index: 2;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 3;
-  max-width: 100%;
-  width: 100%;
-}
-
-.hero h1 {
-  font-size: clamp(48px, 10vw, 110px);
-  margin: 0;
-  line-height: 1;
-  letter-spacing: -2px;
-  text-shadow: 0 4px 30px rgba(0,0,0,.5);
-}
-
-.hero h2 {
-  margin-top: 20px;
-  font-weight: 400;
-  font-size: clamp(18px, 3vw, 24px);
-  color: rgba(255,255,255,.8);
-  max-width: 600px;
-  line-height: 1.4;
-  text-shadow: 0 2px 10px rgba(0,0,0,.5);
-}
-
-section {
-  padding: 120px 80px;
-  border-top: 1px solid rgba(255,255,255,.08);
-  position: relative;
-  z-index: 1;
-}
-
-h3 {
-  font-size: clamp(28px, 4vw, 34px);
-  margin-bottom: 20px;
-}
-
-h4 {
-  font-size: 20px;
-  margin-bottom: 12px;
-  color: #69d2ff;
-}
-
-p {
-  max-width: 700px;
-  line-height: 1.7;
-  color: rgba(255,255,255,.7);
-  font-size: 16px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 40px;
-}
-
-.card {
-  border: 1px solid rgba(255,255,255,.08);
-  padding: 30px;
-  border-radius: 10px;
-  background: rgba(255,255,255,.03);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.card:hover,
-.card:focus-within {
-  transform: translateY(-5px);
-  border-color: rgba(105, 210, 255, 0.3);
-}
-
-footer {
-  padding: 80px 40px;
-  text-align: center;
-  border-top: 1px solid rgba(255,255,255,.08);
-  color: rgba(255,255,255,.6);
-  position: relative;
-  z-index: 1;
-}
-
-footer a {
-  color: rgba(255,255,255,.6);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-footer a:hover,
-footer a:focus {
-  color: #69d2ff;
-  outline: none;
-}
-
-/* Mobile Menu Toggle */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 10px;
-  z-index: 101;
-  background: none;
-  border: none;
-  color: rgba(255,255,255,.7);
-  transition: color 0.3s ease;
-}
-
-.menu-toggle:hover,
-.menu-toggle:focus {
-  color: #69d2ff;
-  outline: none;
-}
-
-.menu-toggle span {
-  width: 25px;
-  height: 2px;
-  background: currentColor;
-  transition: all 0.3s ease;
-  display: block;
-}
-
-/* Mobile Responsive */
-@media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
-}
 
-@media (max-width: 768px) {
-  nav {
-    padding: 0 20px;
-    height: 60px;
+  body {
+    font-family: Inter, sans-serif;
+    background: var(--bg);
+    color: #fff;
+    overflow-x: hidden;
   }
-  
-  .menu-toggle {
-    display: flex;
-  }
-  
-  .nav-links {
+
+  body::before {
+    content: "";
     position: fixed;
-    top: 60px;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background: rgba(0, 0, 0, 0.80);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+  }
+
+  .nav-logo {
+    font-family: "IBM Plex Mono", monospace;
+    letter-spacing: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 11px;
+    font-family: "IBM Plex Mono", monospace;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.25s ease;
+  }
+
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.25s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible {
+    color: var(--accent);
+    outline: none;
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a:focus-visible::after {
+    width: 100%;
+  }
+
+  /* ── MOBILE TOGGLE ── */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    transition: color 0.25s ease;
+    z-index: 101;
+  }
+
+  .menu-toggle:hover,
+  .menu-toggle:focus-visible {
+    color: var(--accent);
+    outline: none;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+
+  .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 160px 80px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.55) contrast(1.1);
+    transform: scale(1.1);
+    animation: heroZoom 20s ease-out forwards;
+    display: block;
+  }
+
+  @keyframes heroZoom {
+    from { transform: scale(1.1); }
+    to   { transform: scale(1.05); }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+      rgba(0,0,0,0.2) 0%,
+      rgba(0,0,0,0.4) 50%,
+      rgba(5,5,5,0.95) 100%);
+    z-index: 1;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0,0,0,.95);
-    flex-direction: column;
-    padding: 30px;
-    gap: 20px;
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(255,255,255,.08);
+    height: 180px;
+    background: linear-gradient(to top, var(--bg), transparent);
+    z-index: 2;
+    pointer-events: none;
   }
-  
-  .nav-links.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  nav a {
-    font-size: 14px;
-    margin: 0;
-  }
-  
-  .hero {
-    padding: 24px;
-    padding-top: 120px;
-    min-height: 100vh;
-    padding-bottom: 80px;
-  }
-  
-  .hero-bg img {
-    object-position: center center;
-    transform: scale(1.1);
-  }
-  
-  section {
-    padding: 80px 24px;
-  }
-  
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  
-  .card {
-    padding: 24px;
-  }
-  
-  footer {
-    padding: 60px 24px;
-  }
-}
 
-@media (max-width: 480px) {
+  .hero-inner {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0.85;
+  }
+
   .hero h1 {
-    font-size: 42px;
-    letter-spacing: -1px;
+    font-size: clamp(52px, 10vw, 110px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -3px;
   }
-  
+
   .hero h2 {
-    font-size: 16px;
+    margin-top: 22px;
+    font-weight: 300;
+    font-size: clamp(18px, 2.5vw, 24px);
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 560px;
+    line-height: 1.5;
   }
-  
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 120px 80px;
+    border-top: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    opacity: 0.7;
+  }
+
   h3 {
-    font-size: 24px;
+    font-size: clamp(26px, 3.5vw, 36px);
+    font-weight: 600;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
   }
-  
+
   h4 {
-    font-size: 18px;
-  }
-  
-  p {
     font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--accent);
+    font-family: "IBM Plex Mono", monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
-}
+
+  p {
+    max-width: 680px;
+    line-height: 1.75;
+    color: var(--text-muted);
+    font-size: 15.5px;
+  }
+
+  /* ── GRID / CARDS ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .card {
+    border: 1px solid var(--border);
+    padding: 32px 28px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.025);
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    transform: translateY(-4px);
+    border-color: rgba(105, 210, 255, 0.28);
+    background: rgba(105, 210, 255, 0.04);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  }
+
+  .card p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    max-width: 100%;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 80px 40px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    position: relative;
+    z-index: 1;
+  }
+
+  footer p {
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin: 0 auto;
+  }
+
+  footer p + p { margin-top: 12px; }
+
+  footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  footer a:hover,
+  footer a:focus-visible {
+    color: var(--accent);
+    outline: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    :root { --nav-height: 60px; }
+
+    nav { padding: 0 20px; }
+
+    .menu-toggle { display: flex; }
+
+    .nav-links {
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.97);
+      flex-direction: column;
+      padding: 32px 24px;
+      gap: 24px;
+      transform: translateY(-110%);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.35s ease, opacity 0.35s ease, visibility 0.35s;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-links a { font-size: 13px; }
+
+    .hero {
+      padding: 120px 24px 80px;
+    }
+
+    .hero-bg img {
+      object-position: center center;
+    }
+
+    section { padding: 80px 24px; }
+
+    .grid { gap: 16px; margin-top: 36px; }
+
+    .card { padding: 24px 20px; }
+
+    footer { padding: 60px 24px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 44px; letter-spacing: -1px; }
+    .hero h2 { font-size: 16px; }
+    h3 { font-size: 24px; }
+  }
 </style>
 </head>
 <body>
 
-<nav>
-  <span>NERAIUM</span>
-  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-  <div class="nav-links" id="navLinks">
-    <a href="platform.html">Platform</a>
-    <a href="technical.html">Technical</a>
-    <a href="governance.html">Governance</a>
-  </div>
-</nav>
+<header>
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="Neraium home">NERAIUM</a>
 
-<div class="hero">
-  <div class="hero-bg">
-    <img src="hero.png" alt="Infrastructure background">
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-inner">
-    <h1>Neraium</h1>
-    <h2>Systemic Infrastructure Intelligence</h2>
-  </div>
-</div>
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="navLinks"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-<section>
-  <h3>Infrastructure Intelligence</h3>
-  <p>
-    Neraium ingests telemetry from critical infrastructure and detects sustained structural deviation before failure occurs. The platform operates strictly in read-only mode and never issues control commands or modifies infrastructure.
-  </p>
-  <div class="grid">
-    <div class="card">
-      <h4>Detection</h4>
-      <p>Identify sustained structural deviation before operational alarms occur.</p>
-    </div>
-    <div class="card">
-      <h4>Governance</h4>
-      <p>Outputs pass through deterministic governance before institutional acknowledgement.</p>
-    </div>
-    <div class="card">
-      <h4>Authority</h4>
-      <p>Operators retain full authority over infrastructure systems.</p>
-    </div>
-  </div>
-</section>
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a href="platform.html">Platform</a></li>
+      <li><a href="technical.html">Technical</a></li>
+      <li><a href="governance.html">Governance</a></li>
+    </ul>
+  </nav>
+</header>
 
-<section>
-  <h3>System Architecture</h3>
-  <p>
-    Neraium sits above operational infrastructure as a read-only intelligence layer. Analytical output passes through governance before institutional acknowledgement.
-  </p>
-  <div class="grid">
-    <div class="card">
-      <h4>Telemetry Ingestion</h4>
-      <p>BAS, SCADA, and historian signals are ingested without modifying infrastructure behavior.</p>
+<main>
+  <section class="hero" aria-label="Hero">
+    <div class="hero-bg" aria-hidden="true">
+      <img src="hero.png" alt="">
     </div>
-    <div class="card">
-      <h4>Deviation Detection</h4>
-      <p>Signals are analyzed for sustained structural deviation across operational systems.</p>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Infrastructure Intelligence</p>
+      <h1>Neraium</h1>
+      <h2>Systemic Infrastructure Intelligence</h2>
     </div>
-    <div class="card">
-      <h4>Governance Gate</h4>
-      <p>Analytical outputs pass through Aletheia's Gate under Ananke governance before institutional acknowledgement.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <h3>System Boundary</h3>
-  <p>
-    Neraium operates strictly as an infrastructure intelligence layer. The system analyzes telemetry and produces governed analytical output, but it does not control infrastructure systems.
-  </p>
-  <div class="grid">
-    <div class="card">
-      <h4>Read Only</h4>
-      <p>Neraium ingests operational telemetry but does not write commands or modify system state.</p>
+  <section aria-labelledby="sec1-heading">
+    <p class="section-label">Overview</p>
+    <h3 id="sec1-heading">Infrastructure Intelligence</h3>
+    <p>
+      Neraium ingests telemetry from critical infrastructure and detects sustained structural
+      deviation before failure occurs. The platform operates strictly in read-only mode and
+      never issues control commands or modifies infrastructure.
+    </p>
+    <div class="grid">
+      <article class="card">
+        <h4>Detection</h4>
+        <p>Identify sustained structural deviation before operational alarms occur.</p>
+      </article>
+      <article class="card">
+        <h4>Governance</h4>
+        <p>Outputs pass through deterministic governance before institutional acknowledgement.</p>
+      </article>
+      <article class="card">
+        <h4>Authority</h4>
+        <p>Operators retain full authority over infrastructure systems.</p>
+      </article>
     </div>
-    <div class="card">
-      <h4>No Control Layer</h4>
-      <p>The platform does not replace or override existing control systems such as BAS or SCADA.</p>
-    </div>
-    <div class="card">
-      <h4>Operator Authority</h4>
-      <p>Infrastructure operators retain full authority over system decisions and actions.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <h3>Operational Outcomes</h3>
-  <p>
-    Neraium enables infrastructure operators to detect structural deviation earlier, respond to deterioration sooner, and maintain institutional accountability for operational decisions.
-  </p>
-  <div class="grid">
-    <div class="card">
-      <h4>Earlier Detection</h4>
-      <p>Structural deterioration signals appear before traditional alarms or system failures.</p>
+  <section aria-labelledby="sec2-heading">
+    <p class="section-label">Architecture</p>
+    <h3 id="sec2-heading">System Architecture</h3>
+    <p>
+      Neraium sits above operational infrastructure as a read-only intelligence layer.
+      Analytical output passes through governance before institutional acknowledgement.
+    </p>
+    <div class="grid">
+      <article class="card">
+        <h4>Telemetry Ingestion</h4>
+        <p>BAS, SCADA, and historian signals are ingested without modifying infrastructure behavior.</p>
+      </article>
+      <article class="card">
+        <h4>Deviation Detection</h4>
+        <p>Signals are analyzed for sustained structural deviation across operational systems.</p>
+      </article>
+      <article class="card">
+        <h4>Governance Gate</h4>
+        <p>Analytical outputs pass through Aletheia's Gate under Ananke governance before institutional acknowledgement.</p>
+      </article>
     </div>
-    <div class="card">
-      <h4>Reduced Reactive Maintenance</h4>
-      <p>Operators gain visibility into emerging system conditions before they escalate into urgent repairs.</p>
+  </section>
+
+  <section aria-labelledby="sec3-heading">
+    <p class="section-label">Boundary</p>
+    <h3 id="sec3-heading">System Boundary</h3>
+    <p>
+      Neraium operates strictly as an infrastructure intelligence layer. The system analyzes
+      telemetry and produces governed analytical output, but it does not control infrastructure systems.
+    </p>
+    <div class="grid">
+      <article class="card">
+        <h4>Read Only</h4>
+        <p>Neraium ingests operational telemetry but does not write commands or modify system state.</p>
+      </article>
+      <article class="card">
+        <h4>No Control Layer</h4>
+        <p>The platform does not replace or override existing control systems such as BAS or SCADA.</p>
+      </article>
+      <article class="card">
+        <h4>Operator Authority</h4>
+        <p>Infrastructure operators retain full authority over system decisions and actions.</p>
+      </article>
     </div>
-    <div class="card">
-      <h4>Defensible Infrastructure Intelligence</h4>
-      <p>Governance architecture ensures analytical outputs are traceable, auditable, and institutionally accountable.</p>
+  </section>
+
+  <section aria-labelledby="sec4-heading">
+    <p class="section-label">Outcomes</p>
+    <h3 id="sec4-heading">Operational Outcomes</h3>
+    <p>
+      Neraium enables infrastructure operators to detect structural deviation earlier, respond
+      to deterioration sooner, and maintain institutional accountability for operational decisions.
+    </p>
+    <div class="grid">
+      <article class="card">
+        <h4>Earlier Detection</h4>
+        <p>Structural deterioration signals appear before traditional alarms or system failures.</p>
+      </article>
+      <article class="card">
+        <h4>Reduced Reactive Maintenance</h4>
+        <p>Operators gain visibility into emerging system conditions before they escalate into urgent repairs.</p>
+      </article>
+      <article class="card">
+        <h4>Defensible Intelligence</h4>
+        <p>Governance architecture ensures analytical outputs are traceable, auditable, and institutionally accountable.</p>
+      </article>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
 <footer>
   <p>Craig Curtis<br>
-  <a href="mailto:craig@neraium.com">craig@neraium.com</a></p>
-  <p>&copy; Neraium</p>
+    <a href="mailto:craig@neraium.com">craig@neraium.com</a>
+  </p>
+  <p>&copy; 2026 Neraium</p>
 </footer>
 
 <script>
-function toggleMenu() {
+  const toggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
-  const menuToggle = document.querySelector('.menu-toggle');
-  const isActive = navLinks.classList.toggle('active');
-  menuToggle.setAttribute('aria-expanded', isActive);
-}
+
+  function openMenu() {
+    navLinks.classList.add('active');
+    toggle.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeMenu() {
+    navLinks.classList.remove('active');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', () => {
+    navLinks.classList.contains('active') ? closeMenu() : openMenu();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('active')) closeMenu();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('nav') && navLinks.classList.contains('active')) closeMenu();
+  });
 </script>
 
 </body>

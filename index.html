@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Neraium</title>
+<title>Neraium | Systemic Infrastructure Intelligence</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 
@@ -20,13 +20,13 @@ line-height:1.6;
 scroll-behavior:smooth;
 }
 
-/* NAVBAR */
+/* NAV */
 
 nav{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(5,5,5,.7);
+background:rgba(5,5,5,.75);
 backdrop-filter:blur(12px);
 border-bottom:1px solid rgba(255,255,255,.08);
 z-index:100;
@@ -37,12 +37,12 @@ max-width:1100px;
 margin:auto;
 display:flex;
 justify-content:flex-end;
-padding:18px 28px;
+padding:18px 30px;
 }
 
 .nav-inner a{
 font-family:"IBM Plex Mono";
-font-size:12px;
+font-size:11px;
 letter-spacing:.18em;
 text-decoration:none;
 color:white;
@@ -74,7 +74,7 @@ top:0;
 left:0;
 right:0;
 bottom:0;
-background:rgba(0,0,0,.65);
+background:rgba(0,0,0,.62);
 }
 
 /* GRID EFFECT */
@@ -124,7 +124,7 @@ font-weight:400;
 color:rgba(255,255,255,.85);
 }
 
-/* SECTIONS */
+/* SECTION */
 
 .section{
 max-width:1000px;
@@ -160,6 +160,22 @@ border-radius:8px;
 
 .card h4{
 margin-bottom:10px;
+}
+
+/* ARCHITECTURE */
+
+.arch-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.arch-card{
+background:#0c0c0c;
+padding:28px;
+border:1px solid rgba(255,255,255,.07);
+border-radius:8px;
 }
 
 /* CONTACT */
@@ -198,8 +214,10 @@ color:rgba(255,255,255,.4);
 <div class="hero-glow"></div>
 
 <div class="hero-content">
+
 <h1>Neraium</h1>
 <h2>Systemic Infrastructure Intelligence</h2>
+
 </div>
 
 </section>
@@ -209,7 +227,7 @@ color:rgba(255,255,255,.4);
 <h3>What Neraium Does</h3>
 
 <p>
-Neraium is a read-only infrastructure intelligence layer that ingests
+Neraium is a read only infrastructure intelligence layer that ingests
 existing telemetry from critical systems and identifies sustained
 structural deviation before failure occurs.
 </p>
@@ -231,28 +249,55 @@ degradation earlier in the lifecycle of infrastructure assets.
 <div class="card">
 <h4>Telemetry Ingestion</h4>
 <p>
-Connects to existing telemetry sources such as SCADA, BAS,
-BMS and industrial monitoring systems without modifying
-equipment or control systems.
+Connects to existing telemetry environments such as BAS, SCADA,
+and industrial monitoring systems without modifying infrastructure.
 </p>
 </div>
 
 <div class="card">
 <h4>Deviation Detection</h4>
 <p>
-Analyzes multi-signal telemetry to identify persistent
-structural drift patterns that precede failure or
-efficiency degradation.
+Analyzes telemetry patterns to identify sustained structural
+drift that precedes system failure or degradation.
 </p>
 </div>
 
 <div class="card">
 <h4>Operator Intelligence</h4>
 <p>
-Results are presented as clear analytical outputs
-for operators and engineers to review and act on.
-Neraium does not automate control decisions.
+Outputs are presented as clear analytical signals for engineers
+and operators to evaluate and act upon.
 </p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h3>Platform Architecture</h3>
+
+<div class="arch-grid">
+
+<div class="arch-card">
+<h4>Telemetry Ingestion</h4>
+<p>Secure ingestion from BAS, SCADA and industrial telemetry systems.</p>
+</div>
+
+<div class="arch-card">
+<h4>Signal Analysis</h4>
+<p>Multi signal telemetry analysis identifies structural deterioration patterns.</p>
+</div>
+
+<div class="arch-card">
+<h4>Evidence Generation</h4>
+<p>Outputs are structured as reviewable intelligence for operator review.</p>
+</div>
+
+<div class="arch-card">
+<h4>Operator Authority</h4>
+<p>Neraium does not automate decisions or modify infrastructure systems.</p>
 </div>
 
 </div>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neraium Technical</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<title>Neraium</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -20,8 +22,7 @@ nav{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(0,0,0,.7);
-backdrop-filter:blur(10px);
+background:rgba(0,0,0,.75);
 border-bottom:1px solid rgba(255,255,255,.08);
 }
 
@@ -30,57 +31,53 @@ max-width:1100px;
 margin:auto;
 display:flex;
 justify-content:flex-end;
-padding:18px;
+padding:20px;
 }
 
 .nav-inner a{
 font-family:"IBM Plex Mono";
 font-size:11px;
 letter-spacing:.2em;
-text-decoration:none;
 color:rgba(255,255,255,.7);
+text-decoration:none;
 margin-left:22px;
 }
 
-.header{
-padding-top:120px;
-max-width:900px;
-margin:auto;
-padding-left:30px;
-padding-right:30px;
-}
-
-.header h1{
-font-size:46px;
-}
-
-.section{
-max-width:900px;
-margin:auto;
-padding:80px 30px;
-}
-
-.section h2{
-font-size:28px;
-margin-bottom:20px;
-}
-
-.image{
-margin-top:40px;
-}
-
-.image img{
-width:100%;
-border-radius:8px;
-border:1px solid rgba(255,255,255,.08);
-}
-
-footer{
-border-top:1px solid rgba(255,255,255,.08);
-padding:40px;
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
-font-size:12px;
-color:rgba(255,255,255,.4);
+background-image:url("hero.png");
+background-size:cover;
+background-position:center;
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:rgba(0,0,0,.65);
+}
+
+.hero-content{
+position:relative;
+max-width:700px;
+padding:40px;
+}
+
+.hero h1{
+font-size:90px;
+margin:0;
+}
+
+.hero h2{
+margin-top:10px;
+font-weight:400;
+color:rgba(255,255,255,.8);
 }
 
 </style>
@@ -90,55 +87,25 @@ color:rgba(255,255,255,.4);
 
 <nav>
 <div class="nav-inner">
-<a href="index.html">HOME</a>
-<a href="index.html#contact">CONTACT</a>
+
+<a href="technical.html">TECHNICAL</a>
+
 </div>
 </nav>
 
-<div class="header">
+<section class="hero">
 
-<h1>Neraium Technical Overview</h1>
+<div class="overlay"></div>
 
-<p>
-Neraium is a read only infrastructure intelligence layer that ingests existing telemetry
-from critical systems and identifies sustained structural deviation prior to failure.
-</p>
+<div class="hero-content">
 
-</div>
+<h1>Neraium</h1>
 
-<section class="section">
-
-<h2>System Boundary</h2>
-
-<p>
-Neraium does not control equipment and does not modify operational systems.
-The platform observes telemetry and produces analytical outputs for operator review.
-</p>
-
-</section>
-
-<section class="section">
-
-<h2>Deviation Detection</h2>
-
-<p>
-The system analyzes multi signal telemetry and identifies sustained deviation
-patterns that precede failure events.
-</p>
-
-<div class="image">
-
-<img src="IMG_9010.png">
+<h2>Systemic Infrastructure Intelligence</h2>
 
 </div>
 
 </section>
-
-<footer>
-
-© 2026 Neraium
-
-</footer>
 
 </body>
 </html>

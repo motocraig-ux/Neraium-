@@ -67,6 +67,11 @@ p {
   color: rgba(255,255,255,.7);
   font-size: 16px;
   max-width: 100%;
+  margin-bottom: 20px;
+}
+
+p:last-of-type {
+  margin-bottom: 0;
 }
 
 ul {
@@ -96,19 +101,19 @@ ul li strong {
   font-weight: 600;
 }
 
-.owner {
-  color: rgba(255,255,255,.5);
-  font-size: 14px;
-  font-style: italic;
-  margin-left: 8px;
-}
-
 img {
   width: 100%;
   margin-top: 40px;
   border-radius: 10px;
   border: 1px solid rgba(255,255,255,.08);
   display: block;
+}
+
+.image-caption {
+  font-size: 14px;
+  color: rgba(255,255,255,.5);
+  margin-top: 16px;
+  font-style: italic;
 }
 
 /* Back link */
@@ -158,12 +163,6 @@ img {
     padding-left: 16px;
   }
   
-  .owner {
-    display: block;
-    margin-left: 0;
-    margin-top: 4px;
-  }
-  
   p {
     font-size: 15px;
   }
@@ -171,6 +170,10 @@ img {
   img {
     margin-top: 32px;
     border-radius: 8px;
+  }
+  
+  .image-caption {
+    font-size: 13px;
   }
 }
 
@@ -188,7 +191,7 @@ img {
   }
   
   ul li {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
   }
 }
 </style>
@@ -208,13 +211,12 @@ Neraium integrates with existing telemetry infrastructure including BAS, SCADA, 
 <ul>
 <li><strong>Telemetry Layer</strong> — operational signals from BAS, SCADA, and historian systems</li>
 <li><strong>Analytical Layer</strong> — deviation detection across infrastructure telemetry</li>
-<li><strong>Aletheia's Gate</strong> — governance layer evaluating analytical outputs <span class="owner">(owned by Ananke)</span></li>
-<li><strong>Ananke</strong> — authority framework governing system acknowledgement</li>
-<li><strong>Mnemosyne</strong> — custody and institutional memory</li>
-<li><strong>Evidence Vault Protocol</strong> — cryptographic evidence storage <span class="owner">(owned by Mnemosyne)</span></li>
+<li><strong>Aletheia's Gate</strong> — governance layer evaluating analytical outputs (owned by Ananke)</li>
+<li><strong>Mnemosyne</strong> — custody and institutional memory (owns Evidence Vault Protocol)</li>
 </ul>
 
 <img src="IMG_9010.png" alt="Technical Architecture Diagram">
+<p class="image-caption">Figure 1: Data flow from infrastructure telemetry through analytical layers to governed output</p>
 
 </body>
 </html>

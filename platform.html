@@ -1,164 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Neraium Platform</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
 <nav>
+<div class="nav-inner">
+<div class="nav-logo">Nera<span>ium</span></div>
 
-<div class="logo">NERAIUM</div>
-
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="platform.html">Platform</a></li>
-<li><a href="technical.html">Technical</a></li>
-<li><a href="governance.html">Governance</a></li>
-</ul>
-
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="platform.html">Platform</a>
+<a href="applications.html">Applications</a>
+<a href="contact.html">Contact</a>
+<a href="contact.html" class="btn">Request Pilot</a>
+</div>
+</div>
 </nav>
 
+<div class="page-hero">
+<div class="container">
 
+<div class="section-label">Platform</div>
 
-<section class="hero">
+<h1>System Architecture</h1>
 
-<canvas class="network"></canvas>
-
-<h1>The Neraium Platform</h1>
-
-<p>
-The platform transforms infrastructure telemetry environments into
-Systemic Infrastructure Intelligence.
+<p class="section-sub">
+From raw telemetry to defensible operational intelligence.
 </p>
 
-<p>
-By analyzing relationships between operational variables across entire
-systems the platform detects emerging infrastructure drift before
-failure events occur.
-</p>
+</div>
+</div>
 
-</section>
+<section>
+<div class="container">
 
-
-
-<section class="section reveal">
-
-<h2>Platform Overview</h2>
-
-<p>
-Modern infrastructure systems generate large volumes of telemetry
-data through sensors, control systems, and monitoring platforms.
-Most monitoring tools evaluate signals individually rather than
-as part of a complete system.
-</p>
-
-<p>
-Neraium analyzes telemetry environments as interconnected operational
-networks where deterioration patterns emerge across multiple variables.
-</p>
-
-</section>
-
-
-
-<section class="section reveal">
-
-<h2>Platform Components</h2>
-
-<div class="grid">
+<div class="grid-2">
 
 <div class="card">
 <h3>Telemetry Ingestion</h3>
-<p>Operational signals collected from infrastructure systems.</p>
+<p>Sensors, historians, SCADA exports and data feeds.</p>
 </div>
 
 <div class="card">
-<h3>Signal Processing</h3>
-<p>Telemetry streams normalized and prepared for analysis.</p>
+<h3>Normalization</h3>
+<p>Timestamp alignment and signal preparation.</p>
 </div>
 
 <div class="card">
-<h3>Multivariate Modeling</h3>
-<p>Relationships between variables reveal structural system behavior.</p>
+<h3>Multivariate Drift Engine</h3>
+<p>Pattern detection across entire system behavior.</p>
 </div>
 
 <div class="card">
-<h3>Deviation Detection</h3>
-<p>Sustained drift patterns are identified before failure occurs.</p>
+<h3>Evidence Vault</h3>
+<p>Immutable operational evidence records.</p>
 </div>
 
 </div>
 
+</div>
 </section>
-
-
-
-<section class="section reveal">
-
-<h2>Operational Workflow</h2>
-
-<div class="diagram">
-
-<div class="diagram-grid">
-
-<div class="node">Infrastructure Systems</div>
-<div class="node">Telemetry Signals</div>
-<div class="node">Data Pipeline</div>
-<div class="node">Analysis Engine</div>
-<div class="node">Drift Detection</div>
-<div class="node">Operational Signals</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="section reveal">
-
-<h2>Telemetry Visualization</h2>
-
-<div class="telemetry">
-
-<div class="wave"></div>
-
-</div>
-
-</section>
-
-
-
-<section class="cta">
-
-<h2>Turning Infrastructure Data Into Intelligence</h2>
-
-<a class="button" href="technical.html">View Technical Architecture</a>
-
-</section>
-
-
 
 <footer>
-
-© 2026 Neraium
-
+<div class="footer-inner">
+<div>Neraium</div>
+<div>© Neraium</div>
+</div>
 </footer>
-
-<script src="script.js"></script>
-<script src="network.js"></script>
 
 </body>
 </html>

@@ -1,4 +1,6 @@
 const canvas=document.querySelector(".network")
+if(canvas){
+
 const ctx=canvas.getContext("2d")
 
 canvas.width=window.innerWidth
@@ -6,13 +8,13 @@ canvas.height=window.innerHeight
 
 let particles=[]
 
-for(let i=0;i<80;i++){
+for(let i=0;i<70;i++){
 
 particles.push({
 x:Math.random()*canvas.width,
 y:Math.random()*canvas.height,
-vx:(Math.random()-.5)*0.6,
-vy:(Math.random()-.5)*0.6
+vx:(Math.random()-.5)*0.5,
+vy:(Math.random()-.5)*0.5
 })
 
 }
@@ -37,7 +39,6 @@ ctx.fill()
 })
 
 for(let i=0;i<particles.length;i++){
-
 for(let j=i+1;j<particles.length;j++){
 
 let dx=particles[i].x-particles[j].x
@@ -55,7 +56,6 @@ ctx.stroke()
 }
 
 }
-
 }
 
 requestAnimationFrame(animate)
@@ -63,3 +63,5 @@ requestAnimationFrame(animate)
 }
 
 animate()
+
+}

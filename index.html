@@ -9,7 +9,6 @@
 <title>Neraium | Systemic Infrastructure Intelligence</title>
 
 <link rel="stylesheet" href="style.css">
-<script defer src="script.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -30,6 +29,8 @@
 
 </nav>
 
+
+
 <section class="hero">
 
 <canvas class="network"></canvas>
@@ -42,10 +43,8 @@ structural infrastructure deviation before failure occurs.
 </p>
 
 <p>
-Traditional monitoring systems evaluate individual assets and trigger alarms
-only after thresholds are crossed. Neraium analyzes infrastructure systems
-as interconnected operational environments, revealing deterioration patterns
-that emerge across multiple signals simultaneously.
+Rather than monitoring individual assets, the platform analyzes infrastructure
+systems as interconnected operational environments.
 </p>
 
 </section>
@@ -57,21 +56,13 @@ that emerge across multiple signals simultaneously.
 <h2>What is Systemic Infrastructure Intelligence</h2>
 
 <p>
-Systemic Infrastructure Intelligence is the analysis of infrastructure telemetry
-as an interconnected operational system rather than a collection of isolated
-assets. Modern infrastructure systems generate large volumes of telemetry data
-through sensors, operational controls, and monitoring platforms.
+Systemic Infrastructure Intelligence analyzes telemetry relationships across
+entire infrastructure systems rather than isolated assets.
 </p>
 
 <p>
-Most monitoring systems evaluate individual metrics and trigger alerts when
-thresholds are exceeded. This approach fails to capture the relationships
-between variables that signal emerging infrastructure deterioration.
-</p>
-
-<p>
-By analyzing telemetry relationships across operational environments,
-Neraium detects structural system drift before traditional alarms occur.
+Deterioration rarely appears as a single signal. It emerges gradually through
+relationships between operational variables.
 </p>
 
 </section>
@@ -83,14 +74,8 @@ Neraium detects structural system drift before traditional alarms occur.
 <h2>The Problem</h2>
 
 <p>
-Infrastructure operators rely heavily on reactive monitoring tools.
-These systems only alert operators after a threshold condition has
-already occurred.
-</p>
-
-<p>
-In complex environments deterioration develops gradually across multiple
-variables long before any individual signal exceeds its threshold.
+Traditional monitoring systems trigger alarms only when thresholds are exceeded.
+By the time this occurs deterioration has often progressed significantly.
 </p>
 
 </section>
@@ -105,22 +90,22 @@ variables long before any individual signal exceeds its threshold.
 
 <div class="card">
 <h3>Multivariate Detection</h3>
-<p>Infrastructure variables are evaluated as interconnected signals.</p>
+<p>Infrastructure signals are analyzed as an interconnected system.</p>
 </div>
 
 <div class="card">
-<h3>Structural Drift Detection</h3>
-<p>Emerging deterioration patterns are identified across telemetry systems.</p>
+<h3>Early Failure Signals</h3>
+<p>Deviation patterns appear weeks before disruption.</p>
 </div>
 
 <div class="card">
 <h3>Operational Visibility</h3>
-<p>Operators gain system level insight across infrastructure environments.</p>
+<p>Operators gain insight across infrastructure environments.</p>
 </div>
 
 <div class="card">
 <h3>Read Only Architecture</h3>
-<p>The platform observes systems without modifying operational equipment.</p>
+<p>The platform observes systems without controlling equipment.</p>
 </div>
 
 </div>
@@ -154,61 +139,11 @@ variables long before any individual signal exceeds its threshold.
 
 <section class="section reveal">
 
-<h2>Where It Applies</h2>
+<h2>Telemetry Visualization</h2>
 
-<div class="grid">
+<div class="telemetry">
 
-<div class="card">
-<h3>Industrial Facilities</h3>
-<p>Manufacturing environments with sensor telemetry.</p>
-</div>
-
-<div class="card">
-<h3>Cooling Infrastructure</h3>
-<p>Thermal systems including towers and exchangers.</p>
-</div>
-
-<div class="card">
-<h3>Water Systems</h3>
-<p>Municipal and facility level water infrastructure.</p>
-</div>
-
-<div class="card">
-<h3>Energy Systems</h3>
-<p>Operational energy infrastructure environments.</p>
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="section reveal">
-
-<h2>Operational Outcomes</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Earlier Detection</h3>
-<p>Deterioration signals appear weeks before failure events.</p>
-</div>
-
-<div class="card">
-<h3>Reduced Downtime</h3>
-<p>Operators gain earlier visibility into system degradation.</p>
-</div>
-
-<div class="card">
-<h3>Proactive Maintenance</h3>
-<p>Maintenance activities can be planned before disruption occurs.</p>
-</div>
-
-<div class="card">
-<h3>Infrastructure Intelligence</h3>
-<p>Telemetry becomes a predictive operational resource.</p>
-</div>
+<div class="wave"></div>
 
 </div>
 
@@ -220,19 +155,22 @@ variables long before any individual signal exceeds its threshold.
 
 <h2>Infrastructure Should Be Predictable</h2>
 
-<p>
-Operational telemetry can reveal deterioration long before failure occurs.
-</p>
-
-<a class="button" href="platform.html">Explore the Platform</a>
+<a class="button" href="platform.html">Explore Platform</a>
 
 </section>
+
+
 
 <footer>
 
 © 2026 Neraium
 
 </footer>
+
+
+
+<script src="script.js"></script>
+<script src="network.js"></script>
 
 </body>
 </html>

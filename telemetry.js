@@ -257,7 +257,7 @@
         <a href="platform.html">Platform</a>
         <a href="technical.html" style="color: var(--text);">Technical</a>
         <a href="governance.html">Governance</a>
-        <a href="contact.html" class="btn-nav">Request Pilot</a>
+        <a href="index.html#contact" class="btn-nav">Request Pilot</a>
       </div>
     </div>
   </nav>

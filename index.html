@@ -9,22 +9,23 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
- <nav class="nav">
-  <div class="container nav-inner">
-    <a href="index.html" class="brand">Nera<span>ium</span></a>
-    <div class="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="platform.html">Platform</a>
-      <a href="technical.html">Technical</a>
-      <a href="governance.html">Governance</a>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">Nera<span>ium</span></a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="platform.html">Platform</a>
+        <a href="technical.html">Technical</a>
+        <a href="governance.html">Governance</a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
   <main>
-  <section class="hero">
-  <div class="hero-bg"></div>
-  <canvas id="networkCanvas"></canvas>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <canvas id="networkCanvas"></canvas>
+
       <div class="container hero-grid">
         <div class="hero-copy">
           <div class="eyebrow">Systemic Infrastructure Intelligence</div>
@@ -35,8 +36,8 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Request Pilot</a>
-            <a href="platform.html" class="btn btn-secondary">View Platform</a>
+            <a href="#contact" class="btn btn-primary">Contact Us</a>
+            <a href="#system-view" class="btn btn-secondary">See System</a>
           </div>
 
           <div class="stats-grid hero-stats">
@@ -83,75 +84,69 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="proof-bar">
+      <div class="container proof-grid">
+        <div class="proof-item">
+          <span class="proof-label">Architecture</span>
+          <strong>Read-only</strong>
+        </div>
+        <div class="proof-item">
+          <span class="proof-label">Control Boundary</span>
+          <strong>No actuation</strong>
+        </div>
+        <div class="proof-item">
+          <span class="proof-label">Decision Model</span>
+          <strong>Operator-led</strong>
+        </div>
+        <div class="proof-item">
+          <span class="proof-label">Recordkeeping</span>
+          <strong>Evidence preserved</strong>
+        </div>
       </div>
     </section>
-   <section class="proof-bar">
-  <div class="container proof-grid">
-    <div class="proof-item">
-      <span class="proof-label">Architecture</span>
-      <strong>Read-only</strong>
-    </div>
-    <div class="proof-item">
-      <span class="proof-label">Control Boundary</span>
-      <strong>No actuation</strong>
-    </div>
-    <div class="proof-item">
-      <span class="proof-label">Decision Model</span>
-      <strong>Operator-led</strong>
-    </div>
-    <div class="proof-item">
-      <span class="proof-label">Recordkeeping</span>
-      <strong>Evidence preserved</strong>
-    </div>
-  </div>
-</section>
-<section class="section system-map">
 
-<div class="container">
+    <section class="section system-map" id="system-view">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">System View</div>
+          <h2>Infrastructure behavior becomes visible</h2>
+          <p>
+            Telemetry across pumps, treatment assets, pressure zones, and control systems
+            is unified into a single interpretable system view.
+          </p>
+        </div>
 
-<div class="section-head">
-<div class="eyebrow">System View</div>
-<h2>Infrastructure behavior becomes visible</h2>
-<p>
-Telemetry across pumps, treatment assets, pressure zones, and control systems
-is unified into a single interpretable system view.
-</p>
-</div>
+        <div class="map-panel">
+          <canvas id="systemMap"></canvas>
 
-<div class="map-panel">
+          <div class="map-legend">
+            <div class="legend-item">
+              <span class="legend-dot" style="background:#7da2ff;"></span>
+              <span>Infrastructure nodes</span>
+            </div>
 
-<canvas id="systemMap"></canvas>
+            <div class="legend-item">
+              <span class="legend-dot" style="background:#45d7ff;"></span>
+              <span>Telemetry relationships</span>
+            </div>
 
-<div class="map-legend">
+            <div class="legend-item">
+              <span class="legend-dot" style="background:#ff9b3d;"></span>
+              <span>Detected deviation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="legend-item">
-<span class="legend-dot" style="background:#7da2ff;"></span>
-<span>Infrastructure nodes</span>
-</div>
-
-<div class="legend-item">
-<span class="legend-dot" style="background:#45d7ff;"></span>
-<span>Telemetry relationships</span>
-</div>
-
-<div class="legend-item">
-<span class="legend-dot" style="background:#ff9b3d;"></span>
-<span>Detected deviation</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
     <section class="section band">
       <div class="container grid-2">
         <div>
           <div class="section-head">
             <div class="eyebrow">The Problem</div>
-            <h2>Why reactive systems fail</h2>
+            <h2>Why reactive systems <span class="accent">fail</span></h2>
             <p>
               Water and infrastructure failures are rarely sudden. They emerge from long periods of subtle drift
               across pressure, flow, treatment, and control conditions. Threshold-based monitoring often sees the
@@ -171,8 +166,8 @@ is unified into a single interpretable system view.
           <div class="compare-card good">
             <strong>Neraium</strong>
             <p>
-              Structural deviation is identified early, system behavior becomes interpretable, and surfaced intelligence
-              remains defensible.
+              Structural deviation is identified early, system behavior becomes interpretable, and the reasoning
+              behind surfaced intelligence remains defensible.
             </p>
           </div>
         </div>
@@ -287,13 +282,13 @@ is unified into a single interpretable system view.
     <section class="cta" id="contact">
       <div class="container">
         <div class="panel">
-          <div class="eyebrow">Request Pilot</div>
+          <div class="eyebrow">Contact</div>
           <h2>Bring systemic infrastructure intelligence into your operating environment</h2>
           <p>
             Neraium helps water and infrastructure operators move from fragmented telemetry to operational clarity
             without replacing control systems or disrupting existing operations.
           </p>
-        <a href="mailto:craig@neraium.com" class="btn btn-primary">Contact Us</a>
+          <a href="mailto:craig@neraium.com" class="btn btn-primary">Contact Us</a>
         </div>
       </div>
     </section>

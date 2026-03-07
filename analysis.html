@@ -1,100 +1,209 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neraium Analysis</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neraium | Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">Nera<span>ium</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="platform.html">Platform</a>
+        <a href="governance.html">Governance</a>
+        <a href="analysis.html" class="active">Analysis</a>
+      </div>
+    </div>
+  </nav>
 
-<nav class="nav">
-<div class="nav-inner container">
+  <main>
+    <section class="hero page-hero">
+      <div class="container">
+        <div class="eyebrow">Analysis</div>
+        <h1>Upload a CSV and get lead-time output</h1>
+        <p class="lead">
+          Your file uploads securely. Processing runs on a private backend. You receive detected schema + lead-time results.
+        </p>
+      </div>
+    </section>
 
-<a class="brand" href="index.html">Nera<span>ium</span></a>
+    <section class="section">
+      <div class="container">
+        <div class="panel" style="padding:22px;">
+          <div class="section-title" style="margin-bottom:6px;">Run analysis</div>
+          <div class="section-sub">Choose a CSV file and run analysis.</div>
 
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="platform.html">Platform</a>
-<a href="governance.html">Governance</a>
-</div>
+          <div class="upload-box">
+            <input type="file" id="fileInput" accept=".csv" />
+            <button class="btn btn-primary" id="analyzeBtn" type="button">Analyze</button>
+          </div>
 
-</div>
-</nav>
+          <div class="progress-wrap">
+            <div class="progress-meta">
+              <span id="progressLabel">Waiting</span>
+              <span id="progressPct">0%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar" id="progressBar"></div>
+            </div>
+          </div>
 
-<section class="hero">
-<div class="container">
+          <div class="status" id="status"></div>
 
-<h1>Upload telemetry data</h1>
+          <div class="result" id="result">
+            <div class="result-grid">
+              <div class="result-card">
+                <span>Rows processed</span>
+                <strong id="rowsProcessed">-</strong>
+              </div>
+              <div class="result-card">
+                <span>Lead time</span>
+                <strong id="leadTime">-</strong>
+              </div>
+              <div class="result-card">
+                <span>Status</span>
+                <strong id="jobStatus">-</strong>
+              </div>
+            </div>
 
-<p class="lead">
-Upload CSV telemetry data for infrastructure analysis.
-</p>
+            <div class="schema">
+              <h3 style="margin-bottom:8px;">Detected schema</h3>
+              <div class="schema-grid">
+                <div>
+                  <span>Timestamp</span>
+                  <strong id="tsCol">-</strong>
+                </div>
+                <div>
+                  <span>Failure tag</span>
+                  <strong id="failCol">-</strong>
+                </div>
+                <div>
+                  <span>Entity</span>
+                  <strong id="entityCol">-</strong>
+                </div>
+              </div>
+              <p style="color:var(--muted);margin-top:10px;" id="notes"></p>
+            </div>
+          </div>
 
-</div>
-</section>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<section class="section">
-<div class="container">
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="brand">Nera<span>ium</span></div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="platform.html">Platform</a>
+        <a href="governance.html">Governance</a>
+      </div>
+      <div>© 2026 Neraium</div>
+    </div>
+  </footer>
 
-<div class="upload-box">
+  <script>
+    // Set these for your environment
+    const API_URL = "https://api.neraium.com/analyze";
+    const API_KEY = ""; // optional: "YOUR_KEY"
 
-<input type="file" id="file">
+    const fileInput = document.getElementById("fileInput");
+    const analyzeBtn = document.getElementById("analyzeBtn");
+    const statusEl = document.getElementById("status");
+    const resultEl = document.getElementById("result");
 
-<div class="progress">
-<div class="progress-bar" id="progress"></div>
-</div>
+    const progressBar = document.getElementById("progressBar");
+    const progressLabel = document.getElementById("progressLabel");
+    const progressPct = document.getElementById("progressPct");
 
-<div id="status"></div>
+    function setProgress(pct, label){
+      const p = Math.max(0, Math.min(100, pct));
+      progressBar.style.width = p + "%";
+      progressPct.textContent = p + "%";
+      progressLabel.textContent = label;
+    }
 
-</div>
+    function showResult(obj){
+      resultEl.style.display = "block";
+      document.getElementById("rowsProcessed").textContent = obj.rows_processed ?? "-";
+      document.getElementById("leadTime").textContent = obj.metrics?.lead_time ?? obj.metrics?.estimated_lead_time ?? "-";
+      document.getElementById("jobStatus").textContent = obj.status ?? "Complete";
 
-</div>
-</section>
+      document.getElementById("tsCol").textContent = obj.detected_schema?.timestamp_col ?? "-";
+      document.getElementById("failCol").textContent = obj.detected_schema?.failure_col ?? "-";
+      document.getElementById("entityCol").textContent = obj.detected_schema?.entity_col ?? "-";
 
-<footer class="footer">
-© Neraium
-</footer>
+      document.getElementById("notes").textContent =
+        obj.message ?? "Analysis complete. Review detected schema for correctness.";
+    }
 
-<script>
+    analyzeBtn.addEventListener("click", () => {
+      const file = fileInput.files[0];
+      if(!file){
+        statusEl.textContent = "Please choose a CSV file.";
+        return;
+      }
 
-const fileInput = document.getElementById("file")
-const bar = document.getElementById("progress")
-const status = document.getElementById("status")
+      statusEl.textContent = "Starting upload...";
+      resultEl.style.display = "none";
+      setProgress(5, "Preparing");
 
-fileInput.addEventListener("change", () => {
+      const form = new FormData();
+      form.append("file", file);
 
-const file = fileInput.files[0]
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", API_URL, true);
 
-const xhr = new XMLHttpRequest()
+      if(API_KEY){
+        xhr.setRequestHeader("Authorization", "Bearer " + API_KEY);
+      }
 
-xhr.upload.onprogress = function(e){
+      xhr.upload.onprogress = (e) => {
+        if(e.lengthComputable){
+          const pct = Math.round((e.loaded / e.total) * 70);
+          setProgress(pct, "Uploading");
+        }
+      };
 
-if(e.lengthComputable){
+      xhr.onreadystatechange = () => {
+        if(xhr.readyState === 2){
+          setProgress(75, "Processing");
+          statusEl.textContent = "Upload complete. Processing on backend...";
+        }
+        if(xhr.readyState === 4){
+          if(xhr.status >= 200 && xhr.status < 300){
+            setProgress(100, "Complete");
+            statusEl.textContent = "Analysis complete.";
+            try{
+              showResult(JSON.parse(xhr.responseText));
+            }catch{
+              statusEl.textContent = "Error: unreadable server response.";
+            }
+          }else{
+            setProgress(100, "Failed");
+            statusEl.textContent = "Analysis failed.";
+          }
+        }
+      };
 
-const percent = (e.loaded / e.total) * 100
-bar.style.width = percent + "%"
+      xhr.send(form);
 
-}
-
-}
-
-xhr.onload = function(){
-
-status.innerHTML = "Analysis complete"
-
-}
-
-const form = new FormData()
-form.append("file", file)
-
-xhr.open("POST","https://api.neraium.com/analyze")
-xhr.send(form)
-
-})
-
-</script>
-
+      // gentle fake processing progress to feel alive
+      let p = 76;
+      const t = setInterval(() => {
+        if(xhr.readyState === 4){ clearInterval(t); return; }
+        if(p < 94){
+          p += 1;
+          setProgress(p, "Processing");
+        }
+      }, 250);
+    });
+  </script>
 </body>
 </html>

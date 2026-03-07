@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
 <title>Neraium | Systemic Infrastructure Intelligence</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
 
@@ -15,78 +16,75 @@
 
 <body>
 
-<nav class="nav">
-<div class="container nav-inner">
+<nav>
 
-<a href="index.html" class="brand">Nera<span>ium</span></a>
+<div class="logo">Nera<span>ium</span></div>
 
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="platform.html">Platform</a>
-<a href="governance.html">Governance</a>
-</div>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="platform.html">Platform</a></li>
+<li><a href="technical.html">Technical</a></li>
+<li><a href="governance.html">Governance</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
 
-</div>
 </nav>
+
 
 <section class="hero">
 
-<div class="container">
+<canvas id="telemetryChart"></canvas>
 
-<div class="eyebrow">
-Systemic Infrastructure Intelligence
-</div>
+<h1>Systemic Infrastructure Intelligence</h1>
 
-<h1>
-Operational visibility for complex water infrastructure
-</h1>
-
-<p class="lead">
-Neraium transforms operational telemetry into systemic intelligence.
-Identify infrastructure drift early, understand system behavior, and preserve defensible operational records.
+<p>
+Operational telemetry for complex infrastructure systems.
+Neraium identifies system drift, operational anomalies,
+and structural infrastructure patterns.
 </p>
-
-<canvas id="telemetryChart" width="800" height="260"></canvas>
-
-</div>
 
 </section>
 
 
-<section class="section">
-
-<div class="container">
-
-<div class="panel">
+<section class="section reveal">
 
 <h2>Infrastructure Telemetry</h2>
 
-<p>
-Aggregate operational signals across pumps, treatment systems, distribution networks,
-and environmental telemetry streams to build a unified system model.
-</p>
+<div class="grid">
+
+<div class="card">
+<h3>System Monitoring</h3>
+<p>Aggregate telemetry across operational infrastructure environments.</p>
+</div>
+
+<div class="card">
+<h3>Drift Detection</h3>
+<p>Identify infrastructure deviation before operational failures occur.</p>
+</div>
+
+<div class="card">
+<h3>Operational Intelligence</h3>
+<p>Convert telemetry signals into actionable infrastructure insight.</p>
+</div>
 
 </div>
 
-<div class="panel">
+</section>
 
-<h2>System Drift Detection</h2>
 
-<p>
-Detect subtle infrastructure deviations long before alarms or failures occur
-by modeling behavior across the entire operational environment.
-</p>
+<section class="section reveal">
 
-</div>
+<h2>Infrastructure Systems</h2>
 
-<div class="panel">
+<div class="diagram">
 
-<h2>Operational Intelligence</h2>
+<div class="diagram-grid">
 
-<p>
-Convert infrastructure telemetry into actionable insight
-for operators, engineers, and regulators.
-</p>
+<div class="node">Treatment</div>
+<div class="node">Pumping</div>
+<div class="node">Reservoirs</div>
+<div class="node">Distribution</div>
+<div class="node">Sensors</div>
 
 </div>
 
@@ -95,101 +93,15 @@ for operators, engineers, and regulators.
 </section>
 
 
-<section class="section">
+<footer>
 
-<div class="container">
-
-<div class="panel">
-
-<h2>System Architecture</h2>
-
-<p>
-Neraium operates as a read-only infrastructure intelligence layer
-that integrates with existing operational environments without modifying control systems.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<footer class="footer">
-
-<div class="container footer-inner">
-
-<div class="brand">Nera<span>ium</span></div>
-
-<div class="footer-links">
-<a href="index.html">Home</a>
-<a href="platform.html">Platform</a>
-<a href="governance.html">Governance</a>
-</div>
-
-<div>
 © 2026 Neraium
-</div>
-
-</div>
 
 </footer>
 
-
-<script>
-
-const canvas=document.getElementById("telemetryChart")
-
-if(canvas){
-
-const ctx=canvas.getContext("2d")
-
-let time=0
-
-function draw(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height)
-
-drawSignal("#1e7cff",0.8)
-drawSignal("#4ea3ff",1.2)
-drawSignal("#7ec2ff",1.6)
-
-time+=0.03
-
-requestAnimationFrame(draw)
-
-}
-
-function drawSignal(color,offset){
-
-ctx.beginPath()
-
-for(let x=0;x<canvas.width;x++){
-
-let y=
-canvas.height/2+
-Math.sin(x*0.01+time*offset)*40+
-Math.sin(x*0.03+time)*15
-
-if(x===0){
-ctx.moveTo(x,y)
-}else{
-ctx.lineTo(x,y)
-}
-
-}
-
-ctx.strokeStyle=color
-ctx.lineWidth=2
-ctx.stroke()
-
-}
-
-draw()
-
-}
-
-</script>
+<script src="script.js"></script>
+<script src="network.js"></script>
+<script src="telemetry.js"></script>
 
 </body>
 </html>

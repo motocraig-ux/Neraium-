@@ -595,4 +595,29 @@ pre {
     padding: 22px;
   }
 }
-I just want a really polished style.css that works with everything when I paste it in and don’t want to have to change anything else.
+I just want a really polished style.css that works with everything when I paste it in and don’t want to have to change anything .
+hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(125,162,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125,162,255,0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.35;
+  pointer-events: none;
+  animation: gridMove 40s linear infinite;
+}
+
+@keyframes gridMove {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(80px);
+  }
+}

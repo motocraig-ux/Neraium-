@@ -17,7 +17,6 @@
         <a href="platform.html" class="active">Platform</a>
         <a href="technical.html">Technical</a>
         <a href="governance.html">Governance</a>
-        <a href="index.html#contact" class="btn btn-primary">Request Pilot</a>
       </div>
     </div>
   </nav>
@@ -31,9 +30,31 @@
           The Neraium platform ingests live infrastructure telemetry, normalizes it into a usable system model,
           evaluates drift, and records admissible interpretations without interfering with operations.
         </p>
+
         <div class="hero-actions">
           <a href="#flow" class="btn btn-primary">Explore Flow</a>
           <a href="technical.html" class="btn btn-secondary">Technical Detail</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-bar">
+      <div class="container proof-grid">
+        <div class="proof-item">
+          <span class="proof-label">Architecture</span>
+          <strong>Read-only</strong>
+        </div>
+        <div class="proof-item">
+          <span class="proof-label">Control Boundary</span>
+          <strong>No actuation</strong>
+        </div>
+        <div class="proof-item">
+          <span class="proof-label">Decision Model</span>
+          <strong>Operator-led</strong>
+        </div>
+        <div class="proof-item">
+          <span class="proof-label">Recordkeeping</span>
+          <strong>Evidence preserved</strong>
         </div>
       </div>
     </section>
@@ -49,30 +70,30 @@
           </p>
         </div>
 
-        <div class="grid-3">
-          <div class="card">
-            <h3>Telemetry Ingestion</h3>
-            <p>Signals enter from sensors, historians, SCADA exports, and operational data feeds.</p>
+        <div class="architecture-flow">
+          <div class="flow-step">
+            <span>01</span>
+            <strong>Telemetry Ingestion</strong>
           </div>
-          <div class="card">
-            <h3>Signal Normalization</h3>
-            <p>Timestamps are aligned, values are standardized, and streams are prepared for system-level analysis.</p>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <span>02</span>
+            <strong>Signal Normalization</strong>
           </div>
-          <div class="card">
-            <h3>Multivariate Drift Analysis</h3>
-            <p>The platform evaluates structural system change across correlated signals, not isolated alarms alone.</p>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <span>03</span>
+            <strong>Multivariate Drift Analysis</strong>
           </div>
-          <div class="card">
-            <h3>Interpretation Constraints</h3>
-            <p>Candidate deviations are filtered through deterministic rules before an interpretation is admitted.</p>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <span>04</span>
+            <strong>Interpretation Constraints</strong>
           </div>
-          <div class="card">
-            <h3>Evidence Recording</h3>
-            <p>Admitted, suppressed, or voided outcomes are preserved with context for later review.</p>
-          </div>
-          <div class="card">
-            <h3>Operator Output</h3>
-            <p>Only interpretable, reviewable intelligence is surfaced to the human decision point.</p>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <span>05</span>
+            <strong>Evidence Recording</strong>
           </div>
         </div>
       </div>
@@ -81,7 +102,7 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">Architecture</div>
+          <div class="eyebrow">System Layers</div>
           <h2>Built for operational clarity</h2>
           <p>
             The platform is modular by design. Each layer strengthens reliability by isolating ingestion,
@@ -92,19 +113,27 @@
         <div class="grid-4">
           <div class="card">
             <h3>Signal Intake</h3>
-            <p>Integrates heterogeneous telemetry without requiring replacement of the systems already in operation.</p>
+            <p>
+              Integrates heterogeneous telemetry without requiring replacement of the systems already in operation.
+            </p>
           </div>
           <div class="card">
             <h3>Preparation Layer</h3>
-            <p>Separates ingestion noise from meaningful signal behavior so the analysis model starts from coherent data.</p>
+            <p>
+              Separates ingestion noise from meaningful signal behavior so the analysis model starts from coherent data.
+            </p>
           </div>
           <div class="card">
             <h3>Interpretation Layer</h3>
-            <p>Evaluates how the system is changing, not just whether one reading moved beyond a static threshold.</p>
+            <p>
+              Evaluates how the system is changing, not just whether one reading moved beyond a static threshold.
+            </p>
           </div>
           <div class="card">
             <h3>Evidence Layer</h3>
-            <p>Preserves what was detected, how it was filtered, and why it was surfaced for later operator review.</p>
+            <p>
+              Preserves what was detected, how it was filtered, and why it was surfaced for later operator review.
+            </p>
           </div>
         </div>
       </div>
@@ -150,6 +179,40 @@
               <strong>Audit-ready structure</strong>
               <span>Every surfaced outcome remains explainable through its preserved evaluation trail.</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Deployment</div>
+          <h2>Designed for live infrastructure environments</h2>
+          <p>
+            Neraium is built to operate alongside existing infrastructure systems, not in place of them. It supports
+            operators by creating visibility across complex environments where drift develops gradually and silently.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Water Infrastructure</h3>
+            <p>
+              Distribution systems, pumping stations, treatment assets, and wastewater environments.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Industrial Operations</h3>
+            <p>
+              Process water, thermal loops, utility infrastructure, and telemetry-rich facilities.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Critical Sites</h3>
+            <p>
+              Environments where early deviation visibility and defensible records materially improve operations.
+            </p>
           </div>
         </div>
       </div>

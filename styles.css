@@ -795,3 +795,36 @@ color:var(--muted);
     border-bottom: 0;
   }
 }
+/* premium depth */
+.section,
+.hero,
+.proof-bar,
+.footer {
+  position: relative;
+}
+
+.section::after,
+.hero::after,
+.proof-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.015) 0%,
+    rgba(255,255,255,0) 18%,
+    rgba(255,255,255,0) 82%,
+    rgba(255,255,255,0.02) 100%
+  );
+}
+
+.panel,
+.card,
+.node,
+.feature-item,
+.compare-card,
+.flow-step {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}

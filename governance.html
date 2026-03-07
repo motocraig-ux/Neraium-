@@ -1,69 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neraium Governance</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neraium | Governance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">Nera<span>ium</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="platform.html">Platform</a>
+        <a href="governance.html" class="active">Governance</a>
+        <a href="analysis.html">Analysis</a>
+      </div>
+    </div>
+  </nav>
 
-<nav class="nav">
-<div class="nav-inner container">
+  <main>
+    <section class="hero page-hero">
+      <div class="container">
+        <div class="eyebrow">Governance</div>
+        <h1>Operational intelligence with clear boundaries</h1>
+        <p class="lead">
+          Neraium is designed to inform operators without taking control. Processing can be kept private and access controlled.
+        </p>
+      </div>
+    </section>
 
-<a class="brand" href="index.html">Nera<span>ium</span></a>
+    <section class="section">
+      <div class="container">
+        <div class="section-title">Operational principles</div>
+        <div class="section-sub">
+          Strong boundaries, controlled access, and operator authority are deliberate design choices.
+        </div>
 
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="platform.html">Platform</a>
-<a href="analysis.html">Analysis</a>
-</div>
+        <div class="grid3" style="margin-top:22px;">
+          <div class="card">
+            <h3>Read-only architecture</h3>
+            <p>No actuation. No control changes. No setpoint modification.</p>
+          </div>
+          <div class="card">
+            <h3>Access control</h3>
+            <p>API keys, rate limiting, and audit logging on the backend.</p>
+          </div>
+          <div class="card">
+            <h3>Reviewability</h3>
+            <p>Results can be preserved for review, audits, and incident response.</p>
+          </div>
+        </div>
 
-</div>
-</nav>
+        <div class="panel" style="margin-top:22px;padding:22px;">
+          <div class="panel-header">
+            <div class="panel-title">Boundary model</div>
+            <div class="panel-meta">Systems remain authoritative</div>
+          </div>
+          <div class="grid3" style="margin-top:10px;">
+            <div class="card">
+              <h3>Inputs</h3>
+              <p>Telemetry exported from existing systems.</p>
+            </div>
+            <div class="card">
+              <h3>Intelligence layer</h3>
+              <p>Private processing and schema detection.</p>
+            </div>
+            <div class="card">
+              <h3>Decisions</h3>
+              <p>Operators decide actions outside the platform.</p>
+            </div>
+          </div>
+        </div>
 
-<section class="hero">
-<div class="container">
+      </div>
+    </section>
+  </main>
 
-<h1>Operational intelligence with clear boundaries</h1>
-
-<p class="lead">
-Neraium operates as a read-only infrastructure intelligence layer.
-Existing control systems remain fully independent.
-</p>
-
-</div>
-</section>
-
-<section class="section">
-<div class="container">
-
-<div class="grid">
-
-<div class="card">
-<h3>Read-only architecture</h3>
-<p>No actuation. No system control.</p>
-</div>
-
-<div class="card">
-<h3>Operational independence</h3>
-<p>Infrastructure authority remains with operators.</p>
-</div>
-
-<div class="card">
-<h3>Auditability</h3>
-<p>Operational intelligence remains reviewable.</p>
-</div>
-
-</div>
-
-</div>
-</section>
-
-<footer class="footer">
-© Neraium
-</footer>
-
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="brand">Nera<span>ium</span></div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="platform.html">Platform</a>
+        <a href="analysis.html">Analysis</a>
+      </div>
+      <div>© 2026 Neraium</div>
+    </div>
+  </footer>
 </body>
 </html>

@@ -219,10 +219,9 @@ background:rgba(255,255,255,.015);
 
 .hero{
 position:relative;
-padding:120px 0 100px;
 overflow:hidden;
+padding:120px 0 100px;
 }
-
 .hero::before{
 content:"";
 position:absolute;

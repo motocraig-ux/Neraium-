@@ -68,7 +68,11 @@ color:var(--blue-glow);
 .hero{
 padding:120px 0 90px;
 }
-
+.hero{
+background:
+radial-gradient(circle at 20% 40%,rgba(30,124,255,.12),transparent 40%),
+radial-gradient(circle at 80% 20%,rgba(30,124,255,.08),transparent 40%);
+}
 .hero h1{
 font-size:52px;
 line-height:1.1;

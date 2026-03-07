@@ -1,87 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neraium | Platform</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neraium Platform</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand">Nera<span>ium</span></a>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="platform.html" class="active">Platform</a>
-        <a href="governance.html">Governance</a>
-        <a href="analysis.html">Analysis</a>
-      </div>
-    </div>
-  </nav>
 
-  <main>
-    <section class="hero page-hero">
-      <div class="container">
-        <div class="eyebrow">Platform</div>
-        <h1>Infrastructure behaviour becomes visible</h1>
-        <p class="lead">
-          Telemetry across pumps, treatment assets, pressure zones and control systems becomes a single interpretable view.
-        </p>
-      </div>
-    </section>
+<nav class="nav">
+<div class="container nav-inner">
 
-    <section class="section">
-      <div class="container">
-        <div class="section-title">Core workflow</div>
-        <div class="section-sub">
-          Upload or connect telemetry sources. Receive lead-time outputs and schema assumptions.
-        </div>
+<a href="index.html" class="brand">Nera<span>ium</span></a>
 
-        <div class="grid3" style="margin-top:22px;">
-          <div class="card">
-            <h3>Telemetry intake</h3>
-            <p>Accepts common export formats and CSV telemetry.</p>
-          </div>
-          <div class="card">
-            <h3>Private processing</h3>
-            <p>Analysis runs on a secured backend without exposing internal logic.</p>
-          </div>
-          <div class="card">
-            <h3>Operator outputs</h3>
-            <p>Detected schema + lead-time outputs returned in a consistent format.</p>
-          </div>
-        </div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="platform.html" class="active">Platform</a>
+<a href="governance.html">Governance</a>
+</div>
 
-        <div class="panel" style="margin-top:22px;padding:22px;">
-          <div class="panel-header">
-            <div class="panel-title">System Map</div>
-            <div class="panel-meta">Illustrative network view</div>
-          </div>
-          <canvas id="systemMap" width="980" height="360" style="width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.06);"></canvas>
-          <div class="legend" style="margin-top:10px;">
-            <div class="legend-item"><span class="legend-dot" style="background:#00a6ff;"></span><span>Nodes</span></div>
-            <div class="legend-item"><span class="legend-line" style="background:#2ed3ff;"></span><span>Links</span></div>
-            <div class="legend-item"><span class="legend-dot" style="background:#ffc857;"></span><span>Deviation</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+</div>
+</nav>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="brand">Nera<span>ium</span></div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="governance.html">Governance</a>
-        <a href="analysis.html">Analysis</a>
-      </div>
-      <div>© 2026 Neraium</div>
-    </div>
-  </footer>
+<section class="hero page-hero">
+<div class="container">
 
-  <script src="system-map.js"></script>
+<div class="eyebrow">Platform</div>
+
+<h1>
+Operational telemetry intelligence
+</h1>
+
+<p class="lead">
+Neraium provides systemic visibility into infrastructure behavior
+through telemetry aggregation, anomaly detection, and operational modeling.
+</p>
+
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+
+<div class="panel">
+
+<h2>Infrastructure Visibility</h2>
+
+<p>
+Monitor system-level behavior across distributed infrastructure
+with unified telemetry streams and operational modeling.
+</p>
+
+</div>
+
+<div class="panel">
+
+<h2>Operational Drift Detection</h2>
+
+<p>
+Identify emerging system drift patterns before they evolve
+into operational risk events.
+</p>
+
+</div>
+
+<div class="panel">
+
+<h2>Decision Support</h2>
+
+<p>
+Provide operators and regulators with defensible
+infrastructure intelligence and long-term system visibility.
+</p>
+
+</div>
+
+</div>
+</section>
+
+<footer class="footer">
+<div class="container footer-inner">
+
+<div class="brand">Nera<span>ium</span></div>
+
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="platform.html">Platform</a>
+<a href="governance.html">Governance</a>
+</div>
+
+<div>© 2026 Neraium</div>
+
+</div>
+</footer>
+
 </body>
 </html>

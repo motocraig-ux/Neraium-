@@ -53,7 +53,11 @@ if(dist<140){
 ctx.beginPath();
 ctx.moveTo(n.x,n.y);
 ctx.lineTo(m.x,m.y);
+if(n.alert || m.alert){
+ctx.strokeStyle="rgba(255,155,61,"+(1-dist/140)*.45+")";
+}else{
 ctx.strokeStyle="rgba(69,215,255,"+(1-dist/140)*.25+")";
+}
 ctx.lineWidth=1;
 ctx.stroke();
 

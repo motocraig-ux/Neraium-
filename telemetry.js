@@ -1,50 +1,683 @@
-const canvas=document.getElementById("telemetryChart")
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neraium — Systemic Infrastructure Intelligence</title>
+  <!-- Preconnect to Google fonts for faster load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <!--
+    The page uses a dark theme throughout. Colours are defined as CSS variables
+    on the :root element so that they can easily be tweaked in one place. The
+    layout relies on modern CSS features such as grid and flexbox. To keep
+    markup concise, long prose has been kept in normal paragraphs and lists
+    rather than shoe‑horning it into tables.
+  -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --bg: #0a0c10;
+      --bg2: #0f1319;
+      --bg3: #141920;
+      --accent: #00d4ff;
+      --accent2: #0066ff;
+      --text: #e8edf2;
+      --muted: #8892a0;
+      --border: #1e2530;
+      --card: #111620;
+    }
+    html {
+      scroll-behaviour: smooth;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    /* Navigation bar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 12, 16, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span {
+      color: var(--accent);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      font-size: 14px;
+    }
+    .nav-links a {
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--text);
+    }
+    .btn-nav {
+      background: var(--accent);
+      color: #0a0c10 !important;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 9px 20px;
+      border-radius: 6px;
+    }
+    /* Reusable button styles */
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #0a0c10;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 13px 28px;
+      border-radius: 6px;
+      transition: opacity 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary:hover {
+      opacity: 0.85;
+    }
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 13px 28px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    /* Section styling */
+    section {
+      padding: 100px 32px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 640px;
+      line-height: 1.7;
+    }
+    /* Hero section */
+    .hero {
+      padding: 150px 32px 120px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse 70% 60% at 60% 50%,
+        rgba(0, 212, 255, 0.06) 0%,
+        transparent 70%
+      );
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    /* Card container styles */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+    .card:hover {
+      border-color: rgba(0, 212, 255, 0.4);
+    }
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 32px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .footer-logo span {
+      color: var(--accent);
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+    }
+    .footer-links a {
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--text);
+    }
+    /* Grid helpers */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+    .timeline {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .timeline-step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 28px;
+      text-align: center;
+      min-width: 150px;
+    }
+    .timeline-step .number {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .timeline-arrow {
+      color: var(--border);
+      font-size: 20px;
+      padding: 0 8px;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      nav .nav-links {
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Nera<span>ium</span></a>
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#purpose">Purpose</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#applications">Applications</a>
+        <a href="#contact" class="btn-nav">Request Pilot</a>
+      </div>
+    </div>
+  </nav>
 
-if(canvas){
+  <!-- Hero Section -->
+  <header class="hero" id="overview">
+    <div class="container hero-grid">
+      <div>
+        <div class="section-label">Infrastructure Intelligence</div>
+        <h1
+          style="font-size: 56px; font-weight: 700; letter-spacing: -2px; line-height: 1.1; margin-bottom: 24px;"
+        >
+          Systemic<br />Infrastructure<br />Intelligence
+        </h1>
+        <p
+          style="font-size: 18px; color: var(--muted); line-height: 1.75; margin-bottom: 36px; max-width: 480px;"
+        >
+          A read‑only intelligence layer that detects structural deviations in complex environments before failure
+          occurs. Neraium models system behaviour geometrically to reveal subtle drift long before alarms would ever
+          trigger.
+        </p>
+        <div style="display: flex; gap: 16px;">
+          <a href="#contact" class="btn-primary">Request Pilot</a>
+          <a href="#architecture" class="btn-ghost">View Architecture</a>
+        </div>
+      </div>
+      <!-- Placeholder card showing live telemetry conceptually -->
+      <div style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px;">
+        <div
+          style="font-size: 11px; font-weight: 600; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 20px;"
+        >
+          Live Telemetry — Example
+        </div>
+        <!-- Simple SVG chart representing baseline vs drift -->
+        <svg viewBox="0 0 480 220" style="width: 100%; display: block;" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="80" width="480" height="60" fill="rgba(0, 102, 255, 0.06)" rx="2" />
+          <text x="8" y="76" fill="#8892A0" font-size="10" font-family="Inter">
+            Baseline Window
+          </text>
+          <polyline
+            points="0,120 40,115 80,118 120,112 160,105 200,98 240,88 280,72 320,65 360,78 400,85 440,90 480,88"
+            fill="none"
+            stroke="#00D4FF"
+            stroke-width="2"
+            stroke-linejoin="round"
+          />
+          <polyline
+            points="0,130 40,128 80,132 120,129 160,125 200,122 240,118 280,108 320,100 360,112 400,118 440,120 480,119"
+            fill="none"
+            stroke="#0066FF"
+            stroke-width="1.5"
+            stroke-linejoin="round"
+            stroke-dasharray="4,3"
+          />
+          <rect x="0" y="175" width="480" height="8" fill="var(--border)" rx="4" />
+          <rect x="0" y="175" width="320" height="8" fill="rgba(0, 212, 255, 0.3)" rx="4" />
+          <rect x="280" y="175" width="80" height="8" fill="rgba(255, 140, 0, 0.6)" rx="4" />
+          <text x="0" y="198" fill="#8892A0" font-size="10" font-family="Inter">Drift Score</text>
+          <text x="420" y="198" fill="#FF8C00" font-size="10" font-family="Inter">0.74</text>
+          <line
+            x1="280"
+            y1="40"
+            x2="280"
+            y2="175"
+            stroke="rgba(255, 140, 0, 0.4)"
+            stroke-width="1"
+            stroke-dasharray="3,3"
+          />
+          <circle cx="280" cy="72" r="5" fill="#FF8C00" opacity="0.9" />
+          <text x="288" y="55" fill="#FF8C00" font-size="10" font-family="Inter">
+            Deviation Detected
+          </text>
+          <text x="0" y="220" fill="#8892A0" font-size="10" font-family="Inter">T‑48h</text>
+          <text x="220" y="220" fill="#8892A0" font-size="10" font-family="Inter">T‑24h</text>
+          <text x="460" y="220" fill="#8892A0" font-size="10" font-family="Inter">Now</text>
+        </svg>
+        <div style="display: flex; gap: 20px; margin-top: 16px;">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <div style="width: 12px; height: 2px; background: var(--accent);"></div>
+            <span style="font-size: 11px; color: var(--muted);">Sensor A</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <div style="width: 12px; height: 2px; background: var(--accent2);"></div>
+            <span style="font-size: 11px; color: var(--muted);">Sensor B</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <div style="width: 8px; height: 8px; background: #ff8c00; border-radius: 50%;"></div>
+            <span style="font-size: 11px; color: var(--muted);">Event Marker</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-const ctx=canvas.getContext("2d")
+  <!-- Problem Section -->
+  <section style="background: var(--bg);">
+    <div class="container">
+      <div class="grid-2" style="align-items: center; gap: 80px;">
+        <div>
+          <div class="section-label">The Problem</div>
+          <h2 class="section-title">Why reactive systems fail</h2>
+          <p class="section-sub">
+            Infrastructure failures are rarely sudden. They are the culmination of a long period of
+            multivariate drift that traditional threshold alarms or predictive models never reveal. Threshold
+            systems evaluate sensors in isolation and only signal when extreme limits are exceeded. Predictive models
+            require extensive failure histories and often produce opaque alerts that operators cannot defend. The
+            result is missed interaction effects and unexpected downtime.
+          </p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div
+            style="background: var(--card); border: 1px solid var(--border); border-left: 3px solid #ff4444; border-radius: 8px; padding: 20px 24px;"
+          >
+            <div style="font-size: 13px; font-weight: 600; color: #ff6666; margin-bottom: 4px;">
+              Reactive Systems
+            </div>
+            <div style="font-size: 14px; color: var(--muted);">
+              Failures appear suddenly — alarms trigger too late — operators lack system visibility.
+            </div>
+          </div>
+          <div style="text-align: center; color: var(--muted); font-size: 20px;">↓</div>
+          <div
+            style="background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 20px 24px;"
+          >
+            <div style="font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 4px;">
+              Neraium
+            </div>
+            <div style="font-size: 14px; color: var(--muted);">
+              Deviation detected early — system behaviour explained — defensible records produced.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-let time=0
+  <!-- System Purpose Section -->
+  <section id="purpose" style="background: var(--bg2);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <div class="section-label">Purpose</div>
+        <h2 class="section-title" style="margin: 0 auto 12px;">Why Neraium exists</h2>
+        <p class="section-sub" style="margin: 0 auto;">
+          Neraium interprets the behaviour of complex physical systems using multivariate statistical geometry. By
+          analysing the geometric structure of sensor data rather than individual thresholds or black‑box models,
+          the platform detects structural drift directly from operational telemetry without relying on failure
+          datasets. This produces alerts that operators can trust and defend.
+        </p>
+      </div>
+    </div>
+  </section>
 
-function draw(){
+  <!-- Architecture Section -->
+  <section id="architecture" style="background: var(--bg);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 64px;">
+        <div class="section-label">Architecture</div>
+        <h2 class="section-title">How the system works</h2>
+      </div>
+      <!-- Three key layers of the architecture -->
+      <div class="grid-3" style="margin-bottom: 48px;">
+        <div class="card">
+          <h3>Signal Geometry Layer</h3>
+          <p>
+            Operational telemetry is modelled using covariance‑based statistical geometry derived from
+            Mahalanobis distance. This enables detection of structural drift without reliance on historical
+            failure data and forms the foundation of Neraium’s multivariate analysis.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Aletheia’s Gate</h3>
+          <p>
+            Detected drift is evaluated against deterministic interpretation constraints — physical
+            boundaries, temporal persistence and multi‑sensor correlation thresholds. Signals that fail these
+            criteria are suppressed or refused, ensuring only admissible interpretations are escalated.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Evidence Vault Protocol</h3>
+          <p>
+            Every outcome from the Gate — admit, suppress or void — is recorded in a cryptographically verifiable
+            evidentiary record capturing the measured divergence, criteria applied, system state and final
+            decision. This permanent chain of custody supports regulatory and post‑incident scrutiny.
+          </p>
+        </div>
+      </div>
+      <!-- Timeline style to visualise processing flow -->
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="number">01</div>
+          <div style="font-size: 14px; font-weight: 600;">Telemetry Ingestion</div>
+        </div>
+        <div class="timeline-arrow">→</div>
+        <div class="timeline-step">
+          <div class="number">02</div>
+          <div style="font-size: 14px; font-weight: 600;">Multivariate Analysis</div>
+        </div>
+        <div class="timeline-arrow">→</div>
+        <div class="timeline-step">
+          <div class="number">03</div>
+          <div style="font-size: 14px; font-weight: 600;">Deviation Detection</div>
+        </div>
+        <div class="timeline-arrow">→</div>
+        <div class="timeline-step">
+          <div class="number">04</div>
+          <div style="font-size: 14px; font-weight: 600;">Admissibility Gate</div>
+        </div>
+        <div class="timeline-arrow">→</div>
+        <div class="timeline-step">
+          <div class="number">05</div>
+          <div style="font-size: 14px; font-weight: 600;">Evidence Record</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-ctx.clearRect(0,0,canvas.width,canvas.height)
+  <!-- Interpretation Constraints Section -->
+  <section style="background: var(--bg2);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <div class="section-label">Interpretation</div>
+        <h2 class="section-title">Guardrails for inference</h2>
+        <p class="section-sub" style="margin: 0 auto;">
+          Neraium operates within schematic guardrails that define the engineering envelope for interpretation. Only
+          when these criteria are met will the system infer meaning from drift. Outside the bounds, uncertainty
+          overrides signal and no inference is made.
+        </p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Abstraction &amp; Causality</h3>
+          <p>
+            Valid abstraction classes and causal relationships are enforced. Inferences respect physical
+            hierarchies and avoid drawing conclusions from unrelated variables.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Temporal Legitimacy</h3>
+          <p>
+            Signals must persist for sufficient duration and exhibit appropriate multi‑sensor correlation before
+            being escalated. Transient events are suppressed.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Aggregation Discipline</h3>
+          <p>
+            Aggregations preserve physical meaning and avoid combining measurements that would distort system
+            interpretation. When uncertainty prevails, Neraium refuses inference rather than guess.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-drawSignal("#7d8cff",0.8)
-drawSignal("#3fd0ff",1.2)
-drawSignal("#ff6b6b",1.6)
+  <!-- Assurance Section -->
+  <section style="background: var(--bg);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <div class="section-label">Assurance</div>
+        <h2 class="section-title">Building trust through evidence</h2>
+        <p class="section-sub" style="margin: 0 auto;">
+          Neraium is collaborating with independent safety experts to develop a hazard analysis and assurance
+          case. Architectural non‑interference claims, system boundary definition and HAZOP analysis ensure that
+          both the architecture and its outputs can withstand regulatory review, engineering scrutiny and
+          post‑incident investigation.
+        </p>
+      </div>
+    </div>
+  </section>
 
-time+=0.03
+  <!-- Deployment & Role Section -->
+  <section style="background: var(--bg2);">
+    <div class="container">
+      <div class="grid-2" style="gap: 48px; align-items: flex-start;">
+        <div>
+          <div class="section-label">Deployment</div>
+          <h2 class="section-title">At the infrastructure edge</h2>
+          <p class="section-sub">
+            Neraium deploys alongside existing monitoring and control systems. Telemetry is processed locally at the
+            edge without relying on continuous cloud connectivity. This ensures operation during network
+            disruption and preserves evidentiary continuity.
+          </p>
+        </div>
+        <div>
+          <div class="section-label">Operational Role</div>
+          <h2 class="section-title">Read‑only intelligence</h2>
+          <p class="section-sub">
+            Neraium operates strictly as a read‑only interpretation layer. It ingests telemetry from existing
+            infrastructure systems and produces engineering interpretations of system behaviour. The platform
+            never actuates or controls infrastructure — its sole purpose is physically defensible interpretation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-requestAnimationFrame(draw)
+  <!-- Applications Section -->
+  <section id="applications" style="background: var(--bg);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <div class="section-label">Applications</div>
+        <h2 class="section-title">Where the system operates</h2>
+      </div>
+      <div class="grid-3" style="gap: 16px;">
+        <div class="card">
+          <h3 style="font-size: 15px; margin-bottom: 6px;">Hospitality</h3>
+          <p style="font-size: 13px;">Pools, water systems, cooling loops</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 15px; margin-bottom: 6px;">Industrial</h3>
+          <p style="font-size: 13px;">Process lines, manufacturing, CNC</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 15px; margin-bottom: 6px;">Data Centres</h3>
+          <p style="font-size: 13px;">Cooling infrastructure, environmental control</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 15px; margin-bottom: 6px;">Municipal</h3>
+          <p style="font-size: 13px;">Water distribution, wastewater treatment</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 15px; margin-bottom: 6px;">Healthcare</h3>
+          <p style="font-size: 13px;">Sterile water, critical cooling loops</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 15px; margin-bottom: 6px;">Energy</h3>
+          <p style="font-size: 13px;">Thermal systems, fluid transport</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-}
+  <!-- Conceptual Summary -->
+  <section style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.06) 0%, rgba(0, 102, 255, 0.06) 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container" style="text-align: center;">
+      <div class="section-label">Summary</div>
+      <h2 class="section-title" style="margin: 0 auto 16px;">Detect. Decide. Document.</h2>
+      <p
+        style="font-size: 17px; color: var(--muted); margin-bottom: 36px; max-width: 700px; margin-left: auto; margin-right: auto;"
+      >
+        Neraium detects when physical systems begin to drift, determines when that drift is admissible for
+        interpretation, and preserves the evidentiary record of that determination. This combination of early
+        detection, deterministic governance and cryptographically verifiable evidence creates a new standard for
+        infrastructure intelligence.
+      </p>
+      <a href="#contact" class="btn-primary" style="font-size: 15px; padding: 15px 36px;">Request Pilot</a>
+    </div>
+  </section>
 
-function drawSignal(color,offset){
+  <!-- Contact / CTA Anchor -->
+  <section id="contact" style="background: var(--bg2);">
+    <div class="container" style="text-align: center;">
+      <div class="section-label">Get Started</div>
+      <h2 class="section-title" style="margin: 0 auto 16px;">Ready to discuss a pilot?</h2>
+      <p style="font-size: 17px; color: var(--muted); margin-bottom: 36px; max-width: 640px; margin-left: auto; margin-right: auto;">
+        We work with operations teams to scope, deploy and analyse telemetry environments. Reach out to explore a
+        pilot deployment tailored to your infrastructure.
+      </p>
+      <a href="mailto:info@neraium.com" class="btn-primary" style="font-size: 15px; padding: 15px 36px;">Contact
+        Us</a>
+    </div>
+  </section>
 
-ctx.beginPath()
-
-for(let x=0;x<canvas.width;x++){
-
-let y=
-canvas.height/2+
-Math.sin(x*0.01+time*offset)*40+
-Math.sin(x*0.03+time)*15
-
-if(x===0){
-ctx.moveTo(x,y)
-}else{
-ctx.lineTo(x,y)
-}
-
-}
-
-ctx.strokeStyle=color
-ctx.lineWidth=2
-ctx.stroke()
-
-}
-
-draw()
-
-}
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Nera<span>ium</span></div>
+      <div class="footer-links">
+        <a href="#overview">Overview</a>
+        <a href="#purpose">Purpose</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#applications">Applications</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-copy">© 2026 Neraium. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>

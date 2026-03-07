@@ -48,7 +48,7 @@ if (canvas) {
     const x = canvas.width * 0.7;
     const y =
       canvas.height / 2 +
-      Math.sin(x * 0.015 + time * 1.2) * 30 +
+      Math.sin(x * 0.015 + time * 1.2) * 25 +
       Math.sin(x * 0.04 + time) * 10;
 
     ctx.beginPath();
@@ -68,9 +68,9 @@ if (canvas) {
 
     drawGrid();
 
-    drawSignal("#3b6cff", 0.8, 30);  // Sensor A
-    drawSignal("#45d7ff", 1.2, 25);  // Sensor B
-    drawSignal("#7d8cff", 1.6, 18);  // Sensor C
+    drawSignal("#3b6cff", 0.8, 26);   // Sensor A
+    drawSignal("#45d7ff", 1.15, 22);  // Sensor B
+    drawSignal("#ff6b6b", 1.45, 18);  // Sensor C
 
     drawDrift();
 

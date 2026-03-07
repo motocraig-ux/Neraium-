@@ -1,209 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neraium | Analysis</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand">Nera<span>ium</span></a>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="platform.html">Platform</a>
-        <a href="governance.html">Governance</a>
-        <a href="analysis.html" class="active">Analysis</a>
-      </div>
-    </div>
-  </nav>
+<script>
+  const API_URL = "/api/analyze";
 
-  <main>
-    <section class="hero page-hero">
-      <div class="container">
-        <div class="eyebrow">Analysis</div>
-        <h1>Upload a CSV and get lead-time output</h1>
-        <p class="lead">
-          Your file uploads securely. Processing runs on a private backend. You receive detected schema + lead-time results.
-        </p>
-      </div>
-    </section>
+  const fileInput = document.getElementById("fileInput");
+  const analyzeBtn = document.getElementById("analyzeBtn");
+  const statusEl = document.getElementById("status");
+  const resultEl = document.getElementById("result");
 
-    <section class="section">
-      <div class="container">
-        <div class="panel" style="padding:22px;">
-          <div class="section-title" style="margin-bottom:6px;">Run analysis</div>
-          <div class="section-sub">Choose a CSV file and run analysis.</div>
+  const progressBar = document.getElementById("progressBar");
+  const progressLabel = document.getElementById("progressLabel");
+  const progressPct = document.getElementById("progressPct");
 
-          <div class="upload-box">
-            <input type="file" id="fileInput" accept=".csv" />
-            <button class="btn btn-primary" id="analyzeBtn" type="button">Analyze</button>
-          </div>
+  function setProgress(pct, label){
+    const p = Math.max(0, Math.min(100, pct));
+    progressBar.style.width = p + "%";
+    progressPct.textContent = p + "%";
+    progressLabel.textContent = label;
+  }
 
-          <div class="progress-wrap">
-            <div class="progress-meta">
-              <span id="progressLabel">Waiting</span>
-              <span id="progressPct">0%</span>
-            </div>
-            <div class="progress">
-              <div class="progress-bar" id="progressBar"></div>
-            </div>
-          </div>
+  function showResult(obj){
+    resultEl.style.display = "block";
+    document.getElementById("rowsProcessed").textContent = obj.rows_processed ?? "-";
+    document.getElementById("leadTime").textContent = obj.metrics?.lead_time ?? obj.metrics?.estimated_lead_time ?? "-";
+    document.getElementById("jobStatus").textContent = obj.status ?? "Complete";
 
-          <div class="status" id="status"></div>
+    document.getElementById("tsCol").textContent = obj.detected_schema?.timestamp_col ?? "-";
+    document.getElementById("failCol").textContent = obj.detected_schema?.failure_col ?? "-";
+    document.getElementById("entityCol").textContent = obj.detected_schema?.entity_col ?? "-";
 
-          <div class="result" id="result">
-            <div class="result-grid">
-              <div class="result-card">
-                <span>Rows processed</span>
-                <strong id="rowsProcessed">-</strong>
-              </div>
-              <div class="result-card">
-                <span>Lead time</span>
-                <strong id="leadTime">-</strong>
-              </div>
-              <div class="result-card">
-                <span>Status</span>
-                <strong id="jobStatus">-</strong>
-              </div>
-            </div>
+    document.getElementById("notes").textContent =
+      obj.message ?? "Analysis complete. Review detected schema for correctness.";
+  }
 
-            <div class="schema">
-              <h3 style="margin-bottom:8px;">Detected schema</h3>
-              <div class="schema-grid">
-                <div>
-                  <span>Timestamp</span>
-                  <strong id="tsCol">-</strong>
-                </div>
-                <div>
-                  <span>Failure tag</span>
-                  <strong id="failCol">-</strong>
-                </div>
-                <div>
-                  <span>Entity</span>
-                  <strong id="entityCol">-</strong>
-                </div>
-              </div>
-              <p style="color:var(--muted);margin-top:10px;" id="notes"></p>
-            </div>
-          </div>
+  analyzeBtn.addEventListener("click", () => {
+    const file = fileInput.files[0];
 
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="brand">Nera<span>ium</span></div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="platform.html">Platform</a>
-        <a href="governance.html">Governance</a>
-      </div>
-      <div>© 2026 Neraium</div>
-    </div>
-  </footer>
-
-  <script>
-    // Set these for your environment
-    const API_URL = "https://api.neraium.com/analyze";
-    const API_KEY = ""; // optional: "YOUR_KEY"
-
-    const fileInput = document.getElementById("fileInput");
-    const analyzeBtn = document.getElementById("analyzeBtn");
-    const statusEl = document.getElementById("status");
-    const resultEl = document.getElementById("result");
-
-    const progressBar = document.getElementById("progressBar");
-    const progressLabel = document.getElementById("progressLabel");
-    const progressPct = document.getElementById("progressPct");
-
-    function setProgress(pct, label){
-      const p = Math.max(0, Math.min(100, pct));
-      progressBar.style.width = p + "%";
-      progressPct.textContent = p + "%";
-      progressLabel.textContent = label;
+    if(!file){
+      statusEl.textContent = "Please choose a CSV file.";
+      return;
     }
 
-    function showResult(obj){
-      resultEl.style.display = "block";
-      document.getElementById("rowsProcessed").textContent = obj.rows_processed ?? "-";
-      document.getElementById("leadTime").textContent = obj.metrics?.lead_time ?? obj.metrics?.estimated_lead_time ?? "-";
-      document.getElementById("jobStatus").textContent = obj.status ?? "Complete";
-
-      document.getElementById("tsCol").textContent = obj.detected_schema?.timestamp_col ?? "-";
-      document.getElementById("failCol").textContent = obj.detected_schema?.failure_col ?? "-";
-      document.getElementById("entityCol").textContent = obj.detected_schema?.entity_col ?? "-";
-
-      document.getElementById("notes").textContent =
-        obj.message ?? "Analysis complete. Review detected schema for correctness.";
+    if(!file.name.toLowerCase().endsWith(".csv")){
+      statusEl.textContent = "Please upload a CSV file.";
+      return;
     }
 
-    analyzeBtn.addEventListener("click", () => {
-      const file = fileInput.files[0];
-      if(!file){
-        statusEl.textContent = "Please choose a CSV file.";
+    statusEl.textContent = "Starting upload...";
+    resultEl.style.display = "none";
+    setProgress(5, "Preparing");
+
+    const form = new FormData();
+    form.append("file", file);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", API_URL, true);
+
+    xhr.upload.onprogress = (e) => {
+      if(e.lengthComputable){
+        const pct = Math.round((e.loaded / e.total) * 70);
+        setProgress(pct, "Uploading");
+      }
+    };
+
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === 2){
+        setProgress(75, "Processing");
+        statusEl.textContent = "Upload complete. Processing on backend...";
+      }
+
+      if(xhr.readyState === 4){
+        if(xhr.status >= 200 && xhr.status < 300){
+          setProgress(100, "Complete");
+          statusEl.textContent = "Analysis complete.";
+
+          try{
+            showResult(JSON.parse(xhr.responseText));
+          }catch{
+            statusEl.textContent = "Error: unreadable server response.";
+          }
+        }else{
+          setProgress(100, "Failed");
+          statusEl.textContent = "Analysis failed.";
+        }
+      }
+    };
+
+    xhr.send(form);
+
+    let p = 76;
+    const t = setInterval(() => {
+      if(xhr.readyState === 4){
+        clearInterval(t);
         return;
       }
-
-      statusEl.textContent = "Starting upload...";
-      resultEl.style.display = "none";
-      setProgress(5, "Preparing");
-
-      const form = new FormData();
-      form.append("file", file);
-
-      const xhr = new XMLHttpRequest();
-      xhr.open("POST", API_URL, true);
-
-      if(API_KEY){
-        xhr.setRequestHeader("Authorization", "Bearer " + API_KEY);
+      if(p < 94){
+        p += 1;
+        setProgress(p, "Processing");
       }
-
-      xhr.upload.onprogress = (e) => {
-        if(e.lengthComputable){
-          const pct = Math.round((e.loaded / e.total) * 70);
-          setProgress(pct, "Uploading");
-        }
-      };
-
-      xhr.onreadystatechange = () => {
-        if(xhr.readyState === 2){
-          setProgress(75, "Processing");
-          statusEl.textContent = "Upload complete. Processing on backend...";
-        }
-        if(xhr.readyState === 4){
-          if(xhr.status >= 200 && xhr.status < 300){
-            setProgress(100, "Complete");
-            statusEl.textContent = "Analysis complete.";
-            try{
-              showResult(JSON.parse(xhr.responseText));
-            }catch{
-              statusEl.textContent = "Error: unreadable server response.";
-            }
-          }else{
-            setProgress(100, "Failed");
-            statusEl.textContent = "Analysis failed.";
-          }
-        }
-      };
-
-      xhr.send(form);
-
-      // gentle fake processing progress to feel alive
-      let p = 76;
-      const t = setInterval(() => {
-        if(xhr.readyState === 4){ clearInterval(t); return; }
-        if(p < 94){
-          p += 1;
-          setProgress(p, "Processing");
-        }
-      }, 250);
-    });
-  </script>
-</body>
-</html>
+    }, 250);
+  });
+</script>

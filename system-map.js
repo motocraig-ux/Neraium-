@@ -1,98 +1,52 @@
-const mapCanvas = document.getElementById("systemMap");
+const map = document.getElementById("systemMap");
 
-if (mapCanvas) {
+if (map) {
+  const ctx = map.getContext("2d");
+  const w = map.width;
+  const h = map.height;
 
-const ctx = mapCanvas.getContext("2d");
+  const nodes = [];
+  for (let i = 0; i < 22; i++) {
+    nodes.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      hot: Math.random() < 0.12
+    });
+  }
 
-let nodes = [];
-const CLUSTERS = 4;
-const NODES_PER_CLUSTER = 8;
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
 
-function resize(){
-mapCanvas.width = mapCanvas.offsetWidth;
-mapCanvas.height = mapCanvas.offsetHeight;
-}
+    // links
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const d = Math.sqrt(dx * dx + dy * dy);
 
-window.addEventListener("resize", resize);
-resize();
+        if (d < 220) {
+          const a = 1 - d / 220;
+          ctx.strokeStyle = `rgba(46,211,255,${0.10 * a})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.stroke();
+        }
+      }
+    }
 
-for(let c = 0; c < CLUSTERS; c++){
+    // nodes
+    for (const n of nodes) {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.hot ? 5 : 4, 0, Math.PI * 2);
+      ctx.fillStyle = n.hot ? "#ffc857" : "#00a6ff";
+      ctx.shadowBlur = 14;
+      ctx.shadowColor = n.hot ? "rgba(255,200,87,0.6)" : "rgba(0,170,255,0.55)";
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+  }
 
-let centerX = Math.random() * mapCanvas.width;
-let centerY = Math.random() * mapCanvas.height;
-
-for(let i = 0; i < NODES_PER_CLUSTER; i++){
-
-nodes.push({
-x: centerX + (Math.random() - 0.5) * 120,
-y: centerY + (Math.random() - 0.5) * 120,
-vx: (Math.random() - 0.5) * 0.25,
-vy: (Math.random() - 0.5) * 0.25,
-alert: Math.random() < 0.08
-});
-
-}
-
-}
-
-function draw(){
-
-ctx.clearRect(0,0,mapCanvas.width,mapCanvas.height);
-
-for(let i = 0; i < nodes.length; i++){
-
-let n = nodes[i];
-
-n.x += n.vx;
-n.y += n.vy;
-
-if(n.x < 0 || n.x > mapCanvas.width) n.vx *= -1;
-if(n.y < 0 || n.y > mapCanvas.height) n.vy *= -1;
-
-for(let j = i + 1; j < nodes.length; j++){
-
-let m = nodes[j];
-
-let dx = n.x - m.x;
-let dy = n.y - m.y;
-let dist = Math.sqrt(dx*dx + dy*dy);
-
-if(dist < 140){
-
-ctx.beginPath();
-ctx.moveTo(n.x,n.y);
-ctx.lineTo(m.x,m.y);
-
-if(n.alert || m.alert){
-ctx.strokeStyle = "rgba(255,155,61," + (1 - dist/140) * .6 + ")";
-}else{
-ctx.strokeStyle = "rgba(69,215,255," + (1 - dist/140) * .3 + ")";
-}
-
-ctx.lineWidth = 1;
-ctx.stroke();
-
-}
-
-}
-
-ctx.beginPath();
-ctx.arc(n.x, n.y, 2.5, 0, Math.PI*2);
-
-if(n.alert){
-ctx.fillStyle = "#ff9b3d";
-}else{
-ctx.fillStyle = "#7da2ff";
-}
-
-ctx.fill();
-
-}
-
-requestAnimationFrame(draw);
-
-}
-
-draw();
-
+  draw();
 }

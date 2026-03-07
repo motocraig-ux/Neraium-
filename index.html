@@ -1,124 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neraium | Systemic Infrastructure Intelligence</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neraium</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand">Nera<span>ium</span></a>
-      <div class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="platform.html">Platform</a>
-        <a href="governance.html">Governance</a>
-        <a href="analysis.html">Analysis</a>
-      </div>
-    </div>
-  </nav>
 
-  <main>
-    <section class="hero">
-      <canvas id="networkCanvas"></canvas>
+<nav class="nav">
+<div class="container nav-inner">
+<a href="index.html" class="brand">Nera<span>ium</span></a>
 
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">Systemic Infrastructure Intelligence</div>
-          <h1>Operational intelligence for complex water systems</h1>
-          <p class="lead">
-            Neraium converts infrastructure telemetry into systemic intelligence.
-            Detect drift earlier, improve operator visibility, and preserve defensible records.
-          </p>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="platform.html">Platform</a>
+<a href="governance.html">Governance</a>
+</div>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="analysis.html">Upload Data</a>
-            <a class="btn btn-secondary" href="platform.html">View Platform</a>
-          </div>
+</div>
+</nav>
 
-          <div class="badges">
-            <span>Read-only deployment</span>
-            <span>Lead-time visibility</span>
-            <span>Operator-led</span>
-          </div>
-        </div>
+<section class="hero">
+<div class="container">
 
-        <div class="panel chart-panel">
-          <div class="panel-header">
-            <div class="panel-title">Live Telemetry</div>
-            <div class="panel-meta">Example system view</div>
-          </div>
+<div class="eyebrow">Systemic Infrastructure Intelligence</div>
 
-          <canvas id="telemetryChart" width="620" height="300"></canvas>
+<h1>
+Operational intelligence for complex water systems
+</h1>
 
-          <div class="legend">
-            <div class="legend-item">
-              <span class="legend-line" style="background:#00a6ff;"></span><span>Sensor A</span>
-            </div>
-            <div class="legend-item">
-              <span class="legend-line" style="background:#2ed3ff;"></span><span>Sensor B</span>
-            </div>
-            <div class="legend-item">
-              <span class="legend-line" style="background:#7ae6ff;"></span><span>Sensor C</span>
-            </div>
-            <div class="legend-item">
-              <span class="legend-dot" style="background:#ffc857;"></span><span>Detected drift</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<p class="lead">
+Neraium converts infrastructure telemetry into systemic intelligence.
+Detect drift earlier, improve operator visibility, and preserve defensible records.
+</p>
 
-    <section class="proof">
-      <div class="container proof-row">
-        <div class="proof-item"><span class="proof-label">Architecture</span><strong>Read-only</strong></div>
-        <div class="proof-item"><span class="proof-label">Boundary</span><strong>No actuation</strong></div>
-        <div class="proof-item"><span class="proof-label">Output</span><strong>Lead time</strong></div>
-        <div class="proof-item"><span class="proof-label">Record</span><strong>Evidence preserved</strong></div>
-      </div>
-    </section>
+<div class="hero-links">
+<a href="platform.html">View Platform</a>
+</div>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-title">What Neraium does</div>
-        <div class="section-sub">
-          Neraium helps teams move from disconnected telemetry to practical operational awareness.
-        </div>
+</div>
+</section>
 
-        <div class="grid3" style="margin-top:22px;">
-          <div class="card">
-            <h3>System understanding</h3>
-            <p>Unify multiple signals into a coherent system view.</p>
-          </div>
-          <div class="card">
-            <h3>Early deviation visibility</h3>
-            <p>Surface emerging change before it becomes an obvious event.</p>
-          </div>
-          <div class="card">
-            <h3>Secure workflow</h3>
-            <p>Encrypted uploads and private backend processing for sensitive datasets.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+<footer class="footer">
+<div class="container footer-inner">
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="brand">Nera<span>ium</span></div>
-      <div class="footer-links">
-        <a href="platform.html">Platform</a>
-        <a href="governance.html">Governance</a>
-        <a href="analysis.html">Analysis</a>
-      </div>
-      <div>© 2026 Neraium</div>
-    </div>
-  </footer>
+<div class="brand">Nera<span>ium</span></div>
 
-  <script src="network.js"></script>
-  <script src="telemetry.js"></script>
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="platform.html">Platform</a>
+<a href="governance.html">Governance</a>
+</div>
+
+<div>© 2026 Neraium</div>
+
+</div>
+</footer>
+
 </body>
 </html>

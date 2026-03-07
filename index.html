@@ -1,314 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neraium | Systemic Infrastructure Intelligence</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neraium | Systemic Infrastructure Intelligence</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand">Nera<span>ium</span></a>
-      <div class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="platform.html">Platform</a>
-        <a href="technical.html">Technical</a>
-        <a href="governance.html">Governance</a>
-      </div>
-    </div>
-  </nav>
 
-  <main>
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <canvas id="networkCanvas"></canvas>
+<nav class="nav">
+<div class="container nav-inner">
 
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">Systemic Infrastructure Intelligence</div>
-          <h1>Operational understanding for complex water systems</h1>
-          <p class="lead">
-            Neraium transforms infrastructure telemetry into interpretable system intelligence.
-            Detect structural drift, understand system behavior, and maintain defensible operational records.
-          </p>
+<a href="index.html" class="brand">Nera<span>ium</span></a>
 
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Contact Us</a>
-            <a href="#system-view" class="btn btn-secondary">See System</a>
-          </div>
+<div class="nav-links">
+<a href="index.html" class="active">Home</a>
+<a href="platform.html">Platform</a>
+<a href="technical.html">Technical</a>
+<a href="governance.html">Governance</a>
+</div>
 
-          <div class="stats-grid hero-stats">
-            <div class="card">
-              <strong>Read-only architecture</strong>
-              <span>No actuation. No control logic. No system interference.</span>
-            </div>
-            <div class="card">
-              <strong>System-level drift detection</strong>
-              <span>Multivariate analysis before alarms or failures escalate.</span>
-            </div>
-            <div class="card">
-              <strong>Defensible records</strong>
-              <span>Every surfaced interpretation remains reviewable.</span>
-            </div>
-          </div>
-        </div>
+</div>
+</nav>
 
-        <div class="panel chart-panel">
-          <div class="panel-header">
-            <div class="panel-title">Live Telemetry</div>
-            <div class="panel-meta">Example system view</div>
-          </div>
 
-          <canvas id="telemetryChart" width="520" height="260"></canvas>
+<main>
 
-          <div class="legend">
-            <div class="legend-item">
-              <span class="legend-line" style="background:#7d8cff;"></span>
-              <span>Sensor A</span>
-            </div>
-            <div class="legend-item">
-              <span class="legend-line" style="background:#45d7ff;"></span>
-              <span>Sensor B</span>
-            </div>
-            <div class="legend-item">
-              <span class="legend-line" style="background:#ff6b6b;"></span>
-              <span>Sensor C</span>
-            </div>
-            <div class="legend-item">
-              <span class="legend-dot"></span>
-              <span>Deviation marker</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="hero">
 
-    <section class="proof-bar">
-      <div class="container proof-grid">
-        <div class="proof-item">
-          <span class="proof-label">Architecture</span>
-          <strong>Read-only</strong>
-        </div>
-        <div class="proof-item">
-          <span class="proof-label">Control Boundary</span>
-          <strong>No actuation</strong>
-        </div>
-        <div class="proof-item">
-          <span class="proof-label">Decision Model</span>
-          <strong>Operator-led</strong>
-        </div>
-        <div class="proof-item">
-          <span class="proof-label">Recordkeeping</span>
-          <strong>Evidence preserved</strong>
-        </div>
-      </div>
-    </section>
+<div class="container hero-grid">
 
-    <section class="section system-map" id="system-view">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">System View</div>
-          <h2>Infrastructure behavior becomes visible</h2>
-          <p>
-            Telemetry across pumps, treatment assets, pressure zones, and control systems
-            is unified into a single interpretable system view.
-          </p>
-        </div>
+<div class="hero-copy">
 
-        <div class="map-panel">
-          <canvas id="systemMap"></canvas>
+<div class="eyebrow">Systemic Infrastructure Intelligence</div>
 
-          <div class="map-legend">
-            <div class="legend-item">
-              <span class="legend-dot" style="background:#7da2ff;"></span>
-              <span>Infrastructure nodes</span>
-            </div>
+<h1>Operational understanding for complex water systems</h1>
 
-            <div class="legend-item">
-              <span class="legend-dot" style="background:#45d7ff;"></span>
-              <span>Telemetry relationships</span>
-            </div>
+<p class="lead">
+Neraium transforms infrastructure telemetry into interpretable system intelligence.
+Detect structural drift, understand system behavior, and maintain defensible operational records.
+</p>
 
-            <div class="legend-item">
-              <span class="legend-dot" style="background:#ff9b3d;"></span>
-              <span>Detected deviation</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="hero-actions">
+<a href="mailto:craig@neraium.com" class="btn btn-primary">Contact Us</a>
+<a href="platform.html" class="btn btn-secondary">See Platform</a>
+</div>
 
-    <section class="section band">
-      <div class="container grid-2">
-        <div>
-          <div class="section-head">
-            <div class="eyebrow">The Problem</div>
-            <h2>Why reactive systems <span class="accent">fail</span></h2>
-            <p>
-              Water and infrastructure failures are rarely sudden. They emerge from long periods of subtle drift
-              across pressure, flow, treatment, and control conditions. Threshold-based monitoring often sees the
-              symptom late instead of understanding the system early.
-            </p>
-          </div>
-        </div>
+<div class="stats-grid hero-stats">
 
-        <div class="compare-stack">
-          <div class="compare-card">
-            <strong>Reactive operations</strong>
-            <p>
-              Isolated alarms trigger after degradation is already underway. Operators inherit fragmented signals,
-              incomplete context, and limited system-level visibility.
-            </p>
-          </div>
-          <div class="compare-card good">
-            <strong>Neraium</strong>
-            <p>
-              Structural deviation is identified early, system behavior becomes interpretable, and the reasoning
-              behind surfaced intelligence remains defensible.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="card">
+<strong>Read-only architecture</strong>
+<span>No actuation. No control logic.</span>
+</div>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Capabilities</div>
-          <h2>What the platform does</h2>
-          <p>
-            Neraium is not just a monitoring layer. It is an intelligence layer that helps operators move from
-            disconnected telemetry to coherent operational understanding.
-          </p>
-        </div>
+<div class="card">
+<strong>System-level drift detection</strong>
+<span>Multivariate analysis across system signals.</span>
+</div>
 
-        <div class="grid-3">
-          <div class="card">
-            <h3>System Understanding</h3>
-            <p>
-              Signals across pumps, pressure, flow, treatment, and infrastructure subsystems are unified into a
-              single interpretable system view.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Early Drift Detection</h3>
-            <p>
-              Multivariate analysis identifies structural deviation before failures, service impacts, or control
-              instability become obvious.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Evidence Discipline</h3>
-            <p>
-              Surfaced interpretations are preserved as operational evidence, allowing later review of what changed,
-              why it mattered, and how it was evaluated.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="card">
+<strong>Defensible records</strong>
+<span>Interpretations remain reviewable.</span>
+</div>
 
-    <section class="section band" id="architecture">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Architecture</div>
-          <h2>How the system works</h2>
-          <p>
-            From telemetry intake to evidence creation, the platform is designed to observe, interpret, and record
-            without crossing into operational control.
-          </p>
-        </div>
+</div>
 
-        <div class="architecture-flow">
-          <div class="flow-step">
-            <span>01</span>
-            <strong>Telemetry Ingestion</strong>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step">
-            <span>02</span>
-            <strong>Signal Normalization</strong>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step">
-            <span>03</span>
-            <strong>Multivariate Drift Analysis</strong>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step">
-            <span>04</span>
-            <strong>Interpretation Constraints</strong>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step">
-            <span>05</span>
-            <strong>Evidence Recording</strong>
-          </div>
-        </div>
-      </div>
-    </section>
+</div>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Applications</div>
-          <h2>Where Neraium operates</h2>
-          <p>
-            The platform is designed for operational environments where subtle infrastructure drift has real
-            consequences across water, treatment, and industrial systems.
-          </p>
-        </div>
 
-        <div class="grid-3">
-          <div class="card">
-            <h3>Municipal Water</h3>
-            <p>Distribution systems, pumping assets, treatment facilities, and wastewater operations.</p>
-          </div>
-          <div class="card">
-            <h3>Industrial Water</h3>
-            <p>Process water, thermal loops, treatment systems, and site-wide operational telemetry.</p>
-          </div>
-          <div class="card">
-            <h3>Critical Infrastructure</h3>
-            <p>Facilities where early deviation visibility and defensible records materially improve operations.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="panel chart-panel">
 
-    <section class="cta" id="contact">
-      <div class="container">
-        <div class="panel">
-          <div class="eyebrow">Contact</div>
-          <h2>Bring systemic infrastructure intelligence into your operating environment</h2>
-          <p>
-            Neraium helps water and infrastructure operators move from fragmented telemetry to operational clarity
-            without replacing control systems or disrupting existing operations.
-          </p>
-          <a href="mailto:craig@neraium.com" class="btn btn-primary">Contact Us</a>
-        </div>
-      </div>
-    </section>
-  </main>
+<div class="panel-header">
+<div class="panel-title">Live Telemetry</div>
+<div class="panel-meta">Example system view</div>
+</div>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="brand">Nera<span>ium</span></div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="platform.html">Platform</a>
-        <a href="technical.html">Technical</a>
-        <a href="governance.html">Governance</a>
-      </div>
-      <div class="footer-copy">© 2026 Neraium. All rights reserved.</div>
-    </div>
-  </footer>
+<canvas id="telemetryChart" width="520" height="260"></canvas>
 
-  <script src="telemetry.js"></script>
-  <script src="network.js"></script>
-  <script src="system-map.js"></script>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section band">
+
+<div class="container grid-2">
+
+<div>
+
+<div class="section-head">
+<div class="eyebrow">The Problem</div>
+
+<h2>Why reactive monitoring fails</h2>
+
+<p>
+Infrastructure failures rarely appear suddenly.
+They emerge from long periods of subtle drift across pressure,
+flow, treatment, and operational conditions.
+</p>
+</div>
+
+</div>
+
+
+<div class="compare-stack">
+
+<div class="compare-card">
+<strong>Reactive systems</strong>
+<p>
+Alarms trigger after degradation has already begun.
+Operators see fragments of behavior instead of the system.
+</p>
+</div>
+
+<div class="compare-card good">
+<strong>Neraium</strong>
+<p>
+System behavior becomes interpretable.
+Structural drift appears early and reasoning remains reviewable.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="eyebrow">Capabilities</div>
+
+<h2>What the platform does</h2>
+
+</div>
+
+
+<div class="grid-3">
+
+<div class="card">
+<h3>System Understanding</h3>
+<p>
+Signals across infrastructure assets are unified into a coherent system view.
+</p>
+</div>
+
+<div class="card">
+<h3>Early Drift Detection</h3>
+<p>
+Multivariate analysis identifies structural change before failures escalate.
+</p>
+</div>
+
+<div class="card">
+<h3>Evidence Discipline</h3>
+<p>
+Every interpretation remains preserved as operational evidence.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="cta">
+
+<div class="container">
+
+<div class="panel">
+
+<div class="eyebrow">Contact</div>
+
+<h2>Bring systemic infrastructure intelligence into your operations</h2>
+
+<p>
+Neraium helps infrastructure operators move from fragmented telemetry
+to system-level operational understanding.
+</p>
+
+<a href="mailto:craig@neraium.com" class="btn btn-primary">Contact Craig</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+<div class="container footer-inner">
+
+<div class="brand">Nera<span>ium</span></div>
+
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="platform.html">Platform</a>
+<a href="technical.html">Technical</a>
+<a href="governance.html">Governance</a>
+</div>
+
+<div class="footer-copy">© 2026 Neraium</div>
+
+</div>
+
+</footer>
+
+<script src="telemetry.js"></script>
+
 </body>
 </html>

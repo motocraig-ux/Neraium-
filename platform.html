@@ -1,342 +1,550 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neraium Platform - System Architecture</title>
-  <!-- Import Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neraium | Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
   <style>
-    /* Base reset and variables */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     :root {
       --bg: #0a0c10;
-      --bg2: #0f1319;
-      --accent: #00d4ff;
-      --accent2: #0066ff;
+      --bg-2: #10151c;
+      --bg-3: #151b24;
+      --card: #111722;
+      --border: #202938;
       --text: #e8edf2;
-      --muted: #8892a0;
-      --border: #1e2530;
-      --card: #111620;
+      --muted: #91a0b3;
+      --accent: #00d4ff;
+      --accent-2: #4b7cff;
+      --max: 1200px;
+      --radius: 14px;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
     }
-    html {
-      scroll-behaviour: smooth;
-    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top, rgba(0, 212, 255, 0.08), transparent 30%),
+        var(--bg);
       color: var(--text);
-      font-family: 'Inter', -apple-system, sans-serif;
-      font-size: 16px;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
     }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    /* Navigation styles */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(10, 12, 16, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: 1200px;
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
       margin: 0 auto;
-      padding: 0 32px;
-      height: 64px;
+    }
+
+    .section { padding: 96px 0; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 750; }
+    h3 { font-size: 1.05rem; font-weight: 650; }
+
+    p.lead {
+      font-size: clamp(1.02rem, 2vw, 1.16rem);
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    p.body {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 12, 16, 0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .nav-inner {
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
     }
-    .nav-logo {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      white-space: nowrap;
     }
-    .nav-logo span {
-      color: var(--accent);
-    }
+
+    .brand span { color: var(--accent); }
+
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 36px;
-      font-size: 14px;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
+
     .nav-links a {
       color: var(--muted);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover {
-      color: var(--text);
-    }
-    .btn-nav {
-      background: var(--accent);
-      color: #0a0c10 !important;
-      font-weight: 600;
-      font-size: 13px;
-      padding: 9px 20px;
-      border-radius: 6px;
-    }
-    /* Generic button styles */
-    .btn-primary {
-      display: inline-block;
-      background: var(--accent);
-      color: #0a0c10;
-      font-weight: 600;
-      font-size: 14px;
-      padding: 13px 28px;
-      border-radius: 6px;
-      border: none;
-      transition: opacity 0.2s;
-      cursor: pointer;
-    }
-    .btn-primary:hover {
-      opacity: 0.85;
-    }
-    .btn-ghost {
-      display: inline-block;
-      background: transparent;
-      color: var(--text);
-      font-size: 14px;
+      font-size: 0.95rem;
       font-weight: 500;
-      padding: 13px 28px;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      transition: color 0.2s, border-color 0.2s;
+      transition: color 0.2s ease;
     }
-    .btn-ghost:hover {
-      color: var(--accent);
-      border-color: var(--accent);
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
     }
-    /* Layout helpers */
-    section {
-      padding: 100px 32px;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .section-title {
-      font-size: 36px;
-      font-weight: 700;
-      letter-spacing: -1px;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-    .section-sub {
-      font-size: 17px;
-      color: var(--muted);
-      max-width: 640px;
-      line-height: 1.7;
-    }
-    /* Hero style */
-    .page-hero {
-      padding: 150px 32px 80px;
-      display: flex;
+
+    .btn {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-bottom: 1px solid var(--border);
-      background: radial-gradient(ellipse at center, rgba(0,212,255,0.06) 0%, transparent 70%);
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 650;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
     }
-    /* Card grid */
-    .grid-platform {
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #75e7ff);
+      color: #071017;
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.18);
+    }
+
+    .btn-secondary {
+      border-color: var(--border);
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .hero {
+      padding: 72px 0 76px;
+    }
+
+    .hero-inner {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      align-items: end;
+    }
+
+    .hero p.lead {
+      max-width: 760px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-head {
+      margin-bottom: 40px;
+    }
+
+    .section-head h2 {
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      max-width: 740px;
+      color: var(--muted);
+    }
+
+    .band {
+      background: var(--bg-2);
+      border-top: 1px solid rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 24px;
     }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
     .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: var(--radius);
       padding: 24px;
-      transition: border-color 0.2s;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
+
     .card:hover {
-      border-color: rgba(0, 212, 255, 0.4);
+      transform: translateY(-2px);
+      border-color: rgba(0,212,255,0.2);
     }
+
     .card h3 {
-      font-size: 16px;
-      font-weight: 600;
       margin-bottom: 10px;
     }
+
     .card p {
-      font-size: 14px;
       color: var(--muted);
-      line-height: 1.6;
+      font-size: 0.95rem;
     }
-    /* Timeline for platform flow */
-    .timeline {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 40px;
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      align-items: stretch;
+      margin-top: 8px;
     }
-    .timeline-step {
+
+    .flow-step {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px 28px;
-      text-align: center;
-      min-width: 150px;
+      border-radius: var(--radius);
+      padding: 22px 18px;
+      min-height: 140px;
     }
-    .timeline-step .number {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
+
+    .flow-step span {
+      display: inline-block;
       color: var(--accent);
+      font-size: 0.78rem;
       text-transform: uppercase;
-      margin-bottom: 6px;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
-    .timeline-arrow {
-      color: var(--border);
-      font-size: 20px;
-      padding: 0 8px;
+
+    .flow-step h3 {
+      margin-bottom: 8px;
     }
-    /* Footer styling */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 32px;
+
+    .architecture-panel {
+      padding: 26px;
     }
+
+    .architecture-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .mini-item {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .mini-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .mini-item span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 96px 0;
+    }
+
+    .cta .panel {
+      padding: 42px 28px;
+      background:
+        radial-gradient(circle at top, rgba(0,212,255,0.08), transparent 40%),
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+    }
+
+    .cta h2 {
+      margin-bottom: 14px;
+    }
+
+    .cta p {
+      max-width: 720px;
+      margin: 0 auto 26px;
+      color: var(--muted);
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,0.04);
+      padding: 28px 0 40px;
+    }
+
     .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 20px;
       flex-wrap: wrap;
     }
-    .footer-logo {
-      font-size: 16px;
-      font-weight: 700;
-    }
-    .footer-logo span {
-      color: var(--accent);
-    }
+
     .footer-links {
       display: flex;
-      gap: 24px;
-      font-size: 13px;
-    }
-    .footer-links a {
+      gap: 18px;
+      flex-wrap: wrap;
       color: var(--muted);
-      transition: color 0.2s;
+      font-size: 0.92rem;
     }
-    .footer-links a:hover {
-      color: var(--text);
-    }
+
     .footer-copy {
-      font-size: 13px;
       color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 980px) {
+      .grid-2,
+      .grid-4,
+      .flow,
+      .architecture-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        gap: 14px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+
+      .architecture-panel,
+      .cta .panel {
+        padding: 22px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation bar -->
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">Nera<span>ium</span></a>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">Nera<span>ium</span></a>
       <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="platform.html" style="color: var(--text);">Platform</a>
+        <a href="platform.html" class="active">Platform</a>
         <a href="technical.html">Technical</a>
         <a href="governance.html">Governance</a>
-        <a href="index.html#contact" class="btn-nav">Request Pilot</a>
+        <a href="index.html#contact" class="btn btn-primary">Request Pilot</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <div class="page-hero">
-    <div class="container" style="text-align: center;">
-      <div class="section-label">Platform</div>
-      <h1 class="section-title" style="margin-bottom: 12px;">System Architecture</h1>
-      <p class="section-sub" style="margin: 0 auto;">From raw telemetry to defensible operational intelligence.</p>
-    </div>
-  </div>
-
-  <!-- Platform Architecture Section -->
-  <section style="background: var(--bg);">
-    <div class="container">
-      <div class="grid-platform">
-        <div class="card">
-          <h3>Telemetry Ingestion</h3>
-          <p>Sensors, historians, SCADA exports and data feeds.</p>
-        </div>
-        <div class="card">
-          <h3>Normalization</h3>
-          <p>Timestamp alignment and signal preparation.</p>
-        </div>
-        <div class="card">
-          <h3>Multivariate Drift Engine</h3>
-          <p>Pattern detection across entire system behaviour.</p>
-        </div>
-        <div class="card">
-          <h3>Evidence Vault</h3>
-          <p>Immutable operational evidence records.</p>
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="eyebrow">Platform</div>
+        <h1>System architecture from telemetry to defensible operational intelligence</h1>
+        <p class="lead">
+          Neraium ingests live telemetry, normalizes signal behavior, evaluates multivariate drift,
+          and records admissible outcomes through an evidence-first architecture.
+        </p>
+        <div class="hero-actions">
+          <a href="#architecture" class="btn btn-primary">Explore Architecture</a>
+          <a href="technical.html" class="btn btn-secondary">View Technical Detail</a>
         </div>
       </div>
-      <!-- Visual timeline for flow -->
-      <div class="timeline">
-        <div class="timeline-step">
-          <div class="number">01</div>
-          <div style="font-size: 14px; font-weight: 600;">Ingest</div>
+    </section>
+
+    <section class="section band" id="architecture">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Core Pipeline</div>
+          <h2>Four core layers, one disciplined flow</h2>
+          <p>
+            The platform is designed to move from raw telemetry to interpretable evidence without crossing
+            into operational control. Every stage has a clear role and boundary.
+          </p>
         </div>
-        <div class="timeline-arrow">→</div>
-        <div class="timeline-step">
-          <div class="number">02</div>
-          <div style="font-size: 14px; font-weight: 600;">Normalize</div>
-        </div>
-        <div class="timeline-arrow">→</div>
-        <div class="timeline-step">
-          <div class="number">03</div>
-          <div style="font-size: 14px; font-weight: 600;">Detect Drift</div>
-        </div>
-        <div class="timeline-arrow">→</div>
-        <div class="timeline-step">
-          <div class="number">04</div>
-          <div style="font-size: 14px; font-weight: 600;">Record Evidence</div>
+
+        <div class="flow">
+          <div class="flow-step">
+            <span>01</span>
+            <h3>Telemetry Ingestion</h3>
+            <p class="body">Collects signals from sensors, historians, SCADA exports, and existing operational feeds.</p>
+          </div>
+          <div class="flow-step">
+            <span>02</span>
+            <h3>Normalization</h3>
+            <p class="body">Aligns timestamps, standardizes signal formats, and prepares streams for system-level analysis.</p>
+          </div>
+          <div class="flow-step">
+            <span>03</span>
+            <h3>Multivariate Drift Engine</h3>
+            <p class="body">Detects meaningful structural change across system behaviour rather than isolated threshold breaches.</p>
+          </div>
+          <div class="flow-step">
+            <span>04</span>
+            <h3>Evidence Vault</h3>
+            <p class="body">Stores the evaluated outcome with context, constraints, and decision trace for later review.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Call to Action -->
-  <section style="background: var(--bg2);">
-    <div class="container" style="text-align: center;">
-      <div class="section-label">Get Started</div>
-      <h2 class="section-title" style="margin: 0 auto 16px;">Ready to explore the platform?</h2>
-      <p class="section-sub" style="margin: 0 auto 36px; max-width: 600px;">
-        Discover how Neraium processes and interprets telemetry to deliver trustworthy operational intelligence. Reach out to discuss a pilot deployment tailored to your infrastructure.
-      </p>
-      <a href="contact.html" class="btn-primary" style="font-size: 15px; padding: 15px 36px;">Request Pilot</a>
-    </div>
-  </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Operational Logic</div>
+          <h2>What each layer contributes</h2>
+          <p>
+            The system is intentionally modular. Each component strengthens reliability by narrowing ambiguity
+            before the next stage begins.
+          </p>
+        </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">Nera<span>ium</span></div>
+        <div class="grid-4">
+          <div class="card">
+            <h3>Signal Intake</h3>
+            <p>Ingests heterogeneous telemetry from existing operational environments without changing the source systems.</p>
+          </div>
+          <div class="card">
+            <h3>Preparation Layer</h3>
+            <p>Removes misalignment and formatting inconsistencies so the model evaluates system state, not ingestion noise.</p>
+          </div>
+          <div class="card">
+            <h3>Drift Detection</h3>
+            <p>Looks for multivariate deviation patterns that indicate system behaviour is moving outside expected structure.</p>
+          </div>
+          <div class="card">
+            <h3>Evidence Output</h3>
+            <p>Captures the evaluation trail so every surfaced interpretation remains reviewable and accountable.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">System View</div>
+          <h2>Architecture at a glance</h2>
+          <p>
+            The platform is built to support early detection, disciplined interpretation, and traceable output
+            in environments where operational clarity matters.
+          </p>
+        </div>
+
+        <div class="panel architecture-panel">
+          <div class="architecture-grid">
+            <div class="mini-list">
+              <div class="mini-item">
+                <strong>Input boundary</strong>
+                <span>Read-only telemetry enters from existing infrastructure systems and remains separate from control authority.</span>
+              </div>
+              <div class="mini-item">
+                <strong>Processing boundary</strong>
+                <span>Signals are normalized and analyzed within a contained interpretation layer.</span>
+              </div>
+              <div class="mini-item">
+                <strong>Output boundary</strong>
+                <span>Only operational intelligence and evidence records leave the platform for human review.</span>
+              </div>
+            </div>
+
+            <div class="mini-list">
+              <div class="mini-item">
+                <strong>No actuation</strong>
+                <span>The architecture does not send commands, modify control loops, or interfere with automation systems.</span>
+              </div>
+              <div class="mini-item">
+                <strong>Human decision point</strong>
+                <span>Interpretations support operators. They do not replace operator authority.</span>
+              </div>
+              <div class="mini-item">
+                <strong>Audit-ready</strong>
+                <span>Every surfaced outcome is supported by preserved context and evaluation logic.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="panel">
+          <div class="eyebrow">Next Step</div>
+          <h2>Ready to explore the platform in context?</h2>
+          <p>
+            See how the technical foundations and governance model work together to produce trustworthy,
+            interpretable infrastructure intelligence.
+          </p>
+          <a href="technical.html" class="btn btn-primary">Go to Technical</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="brand">Nera<span>ium</span></div>
       <div class="footer-links">
         <a href="index.html">Home</a>
         <a href="platform.html">Platform</a>

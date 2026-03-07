@@ -17,107 +17,105 @@
         <a href="platform.html">Platform</a>
         <a href="technical.html" class="active">Technical</a>
         <a href="governance.html">Governance</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </nav>
 
   <main>
-    <section class="hero page-hero">
-      <div class="container">
-        <div class="eyebrow">Technical</div>
-        <h1>Statistical foundations for system interpretation</h1>
-        <p class="lead">
-          Neraium analyzes infrastructure behavior through multivariate statistical modeling
-          and deterministic interpretation rules.
-        </p>
-      </div>
-    </section>
-
-<section class="proof-bar">
-  <div class="container proof-grid">
-    <div class="proof-item">
-      <span class="proof-label">Architecture</span>
-      <span class="proof-value">Read-only</span>
-    </div>
-    <div class="proof-item">
-      <span class="proof-label">Control</span>
-      <span class="proof-value">No actuation</span>
-    </div>
-    <div class="proof-item">
-      <span class="proof-label">Decision</span>
-      <span class="proof-value">Operator-led</span>
-    </div>
-    <div class="proof-item">
-      <span class="proof-label">Output</span>
-      <span class="proof-value">Evidence preserved</span>
-    </div>
-  </div>
-</section>
-
-    <section class="section band">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Core Methods</div>
-          <h2>How the platform models behavior</h2>
-          <p>
-            Neraium does not depend on isolated thresholding or purely black-box forecasting.
-            It models system structure directly through relationships between variables.
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Technical</div>
+          <h1>Under the hood</h1>
+          <p class="lead">
+            Explore how Neraium blends multivariate statistics with deterministic governance
+            to produce reliable infrastructure intelligence.
           </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#methods">Signal geometry</a>
+            <a class="btn btn-secondary" href="#rules">Interpretation rules</a>
+          </div>
         </div>
 
-        <div class="grid-3">
-          <div class="card">
-            <h3>Mahalanobis Distance</h3>
-            <p>Measures deviation in multivariate system space rather than evaluating each variable independently.</p>
-          </div>
-          <div class="card">
-            <h3>Covariance Modeling</h3>
-            <p>Captures relationships between system variables so structural drift can be detected across correlated signals.</p>
-          </div>
-          <div class="card">
-            <h3>Adaptive Baselines</h3>
-            <p>Expected system structure evolves with valid behavior, preserving operational relevance over time.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Interpretation</div>
-          <h2>Constraining statistical output</h2>
-          <p>
-            Statistical output alone is not operational intelligence. Interpretations must satisfy physical plausibility,
-            system consistency, and operator review.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3>Physical Validity</h3>
-            <p>Signals must remain physically plausible within the infrastructure environment.</p>
-          </div>
-          <div class="card">
-            <h3>Multi-Sensor Agreement</h3>
-            <p>Correlated telemetry must support the interpretation before it is admitted into the intelligence layer.</p>
-          </div>
-          <div class="card">
-            <h3>Operator Review</h3>
-            <p>Surfaced interpretations support operators rather than replacing them. Human judgment remains final.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="container">
         <div class="panel">
-          <h2>Understand the governance model</h2>
+          <div class="panel-header">
+            <div class="panel-title">Sample algorithm</div>
+          </div>
+          <pre class="code-block">// Compute multivariate deviation
+let diff = sensorVector - meanVector;
+let invCov = invert(covarianceMatrix);
+let distance = Math.sqrt(diffT * invCov * diff);
+
+// Evaluate against drift threshold
+if (distance > threshold) {
+  if (passesPersistence &&
+      passesCorrelation &&
+      withinPhysicalLimits) {
+    admit();
+  } else {
+    suppress();
+  }
+} else {
+  voidResult();
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band" id="methods">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Core methods</div>
+          <h2>Signal geometry and system behaviour</h2>
           <p>
-            The platform operates as a read-only infrastructure intelligence layer designed to preserve operational authority.
+            Neraium models infrastructure behaviour through relationships between variables,
+            helping distinguish structural change from ordinary operational motion.
           </p>
-          <a href="governance.html" class="btn btn-primary">View Governance</a>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Multivariate distance</h3>
+            <p>Evaluate how far system behaviour has moved relative to its established operating geometry.</p>
+          </div>
+          <div class="card">
+            <h3>Covariance modelling</h3>
+            <p>Capture how telemetry variables move together across assets, time, and operating conditions.</p>
+          </div>
+          <div class="card">
+            <h3>Adaptive baselines</h3>
+            <p>Maintain relevance by updating expectations as valid infrastructure behaviour evolves.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rules">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Interpretation rules</div>
+          <h2>Detection alone is not enough</h2>
+          <p>
+            Candidate deviations pass through deterministic filters before they become operational intelligence,
+            helping reduce noise, ambiguity, and weak conclusions.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Physical validity</h3>
+            <p>Signals must remain within plausible infrastructure interpretation boundaries.</p>
+          </div>
+          <div class="card">
+            <h3>Temporal persistence</h3>
+            <p>Deviation must persist long enough to indicate meaningful system change.</p>
+          </div>
+          <div class="card">
+            <h3>Cross-signal agreement</h3>
+            <p>Relevant changes require corroboration across related telemetry rather than one isolated channel.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -131,6 +129,7 @@
         <a href="platform.html">Platform</a>
         <a href="technical.html">Technical</a>
         <a href="governance.html">Governance</a>
+        <a href="contact.html">Contact</a>
       </div>
       <div class="footer-copy">© 2026 Neraium</div>
     </div>

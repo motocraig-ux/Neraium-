@@ -62,8 +62,14 @@ ctx.stroke();
 }
 
 ctx.beginPath();
-ctx.arc(n.x,n.y,2.2,0,Math.PI*2);
+ctx.arc(n.x,n.y,2.4,0,Math.PI*2);
+
+if(n.alert){
+ctx.fillStyle="#ff9b3d";
+}else{
 ctx.fillStyle="#7da2ff";
+}
+
 ctx.fill();
 
 }

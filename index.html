@@ -4,18 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Neraium | Home</title>
-  <meta
-    name="description"
-    content="Neraium turns infrastructure telemetry into clear, defensible operational intelligence."
-  />
+  <meta name="description" content="Neraium converts infrastructure telemetry into systemic intelligence." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
-    <div class="container header-inner">
+    <div class="container site-header__inner">
       <a href="index.html" class="brand">Neraium</a>
-
-      <nav class="nav" aria-label="Primary navigation">
+      <nav class="nav" aria-label="Primary">
         <a class="active" href="index.html">Home</a>
         <a href="platform.html">Platform</a>
         <a href="technical.html">Technical</a>
@@ -27,63 +23,51 @@
 
   <main>
     <section class="hero section">
-      <div class="container hero-grid">
-        <div class="hero-copy-block">
-          <p class="eyebrow">Systemic Infrastructure Intelligence</p>
-
-          <h1>Operational visibility for complex water infrastructure</h1>
-
-          <p class="lead">
-            Neraium turns infrastructure telemetry into systemic intelligence.
-            Detect drift earlier, understand system behavior, and maintain
-            defensible operational records.
+      <div class="container hero__grid">
+        <div>
+          <div class="eyebrow">Systemic Infrastructure Intelligence</div>
+          <h1 class="hero__title">Operational visibility for complex water infrastructure</h1>
+          <p class="hero__copy">
+            Neraium converts infrastructure telemetry into systemic intelligence.
+            Detect infrastructure drift earlier, understand system behaviour,
+            and maintain defensible operational records.
           </p>
 
-          <div class="actions">
-            <a class="button button-primary" href="platform.html">View Platform</a>
-            <a class="button button-secondary" href="contact.html">Contact</a>
+          <div class="button-row">
+            <a class="button button--primary" href="platform.html">View Platform</a>
+            <a class="button button--secondary" href="contact.html">Contact</a>
           </div>
 
-          <div class="card-stack">
-            <article class="glass-card">
+          <div class="feature-list">
+            <article class="feature-card">
               <h3>Read only architecture</h3>
-              <p>
-                No actuation. No control logic. No interference with existing
-                systems. Neraium operates as a read only interpretation layer.
-              </p>
+              <p>No actuation. No control logic. No system interference.</p>
             </article>
 
-            <article class="glass-card">
+            <article class="feature-card">
               <h3>Early drift detection</h3>
-              <p>
-                Identify emerging system deviation before failure conditions
-                escalate.
-              </p>
+              <p>Identify emerging deviation before failure conditions escalate.</p>
             </article>
 
-            <article class="glass-card">
+            <article class="feature-card">
               <h3>Defensible records</h3>
-              <p>
-                Preserve clear, reviewable records for engineering analysis,
-                compliance review, and incident response.
-              </p>
+              <p>Operational intelligence remains reviewable and explainable.</p>
             </article>
           </div>
         </div>
 
-        <div class="hero-visual" aria-hidden="true">
+        <div class="hero__visual" aria-hidden="true">
           <div class="glow-orb"></div>
 
-          <section class="telemetry-panel">
-            <div class="telemetry-header">
-              <span class="telemetry-label">Live Telemetry</span>
-              <span class="telemetry-meta">Example system view</span>
+          <div class="telemetry-panel">
+            <div class="telemetry-panel__header">
+              <div class="telemetry-label">Live Telemetry</div>
+              <div class="telemetry-meta">Example system view</div>
             </div>
 
-            <div class="telemetry-body">
+            <div class="telemetry-panel__body">
               <div class="chart-box">
-                <p class="chart-title">System drift profile</p>
-
+                <div class="chart-title">System drift profile</div>
                 <div class="mini-grid">
                   <svg class="line" viewBox="0 0 100 100" preserveAspectRatio="none">
                     <polyline
@@ -110,31 +94,29 @@
 
               <div class="status-grid">
                 <div class="status-card">
-                  <span class="status-label">Mode</span>
-                  <strong class="status-value">Read only</strong>
+                  <div class="status-card__label">Mode</div>
+                  <div class="status-card__value">Read only</div>
                 </div>
-
                 <div class="status-card">
-                  <span class="status-label">State</span>
-                  <strong class="status-value">Drift emerging</strong>
+                  <div class="status-card__label">State</div>
+                  <div class="status-card__value">Drift emerging</div>
                 </div>
-
                 <div class="status-card">
-                  <span class="status-label">Record</span>
-                  <strong class="status-value">Verifiable</strong>
+                  <div class="status-card__label">Record</div>
+                  <div class="status-card__value">Verifiable</div>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>© 2026 Neraium. All rights reserved.</span>
-      <span>Systemic infrastructure intelligence.</span>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© 2026 Neraium. All rights reserved.</div>
+      <div>Systemic infrastructure intelligence.</div>
     </div>
   </footer>
 </body>

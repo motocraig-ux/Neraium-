@@ -445,4 +445,127 @@ a {
 
 .diagram-card,
 .bullet-card {
-  padding: 
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--panel-soft);
+}
+
+.diagram-card h4 {
+  margin: 0 0 8px;
+  font-size: 1.03rem;
+  letter-spacing: -0.02em;
+}
+
+.diagram-card p,
+.bullet-card {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.bullet-card strong {
+  color: var(--text);
+}
+
+.governance-card ul {
+  margin: 12px 0 0;
+  padding-left: 18px;
+}
+
+.contact-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  padding: 32px;
+  border-radius: 28px;
+  border-color: var(--border-strong);
+  background:
+    linear-gradient(180deg, rgba(11, 30, 54, 0.88), rgba(5, 16, 30, 0.92)),
+    radial-gradient(circle at 80% 15%, rgba(77, 189, 255, 0.13), transparent 30%);
+}
+
+.footer {
+  padding: 28px 0 44px;
+  color: var(--muted-2);
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 1080px) {
+  .hero__grid,
+  .grid-3,
+  .grid-2,
+  .tech-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__visual {
+    min-height: auto;
+    justify-content: flex-start;
+  }
+
+  .telemetry-panel {
+    width: 100%;
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header__inner {
+    min-height: 78px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  .brand {
+    position: static;
+  }
+
+  .nav {
+    gap: 18px;
+    justify-content: flex-start;
+  }
+
+  .hero {
+    padding-top: 44px;
+  }
+
+  .hero__title,
+  .page-title {
+    font-size: clamp(2.8rem, 13vw, 4.4rem);
+  }
+
+  .hero__copy,
+  .page-copy {
+    font-size: 1.02rem;
+  }
+
+  .status-grid,
+  .diagram-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .container {
+    width: min(calc(100% - 24px), var(--max-width));
+  }
+}

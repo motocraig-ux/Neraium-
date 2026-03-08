@@ -12,11 +12,11 @@
     <div class="container site-header__inner">
       <a href="index.html" class="brand">Neraium</a>
       <nav class="nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="platform.html">Platform</a>
-        <a href="technical.html" class="active">Technical</a>
-        <a href="governance.html">Governance</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" class="nav-link" data-current="index">Home</a>
+        <a href="platform.html" class="nav-link" data-current="platform">Platform</a>
+        <a href="technical.html" class="nav-link active" data-current="technical">Technical</a>
+        <a href="governance.html" class="nav-link" data-current="governance">Governance</a>
+        <a href="contact.html" class="nav-link" data-current="contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -33,53 +33,72 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container two-column">
-        <div class="panel">
-          <h2>Interpretation structure</h2>
+    <section class="section" aria-labelledby="technical-architecture-heading">
+      <div class="container">
+        <h2 id="technical-architecture-heading" class="section-title visually-hidden">Technical Architecture</h2>
+        <div class="two-column">
+          <div class="panel">
+            <h3>Interpretation structure</h3>
 
-          <div class="diagram-grid">
-            <div class="diagram">
-              <h4>Multivariate geometry</h4>
-              <p>Detects structural drift from relationships between sensor signals rather than single variable thresholds.</p>
-            </div>
+            <div class="diagram-grid">
+              <div class="diagram">
+                <h4>Multivariate geometry</h4>
+                <p>Detects structural drift from relationships between sensor signals rather than single variable thresholds.</p>
+              </div>
 
-            <div class="diagram">
-              <h4>Temporal legitimacy</h4>
-              <p>Requires persistence over time before deformation can progress into escalation.</p>
-            </div>
+              <div class="diagram">
+                <h4>Temporal legitimacy</h4>
+                <p>Requires persistence over time before deformation can progress into escalation.</p>
+              </div>
 
-            <div class="diagram">
-              <h4>Physical coherence</h4>
-              <p>Constrains interpretation to valid engineering meaning and admissible abstraction boundaries.</p>
-            </div>
+              <div class="diagram">
+                <h4>Physical coherence</h4>
+                <p>Constrains interpretation to valid engineering meaning and admissible abstraction boundaries.</p>
+              </div>
 
-            <div class="diagram">
-              <h4>Read only deployment</h4>
-              <p>Operates at the edge without modifying control systems or issuing directives.</p>
+              <div class="diagram">
+                <h4>Read only deployment</h4>
+                <p>Operates at the edge without modifying control systems or issuing directives.</p>
+              </div>
             </div>
           </div>
+
+          <aside class="panel">
+            <h3>Why this matters</h3>
+
+            <div class="bullet-list">
+              <div class="bullet"><strong>Earlier awareness:</strong> detect drift before failure states become obvious in conventional alarms.</div>
+              <div class="bullet"><strong>Explainable outputs:</strong> every interpretation is bounded by explicit admissibility logic.</div>
+              <div class="bullet"><strong>Operational fit:</strong> works alongside SCADA, historian, and existing monitoring environments.</div>
+              <div class="bullet"><strong>Defensible review:</strong> preserves records for engineering analysis, compliance review, and post incident investigation.</div>
+            </div>
+          </aside>
         </div>
-
-        <aside class="panel">
-          <h2>Why this matters</h2>
-
-          <div class="bullet-list">
-            <div class="bullet"><strong>Earlier awareness:</strong> detect drift before failure states become obvious in conventional alarms.</div>
-            <div class="bullet"><strong>Explainable outputs:</strong> every interpretation is bounded by explicit admissibility logic.</div>
-            <div class="bullet"><strong>Operational fit:</strong> works alongside SCADA, historian, and existing monitoring environments.</div>
-            <div class="bullet"><strong>Defensible review:</strong> preserves records for engineering analysis, compliance review, and post incident investigation.</div>
-          </div>
-        </aside>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <div>© 2026 Neraium. All rights reserved.</div>
+      <div>© <span id="year"></span> Neraium. All rights reserved.</div>
       <div>Systemic infrastructure intelligence.</div>
     </div>
   </footer>
+
+  <script>
+    // Dynamic copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Active navigation state management
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  </script>
 </body>
 </html>

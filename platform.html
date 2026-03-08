@@ -1,66 +1,106 @@
-<!-- platform.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neraium Platform</title>
+  <title>Neraium | Platform</title>
+  <meta
+    name="description"
+    content="Neraium separates signal detection, interpretation governance, and evidentiary accountability."
+  />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="site-shell">
-    <header class="topbar">
-      <a class="brand" href="index.html"><span class="brand-mark">N</span><span class="brand-text">Neraium</span></a>
-      <nav class="nav">
-        <a href="platform.html" class="active">Platform</a>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a href="index.html" class="brand">Neraium</a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a class="active" href="platform.html">Platform</a>
         <a href="technical.html">Technical</a>
         <a href="governance.html">Governance</a>
-        <a href="contact.html" class="button ghost">Contact</a>
+        <a href="contact.html">Contact</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main class="section">
-      <p class="eyebrow">Platform</p>
-      <h1>One platform, four tightly integrated layers.</h1>
-      <div class="grid-2 stagger">
-        <article class="card">
-          <h2>Ingest</h2>
-          <p>Receive batch, stream, and event-native data through secure adapters with schema validation.</p>
-        </article>
-        <article class="card">
-          <h2>Map</h2>
-          <p>Build a living system graph that reflects assets, dependencies, ownership, and blast radius.</p>
-        </article>
-        <article class="card">
-          <h2>Analyze</h2>
-          <p>Apply anomaly scoring, drift monitoring, and decision support models on normalized telemetry.</p>
-        </article>
-        <article class="card">
-          <h2>Govern</h2>
-          <p>Wrap actions in approvals, policy rules, audit trails, and explainable decision context.</p>
-        </article>
+  <main>
+    <section class="section page-hero">
+      <div class="container narrow">
+        <div class="eyebrow">Platform</div>
+        <h1 class="page-title">
+          Three layers designed for defensible infrastructure interpretation
+        </h1>
+        <p class="page-copy">
+          Neraium separates signal detection, interpretation governance, and
+          evidentiary accountability so signals remain useful under engineering,
+          regulatory, and post incident scrutiny.
+        </p>
       </div>
+    </section>
 
-      <section class="section split">
-        <div class="card terminal">
-          <pre><code>source -> ingest -> normalize -> graph
-               -> score -> review -> action</code></pre>
+    <section class="section">
+      <div class="container">
+        <div class="platform-grid">
+          <article class="platform-card">
+            <div class="number">1</div>
+            <h3>Signal Geometry Layer</h3>
+            <p>
+              Models covariance structure in multivariate telemetry to detect
+              system level deformation without requiring historical failure data.
+            </p>
+          </article>
+
+          <article class="platform-card">
+            <div class="number">2</div>
+            <h3>Aletheia’s Gate</h3>
+            <p>
+              Applies deterministic admissibility criteria including temporal
+              persistence, physical interpretation boundaries, and multi sensor
+              correlation thresholds.
+            </p>
+          </article>
+
+          <article class="platform-card">
+            <div class="number">3</div>
+            <h3>Evidence Vault Protocol</h3>
+            <p>
+              Preserves a cryptographically verifiable record of divergence,
+              applied criteria, system state, and final decision for each
+              interpretation outcome.
+            </p>
+          </article>
         </div>
-        <div>
-          <h2>Built for high-consequence operations.</h2>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow">
+        <div class="content-panel">
+          <h2>Operational role</h2>
           <p>
-            Neraium favors clarity over clutter. Every layer exposes a clean operational contract,
-            making the stack deployable in regulated, latency-sensitive, or highly distributed environments.
+            Neraium functions as a read only interpretation layer that ingests
+            telemetry from existing infrastructure systems. It does not control
+            equipment, issue directives, or interfere with existing operations.
           </p>
-          <a class="button" href="technical.html">Read the technical view</a>
-        </div>
-      </section>
-    </main>
 
-    <footer class="footer">
-      <span>© 2026 Neraium</span>
-      <div><a href="index.html">Home</a><a href="governance.html">Governance</a></div>
-    </footer>
-  </div>
+          <h2>Deployment model</h2>
+          <p>
+            The platform is designed for infrastructure edge deployment and can
+            process telemetry locally without relying on continuous cloud
+            connectivity.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© 2026 Neraium. All rights reserved.</div>
+      <div>Systemic infrastructure intelligence.</div>
+    </div>
+  </footer>
 </body>
 </html>

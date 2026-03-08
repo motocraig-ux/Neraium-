@@ -3,54 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neraium | Home</title>
-  <meta name="description" content="Neraium converts infrastructure telemetry into systemic intelligence." />
+  <title>Neraium | Systemic Infrastructure Intelligence</title>
+  <meta name="description" content="Neraium converts infrastructure telemetry into systemic intelligence. Detect emerging system drift earlier, understand operational behaviour, and maintain defensible records for critical environments." />
+  <meta name="theme-color" content="#000000" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <header class="site-header">
+<body data-page="index">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
     <div class="container site-header__inner">
-      <a href="index.html" class="brand">Neraium</a>
-      <nav class="nav" aria-label="Primary">
-        <a href="index.html" class="nav-link active" data-current="index">Home</a>
-        <a href="platform.html" class="nav-link" data-current="platform">Platform</a>
-        <a href="technical.html" class="nav-link" data-current="technical">Technical</a>
-        <a href="governance.html" class="nav-link" data-current="governance">Governance</a>
-        <a href="contact.html" class="nav-link" data-current="contact">Contact</a>
+      <a href="index.html" class="brand" aria-label="Neraium Home">
+        <span class="brand-text">Neraium</span>
+        <span class="brand-accent">&gt;</span>
+      </a>
+      
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+      </button>
+
+      <nav class="nav" id="main-nav" aria-label="Primary navigation">
+        <a href="index.html" class="nav-link" data-page="index">Home</a>
+        <a href="platform.html" class="nav-link" data-page="platform">Platform</a>
+        <a href="technical.html" class="nav-link" data-page="technical">Technical</a>
+        <a href="governance.html" class="nav-link" data-page="governance">Governance</a>
+        <a href="contact.html" class="nav-link" data-page="contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Systemic Infrastructure Intelligence</div>
-          <h1>Operational visibility for complex infrastructure systems</h1>
-          <p>
+        <div class="hero-content">
+          <div class="eyebrow">&gt; Systemic Infrastructure Intelligence</div>
+          <h1 id="hero-title">Operational visibility for complex infrastructure systems</h1>
+          <p class="hero-description">
             Neraium converts infrastructure telemetry into systemic intelligence.
             Detect emerging system drift earlier, understand operational behaviour,
             and maintain defensible records for critical environments.
           </p>
 
           <div class="button-row">
-            <a class="button button--primary" href="platform.html">View Platform</a>
-            <a class="button button--secondary" href="contact.html">Contact</a>
+            <a class="button button--primary" href="platform.html">
+              <span class="button-text">View Platform</span>
+              <span class="button-accent">→</span>
+            </a>
+            <a class="button button--secondary" href="contact.html">
+              <span class="button-text">Contact</span>
+              <span class="button-accent">→</span>
+            </a>
           </div>
         </div>
 
         <div class="hero-visual">
-          <div class="visual-top">
-            <div class="visual-label">Live Telemetry</div>
-            <div>Example system view</div>
+          <div class="visual-header">
+            <div class="visual-label">
+              <span class="label-bracket">[</span>Live Telemetry<span class="label-bracket">]</span>
+            </div>
+            <div class="visual-status">Example system view</div>
           </div>
 
           <div class="chart-box" aria-hidden="true">
             <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="line-gradient-1" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="rgba(0,255,65,0.3)" />
+                  <stop offset="100%" stop-color="rgba(0,255,65,0.95)" />
+                </linearGradient>
+                <linearGradient id="line-gradient-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="rgba(0,200,50,0.2)" />
+                  <stop offset="100%" stop-color="rgba(0,200,50,0.5)" />
+                </linearGradient>
+              </defs>
               <polyline
                 points="0,72 8,71 16,70 24,66 32,67 40,62 48,61 56,58 64,56 72,48 80,41 88,30 96,23 100,18"
                 fill="none"
-                stroke="rgba(184,236,255,0.95)"
+                stroke="url(#line-gradient-1)"
                 stroke-width="2.1"
                 vector-effect="non-scaling-stroke"
                 stroke-linecap="round"
@@ -59,59 +90,72 @@
               <polyline
                 points="0,80 8,79 16,78 24,77 32,76 40,75 48,74 56,73 64,72 72,71 80,71 88,70 96,69 100,68"
                 fill="none"
-                stroke="rgba(127,208,255,0.5)"
+                stroke="url(#line-gradient-2)"
                 stroke-width="1.7"
                 vector-effect="non-scaling-stroke"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
+              <circle cx="100" cy="18" r="1.5" fill="rgba(0,255,65,0.95)" />
+              <circle cx="100" cy="68" r="1" fill="rgba(0,200,50,0.5)" />
             </svg>
           </div>
 
           <div class="metric-grid">
-            <div class="metric">
-              <div class="metric-label">Mode</div>
-              <div class="metric-value">Read only</div>
-            </div>
-            <div class="metric">
-              <div class="metric-label">State</div>
-              <div class="metric-value">Drift emerging</div>
-            </div>
-            <div class="metric">
-              <div class="metric-label">Record</div>
-              <div class="metric-value">Verifiable</div>
-            </div>
+            <dl class="metric">
+              <dt class="metric-label">Mode</dt>
+              <dd class="metric-value">
+                <span class="metric-prefix">$</span>
+                Read only
+              </dd>
+            </dl>
+            <dl class="metric">
+              <dt class="metric-label">State</dt>
+              <dd class="metric-value">
+                <span class="metric-prefix">#</span>
+                Drift emerging
+              </dd>
+            </dl>
+            <dl class="metric">
+              <dt class="metric-label">Record</dt>
+              <dd class="metric-value">
+                <span class="metric-prefix">&gt;</span>
+                Verifiable
+              </dd>
+            </dl>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="capabilities-heading">
+    <section class="capabilities-section" aria-labelledby="capabilities-heading">
       <div class="container">
-        <h2 id="capabilities-heading" class="section-title">Platform Capabilities</h2>
+        <h2 id="capabilities-heading" class="section-title">
+          <span class="title-prefix">[</span>Platform Capabilities<span class="title-prefix">]</span>
+        </h2>
         <div class="grid-3">
           <article class="card">
-            <div class="number">1</div>
-            <h3>Signal Geometry Layer</h3>
-            <p>
+            <div class="card-number">[01]</div>
+            <h3 class="card-title">Signal Geometry Layer</h3>
+            <p class="card-description">
               Models covariance structure in multivariate telemetry to detect
               system level deformation without relying on historical failure datasets.
             </p>
           </article>
 
           <article class="card">
-            <div class="number">2</div>
-            <h3>Aletheia's Gate</h3>
-            <p>
+            <div class="card-number">[02]</div>
+            <h3 class="card-title">Aletheia's Gate</h3>
+            <p class="card-description">
               Applies deterministic admissibility criteria including persistence,
               physical interpretation limits, and multi sensor correlation thresholds.
             </p>
           </article>
 
           <article class="card">
-            <div class="number">3</div>
-            <h3>Evidence Vault Protocol</h3>
-            <p>
+            <div class="card-number">[03]</div>
+            <h3 class="card-title">Evidence Vault Protocol</h3>
+            <p class="card-description">
               Preserves a verifiable record of measured divergence, applied criteria,
               system state, and final interpretation outcome.
             </p>
@@ -121,10 +165,14 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container footer__inner">
-      <div>© <span id="year"></span> Neraium. All rights reserved.</div>
-      <div>Systemic infrastructure intelligence.</div>
+      <div class="footer-text">
+        © <span id="year"></span> Neraium. All rights reserved.
+      </div>
+      <div class="footer-tagline">
+        Systemic infrastructure intelligence.
+      </div>
     </div>
   </footer>
 
@@ -132,15 +180,31 @@
     // Dynamic copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Active navigation state management
-    // Remove 'active' class from all links, then add to current page
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    // Mobile navigation toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    navToggle.addEventListener('click', () => {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
+      mainNav.classList.toggle('nav--open');
+    });
+
+    // Close nav when link is clicked
     const navLinks = document.querySelectorAll('.nav-link');
-    
     navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === currentPage) {
+      link.addEventListener('click', () => {
+        navToggle.setAttribute('aria-expanded', 'false');
+        mainNav.classList.remove('nav--open');
+      });
+    });
+
+    // Active navigation state management
+    const currentPageAttr = document.body.getAttribute('data-page');
+    navLinks.forEach(link => {
+      if (link.getAttribute('data-page') === currentPageAttr) {
         link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
       }
     });
   </script>

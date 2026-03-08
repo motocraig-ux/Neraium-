@@ -1,52 +1,58 @@
-const map = document.getElementById("systemMap");
+// system-map.js
+(function () {
+  const canvas = document.getElementById('systemMap');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
 
-if (map) {
-  const ctx = map.getContext("2d");
-  const w = map.width;
-  const h = map.height;
+  const nodes = [
+    { x: 90, y: 90, label: 'Adapters' },
+    { x: 250, y: 70, label: 'Normalize' },
+    { x: 430, y: 100, label: 'Graph' },
+    { x: 170, y: 240, label: 'Analyze' },
+    { x: 370, y: 235, label: 'Govern' }
+  ];
 
-  const nodes = [];
-  for (let i = 0; i < 22; i++) {
-    nodes.push({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      hot: Math.random() < 0.12
-    });
+  const edges = [[0,1],[1,2],[1,3],[3,4],[2,4]];
+
+  function roundRect(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
   }
 
   function draw() {
-    ctx.clearRect(0, 0, w, h);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#09111c';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // links
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const dx = nodes[i].x - nodes[j].x;
-        const dy = nodes[i].y - nodes[j].y;
-        const d = Math.sqrt(dx * dx + dy * dy);
-
-        if (d < 220) {
-          const a = 1 - d / 220;
-          ctx.strokeStyle = `rgba(46,211,255,${0.10 * a})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(nodes[i].x, nodes[i].y);
-          ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.stroke();
-        }
-      }
-    }
-
-    // nodes
-    for (const n of nodes) {
+    edges.forEach(([a, b]) => {
+      ctx.strokeStyle = 'rgba(106,168,255,0.55)';
+      ctx.lineWidth = 2;
       ctx.beginPath();
-      ctx.arc(n.x, n.y, n.hot ? 5 : 4, 0, Math.PI * 2);
-      ctx.fillStyle = n.hot ? "#ffc857" : "#00a6ff";
-      ctx.shadowBlur = 14;
-      ctx.shadowColor = n.hot ? "rgba(255,200,87,0.6)" : "rgba(0,170,255,0.55)";
+      ctx.moveTo(nodes[a].x, nodes[a].y);
+      ctx.lineTo(nodes[b].x, nodes[b].y);
+      ctx.stroke();
+    });
+
+    nodes.forEach((node, i) => {
+      const w = 120;
+      const h = 44;
+      roundRect(node.x - w / 2, node.y - h / 2, w, h, 14);
+      ctx.fillStyle = i % 2 === 0 ? 'rgba(106,168,255,0.22)' : 'rgba(139,255,214,0.18)';
       ctx.fill();
-      ctx.shadowBlur = 0;
-    }
+      ctx.strokeStyle = 'rgba(255,255,255,0.18)';
+      ctx.stroke();
+      ctx.fillStyle = '#eef4ff';
+      ctx.font = '600 14px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(node.label, node.x, node.y);
+    });
   }
 
   draw();
-}
+})();

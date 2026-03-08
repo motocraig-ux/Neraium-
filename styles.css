@@ -314,6 +314,109 @@ a:hover {
     padding: var(--spacing-md) 0;
   }
 }
+
+/* ================================================================
+   Governance Section
+   ================================================================ */
+
+.governance-section {
+  padding: var(--spacing-3xl) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (max-width: 767px) {
+  .governance-section {
+    padding: var(--spacing-2xl) 0;
+  }
+}
+
+.grid-2 {
+  display: grid;
+  gap: var(--spacing-2xl);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.gov-panel {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-2xl);
+  position: relative;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+@media (max-width: 767px) {
+  .gov-panel {
+    padding: var(--spacing-lg);
+  }
+}
+
+.gov-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 255, 65, 0.05) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+}
+
+.gov-panel:hover {
+  border-color: var(--color-border-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 255, 65, 0.1);
+}
+
+.gov-panel:hover::before {
+  opacity: 1;
+}
+
+.gov-panel-title {
+  font-size: var(--font-size-xl);
+  color: var(--color-accent);
+  margin-bottom: 0;
+}
+
+.gov-panel-description {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-lg);
+}
+
+.gov-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin: 0;
+  padding: 0;
+}
+
+.gov-list-item {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  padding-left: var(--spacing-lg);
+  position: relative;
+  line-height: var(--line-height-normal);
+}
+
+.gov-list-item::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
 /* ================================================================
    Technical Section
    ================================================================ */

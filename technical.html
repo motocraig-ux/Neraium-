@@ -1,65 +1,116 @@
-<!-- technical.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neraium Technical Architecture</title>
+  <title>Neraium | Technical</title>
+  <meta
+    name="description"
+    content="Technical architecture for multivariate telemetry interpretation."
+  />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="site-shell">
-    <header class="topbar">
-      <a class="brand" href="index.html"><span class="brand-mark">N</span><span class="brand-text">Neraium</span></a>
-      <nav class="nav">
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a href="index.html" class="brand">Neraium</a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
         <a href="platform.html">Platform</a>
-        <a href="technical.html" class="active">Technical</a>
+        <a class="active" href="technical.html">Technical</a>
         <a href="governance.html">Governance</a>
-        <a href="contact.html" class="button ghost">Contact</a>
+        <a href="contact.html">Contact</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main class="section">
-      <p class="eyebrow">Technical</p>
-      <h1>Composable architecture with observable internals.</h1>
-      <div class="split">
-        <div>
-          <p>
-            The platform is organized around adapters, a normalization plane, a topology model,
-            an analysis plane, and a decision surface. Each component can operate independently
-            or as part of the full Neraium system.
-          </p>
-        </div>
-        <div class="card">
-          <canvas id="systemMap" width="540" height="320" aria-label="System map"></canvas>
-        </div>
+  <main>
+    <section class="section page-hero">
+      <div class="container narrow">
+        <div class="eyebrow">Technical</div>
+        <h1 class="page-title">
+          Built for multivariate telemetry, not isolated threshold alarms
+        </h1>
+        <p class="page-copy">
+          Traditional monitoring evaluates signals independently. Neraium
+          evaluates whether the overall behaviour of a system remains physically
+          coherent.
+        </p>
       </div>
+    </section>
 
-      <div class="grid-2 stagger">
-        <article class="card">
-          <h2>Adapters</h2>
-          <p>Pluggable collectors support logs, metrics, events, files, and domain-specific telemetry feeds.</p>
-        </article>
-        <article class="card">
-          <h2>Normalization plane</h2>
-          <p>Signals are transformed into a shared event schema for routing, scoring, and lineage capture.</p>
-        </article>
-        <article class="card">
-          <h2>Analysis plane</h2>
-          <p>Supports thresholding, drift detection, covariance methods, and operator-configured decision rules.</p>
-        </article>
-        <article class="card">
-          <h2>Decision surface</h2>
-          <p>Outputs are ranked, explained, and passed through governance checkpoints before actioning.</p>
-        </article>
+    <section class="section">
+      <div class="container tech-layout">
+        <div class="big-panel">
+          <h2>Interpretation structure</h2>
+
+          <div class="diagram-grid">
+            <div class="diagram-tile">
+              <h4>Multivariate geometry</h4>
+              <p>
+                Detects structural drift from relationships between sensor
+                signals rather than relying on single variable limits.
+              </p>
+            </div>
+
+            <div class="diagram-tile">
+              <h4>Temporal legitimacy</h4>
+              <p>
+                Requires persistence over time before a deformation can pass
+                into interpretive escalation.
+              </p>
+            </div>
+
+            <div class="diagram-tile">
+              <h4>Physical coherence</h4>
+              <p>
+                Interpretation remains constrained by engineering meaning and
+                valid abstraction boundaries.
+              </p>
+            </div>
+
+            <div class="diagram-tile">
+              <h4>Read only deployment</h4>
+              <p>
+                Operates at the edge as an interpretation layer without
+                modifying control systems or issuing directives.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="side-panel">
+          <h2>Why this matters</h2>
+
+          <div class="bullet-list">
+            <div class="bullet-item">
+              <strong>Earlier awareness:</strong> detect infrastructure drift
+              before failure states become obvious in conventional alarms.
+            </div>
+            <div class="bullet-item">
+              <strong>Explainable outcomes:</strong> every interpretation is
+              bounded by explicit admissibility logic.
+            </div>
+            <div class="bullet-item">
+              <strong>Operational fit:</strong> deploy alongside existing SCADA,
+              historian, or monitoring environments.
+            </div>
+            <div class="bullet-item">
+              <strong>Defensible review:</strong> preserve records for internal
+              engineering analysis, compliance review, and incident response.
+            </div>
+          </div>
+        </aside>
       </div>
-    </main>
+    </section>
+  </main>
 
-    <footer class="footer">
-      <span>© 2026 Neraium</span>
-      <div><a href="index.html">Home</a><a href="contact.html">Contact</a></div>
-    </footer>
-  </div>
-  <script src="system-map.js"></script>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© 2026 Neraium. All rights reserved.</div>
+      <div>Systemic infrastructure intelligence.</div>
+    </div>
+  </footer>
 </body>
 </html>

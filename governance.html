@@ -1,112 +1,44 @@
+<!-- governance.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neraium | Governance</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <title>Neraium Governance</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand">Nera<span>ium</span></a>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html"><span class="brand-mark">N</span><span class="brand-text">Neraium</span></a>
+      <nav class="nav">
         <a href="platform.html">Platform</a>
         <a href="technical.html">Technical</a>
         <a href="governance.html" class="active">Governance</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="button ghost">Contact</a>
+      </nav>
+    </header>
+
+    <main class="section">
+      <p class="eyebrow">Governance</p>
+      <h1>Decision integrity built into every layer.</h1>
+      <div class="grid-3">
+        <article class="card feature"><h2>Lineage</h2><p>Every decision links back to source signals, transforms, and operator review steps.</p></article>
+        <article class="card feature"><h2>Controls</h2><p>Approval gates, separation of duties, and policy rules reduce operational risk.</p></article>
+        <article class="card feature"><h2>Explainability</h2><p>Analytical outputs expose evidence, confidence, and triggering conditions in plain language.</p></article>
       </div>
-    </div>
-  </nav>
+      <section class="section card checklist">
+        <div>Role-aware access and review workflows</div>
+        <div>Immutable audit trail for material decisions</div>
+        <div>Environment-specific policy packs</div>
+        <div>Structured handoff between automation and human oversight</div>
+      </section>
+    </main>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="eyebrow">Governance</div>
-        <h1>Operational principles and infrastructure transparency</h1>
-        <p class="lead">
-          Neraium operates as a read-only intelligence layer that provides system visibility
-          without modifying control systems or replacing operator authority.
-        </p>
-      </div>
-    </section>
-
-    <section class="section band">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Principles</div>
-          <h2>Governance by design</h2>
-          <p>
-            The platform is structured to preserve system boundaries, maintain auditability,
-            and keep intelligence subordinate to human decision-making.
-          </p>
-        </div>
-
-        <div class="grid-4">
-          <div class="card">
-            <h3>Read-only architecture</h3>
-            <p>The platform observes infrastructure conditions without issuing commands or changing state.</p>
-          </div>
-          <div class="card">
-            <h3>Operational independence</h3>
-            <p>Existing control systems remain authoritative in the operating environment.</p>
-          </div>
-          <div class="card">
-            <h3>Transparency</h3>
-            <p>Infrastructure conditions become more measurable, interpretable, and reviewable.</p>
-          </div>
-          <div class="card">
-            <h3>Accountability</h3>
-            <p>Operational outputs remain traceable through preserved logic and system records.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Authority boundaries</div>
-          <h2>Operators remain the decision point</h2>
-          <p>
-            Neraium helps people understand infrastructure behaviour. It does not replace the operator,
-            assume control authority, or intervene directly in the operating environment.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3>Infrastructure systems</h3>
-            <p>Continue generating telemetry and maintaining control authority over assets and operations.</p>
-          </div>
-          <div class="card">
-            <h3>Neraium layer</h3>
-            <p>Interprets telemetry and preserves structured operational intelligence outputs.</p>
-          </div>
-          <div class="card">
-            <h3>Human decision-making</h3>
-            <p>Action remains external to the platform and within existing operational structures.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="brand">Nera<span>ium</span></div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="platform.html">Platform</a>
-        <a href="technical.html">Technical</a>
-        <a href="governance.html">Governance</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-copy">© 2026 Neraium</div>
-    </div>
-  </footer>
+    <footer class="footer">
+      <span>© 2026 Neraium</span>
+      <div><a href="technical.html">Technical</a><a href="contact.html">Contact</a></div>
+    </footer>
+  </div>
 </body>
 </html>

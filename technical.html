@@ -14,7 +14,7 @@
       <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="platform.html">Platform</a>
-        <a class="active" href="technical.html">Technical</a>
+        <a class="is-active" href="technical.html">Technical</a>
         <a href="governance.html">Governance</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -22,40 +22,41 @@
   </header>
 
   <main>
-    <section class="section page-hero">
-      <div class="container narrow">
+    <section class="page-hero section">
+      <div class="container container--narrow">
         <div class="eyebrow">Technical</div>
         <h1 class="page-title">Built for multivariate telemetry, not isolated threshold alarms</h1>
         <p class="page-copy">
-          Neraium evaluates whether the overall behaviour of a system remains physically coherent.
+          Neraium evaluates whether the overall behaviour of a system remains physically coherent,
+          rather than treating sensor streams as disconnected signals.
         </p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container tech-layout">
+      <div class="container two-column">
         <div class="panel">
           <h2>Interpretation structure</h2>
 
           <div class="diagram-grid">
             <div class="diagram-card">
               <h4>Multivariate geometry</h4>
-              <p>Detects structural drift from relationships between sensor signals.</p>
+              <p>Detects structural drift from the relationships between sensor signals rather than single variable thresholds.</p>
             </div>
 
             <div class="diagram-card">
               <h4>Temporal legitimacy</h4>
-              <p>Requires persistence over time before deformation becomes actionable.</p>
+              <p>Requires persistence over time before deformation can progress into escalation.</p>
             </div>
 
             <div class="diagram-card">
               <h4>Physical coherence</h4>
-              <p>Constrains interpretation to valid engineering meaning.</p>
+              <p>Constrains interpretation to valid engineering meaning and admissible abstraction boundaries.</p>
             </div>
 
             <div class="diagram-card">
               <h4>Read only deployment</h4>
-              <p>Operates without modifying control systems or issuing directives.</p>
+              <p>Operates at the edge without modifying control systems or issuing directives.</p>
             </div>
           </div>
         </div>
@@ -64,10 +65,10 @@
           <h2>Why this matters</h2>
 
           <div class="bullet-list">
-            <div class="bullet-card"><strong>Earlier awareness:</strong> detect drift before obvious failure states.</div>
-            <div class="bullet-card"><strong>Explainable outcomes:</strong> every interpretation is bounded by explicit logic.</div>
-            <div class="bullet-card"><strong>Operational fit:</strong> works alongside SCADA, historian, or monitoring systems.</div>
-            <div class="bullet-card"><strong>Defensible review:</strong> preserves records for engineering and incident analysis.</div>
+            <div class="bullet-card"><strong>Earlier awareness:</strong> detect drift before failure states become obvious in conventional alarms.</div>
+            <div class="bullet-card"><strong>Explainable outputs:</strong> every interpretation is bounded by explicit admissibility logic.</div>
+            <div class="bullet-card"><strong>Operational fit:</strong> works alongside SCADA, historian, and existing monitoring environments.</div>
+            <div class="bullet-card"><strong>Defensible review:</strong> preserves records for engineering analysis, compliance review, and post incident investigation.</div>
           </div>
         </aside>
       </div>

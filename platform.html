@@ -12,11 +12,11 @@
     <div class="container site-header__inner">
       <a href="index.html" class="brand">Neraium</a>
       <nav class="nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="platform.html" class="active">Platform</a>
-        <a href="technical.html">Technical</a>
-        <a href="governance.html">Governance</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" class="nav-link" data-current="index">Home</a>
+        <a href="platform.html" class="nav-link active" data-current="platform">Platform</a>
+        <a href="technical.html" class="nav-link" data-current="technical">Technical</a>
+        <a href="governance.html" class="nav-link" data-current="governance">Governance</a>
+        <a href="contact.html" class="nav-link" data-current="contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -34,41 +34,44 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container grid-3">
-        <article class="card">
-          <div class="number">1</div>
-          <h3>Signal Geometry Layer</h3>
-          <p>
-            Models covariance structure in multivariate telemetry to detect
-            system level deformation without requiring historical failure data.
-          </p>
-        </article>
+    <section class="section" aria-labelledby="layers-heading">
+      <div class="container">
+        <h2 id="layers-heading" class="section-title visually-hidden">Platform Layers</h2>
+        <div class="grid-3">
+          <article class="card">
+            <div class="number">1</div>
+            <h3>Signal Geometry Layer</h3>
+            <p>
+              Models covariance structure in multivariate telemetry to detect
+              system level deformation without requiring historical failure data.
+            </p>
+          </article>
 
-        <article class="card">
-          <div class="number">2</div>
-          <h3>Aletheia’s Gate</h3>
-          <p>
-            Applies deterministic admissibility criteria including temporal
-            persistence, physical interpretation boundaries, and multi sensor correlation thresholds.
-          </p>
-        </article>
+          <article class="card">
+            <div class="number">2</div>
+            <h3>Aletheia's Gate</h3>
+            <p>
+              Applies deterministic admissibility criteria including temporal
+              persistence, physical interpretation boundaries, and multi sensor correlation thresholds.
+            </p>
+          </article>
 
-        <article class="card">
-          <div class="number">3</div>
-          <h3>Evidence Vault Protocol</h3>
-          <p>
-            Preserves a verifiable record of measured divergence, criteria used,
-            system state, and final interpretation decision.
-          </p>
-        </article>
+          <article class="card">
+            <div class="number">3</div>
+            <h3>Evidence Vault Protocol</h3>
+            <p>
+              Preserves a verifiable record of measured divergence, criteria used,
+              system state, and final interpretation decision.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" aria-labelledby="operational-heading">
       <div class="container">
         <div class="panel">
-          <h2>Operational role</h2>
+          <h2 id="operational-heading">Operational role</h2>
           <p>
             Neraium operates as a read only interpretation layer that ingests telemetry from
             existing infrastructure systems. It does not control equipment, modify control logic,
@@ -78,10 +81,10 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" aria-labelledby="deployment-heading">
       <div class="container">
         <div class="panel">
-          <h2>Deployment model</h2>
+          <h2 id="deployment-heading">Deployment model</h2>
           <p>
             The platform is designed for infrastructure edge deployment and can process telemetry
             locally without continuous cloud connectivity.
@@ -93,9 +96,25 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <div>© 2026 Neraium. All rights reserved.</div>
+      <div>© <span id="year"></span> Neraium. All rights reserved.</div>
       <div>Systemic infrastructure intelligence.</div>
     </div>
   </footer>
+
+  <script>
+    // Dynamic copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Active navigation state management
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  </script>
 </body>
 </html>

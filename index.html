@@ -12,11 +12,11 @@
     <div class="container site-header__inner">
       <a href="index.html" class="brand">Neraium</a>
       <nav class="nav" aria-label="Primary">
-        <a href="index.html" class="active">Home</a>
-        <a href="platform.html">Platform</a>
-        <a href="technical.html">Technical</a>
-        <a href="governance.html">Governance</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" class="nav-link active" data-current="index">Home</a>
+        <a href="platform.html" class="nav-link" data-current="platform">Platform</a>
+        <a href="technical.html" class="nav-link" data-current="technical">Technical</a>
+        <a href="governance.html" class="nav-link" data-current="governance">Governance</a>
+        <a href="contact.html" class="nav-link" data-current="contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -39,13 +39,13 @@
           </div>
         </div>
 
-        <div class="hero-visual" aria-hidden="true">
+        <div class="hero-visual">
           <div class="visual-top">
             <div class="visual-label">Live Telemetry</div>
             <div>Example system view</div>
           </div>
 
-          <div class="chart-box">
+          <div class="chart-box" aria-hidden="true">
             <svg viewBox="0 0 100 100" preserveAspectRatio="none">
               <polyline
                 points="0,72 8,71 16,70 24,66 32,67 40,62 48,61 56,58 64,56 72,48 80,41 88,30 96,23 100,18"
@@ -86,43 +86,63 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container grid-3">
-        <article class="card">
-          <div class="number">1</div>
-          <h3>Signal Geometry Layer</h3>
-          <p>
-            Models covariance structure in multivariate telemetry to detect
-            system level deformation without relying on historical failure datasets.
-          </p>
-        </article>
+    <section class="section" aria-labelledby="capabilities-heading">
+      <div class="container">
+        <h2 id="capabilities-heading" class="section-title">Platform Capabilities</h2>
+        <div class="grid-3">
+          <article class="card">
+            <div class="number">1</div>
+            <h3>Signal Geometry Layer</h3>
+            <p>
+              Models covariance structure in multivariate telemetry to detect
+              system level deformation without relying on historical failure datasets.
+            </p>
+          </article>
 
-        <article class="card">
-          <div class="number">2</div>
-          <h3>Aletheia’s Gate</h3>
-          <p>
-            Applies deterministic admissibility criteria including persistence,
-            physical interpretation limits, and multi sensor correlation thresholds.
-          </p>
-        </article>
+          <article class="card">
+            <div class="number">2</div>
+            <h3>Aletheia's Gate</h3>
+            <p>
+              Applies deterministic admissibility criteria including persistence,
+              physical interpretation limits, and multi sensor correlation thresholds.
+            </p>
+          </article>
 
-        <article class="card">
-          <div class="number">3</div>
-          <h3>Evidence Vault Protocol</h3>
-          <p>
-            Preserves a verifiable record of measured divergence, applied criteria,
-            system state, and final interpretation outcome.
-          </p>
-        </article>
+          <article class="card">
+            <div class="number">3</div>
+            <h3>Evidence Vault Protocol</h3>
+            <p>
+              Preserves a verifiable record of measured divergence, applied criteria,
+              system state, and final interpretation outcome.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <div>© 2026 Neraium. All rights reserved.</div>
+      <div>© <span id="year"></span> Neraium. All rights reserved.</div>
       <div>Systemic infrastructure intelligence.</div>
     </div>
   </footer>
+
+  <script>
+    // Dynamic copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Active navigation state management
+    // Remove 'active' class from all links, then add to current page
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  </script>
 </body>
 </html>

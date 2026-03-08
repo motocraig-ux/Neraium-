@@ -314,6 +314,164 @@ a:hover {
     padding: var(--spacing-md) 0;
   }
 }
+/* ================================================================
+   Technical Section
+   ================================================================ */
+
+.technical-section {
+  padding: var(--spacing-3xl) 0;
+}
+
+@media (max-width: 767px) {
+  .technical-section {
+    padding: var(--spacing-2xl) 0;
+  }
+}
+
+.two-column-grid {
+  display: grid;
+  gap: var(--spacing-2xl);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .two-column-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.tech-panel {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-2xl);
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+@media (max-width: 767px) {
+  .tech-panel {
+    padding: var(--spacing-lg);
+  }
+}
+
+.tech-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 255, 65, 0.05) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+}
+
+.tech-panel:hover {
+  border-color: var(--color-border-accent);
+  box-shadow: 0 8px 24px rgba(0, 255, 65, 0.1);
+}
+
+.tech-panel:hover::before {
+  opacity: 1;
+}
+
+.tech-panel--accent {
+  border-color: var(--color-border-accent);
+  background: rgba(0, 255, 65, 0.02);
+}
+
+.tech-panel--accent:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 24px rgba(0, 255, 65, 0.15);
+}
+
+.tech-panel-title {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+@media (min-width: 768px) {
+  .tech-panel-title {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+.tech-panel-title::before {
+  content: '>';
+  color: var(--color-accent-dim);
+  font-weight: 700;
+}
+
+.diagram-grid {
+  display: grid;
+  gap: var(--spacing-lg);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .diagram-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.diagram-item {
+  background: rgba(0, 255, 65, 0.02);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-normal);
+}
+
+.diagram-item:hover {
+  border-color: var(--color-border-accent);
+  background: rgba(0, 255, 65, 0.05);
+}
+
+.diagram-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.diagram-text {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.bullet-item {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.bullet-label {
+  color: var(--color-accent);
+  font-weight: 600;
+  display: block;
+  font-size: var(--font-size-base);
+}
+
+.bullet-text {
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  display: block;
+  font-weight: 400;
+}
 
 /* ================================================================
    Hero Section

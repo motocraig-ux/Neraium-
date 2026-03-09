@@ -13,14 +13,18 @@
   /* Colors */
   --color-bg: #000000;
   --color-bg-secondary: #0a0a0a;
-  --color-accent: #00ff41;
-  --color-accent-dim: rgba(0, 255, 65, 0.5);
-  --color-accent-glow: rgba(0, 255, 65, 0.2);
+  --color-accent: #00b4ff;  /* Cyan/blue instead of green */
+  --color-accent-dim: rgba(0, 180, 255, 0.5);
+  --color-accent-glow: rgba(0, 180, 255, 0.2);
   --color-text: #ffffff;
   --color-text-muted: #888888;
   --color-border: #1a1a1a;
-  --color-border-accent: rgba(0, 255, 65, 0.3);
-  --color-hover: rgba(0, 255, 65, 0.1);
+  --color-border-accent: rgba(0, 180, 255, 0.3);
+  --color-hover: rgba(0, 180, 255, 0.1);
+  
+  /* ... rest of variables */
+}
+
 
   /* Typography */
   --font-mono: 'IBM Plex Mono', monospace;

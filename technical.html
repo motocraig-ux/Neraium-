@@ -3,234 +3,262 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neraium | Technical Architecture</title>
-  <meta
-    name="description"
-    content="Technical architecture for systemic infrastructure intelligence, multivariate telemetry interpretation, and physically coherent monitoring."
-  />
+  <title>Neraium | Technical</title>
+  <meta name="description" content="Technical architecture for multivariate telemetry interpretation." />
   <meta name="theme-color" content="#000000" />
-  <meta property="og:title" content="Neraium | Technical Architecture" />
-  <meta
-    property="og:description"
-    content="Built to interpret system behavior, not just trigger threshold alarms."
-  />
-  <meta property="og:type" content="website" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body data-page="technical">
-  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header class="site-header" role="banner">
-    <div class="container site-header__inner">
-      <a href="index.html" class="brand" aria-label="Neraium Home">
-        <span class="brand-text">Neraium</span>
-        <span class="brand-accent">&gt;</span>
-      </a>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
-      <button
-        class="nav-toggle"
-        id="nav-toggle"
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-        aria-controls="main-nav"
-        type="button"
-      >
-        <span class="nav-toggle__line"></span>
-        <span class="nav-toggle__line"></span>
-        <span class="nav-toggle__line"></span>
-      </button>
+<header class="site-header" role="banner">
+  <div class="container site-header__inner">
 
-      <nav class="nav" id="main-nav" aria-label="Primary navigation">
-        <a href="index.html" class="nav-link" data-page="index">Home</a>
-        <a href="platform.html" class="nav-link" data-page="platform">Platform</a>
-        <a href="technical.html" class="nav-link" data-page="technical">Technical</a>
-        <a href="governance.html" class="nav-link" data-page="governance">Governance</a>
-        <a href="contact.html" class="nav-link" data-page="contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <a href="index.html" class="brand" aria-label="Neraium Home">
+      <span class="brand-text">Neraium</span>
+      <span class="brand-accent">&gt;</span>
+    </a>
 
-  <main id="main-content">
-    <section class="page-hero" aria-labelledby="page-title">
-      <div class="container">
-        <div class="eyebrow">&gt; Technical</div>
-        <h1 id="page-title">Built to interpret system behavior, not just trigger threshold alarms</h1>
-        <p class="page-copy">
-          Neraium evaluates whether industrial systems remain physically coherent across time,
-          using relationships between signals rather than treating telemetry as disconnected events.
-        </p>
-      </div>
-    </section>
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+    >
+      <span class="nav-toggle__line"></span>
+      <span class="nav-toggle__line"></span>
+      <span class="nav-toggle__line"></span>
+    </button>
 
-    <section class="technical-section" aria-labelledby="technical-architecture-heading">
-      <div class="container">
-        <h2 id="technical-architecture-heading" class="section-title">
-          <span class="title-prefix">[</span>Technical Architecture<span class="title-prefix">]</span>
-        </h2>
+    <nav class="nav" id="main-nav" aria-label="Primary navigation">
+      <a href="index.html" class="nav-link" data-page="index">Home</a>
+      <a href="platform.html" class="nav-link" data-page="platform">Platform</a>
+      <a href="technical.html" class="nav-link" data-page="technical">Technical</a>
+      <a href="governance.html" class="nav-link" data-page="governance">Governance</a>
+      <a href="contact.html" class="nav-link" data-page="contact">Contact</a>
+    </nav>
 
-        <div class="two-column-grid">
-          <div class="tech-panel">
-            <h3 class="tech-panel-title">Interpretation Structure</h3>
+  </div>
+</header>
 
-            <div class="diagram-grid">
-              <div class="diagram-item">
-                <h4 class="diagram-title">Multivariate Geometry</h4>
-                <p class="diagram-text">
-                  Detects structural drift from relationships between signals, not isolated variable breaches.
-                </p>
-              </div>
+<main id="main-content">
 
-              <div class="diagram-item">
-                <h4 class="diagram-title">Temporal Legitimacy</h4>
-                <p class="diagram-text">
-                  Requires persistence over time before a detected deformation can progress into escalation.
-                </p>
-              </div>
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container">
 
-              <div class="diagram-item">
-                <h4 class="diagram-title">Physical Coherence</h4>
-                <p class="diagram-text">
-                  Constrains interpretation to engineering-valid meaning and admissible abstraction boundaries.
-                </p>
-              </div>
+    <div class="eyebrow">&gt; Technical</div>
 
-              <div class="diagram-item">
-                <h4 class="diagram-title">Read-Only Deployment</h4>
-                <p class="diagram-text">
-                  Operates alongside existing control environments without issuing directives or modifying control logic.
-                </p>
-              </div>
-            </div>
+    <h1 id="page-title">
+      Built for multivariate telemetry, not isolated threshold alarms
+    </h1>
+
+    <p class="page-copy">
+      Neraium evaluates whether the overall behaviour of a system remains
+      physically coherent rather than treating sensor streams as disconnected
+      signals.
+    </p>
+
+  </div>
+</section>
+
+
+<section class="technical-section" aria-labelledby="technical-architecture-heading">
+
+  <div class="container">
+
+    <h2 id="technical-architecture-heading" class="section-title">
+      <span class="title-prefix">[</span>Technical Architecture<span class="title-prefix">]</span>
+    </h2>
+
+    <div class="two-column-grid">
+
+      <div class="tech-panel">
+
+        <h3 class="tech-panel-title">Interpretation Structure</h3>
+
+        <div class="diagram-grid">
+
+          <div class="diagram-item">
+            <h4 class="diagram-title">Multivariate Geometry</h4>
+            <p class="diagram-text">
+              Detects structural drift from relationships between sensor signals
+              rather than single variable thresholds.
+            </p>
           </div>
 
-          <aside class="tech-panel tech-panel--accent" aria-labelledby="why-this-matters-heading">
-            <h3 id="why-this-matters-heading" class="tech-panel-title">Why This Matters</h3>
+          <div class="diagram-item">
+            <h4 class="diagram-title">Temporal Legitimacy</h4>
+            <p class="diagram-text">
+              Requires persistence over time before deformation can progress
+              into escalation.
+            </p>
+          </div>
 
-            <ul class="bullet-list">
-              <li class="bullet-item">
-                <strong class="bullet-label">Earlier awareness:</strong>
-                <span class="bullet-text">identify systemic drift before conventional alarms become obvious.</span>
-              </li>
-              <li class="bullet-item">
-                <strong class="bullet-label">Explainable outputs:</strong>
-                <span class="bullet-text">each interpretation is bounded by explicit admissibility logic.</span>
-              </li>
-              <li class="bullet-item">
-                <strong class="bullet-label">Operational fit:</strong>
-                <span class="bullet-text">works alongside SCADA, historians, and established monitoring environments.</span>
-              </li>
-              <li class="bullet-item">
-                <strong class="bullet-label">Defensible review:</strong>
-                <span class="bullet-text">preserves records for engineering analysis, compliance review, and incident investigation.</span>
-              </li>
-            </ul>
-          </aside>
+          <div class="diagram-item">
+            <h4 class="diagram-title">Physical Coherence</h4>
+            <p class="diagram-text">
+              Constrains interpretation to valid engineering meaning and
+              admissible abstraction boundaries.
+            </p>
+          </div>
+
+          <div class="diagram-item">
+            <h4 class="diagram-title">Read Only Deployment</h4>
+            <p class="diagram-text">
+              Operates at the edge without modifying control systems or
+              issuing directives.
+            </p>
+          </div>
+
         </div>
+
       </div>
-    </section>
 
-    <section class="technical-section technical-section--flow" aria-labelledby="system-flow-heading">
-      <div class="container">
-        <h2 id="system-flow-heading" class="section-title">
-          <span class="title-prefix">[</span>System Flow<span class="title-prefix">]</span>
-        </h2>
 
-        <div class="flow-grid">
-          <article class="flow-step">
-            <span class="flow-step__number">01</span>
-            <h3 class="flow-step__title">Ingest</h3>
-            <p class="flow-step__text">
-              Telemetry enters from existing industrial sources, including historians, SCADA layers, and edge systems.
-            </p>
-          </article>
+      <aside class="tech-panel tech-panel--accent">
 
-          <article class="flow-step">
-            <span class="flow-step__number">02</span>
-            <h3 class="flow-step__title">Model</h3>
-            <p class="flow-step__text">
-              Signal relationships are evaluated as a system-level structure rather than independent sensor events.
-            </p>
-          </article>
+        <h3 class="tech-panel-title">Why This Matters</h3>
 
-          <article class="flow-step">
-            <span class="flow-step__number">03</span>
-            <h3 class="flow-step__title">Validate</h3>
-            <p class="flow-step__text">
-              Temporal persistence and admissibility constraints reduce false escalation from transient anomalies.
-            </p>
-          </article>
+        <ul class="bullet-list">
 
-          <article class="flow-step">
-            <span class="flow-step__number">04</span>
-            <h3 class="flow-step__title">Escalate</h3>
-            <p class="flow-step__text">
-              Only physically coherent deviations advance into operator-visible interpretation and engineering review.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
+          <li class="bullet-item">
+            <strong class="bullet-label">Earlier awareness:</strong>
+            <span class="bullet-text">
+              detect drift before failure states become obvious in
+              conventional alarms.
+            </span>
+          </li>
 
-  <footer class="footer" role="contentinfo">
-    <div class="container footer__inner">
-      <div class="footer-text">
-        © <span id="year"></span> Neraium. All rights reserved.
-      </div>
-      <div class="footer-tagline">
-        Systemic infrastructure intelligence.
-      </div>
+          <li class="bullet-item">
+            <strong class="bullet-label">Explainable outputs:</strong>
+            <span class="bullet-text">
+              every interpretation is bounded by explicit admissibility logic.
+            </span>
+          </li>
+
+          <li class="bullet-item">
+            <strong class="bullet-label">Operational fit:</strong>
+            <span class="bullet-text">
+              works alongside SCADA, historian, and existing monitoring
+              environments.
+            </span>
+          </li>
+
+          <li class="bullet-item">
+            <strong class="bullet-label">Defensible review:</strong>
+            <span class="bullet-text">
+              preserves records for engineering analysis, compliance review,
+              and post incident investigation.
+            </span>
+          </li>
+
+        </ul>
+
+      </aside>
+
     </div>
-  </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+  </div>
 
-    const navToggle = document.getElementById('nav-toggle');
-    const mainNav = document.getElementById('main-nav');
-    const navLinks = document.querySelectorAll('.nav-link');
+</section>
 
-    function closeNav() {
-      navToggle.setAttribute('aria-expanded', 'false');
-      mainNav.classList.remove('nav--open');
-    }
 
-    function openNav() {
-      navToggle.setAttribute('aria-expanded', 'true');
-      mainNav.classList.add('nav--open');
-    }
 
-    navToggle.addEventListener('click', () => {
-      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-      isExpanded ? closeNav() : openNav();
-    });
+<section class="technical-section" aria-labelledby="example-heading">
 
-    navLinks.forEach((link) => {
-      link.addEventListener('click', closeNav);
-    });
+  <div class="container">
 
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        closeNav();
-      }
-    });
+    <h2 id="example-heading" class="section-title">
+      <span class="title-prefix">[</span>Example System Drift<span class="title-prefix">]</span>
+    </h2>
 
-    document.addEventListener('click', (event) => {
-      const clickedInsideNav = mainNav.contains(event.target);
-      const clickedToggle = navToggle.contains(event.target);
+    <div class="info-panel">
 
-      if (!clickedInsideNav && !clickedToggle) {
-        closeNav();
-      }
-    });
+      <img
+        src="IMG_9010.png"
+        alt="Example showing systemic drift emerging before failure using Mahalanobis distance"
+        class="tech-image"
+      />
 
-    const currentPageAttr = document.body.getAttribute('data-page');
-    navLinks.forEach((link) => {
-      if (link.getAttribute('data-page') === currentPageAttr) {
-        link.classList.add('active');
-        link.setAttribute('aria-current', 'page');
-      }
-    });
-  </script>
+      <p class="info-text">
+        Example of systemic drift emerging before failure in an operational
+        system. The admission threshold identifies a persistent deviation
+        well before the actual failure point, providing earlier awareness
+        of structural change within the system.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer class="footer" role="contentinfo">
+
+  <div class="container footer__inner">
+
+    <div class="footer-text">
+      © <span id="year"></span> Neraium. All rights reserved.
+    </div>
+
+    <div class="footer-tagline">
+      Systemic infrastructure intelligence.
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const navToggle = document.getElementById('nav-toggle');
+const mainNav = document.getElementById('main-nav');
+
+navToggle.addEventListener('click', () => {
+
+  const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+
+  navToggle.setAttribute('aria-expanded', !isExpanded);
+
+  mainNav.classList.toggle('nav--open');
+
+});
+
+const navLinks = document.querySelectorAll('.nav-link');
+
+navLinks.forEach(link => {
+
+  link.addEventListener('click', () => {
+
+    navToggle.setAttribute('aria-expanded', 'false');
+    mainNav.classList.remove('nav--open');
+
+  });
+
+});
+
+const currentPageAttr = document.body.getAttribute('data-page');
+
+navLinks.forEach(link => {
+
+  if (link.getAttribute('data-page') === currentPageAttr) {
+
+    link.classList.add('active');
+    link.setAttribute('aria-current', 'page');
+
+  }
+
+});
+
+</script>
+
 </body>
 </html>

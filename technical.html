@@ -42,45 +42,56 @@
   </header>
 
   <main>
-    <section class="section">
-      <div class="container section-grid">
-        <div class="section-intro">
-          <div class="eyebrow">Technical</div>
-          <h2>Identifying structural change before failures become visible</h2>
-        </div>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Technical</span>
+        <h1 class="page-hero__title">Identifying structural change<br>before failures become visible</h1>
+        <p class="page-hero__sub">Neraium analyzes signal relationships, not isolated thresholds — detecting drift in how systems behave together.</p>
+      </div>
+    </section>
 
-        <div class="section-copy">
+    <section class="editorial">
+      <div class="container editorial__grid">
+        <div class="editorial__label">
+          <span class="eyebrow">How It Works</span>
+        </div>
+        <div class="editorial__body">
+          <h2>Signal relationships reveal what thresholds miss</h2>
           <p>
-            Neraium analyzes how signals across an industrial system interact over time. When those relationships begin to shift, it can indicate that degradation or instability is emerging even when individual sensors still appear normal.
+            Neraium analyzes how signals across an industrial system interact over time. When those relationships begin to shift, it can indicate that degradation or instability is emerging — even when individual sensors still appear normal.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark">
+    <section class="editorial editorial--dark">
       <div class="container">
-        <div class="section-intro section-intro--center">
-          <div class="eyebrow">Technical Approach</div>
+        <div class="platform-section__header">
+          <span class="eyebrow">Technical Approach</span>
           <h2>What the system evaluates continuously</h2>
         </div>
 
         <div class="platform-grid">
           <div class="platform-card">
+            <div class="platform-card__number">01</div>
             <div class="platform-card__label">Signal Relationships</div>
             <p class="platform-card__text">Relationships between sensors across equipment and processes.</p>
           </div>
 
           <div class="platform-card">
+            <div class="platform-card__number">02</div>
             <div class="platform-card__label">Behavior Over Time</div>
             <p class="platform-card__text">Stability of system behavior as operating conditions change.</p>
           </div>
 
           <div class="platform-card">
+            <div class="platform-card__number">03</div>
             <div class="platform-card__label">Emerging Patterns</div>
             <p class="platform-card__text">Patterns that may indicate degradation or growing instability.</p>
           </div>
 
           <div class="platform-card">
+            <div class="platform-card__number">04</div>
             <div class="platform-card__label">Operating Dynamics</div>
             <p class="platform-card__text">Shifts in multi-signal behavior that do not appear in isolated thresholds.</p>
           </div>
@@ -88,14 +99,13 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container section-grid">
-        <div class="section-intro">
-          <div class="eyebrow">Example</div>
-          <h2>Structural drift before failure</h2>
+    <section class="editorial">
+      <div class="container editorial__grid">
+        <div class="editorial__label">
+          <span class="eyebrow">Example</span>
         </div>
-
-        <div class="section-copy">
+        <div class="editorial__body">
+          <h2>Structural drift before failure</h2>
           <img src="IMG_9010.png" alt="Example chart showing systemic drift emerging before failure" class="tech-image">
           <p>
             This example shows how systemic drift can emerge well before the actual failure point, giving operations and reliability teams earlier visibility into developing problems.
@@ -103,12 +113,30 @@
         </div>
       </div>
     </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-band__inner">
+          <p class="cta-band__heading">See how structural change detection applies to your environment.</p>
+          <a href="contact.html" class="button button--primary">Request a Briefing</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <div class="footer-text">© <span id="year"></span> Neraium</div>
-      <div class="footer-tagline">Systemic Infrastructure Intelligence</div>
+      <div class="footer__brand">
+        <span class="brand-text">Neraium</span>
+        <span class="footer__tagline">Systemic Infrastructure Intelligence</span>
+      </div>
+      <nav class="footer__nav">
+        <a href="platform.html" class="footer__link">Platform</a>
+        <a href="technical.html" class="footer__link">Technical</a>
+        <a href="governance.html" class="footer__link">Governance</a>
+        <a href="contact.html" class="footer__link">Contact</a>
+      </nav>
+      <div class="footer__copy">© <span id="year"></span> Neraium</div>
     </div>
   </footer>
 

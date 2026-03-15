@@ -4,8 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Neraium | Platform</title>
-  <meta name="description" content="Neraium separates signal detection, interpretation governance, and evidentiary accountability." />
+  <meta
+    name="description"
+    content="Platform architecture for systemic infrastructure intelligence, edge deployment, and read-only telemetry interpretation."
+  />
   <meta name="theme-color" content="#000000" />
+  <meta property="og:title" content="Neraium | Platform" />
+  <meta
+    property="og:description"
+    content="A read-only interpretation platform for multivariate infrastructure telemetry."
+  />
+  <meta property="og:type" content="website" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-page="platform">
@@ -17,8 +26,15 @@
         <span class="brand-text">Neraium</span>
         <span class="brand-accent">&gt;</span>
       </a>
-      
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+        type="button"
+      >
         <span class="nav-toggle__line"></span>
         <span class="nav-toggle__line"></span>
         <span class="nav-toggle__line"></span>
@@ -38,76 +54,147 @@
     <section class="page-hero" aria-labelledby="page-title">
       <div class="container">
         <div class="eyebrow">&gt; Platform</div>
-        <h1 id="page-title">Three layers for defensible infrastructure interpretation</h1>
+        <h1 id="page-title">A read-only platform for systemic infrastructure interpretation</h1>
         <p class="page-copy">
-          Neraium separates signal detection, interpretation governance, and
-          evidentiary accountability so outputs remain useful under operational,
-          regulatory, and post incident scrutiny.
+          Neraium sits alongside existing infrastructure systems, ingests telemetry without
+          modifying control environments, and produces structured interpretation for engineering
+          review and operational awareness.
         </p>
       </div>
     </section>
 
-    <section class="capabilities-section" aria-labelledby="layers-heading">
+    <section class="capabilities-section" aria-labelledby="platform-layers-heading">
       <div class="container">
-        <h2 id="layers-heading" class="section-title">
+        <h2 id="platform-layers-heading" class="section-title">
           <span class="title-prefix">[</span>Platform Layers<span class="title-prefix">]</span>
         </h2>
+
         <div class="grid-3">
           <article class="card">
             <div class="card-number">[01]</div>
-            <h3 class="card-title">Signal Geometry Layer</h3>
+            <h3 class="card-title">Telemetry Intake Layer</h3>
             <p class="card-description">
-              Models covariance structure in multivariate telemetry to detect
-              system level deformation without requiring historical failure data.
+              Receives multivariate telemetry from historians, SCADA environments, edge systems,
+              and other existing operational data sources without requiring replacement of
+              incumbent infrastructure.
             </p>
           </article>
 
           <article class="card">
             <div class="card-number">[02]</div>
-            <h3 class="card-title">Aletheia's Gate</h3>
+            <h3 class="card-title">Interpretation Layer</h3>
             <p class="card-description">
-              Applies deterministic admissibility criteria including temporal
-              persistence, physical interpretation boundaries, and multi sensor correlation thresholds.
+              Evaluates structural relationships across signals to determine whether system
+              behaviour remains coherent over time, rather than treating measurements as isolated
+              alarm conditions.
             </p>
           </article>
 
           <article class="card">
             <div class="card-number">[03]</div>
-            <h3 class="card-title">Evidence Vault Protocol</h3>
+            <h3 class="card-title">Review Output Layer</h3>
             <p class="card-description">
-              Preserves a verifiable record of measured divergence, criteria used,
-              system state, and final interpretation decision.
+              Produces operator-facing and engineering-facing outputs that support review,
+              escalation, and downstream accountability without issuing machine control commands.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="info-section" aria-labelledby="operational-heading">
+    <section class="info-section" aria-labelledby="operational-role-heading">
       <div class="container">
         <div class="info-panel">
-          <h2 id="operational-heading" class="info-title">
+          <h2 id="operational-role-heading" class="info-title">
             <span class="title-prefix">[</span>Operational Role<span class="title-prefix">]</span>
           </h2>
           <p class="info-text">
-            Neraium operates as a read only interpretation layer that ingests telemetry from
-            existing infrastructure systems. It does not control equipment, modify control logic,
-            or issue operational directives.
+            Neraium operates as an interpretation layer, not a control layer. It reads telemetry,
+            evaluates systemic behaviour, and surfaces structured findings for human and
+            institutional use. It does not actuate equipment, modify PLC logic, or replace
+            established supervisory systems.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="info-section" aria-labelledby="deployment-heading">
+    <section class="info-section" aria-labelledby="deployment-model-heading">
       <div class="container">
         <div class="info-panel">
-          <h2 id="deployment-heading" class="info-title">
+          <h2 id="deployment-model-heading" class="info-title">
             <span class="title-prefix">[</span>Deployment Model<span class="title-prefix">]</span>
           </h2>
           <p class="info-text">
-            The platform is designed for infrastructure edge deployment and can process telemetry
-            locally without continuous cloud connectivity.
+            The platform is designed for edge-oriented deployment, allowing telemetry to be
+            processed close to the operational environment. This supports lower-latency analysis,
+            preserves local control boundaries, and reduces dependence on continuous cloud
+            connectivity.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="technical-section" aria-labelledby="platform-characteristics-heading">
+      <div class="container">
+        <h2 id="platform-characteristics-heading" class="section-title">
+          <span class="title-prefix">[</span>Platform Characteristics<span class="title-prefix">]</span>
+        </h2>
+
+        <div class="two-column-grid">
+          <div class="tech-panel">
+            <h3 class="tech-panel-title">System Fit</h3>
+            <div class="diagram-grid">
+              <div class="diagram-item">
+                <h4 class="diagram-title">Read-Only Integration</h4>
+                <p class="diagram-text">
+                  Connects to operational telemetry sources without modifying existing control paths.
+                </p>
+              </div>
+
+              <div class="diagram-item">
+                <h4 class="diagram-title">Edge-Compatible Design</h4>
+                <p class="diagram-text">
+                  Supports deployment within infrastructure environments where autonomy and locality matter.
+                </p>
+              </div>
+
+              <div class="diagram-item">
+                <h4 class="diagram-title">Operational Continuity</h4>
+                <p class="diagram-text">
+                  Fits alongside current monitoring stacks instead of demanding workflow replacement.
+                </p>
+              </div>
+
+              <div class="diagram-item">
+                <h4 class="diagram-title">Structured Outputs</h4>
+                <p class="diagram-text">
+                  Produces interpretable findings suitable for engineering review and institutional use.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="tech-panel tech-panel--accent" aria-labelledby="platform-why-heading">
+            <h3 id="platform-why-heading" class="tech-panel-title">Why It Matters</h3>
+            <ul class="bullet-list">
+              <li class="bullet-item">
+                <strong class="bullet-label">Low-friction adoption:</strong>
+                <span class="bullet-text">designed to work with infrastructure that already exists in the field.</span>
+              </li>
+              <li class="bullet-item">
+                <strong class="bullet-label">Operational separation:</strong>
+                <span class="bullet-text">preserves a clear boundary between interpretation and machine control.</span>
+              </li>
+              <li class="bullet-item">
+                <strong class="bullet-label">Deployment flexibility:</strong>
+                <span class="bullet-text">supports infrastructure environments where connectivity and trust boundaries vary.</span>
+              </li>
+              <li class="bullet-item">
+                <strong class="bullet-label">Engineering usability:</strong>
+                <span class="bullet-text">surfaces findings in a form that can be reviewed, challenged, and acted on responsibly.</span>
+              </li>
+            </ul>
+          </aside>
         </div>
       </div>
     </section>
@@ -125,31 +212,48 @@
   </footer>
 
   <script>
-    // Dynamic copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile navigation toggle
     const navToggle = document.getElementById('nav-toggle');
     const mainNav = document.getElementById('main-nav');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function closeNav() {
+      navToggle.setAttribute('aria-expanded', 'false');
+      mainNav.classList.remove('nav--open');
+    }
+
+    function openNav() {
+      navToggle.setAttribute('aria-expanded', 'true');
+      mainNav.classList.add('nav--open');
+    }
 
     navToggle.addEventListener('click', () => {
       const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', !isExpanded);
-      mainNav.classList.toggle('nav--open');
+      isExpanded ? closeNav() : openNav();
     });
 
-    // Close nav when link is clicked
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navToggle.setAttribute('aria-expanded', 'false');
-        mainNav.classList.remove('nav--open');
-      });
+    navLinks.forEach((link) => {
+      link.addEventListener('click', closeNav);
     });
 
-    // Active navigation state management
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeNav();
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      const clickedInsideNav = mainNav.contains(event.target);
+      const clickedToggle = navToggle.contains(event.target);
+
+      if (!clickedInsideNav && !clickedToggle) {
+        closeNav();
+      }
+    });
+
     const currentPageAttr = document.body.getAttribute('data-page');
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
       if (link.getAttribute('data-page') === currentPageAttr) {
         link.classList.add('active');
         link.setAttribute('aria-current', 'page');

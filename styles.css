@@ -34,6 +34,7 @@ font-family:var(--font-base);
 background:var(--color-bg);
 color:var(--color-text);
 line-height:1.6;
+
 opacity:0;
 animation:fadeIn .6s ease forwards;
 }
@@ -111,51 +112,101 @@ overflow:hidden;
 border-bottom:1px solid var(--color-line);
 }
 
+/* HERO BACKGROUND IMAGE */
+
 .hero-media{
 position:absolute;
 inset:0;
+
 background-image:
 linear-gradient(to right,rgba(5,6,8,.9),rgba(5,6,8,.55)),
 url("hero.png");
+
 background-size:cover;
 background-position:center;
+
 transform:scale(1.05);
+
 animation:heroDrift 40s ease-in-out infinite alternate;
 }
 
 @keyframes heroDrift{
+
 0%{
 transform:scale(1.05) translateY(0px);
 }
+
 100%{
 transform:scale(1.08) translateY(-20px);
 }
+
 }
 
-/* HERO TELEMETRY GRID */
+/* TELEMETRY GRID */
 
 .hero::after{
 content:"";
 position:absolute;
 inset:0;
+
 background-image:
 linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
 linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+
 background-size:120px 120px;
+
 opacity:.15;
+
 pointer-events:none;
+
 animation:gridMove 60s linear infinite;
+
 z-index:1;
 }
 
 @keyframes gridMove{
+0%{transform:translateY(0);}
+100%{transform:translateY(-120px);}
+}
+
+/* SIGNAL SWEEP */
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+inset:0;
+
+background:linear-gradient(
+120deg,
+transparent 40%,
+rgba(255,255,255,.08) 50%,
+transparent 60%
+);
+
+opacity:.15;
+
+animation:signalSweep 12s linear infinite;
+
+pointer-events:none;
+
+z-index:1;
+}
+
+@keyframes signalSweep{
+
 0%{
-transform:translateY(0);
+transform:translateX(-100%);
 }
+
 100%{
-transform:translateY(-120px);
+transform:translateX(100%);
 }
+
 }
+
+/* HERO CONTENT */
 
 .hero-content{
 position:relative;
@@ -164,10 +215,14 @@ padding:100px 0;
 }
 
 .hero-content--narrow{
+
 max-width:720px;
+
 background:rgba(5,6,8,.35);
 border:1px solid rgba(255,255,255,.1);
+
 backdrop-filter:blur(6px);
+
 padding:32px;
 border-radius:var(--radius-lg);
 }

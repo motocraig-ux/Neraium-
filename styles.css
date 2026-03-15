@@ -31,6 +31,7 @@
   --space-5: 48px;
   --space-6: 72px;
   --space-7: 104px;
+  --space-8: 120px;
 
   --radius-sm: 6px;
   --radius-md: 12px;
@@ -215,6 +216,11 @@ select {
 
 .hero-content--narrow {
   max-width: 720px;
+  padding: 28px 32px;
+  background: rgba(5, 6, 8, 0.34);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-lg);
 }
 
 .eyebrow {
@@ -246,6 +252,22 @@ h2 {
 
 h3 {
   font-size: 22px;
+}
+
+.page-hero__content h1::after,
+.section-intro h2::after,
+.section-intro--center h2::after {
+  content: '';
+  display: block;
+  width: 72px;
+  height: 1px;
+  margin-top: 18px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+}
+
+.section-intro--center h2::after {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 p {
@@ -301,7 +323,7 @@ p {
 
 .section,
 .page-hero {
-  padding: var(--space-7) 0;
+  padding: var(--space-8) 0;
   border-bottom: 1px solid var(--color-line);
 }
 
@@ -354,6 +376,7 @@ p {
   border: 1px solid var(--color-line);
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .feature-panel h3 {
@@ -375,6 +398,7 @@ p {
   border: 1px solid var(--color-line);
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
   transition:
     border-color var(--transition),
     background-color var(--transition),
@@ -386,7 +410,7 @@ p {
   border-color: rgba(200, 166, 106, 0.44);
   background: rgba(255, 255, 255, 0.04);
   transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.22);
 }
 
 .link-card__label {
@@ -413,6 +437,8 @@ p {
   border: 1px solid var(--color-line);
   margin-bottom: 24px;
   box-shadow: 0 22px 48px rgba(0, 0, 0, 0.28);
+  background: #0b0e12;
+  padding: 10px;
 }
 
 .footer {
@@ -505,6 +531,11 @@ p {
     padding: 84px 0;
   }
 
+  .hero-content--narrow {
+    padding: 22px 22px;
+    background: rgba(5, 6, 8, 0.28);
+  }
+
   .hero-media {
     inset: 0;
     transform: scale(1.03);
@@ -546,6 +577,10 @@ p {
   .feature-list {
     margin: 20px 0;
     padding-left: 18px;
+  }
+
+  .tech-image {
+    padding: 8px;
   }
 }
 

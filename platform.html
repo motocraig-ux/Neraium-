@@ -6,7 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neraium Platform | Systemic Infrastructure Intelligence</title>
   <meta name="description" content="A read-only intelligence layer that analyzes existing plant telemetry to identify structural changes in system behavior.">
+  <meta property="og:title" content="Neraium Platform">
+  <meta property="og:description" content="A read-only intelligence layer that analyzes existing plant telemetry to identify structural changes in system behavior.">
+  <meta property="og:image" content="https://www.neraium.com/hero.png">
+  <meta property="og:url" content="https://www.neraium.com/platform.html">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://www.neraium.com/platform.html">
   <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="site.webmanifest">
 </head>
 
 <body>
@@ -16,54 +25,70 @@
         <span class="brand-text">Neraium</span>
       </a>
 
-      <nav class="nav">
+      <nav class="nav" aria-label="Main navigation">
         <a href="index.html" class="nav-link">Home</a>
         <a href="platform.html" class="nav-link active">Platform</a>
         <a href="technical.html" class="nav-link">Technical</a>
         <a href="governance.html" class="nav-link">Governance</a>
         <a href="contact.html" class="nav-link">Contact</a>
       </nav>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="this.previousElementSibling.classList.toggle('open')">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
     </div>
   </header>
 
   <main>
-    <section class="section">
-      <div class="container section-grid">
-        <div class="section-intro">
-          <div class="eyebrow">Platform</div>
-          <h2>A read-only intelligence layer for industrial infrastructure</h2>
-        </div>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Platform</span>
+        <h1 class="page-hero__title">A read-only intelligence layer<br>for industrial infrastructure</h1>
+        <p class="page-hero__sub">Deployed alongside your existing stack. No control system access. No operational disruption.</p>
+      </div>
+    </section>
 
-        <div class="section-copy">
+    <section class="editorial">
+      <div class="container editorial__grid">
+        <div class="editorial__label">
+          <span class="eyebrow">Overview</span>
+        </div>
+        <div class="editorial__body">
+          <h2>Built to observe, not to intervene</h2>
           <p>
             Neraium analyzes existing plant telemetry to identify structural changes in system behavior before failures occur, without interacting with control systems or modifying plant operations.
           </p>
           <p>
-            The system is designed to sit alongside existing monitoring infrastructure, allowing teams to evaluate systemic behavior with minimal deployment risk.
+            The system sits alongside existing monitoring infrastructure, allowing reliability teams to evaluate systemic behavior with minimal deployment risk.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark">
+    <section class="editorial editorial--dark">
       <div class="container">
-        <div class="section-intro section-intro--center">
-          <div class="eyebrow">Platform Structure</div>
+        <div class="platform-section__header">
+          <span class="eyebrow">Platform Structure</span>
           <h2>Three parts of the platform</h2>
         </div>
 
         <div class="platform-grid">
           <div class="platform-card">
+            <div class="platform-card__number">01</div>
             <div class="platform-card__label">Telemetry Intake</div>
             <p class="platform-card__text">Ingests existing sensor and process data from plant environments.</p>
           </div>
 
           <div class="platform-card">
+            <div class="platform-card__number">02</div>
             <div class="platform-card__label">System Analysis</div>
             <p class="platform-card__text">Evaluates changing relationships across signals over time.</p>
           </div>
 
           <div class="platform-card">
+            <div class="platform-card__number">03</div>
             <div class="platform-card__label">Actionable Output</div>
             <p class="platform-card__text">Highlights equipment or processes that may require earlier attention.</p>
           </div>
@@ -71,14 +96,13 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container section-grid">
-        <div class="section-intro">
-          <div class="eyebrow">Where This Applies</div>
-          <h2>Designed for complex industrial environments</h2>
+    <section class="editorial">
+      <div class="container editorial__grid">
+        <div class="editorial__label">
+          <span class="eyebrow">Where This Applies</span>
         </div>
-
-        <div class="section-copy">
+        <div class="editorial__body">
+          <h2>Designed for complex industrial environments</h2>
           <ul class="feature-list">
             <li>Steel production and melt shops</li>
             <li>Heavy manufacturing facilities</li>
@@ -88,12 +112,30 @@
         </div>
       </div>
     </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-band__inner">
+          <p class="cta-band__heading">Evaluate systemic intelligence on your real telemetry.</p>
+          <a href="contact.html" class="button button--primary">Request a Pilot</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <div class="footer-text">© <span id="year"></span> Neraium</div>
-      <div class="footer-tagline">Systemic Infrastructure Intelligence</div>
+      <div class="footer__brand">
+        <span class="brand-text">Neraium</span>
+        <span class="footer__tagline">Systemic Infrastructure Intelligence</span>
+      </div>
+      <nav class="footer__nav">
+        <a href="platform.html" class="footer__link">Platform</a>
+        <a href="technical.html" class="footer__link">Technical</a>
+        <a href="governance.html" class="footer__link">Governance</a>
+        <a href="contact.html" class="footer__link">Contact</a>
+      </nav>
+      <div class="footer__copy">© <span id="year"></span> Neraium</div>
     </div>
   </footer>
 

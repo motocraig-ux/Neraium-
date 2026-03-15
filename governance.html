@@ -4,8 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Neraium | Governance</title>
-  <meta name="description" content="Interpretation governance and evidentiary accountability." />
+  <meta
+    name="description"
+    content="Interpretation governance, admissibility controls, refusal logic, and evidentiary accountability."
+  />
   <meta name="theme-color" content="#000000" />
+  <meta property="og:title" content="Neraium | Governance" />
+  <meta
+    property="og:description"
+    content="Controls that determine when inference is allowed, suppressed, or refused."
+  />
+  <meta property="og:type" content="website" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-page="governance">
@@ -17,8 +26,15 @@
         <span class="brand-text">Neraium</span>
         <span class="brand-accent">&gt;</span>
       </a>
-      
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+        type="button"
+      >
         <span class="nav-toggle__line"></span>
         <span class="nav-toggle__line"></span>
         <span class="nav-toggle__line"></span>
@@ -38,10 +54,11 @@
     <section class="page-hero" aria-labelledby="page-title">
       <div class="container">
         <div class="eyebrow">&gt; Governance</div>
-        <h1 id="page-title">Signals are admitted, suppressed, or refused</h1>
+        <h1 id="page-title">Inference is admitted, suppressed, or refused</h1>
         <p class="page-copy">
-          Interpretation governance determines when the system may infer meaning
-          and when uncertainty must override signal.
+          Neraium does not treat every anomaly as meaningful. Governance defines when the system
+          may infer engineering significance, when weak signals must be suppressed, and when
+          uncertainty should override escalation entirely.
         </p>
       </div>
     </section>
@@ -51,42 +68,129 @@
         <h2 id="governance-components-heading" class="section-title">
           <span class="title-prefix">[</span>Governance Components<span class="title-prefix">]</span>
         </h2>
+
         <div class="grid-2">
           <article class="gov-panel">
-            <h3 class="gov-panel-title">Aletheia's Gate</h3>
-            <p class="gov-panel-description">The admissibility boundary enforces interpretive discipline before escalation.</p>
+            <h3 class="gov-panel-title">Admissibility Boundary</h3>
+            <p class="gov-panel-description">
+              Interpretation is permitted only when system behaviour meets defined admissibility
+              conditions rather than merely exhibiting statistical irregularity.
+            </p>
             <ul class="gov-list">
               <li class="gov-list-item">Physical interpretation constraints</li>
               <li class="gov-list-item">Temporal persistence requirements</li>
-              <li class="gov-list-item">Multi sensor correlation thresholds</li>
-              <li class="gov-list-item">Suppression of weak or invalid signals</li>
+              <li class="gov-list-item">Cross-signal coherence checks</li>
+              <li class="gov-list-item">Boundary enforcement before escalation</li>
             </ul>
           </article>
 
           <article class="gov-panel">
-            <h3 class="gov-panel-title">Evidentiary Accountability</h3>
-            <p class="gov-panel-description">Every outcome is preserved with the context required for later review.</p>
+            <h3 class="gov-panel-title">Evidence Preservation</h3>
+            <p class="gov-panel-description">
+              Every admitted outcome is retained with the context needed for later technical,
+              operational, and institutional review.
+            </p>
             <ul class="gov-list">
               <li class="gov-list-item">Measured system divergence</li>
-              <li class="gov-list-item">Admissibility criteria applied</li>
-              <li class="gov-list-item">System state at evaluation</li>
-              <li class="gov-list-item">Final interpretation decision</li>
+              <li class="gov-list-item">Criteria applied at evaluation time</li>
+              <li class="gov-list-item">System state during assessment</li>
+              <li class="gov-list-item">Final interpretation outcome</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="info-section" aria-labelledby="constraints-heading">
+    <section class="technical-section" aria-labelledby="decision-outcomes-heading">
+      <div class="container">
+        <h2 id="decision-outcomes-heading" class="section-title">
+          <span class="title-prefix">[</span>Decision Outcomes<span class="title-prefix">]</span>
+        </h2>
+
+        <div class="two-column-grid">
+          <div class="tech-panel">
+            <h3 class="tech-panel-title">When Signals Are Admitted</h3>
+            <div class="diagram-grid">
+              <div class="diagram-item">
+                <h4 class="diagram-title">Persistent Deviation</h4>
+                <p class="diagram-text">
+                  The observed pattern remains present long enough to exceed transient anomaly behaviour.
+                </p>
+              </div>
+
+              <div class="diagram-item">
+                <h4 class="diagram-title">Physical Plausibility</h4>
+                <p class="diagram-text">
+                  The interpretation remains consistent with engineering-valid system behaviour.
+                </p>
+              </div>
+
+              <div class="diagram-item">
+                <h4 class="diagram-title">Cross-Signal Agreement</h4>
+                <p class="diagram-text">
+                  Multiple signals support the interpretation instead of contradicting it.
+                </p>
+              </div>
+
+              <div class="diagram-item">
+                <h4 class="diagram-title">Escalation Eligibility</h4>
+                <p class="diagram-text">
+                  Only after admissibility is satisfied can a finding advance into reviewable output.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="tech-panel tech-panel--accent" aria-labelledby="suppression-heading">
+            <h3 id="suppression-heading" class="tech-panel-title">When Signals Are Blocked</h3>
+            <ul class="bullet-list">
+              <li class="bullet-item">
+                <strong class="bullet-label">Suppressed:</strong>
+                <span class="bullet-text">weak, transient, or poorly supported deviations do not advance to meaningful interpretation.</span>
+              </li>
+              <li class="bullet-item">
+                <strong class="bullet-label">Refused:</strong>
+                <span class="bullet-text">signals that fall outside valid interpretive boundaries are denied inference altogether.</span>
+              </li>
+              <li class="bullet-item">
+                <strong class="bullet-label">Bounded:</strong>
+                <span class="bullet-text">the system cannot claim more meaning than the available evidence and constraints permit.</span>
+              </li>
+              <li class="bullet-item">
+                <strong class="bullet-label">Reviewable:</strong>
+                <span class="bullet-text">the basis for admission, suppression, or refusal remains available for later inspection.</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section" aria-labelledby="governance-role-heading">
       <div class="container">
         <div class="info-panel">
-          <h2 id="constraints-heading" class="info-title">
-            <span class="title-prefix">[</span>Interpretation Constraints<span class="title-prefix">]</span>
+          <h2 id="governance-role-heading" class="info-title">
+            <span class="title-prefix">[</span>Governance Role<span class="title-prefix">]</span>
           </h2>
           <p class="info-text">
-            Interpretation governance defines when the system may infer meaning and when the system
-            must refuse inference. These guardrails preserve engineering legitimacy and prevent
-            escalation of signals that fall outside admissible interpretive boundaries.
+            Governance exists to preserve interpretive discipline. It prevents statistically unusual
+            behaviour from being automatically treated as meaningful system knowledge and ensures
+            that any inference advanced by the platform remains bounded, defensible, and open to review.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section" aria-labelledby="accountability-heading">
+      <div class="container">
+        <div class="info-panel">
+          <h2 id="accountability-heading" class="info-title">
+            <span class="title-prefix">[</span>Accountability Model<span class="title-prefix">]</span>
+          </h2>
+          <p class="info-text">
+            Neraium preserves the context required to understand why a signal was admitted,
+            suppressed, or refused. That record supports engineering analysis, post-incident
+            review, regulatory scrutiny, and institutional memory.
           </p>
         </div>
       </div>
@@ -105,31 +209,48 @@
   </footer>
 
   <script>
-    // Dynamic copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile navigation toggle
     const navToggle = document.getElementById('nav-toggle');
     const mainNav = document.getElementById('main-nav');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function closeNav() {
+      navToggle.setAttribute('aria-expanded', 'false');
+      mainNav.classList.remove('nav--open');
+    }
+
+    function openNav() {
+      navToggle.setAttribute('aria-expanded', 'true');
+      mainNav.classList.add('nav--open');
+    }
 
     navToggle.addEventListener('click', () => {
       const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', !isExpanded);
-      mainNav.classList.toggle('nav--open');
+      isExpanded ? closeNav() : openNav();
     });
 
-    // Close nav when link is clicked
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navToggle.setAttribute('aria-expanded', 'false');
-        mainNav.classList.remove('nav--open');
-      });
+    navLinks.forEach((link) => {
+      link.addEventListener('click', closeNav);
     });
 
-    // Active navigation state management
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeNav();
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      const clickedInsideNav = mainNav.contains(event.target);
+      const clickedToggle = navToggle.contains(event.target);
+
+      if (!clickedInsideNav && !clickedToggle) {
+        closeNav();
+      }
+    });
+
     const currentPageAttr = document.body.getAttribute('data-page');
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
       if (link.getAttribute('data-page') === currentPageAttr) {
         link.classList.add('active');
         link.setAttribute('aria-current', 'page');

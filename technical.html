@@ -1,208 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neraium | Technical</title>
-  <meta
-    name="description"
-    content="Technical approach for identifying structural changes in industrial systems using relationships across signals over time."
-  />
-  <meta name="theme-color" content="#050608" />
-
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="manifest" href="site.webmanifest" />
-
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neraium Technical | Systemic Infrastructure Intelligence</title>
+  <meta name="description" content="Technical approach for identifying structural changes in industrial systems using relationships across signals over time.">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body data-page="technical">
-  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header class="site-header" role="banner">
+<body>
+  <header class="site-header">
     <div class="container site-header__inner">
-      <a href="index.html" class="brand" aria-label="Neraium Home">
+      <a href="index.html" class="brand">
         <span class="brand-text">Neraium</span>
       </a>
 
-      <button
-        class="nav-toggle"
-        id="nav-toggle"
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-        aria-controls="main-nav"
-        type="button"
-      >
-        <span class="nav-toggle__line"></span>
-        <span class="nav-toggle__line"></span>
-        <span class="nav-toggle__line"></span>
-      </button>
-
-      <nav class="nav" id="main-nav" aria-label="Primary navigation">
-        <a href="index.html" class="nav-link" data-page="index">Home</a>
-        <a href="platform.html" class="nav-link" data-page="platform">Platform</a>
-        <a href="technical.html" class="nav-link" data-page="technical">Technical</a>
-        <a href="governance.html" class="nav-link" data-page="governance">Governance</a>
-        <a href="contact.html" class="nav-link" data-page="contact">Contact</a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="platform.html" class="nav-link">Platform</a>
+        <a href="technical.html" class="nav-link active">Technical</a>
+        <a href="governance.html" class="nav-link">Governance</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main id="main-content">
-    <section class="page-hero" aria-labelledby="page-title">
-      <div class="container page-hero__content">
-        <div class="eyebrow">Technical</div>
-        <h1 id="page-title">Identifying structural change before failures become visible</h1>
-        <p class="page-copy">
-          Neraium analyzes how signals across an industrial system interact over time.
-          When those relationships begin to shift, it can indicate that degradation or
-          instability is emerging even when individual sensors still appear normal.
-        </p>
+  <main>
+    <section class="section">
+      <div class="container section-grid">
+        <div class="section-intro">
+          <div class="eyebrow">Technical</div>
+          <h2>Identifying structural change before failures become visible</h2>
+        </div>
+
+        <div class="section-copy">
+          <p>
+            Neraium analyzes how signals across an industrial system interact over time. When those relationships begin to shift, it can indicate that degradation or instability is emerging even when individual sensors still appear normal.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="technical-heading">
+    <section class="section section-dark">
       <div class="container">
         <div class="section-intro section-intro--center">
           <div class="eyebrow">Technical Approach</div>
-          <h2 id="technical-heading">What the system evaluates continuously</h2>
+          <h2>What the system evaluates continuously</h2>
         </div>
 
-        <div class="feature-grid">
-          <article class="feature-panel">
-            <h3>Signal relationships</h3>
-            <p>Relationships between sensors across equipment and processes.</p>
-          </article>
+        <div class="platform-grid">
+          <div class="platform-card">
+            <div class="platform-card__label">Signal Relationships</div>
+            <p class="platform-card__text">Relationships between sensors across equipment and processes.</p>
+          </div>
 
-          <article class="feature-panel">
-            <h3>Behavior over time</h3>
-            <p>Stability of system behavior as operating conditions change.</p>
-          </article>
+          <div class="platform-card">
+            <div class="platform-card__label">Behavior Over Time</div>
+            <p class="platform-card__text">Stability of system behavior as operating conditions change.</p>
+          </div>
 
-          <article class="feature-panel">
-            <h3>Emerging patterns</h3>
-            <p>Patterns that may indicate degradation or growing instability.</p>
-          </article>
+          <div class="platform-card">
+            <div class="platform-card__label">Emerging Patterns</div>
+            <p class="platform-card__text">Patterns that may indicate degradation or growing instability.</p>
+          </div>
 
-          <article class="feature-panel">
-            <h3>Operating dynamics</h3>
-            <p>Shifts in multi-signal behavior that do not appear in isolated thresholds.</p>
-          </article>
+          <div class="platform-card">
+            <div class="platform-card__label">Operating Dynamics</div>
+            <p class="platform-card__text">Shifts in multi-signal behavior that do not appear in isolated thresholds.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark" aria-labelledby="example-heading">
+    <section class="section">
       <div class="container section-grid">
         <div class="section-intro">
           <div class="eyebrow">Example</div>
-          <h2 id="example-heading">An example of structural drift appearing before failure</h2>
+          <h2>Structural drift before failure</h2>
         </div>
 
         <div class="section-copy">
-          <img
-            src="IMG_9010.png"
-            alt="Example chart showing systemic drift emerging before failure"
-            class="tech-image"
-          />
-
+          <img src="IMG_9010.png" alt="Example chart showing systemic drift emerging before failure" class="tech-image">
           <p>
-            This example shows how systemic drift can emerge well before the actual
-            failure point. The goal is earlier visibility into developing problems,
-            not just confirmation after failure is already obvious.
+            This example shows how systemic drift can emerge well before the actual failure point, giving operations and reliability teams earlier visibility into developing problems.
           </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="benefit-heading">
-      <div class="container section-grid">
-        <div class="section-intro">
-          <div class="eyebrow">Why It Matters</div>
-          <h2 id="benefit-heading">A better view of developing industrial problems</h2>
-        </div>
-
-        <div class="section-copy">
-          <p>
-            In complex industrial environments, failures frequently begin with subtle
-            shifts in system behavior. By identifying these changes earlier, Neraium
-            helps operations and reliability teams detect developing problems before
-            equipment failures occur.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-cta" aria-labelledby="cta-heading">
-      <div class="container section-grid">
-        <div class="section-intro">
-          <div class="eyebrow">Next Step</div>
-          <h2 id="cta-heading">Discuss Neraium</h2>
-        </div>
-
-        <div class="section-copy">
-          <p>
-            Explore deployment, pilot evaluation, or technical review for your environment.
-          </p>
-
-          <div class="button-row">
-            <a class="button button--primary" href="contact.html">Contact</a>
-          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer" role="contentinfo">
+  <footer class="footer">
     <div class="container footer__inner">
-      <div class="footer-text">© <span id="year"></span> Neraium. All rights reserved.</div>
+      <div class="footer-text">© <span id="year"></span> Neraium</div>
       <div class="footer-tagline">Systemic Infrastructure Intelligence</div>
     </div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const navToggle = document.getElementById('nav-toggle');
-    const mainNav = document.getElementById('main-nav');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    function closeNav() {
-      navToggle.setAttribute('aria-expanded', 'false');
-      mainNav.classList.remove('nav--open');
-    }
-
-    function openNav() {
-      navToggle.setAttribute('aria-expanded', 'true');
-      mainNav.classList.add('nav--open');
-    }
-
-    navToggle.addEventListener('click', () => {
-      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-      isExpanded ? closeNav() : openNav();
-    });
-
-    navLinks.forEach((link) => link.addEventListener('click', closeNav));
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') closeNav();
-    });
-
-    document.addEventListener('click', (event) => {
-      const clickedInsideNav = mainNav.contains(event.target);
-      const clickedToggle = navToggle.contains(event.target);
-      if (!clickedInsideNav && !clickedToggle) closeNav();
-    });
-
-    const currentPageAttr = document.body.getAttribute('data-page');
-    navLinks.forEach((link) => {
-      if (link.getAttribute('data-page') === currentPageAttr) {
-        link.classList.add('active');
-        link.setAttribute('aria-current', 'page');
-      }
-    });
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>

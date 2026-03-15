@@ -4,17 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Neraium | Systemic Infrastructure Intelligence</title>
-
   <meta name="description" content="Neraium provides Systemic Infrastructure Intelligence for industrial systems by identifying structural changes across telemetry before failures occur.">
-
   <meta property="og:title" content="Neraium">
   <meta property="og:description" content="Systemic Infrastructure Intelligence for industrial infrastructure.">
   <meta property="og:image" content="https://www.neraium.com/hero.png">
   <meta property="og:url" content="https://www.neraium.com/">
   <meta property="og:type" content="website">
-
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="canonical" href="https://www.neraium.com/">
@@ -25,86 +21,99 @@
 <body>
   <header class="site-header">
     <div class="container site-header__inner">
-      <a href="index.html" class="brand" style="flex-shrink: 0; white-space: nowrap;">
+      <a href="index.html" class="brand">
         <span class="brand-text">Neraium</span>
       </a>
 
-      <nav class="nav" aria-label="Main navigation" style="overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; display: flex; align-items: center;">
-        <a href="index.html" class="nav-link active" style="white-space: nowrap;">Home</a>
-        <a href="platform.html" class="nav-link" style="white-space: nowrap;">Platform</a>
-        <a href="technical.html" class="nav-link" style="white-space: nowrap;">Technical</a>
-        <a href="governance.html" class="nav-link" style="white-space: nowrap;">Governance</a>
-        <a href="contact.html" class="nav-link" style="white-space: nowrap;">Contact</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="platform.html" class="nav-link">Platform</a>
+        <a href="technical.html" class="nav-link">Technical</a>
+        <a href="governance.html" class="nav-link">Governance</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="this.previousElementSibling.classList.toggle('open')">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="hero-media"></div>
-      <div class="hero-signal"></div>
+      <div class="hero-overlay"></div>
 
-      <div class="container hero-content hero-content--narrow">
-        <h1>
-          Systemic Infrastructure Intelligence
-        </h1>
-
-        <p class="hero-description">
-          Turning maintenance from reactive to proactive by detecting structural changes in industrial systems before failures occur.
-        </p>
-
-        <div class="button-row">
-          <a class="button button--primary" href="platform.html">Explore Platform</a>
-          <a class="button button--secondary" href="contact.html">Contact</a>
+      <div class="container hero-content">
+        <div class="hero-inner">
+          <p class="hero-eyebrow">Systemic Infrastructure Intelligence</p>
+          <h1>
+            The system is<br>already signaling.<br>
+            <em>Are you seeing it?</em>
+          </h1>
+          <p class="hero-description">
+            Neraium detects structural change in industrial systems before failures occur — turning maintenance from reactive to proactive.
+          </p>
+          <div class="button-row">
+            <a class="button button--primary" href="platform.html">Explore the Platform</a>
+            <a class="button button--ghost" href="contact.html">Request a Briefing</a>
+          </div>
         </div>
+      </div>
+
+      <div class="hero-rule">
+        <span class="hero-rule__line"></span>
+        <span class="hero-rule__label">Read-only · Non-invasive · Reviewable</span>
+        <span class="hero-rule__line"></span>
       </div>
     </section>
 
     <section class="statement-band">
       <div class="container">
         <p class="statement-band__text">
-          Industrial systems rarely fail without warning. The warning is often structural change.
+          Industrial systems rarely fail without warning.<br>
+          <span class="statement-band__accent">The warning is structural change.</span>
         </p>
       </div>
     </section>
 
-    <section class="credibility-strip">
+    <section class="strip">
       <div class="container">
-        <div class="credibility-strip__inner">
-          <span class="credibility-strip__item">Read-only intelligence layer</span>
-          <span class="credibility-strip__divider"></span>
-          <span class="credibility-strip__item">Industrial telemetry analysis</span>
-          <span class="credibility-strip__divider"></span>
-          <span class="credibility-strip__item">Early structural change detection</span>
-          <span class="credibility-strip__divider"></span>
-          <span class="credibility-strip__item">Reviewable engineering outputs</span>
+        <div class="strip__inner">
+          <span class="strip__item">Read-only intelligence layer</span>
+          <span class="strip__dot"></span>
+          <span class="strip__item">Industrial telemetry analysis</span>
+          <span class="strip__dot"></span>
+          <span class="strip__item">Early structural change detection</span>
+          <span class="strip__dot"></span>
+          <span class="strip__item">Reviewable engineering outputs</span>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container section-grid">
-        <div class="section-intro">
-          <div class="eyebrow">Overview</div>
-          <h2>Turning maintenance from reactive to proactive</h2>
+    <section class="editorial">
+      <div class="container editorial__grid">
+        <div class="editorial__label">
+          <span class="eyebrow">Overview</span>
         </div>
-
-        <div class="section-copy">
+        <div class="editorial__body">
+          <h2>Turning maintenance<br>from reactive to proactive</h2>
           <p>
-            Neraium helps reliability teams detect developing issues earlier by analyzing how systems behave together over time.
+            Neraium helps reliability teams detect developing issues earlier by analyzing how systems behave together over time — not individual thresholds, but structural relationships across multivariate telemetry.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark">
-      <div class="container section-grid">
-        <div class="section-intro">
-          <div class="eyebrow">The Problem</div>
-          <h2>Traditional monitoring misses early system change</h2>
+    <section class="editorial editorial--dark">
+      <div class="container editorial__grid">
+        <div class="editorial__label">
+          <span class="eyebrow">The Problem</span>
         </div>
-
-        <div class="section-copy">
+        <div class="editorial__body">
+          <h2>Traditional monitoring misses early system change</h2>
           <ul class="feature-list">
             <li>Changing relationships between power, load, and temperature</li>
             <li>Cooling performance drifting relative to operating conditions</li>
@@ -115,48 +124,64 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container section-grid">
-        <div class="section-intro">
-          <div class="eyebrow">Approach</div>
-          <h2>A read-only intelligence layer for industrial infrastructure</h2>
+    <section class="editorial">
+      <div class="container editorial__grid">
+        <div class="editorial__label">
+          <span class="eyebrow">Approach</span>
         </div>
-
-        <div class="section-copy">
+        <div class="editorial__body">
+          <h2>A read-only intelligence layer<br>for industrial infrastructure</h2>
           <p>
-            A read-only intelligence layer that analyzes relationships across industrial signals and highlights emerging drift for engineering review.
+            Neraium sits alongside your existing monitoring stack. No control system integration. No operational disruption. A pure intelligence layer that surfaces what threshold-based tools cannot.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="platform-section">
       <div class="container">
-        <div class="section-intro section-intro--center">
-          <div class="eyebrow">Platform</div>
+        <div class="platform-section__header">
+          <span class="eyebrow">Platform</span>
           <h2>Platform components</h2>
         </div>
 
         <div class="platform-grid">
           <a href="platform.html" class="platform-card">
+            <div class="platform-card__number">01</div>
             <div class="platform-card__label">Signal Geometry</div>
             <p class="platform-card__text">Detection of structural change across multivariate telemetry.</p>
+            <span class="platform-card__arrow">→</span>
           </a>
 
           <a href="technical.html" class="platform-card">
+            <div class="platform-card__number">02</div>
             <div class="platform-card__label">Interpretation Engine</div>
             <p class="platform-card__text">Evaluation of system behavior through engineering constraints.</p>
+            <span class="platform-card__arrow">→</span>
           </a>
 
           <a href="governance.html" class="platform-card">
+            <div class="platform-card__number">03</div>
             <div class="platform-card__label">Governance Layer</div>
             <p class="platform-card__text">Admissibility logic ensuring interpretations remain defensible.</p>
+            <span class="platform-card__arrow">→</span>
           </a>
 
           <a href="contact.html" class="platform-card">
+            <div class="platform-card__number">04</div>
             <div class="platform-card__label">Pilot Deployment</div>
             <p class="platform-card__text">Evaluate systemic intelligence on real industrial telemetry.</p>
+            <span class="platform-card__arrow">→</span>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-band__inner">
+          <p class="cta-band__heading">Ready to see what your systems are already signaling?</p>
+          <a href="contact.html" class="button button--primary">Request a Briefing</a>
         </div>
       </div>
     </section>
@@ -164,8 +189,17 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <div class="footer-text">© <span id="year"></span> Neraium</div>
-      <div class="footer-tagline">Systemic Infrastructure Intelligence</div>
+      <div class="footer__brand">
+        <span class="brand-text">Neraium</span>
+        <span class="footer__tagline">Systemic Infrastructure Intelligence</span>
+      </div>
+      <nav class="footer__nav">
+        <a href="platform.html" class="footer__link">Platform</a>
+        <a href="technical.html" class="footer__link">Technical</a>
+        <a href="governance.html" class="footer__link">Governance</a>
+        <a href="contact.html" class="footer__link">Contact</a>
+      </nav>
+      <div class="footer__copy">© <span id="year"></span> Neraium</div>
     </div>
   </footer>
 

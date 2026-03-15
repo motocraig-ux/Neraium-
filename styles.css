@@ -83,8 +83,15 @@ ul {
 
 .brand-text {
   font-family: var(--font-serif);
-  font-size: 20px;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: .06em;
   color: var(--color-text);
+}
+
+.brand:hover .brand-text {
+  color: var(--color-accent);
+  transition: color var(--transition);
 }
 
 /* ─── NAV ────────────────────────────────────────── */
@@ -182,14 +189,6 @@ ul {
 
 .hero-inner {
   max-width: 760px;
-}
-
-.hero-eyebrow {
-  font-size: 11px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  margin-bottom: 28px;
 }
 
 h1 {

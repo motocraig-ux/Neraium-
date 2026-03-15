@@ -4,8 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Neraium | Systemic Infrastructure Intelligence</title>
-  <meta name="description" content="Neraium converts infrastructure telemetry into systemic intelligence. Detect emerging system drift earlier, understand operational behaviour, and maintain defensible records for critical environments." />
+  <meta
+    name="description"
+    content="Neraium turns infrastructure telemetry into systemic intelligence for earlier awareness, read-only deployment, and defensible engineering review."
+  />
   <meta name="theme-color" content="#000000" />
+  <meta property="og:title" content="Neraium | Systemic Infrastructure Intelligence" />
+  <meta
+    property="og:description"
+    content="Operational visibility for complex infrastructure systems."
+  />
+  <meta property="og:type" content="website" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-page="index">
@@ -17,8 +26,15 @@
         <span class="brand-text">Neraium</span>
         <span class="brand-accent">&gt;</span>
       </a>
-      
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+        type="button"
+      >
         <span class="nav-toggle__line"></span>
         <span class="nav-toggle__line"></span>
         <span class="nav-toggle__line"></span>
@@ -41,18 +57,18 @@
           <div class="eyebrow">&gt; Systemic Infrastructure Intelligence</div>
           <h1 id="hero-title">Operational visibility for complex infrastructure systems</h1>
           <p class="hero-description">
-            Neraium converts infrastructure telemetry into systemic intelligence.
-            Detect emerging system drift earlier, understand operational behaviour,
-            and maintain defensible records for critical environments.
+            Neraium interprets infrastructure telemetry as system behaviour, not isolated alarms.
+            It helps teams identify emerging drift earlier, understand operational change more
+            clearly, and preserve reviewable records for critical environments.
           </p>
 
           <div class="button-row">
             <a class="button button--primary" href="platform.html">
-              <span class="button-text">View Platform</span>
+              <span class="button-text">Explore Platform</span>
               <span class="button-accent">→</span>
             </a>
             <a class="button button--secondary" href="contact.html">
-              <span class="button-text">Contact</span>
+              <span class="button-text">Request Briefing</span>
               <span class="button-accent">→</span>
             </a>
           </div>
@@ -63,23 +79,22 @@
             <div class="visual-label">
               <span class="label-bracket">[</span>Live Telemetry<span class="label-bracket">]</span>
             </div>
-            <div class="visual-status">Example system view</div>
+            <div class="visual-status">Illustrative system view</div>
           </div>
 
           <div class="chart-box" aria-hidden="true">
             <svg viewBox="0 0 100 100" preserveAspectRatio="none">
               <defs>
-              <linearGradient id="line-gradient-1" x1="0%" y1="0%" x2="100%" y2="0%">
-  <stop offset="0%" stop-color="rgba(0,180,255,0.3)" />
-  <stop offset="100%" stop-color="rgba(0,180,255,0.95)" />
-</linearGradient>
-<linearGradient id="line-gradient-2" x1="0%" y1="0%" x2="100%" y2="0%">
-  <stop offset="0%" stop-color="rgba(0,160,230,0.2)" />
-  <stop offset="100%" stop-color="rgba(0,160,230,0.5)" />
-</linearGradient>
-
+                <linearGradient id="line-gradient-1" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#00b4ff" stop-opacity="0.28" />
+                  <stop offset="100%" stop-color="#00b4ff" stop-opacity="0.95" />
+                </linearGradient>
+                <linearGradient id="line-gradient-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#00b4ff" stop-opacity="0.16" />
+                  <stop offset="100%" stop-color="#00b4ff" stop-opacity="0.48" />
                 </linearGradient>
               </defs>
+
               <polyline
                 points="0,72 8,71 16,70 24,66 32,67 40,62 48,61 56,58 64,56 72,48 80,41 88,30 96,23 100,18"
                 fill="none"
@@ -98,8 +113,8 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
-              <circle cx="100" cy="18" r="1.5" fill="rgba(0,255,65,0.95)" />
-              <circle cx="100" cy="68" r="1" fill="rgba(0,200,50,0.5)" />
+              <circle cx="100" cy="18" r="1.5" fill="#00b4ff" fill-opacity="0.95" />
+              <circle cx="100" cy="68" r="1" fill="#00b4ff" fill-opacity="0.45" />
             </svg>
           </div>
 
@@ -108,7 +123,7 @@
               <dt class="metric-label">Mode</dt>
               <dd class="metric-value">
                 <span class="metric-prefix">$</span>
-                Read only
+                Read-only
               </dd>
             </dl>
             <dl class="metric">
@@ -122,7 +137,7 @@
               <dt class="metric-label">Record</dt>
               <dd class="metric-value">
                 <span class="metric-prefix">&gt;</span>
-                Verifiable
+                Reviewable
               </dd>
             </dl>
           </div>
@@ -130,38 +145,125 @@
       </div>
     </section>
 
-    <section class="capabilities-section" aria-labelledby="capabilities-heading">
+    <section class="capabilities-section" aria-labelledby="why-neraium-heading">
       <div class="container">
-        <h2 id="capabilities-heading" class="section-title">
-          <span class="title-prefix">[</span>Platform Capabilities<span class="title-prefix">]</span>
+        <h2 id="why-neraium-heading" class="section-title">
+          <span class="title-prefix">[</span>Why Neraium<span class="title-prefix">]</span>
         </h2>
+
         <div class="grid-3">
           <article class="card">
             <div class="card-number">[01]</div>
-            <h3 class="card-title">Signal Geometry Layer</h3>
+            <h3 class="card-title">System-Level Awareness</h3>
             <p class="card-description">
-              Models covariance structure in multivariate telemetry to detect
-              system level deformation without relying on historical failure datasets.
+              Understand behaviour across related signals instead of relying only on
+              single-variable threshold events.
             </p>
           </article>
 
           <article class="card">
             <div class="card-number">[02]</div>
-            <h3 class="card-title">Aletheia's Gate</h3>
+            <h3 class="card-title">Earlier Drift Detection</h3>
             <p class="card-description">
-              Applies deterministic admissibility criteria including persistence,
-              physical interpretation limits, and multi sensor correlation thresholds.
+              Surface structural change before degradation becomes obvious through
+              conventional alarm conditions alone.
             </p>
           </article>
 
           <article class="card">
             <div class="card-number">[03]</div>
-            <h3 class="card-title">Evidence Vault Protocol</h3>
+            <h3 class="card-title">Defensible Review</h3>
             <p class="card-description">
-              Preserves a verifiable record of measured divergence, applied criteria,
-              system state, and final interpretation outcome.
+              Preserve findings in a form that supports engineering analysis,
+              escalation review, and institutional accountability.
             </p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="technical-section" aria-labelledby="site-overview-heading">
+      <div class="container">
+        <h2 id="site-overview-heading" class="section-title">
+          <span class="title-prefix">[</span>Explore the System<span class="title-prefix">]</span>
+        </h2>
+
+        <div class="two-column-grid">
+          <div class="tech-panel">
+            <h3 class="tech-panel-title">Site Overview</h3>
+
+            <div class="diagram-grid">
+              <div class="diagram-item">
+                <h4 class="diagram-title">Platform</h4>
+                <p class="diagram-text">
+                  See how Neraium fits into operational environments, where it sits in the stack,
+                  and how it supports read-only deployment.
+                </p>
+              </div>
+
+              <div class="diagram-item">
+                <h4 class="diagram-title">Technical</h4>
+                <p class="diagram-text">
+                  Explore the interpretation method, including multivariate structure,
+                  temporal validity, and physically coherent escalation logic.
+                </p>
+              </div>
+
+              <div class="diagram-item">
+                <h4 class="diagram-title">Governance</h4>
+                <p class="diagram-text">
+                  Understand how inference is admitted, suppressed, or refused, and how
+                  decisions remain bounded and reviewable.
+                </p>
+              </div>
+
+              <div class="diagram-item">
+                <h4 class="diagram-title">Contact</h4>
+                <p class="diagram-text">
+                  Start a technical conversation, request a briefing, or discuss deployment,
+                  evaluation, and institutional fit.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="tech-panel tech-panel--accent" aria-labelledby="home-highlights-heading">
+            <h3 id="home-highlights-heading" class="tech-panel-title">Core Characteristics</h3>
+
+            <ul class="bullet-list">
+              <li class="bullet-item">
+                <strong class="bullet-label">Read-only operation:</strong>
+                <span class="bullet-text">built to interpret infrastructure telemetry without modifying control logic or issuing directives.</span>
+              </li>
+              <li class="bullet-item">
+                <strong class="bullet-label">Systemic interpretation:</strong>
+                <span class="bullet-text">evaluates relationships across signals instead of treating each measurement as an isolated event.</span>
+              </li>
+              <li class="bullet-item">
+                <strong class="bullet-label">Operational fit:</strong>
+                <span class="bullet-text">designed to work alongside existing industrial and infrastructure monitoring environments.</span>
+              </li>
+              <li class="bullet-item">
+                <strong class="bullet-label">Institutional accountability:</strong>
+                <span class="bullet-text">supports later review with structured outputs and preserved evaluation context.</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section" aria-labelledby="home-cta-heading">
+      <div class="container">
+        <div class="info-panel">
+          <h2 id="home-cta-heading" class="info-title">
+            <span class="title-prefix">[</span>Next Step<span class="title-prefix">]</span>
+          </h2>
+          <p class="info-text">
+            If you are evaluating systemic monitoring for infrastructure environments, use the
+            platform, technical, and governance pages to understand how Neraium works, then get in
+            touch to discuss operational context and deployment fit.
+          </p>
         </div>
       </div>
     </section>
@@ -179,31 +281,48 @@
   </footer>
 
   <script>
-    // Dynamic copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile navigation toggle
     const navToggle = document.getElementById('nav-toggle');
     const mainNav = document.getElementById('main-nav');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function closeNav() {
+      navToggle.setAttribute('aria-expanded', 'false');
+      mainNav.classList.remove('nav--open');
+    }
+
+    function openNav() {
+      navToggle.setAttribute('aria-expanded', 'true');
+      mainNav.classList.add('nav--open');
+    }
 
     navToggle.addEventListener('click', () => {
       const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', !isExpanded);
-      mainNav.classList.toggle('nav--open');
+      isExpanded ? closeNav() : openNav();
     });
 
-    // Close nav when link is clicked
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navToggle.setAttribute('aria-expanded', 'false');
-        mainNav.classList.remove('nav--open');
-      });
+    navLinks.forEach((link) => {
+      link.addEventListener('click', closeNav);
     });
 
-    // Active navigation state management
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeNav();
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      const clickedInsideNav = mainNav.contains(event.target);
+      const clickedToggle = navToggle.contains(event.target);
+
+      if (!clickedInsideNav && !clickedToggle) {
+        closeNav();
+      }
+    });
+
     const currentPageAttr = document.body.getAttribute('data-page');
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
       if (link.getAttribute('data-page') === currentPageAttr) {
         link.classList.add('active');
         link.setAttribute('aria-current', 'page');

@@ -1,129 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neraium | Platform</title>
-  <meta
-    name="description"
-    content="A read-only intelligence layer that analyzes existing plant telemetry to identify structural changes in system behavior."
-  />
-  <meta name="theme-color" content="#050608" />
-
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="manifest" href="site.webmanifest" />
-
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neraium Platform | Systemic Infrastructure Intelligence</title>
+  <meta name="description" content="A read-only intelligence layer that analyzes existing plant telemetry to identify structural changes in system behavior.">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body data-page="platform">
-  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header class="site-header" role="banner">
+<body>
+  <header class="site-header">
     <div class="container site-header__inner">
-      <a href="index.html" class="brand" aria-label="Neraium Home">
+      <a href="index.html" class="brand">
         <span class="brand-text">Neraium</span>
       </a>
 
-      <button
-        class="nav-toggle"
-        id="nav-toggle"
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-        aria-controls="main-nav"
-        type="button"
-      >
-        <span class="nav-toggle__line"></span>
-        <span class="nav-toggle__line"></span>
-        <span class="nav-toggle__line"></span>
-      </button>
-
-      <nav class="nav" id="main-nav" aria-label="Primary navigation">
-        <a href="index.html" class="nav-link" data-page="index">Home</a>
-        <a href="platform.html" class="nav-link" data-page="platform">Platform</a>
-        <a href="technical.html" class="nav-link" data-page="technical">Technical</a>
-        <a href="governance.html" class="nav-link" data-page="governance">Governance</a>
-        <a href="contact.html" class="nav-link" data-page="contact">Contact</a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="platform.html" class="nav-link active">Platform</a>
+        <a href="technical.html" class="nav-link">Technical</a>
+        <a href="governance.html" class="nav-link">Governance</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main id="main-content">
-    <section class="page-hero" aria-labelledby="page-title">
-      <div class="container page-hero__content">
-        <div class="eyebrow">Platform</div>
-        <h1 id="page-title">A read-only intelligence layer for industrial infrastructure</h1>
-        <p class="page-copy">
-          Neraium analyzes existing plant telemetry to identify structural changes in
-          system behavior before failures occur, without interacting with control systems
-          or modifying plant operations.
-        </p>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="how-heading">
+  <main>
+    <section class="section">
       <div class="container section-grid">
         <div class="section-intro">
-          <div class="eyebrow">How It Works</div>
-          <h2 id="how-heading">Built to operate alongside existing monitoring infrastructure</h2>
+          <div class="eyebrow">Platform</div>
+          <h2>A read-only intelligence layer for industrial infrastructure</h2>
         </div>
 
         <div class="section-copy">
           <p>
-            The system reads existing sensor and process data but does not interact with
-            control systems or change plant operations. This makes deployment low risk
-            and allows Neraium to run alongside existing monitoring infrastructure.
+            Neraium analyzes existing plant telemetry to identify structural changes in system behavior before failures occur, without interacting with control systems or modifying plant operations.
           </p>
           <p>
-            By analyzing relationships across sensors and equipment, the platform detects
-            changes in system behavior that may indicate emerging degradation or instability.
+            The system is designed to sit alongside existing monitoring infrastructure, allowing teams to evaluate systemic behavior with minimal deployment risk.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark" aria-labelledby="layers-heading">
+    <section class="section section-dark">
       <div class="container">
         <div class="section-intro section-intro--center">
           <div class="eyebrow">Platform Structure</div>
-          <h2 id="layers-heading">Three parts of the platform</h2>
+          <h2>Three parts of the platform</h2>
         </div>
 
-        <div class="feature-grid">
-          <article class="feature-panel">
-            <h3>Telemetry intake</h3>
-            <p>
-              Ingests plant telemetry from existing sensor and process data sources
-              without requiring workflow replacement.
-            </p>
-          </article>
+        <div class="platform-grid">
+          <div class="platform-card">
+            <div class="platform-card__label">Telemetry Intake</div>
+            <p class="platform-card__text">Ingests existing sensor and process data from plant environments.</p>
+          </div>
 
-          <article class="feature-panel">
-            <h3>System analysis</h3>
-            <p>
-              Evaluates how signals across an industrial system interact and how those
-              relationships shift over time.
-            </p>
-          </article>
+          <div class="platform-card">
+            <div class="platform-card__label">System Analysis</div>
+            <p class="platform-card__text">Evaluates changing relationships across signals over time.</p>
+          </div>
 
-          <article class="feature-panel">
-            <h3>Actionable output</h3>
-            <p>
-              Highlights equipment or processes that may require attention so teams can
-              review developing issues earlier.
-            </p>
-          </article>
+          <div class="platform-card">
+            <div class="platform-card__label">Actionable Output</div>
+            <p class="platform-card__text">Highlights equipment or processes that may require earlier attention.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="applies-heading">
+    <section class="section">
       <div class="container section-grid">
         <div class="section-intro">
           <div class="eyebrow">Where This Applies</div>
-          <h2 id="applies-heading">Designed for complex industrial environments</h2>
+          <h2>Designed for complex industrial environments</h2>
         </div>
 
         <div class="section-copy">
@@ -133,83 +85,21 @@
             <li>Energy and power infrastructure</li>
             <li>Large mechanical and thermal systems</li>
           </ul>
-
-          <p>
-            In these environments, early signals of instability often appear across
-            multiple signals before problems become visible in individual measurements.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-cta" aria-labelledby="cta-heading">
-      <div class="container section-grid">
-        <div class="section-intro">
-          <div class="eyebrow">Next Step</div>
-          <h2 id="cta-heading">Discuss Neraium</h2>
-        </div>
-
-        <div class="section-copy">
-          <p>
-            Explore deployment, pilot evaluation, or technical review for your environment.
-          </p>
-
-          <div class="button-row">
-            <a class="button button--primary" href="contact.html">Contact</a>
-          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer" role="contentinfo">
+  <footer class="footer">
     <div class="container footer__inner">
-      <div class="footer-text">© <span id="year"></span> Neraium. All rights reserved.</div>
+      <div class="footer-text">© <span id="year"></span> Neraium</div>
       <div class="footer-tagline">Systemic Infrastructure Intelligence</div>
     </div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const navToggle = document.getElementById('nav-toggle');
-    const mainNav = document.getElementById('main-nav');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    function closeNav() {
-      navToggle.setAttribute('aria-expanded', 'false');
-      mainNav.classList.remove('nav--open');
-    }
-
-    function openNav() {
-      navToggle.setAttribute('aria-expanded', 'true');
-      mainNav.classList.add('nav--open');
-    }
-
-    navToggle.addEventListener('click', () => {
-      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-      isExpanded ? closeNav() : openNav();
-    });
-
-    navLinks.forEach((link) => link.addEventListener('click', closeNav));
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') closeNav();
-    });
-
-    document.addEventListener('click', (event) => {
-      const clickedInsideNav = mainNav.contains(event.target);
-      const clickedToggle = navToggle.contains(event.target);
-      if (!clickedInsideNav && !clickedToggle) closeNav();
-    });
-
-    const currentPageAttr = document.body.getAttribute('data-page');
-    navLinks.forEach((link) => {
-      if (link.getAttribute('data-page') === currentPageAttr) {
-        link.classList.add('active');
-        link.setAttribute('aria-current', 'page');
-      }
-    });
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>

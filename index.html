@@ -6,9 +6,16 @@
   <title>Neraium | Systemic Infrastructure Intelligence</title>
   <meta
     name="description"
-    content="Neraium helps industrial operators detect structural changes in system behavior before equipment failures occur."
+    content="Neraium helps industrial operators detect system change before failures occur."
   />
-  <meta name="theme-color" content="#000000" />
+  <meta name="theme-color" content="#050608" />
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-page="index">
@@ -45,12 +52,13 @@
 
   <main id="main-content">
     <section class="hero hero-image" aria-labelledby="hero-title">
+      <div class="hero-media" id="hero-media"></div>
+
       <div class="container hero-content hero-content--narrow">
         <div class="eyebrow">Systemic Infrastructure Intelligence</div>
         <h1 id="hero-title">Earlier visibility into industrial system change</h1>
         <p class="hero-description">
-          Neraium helps industrial operators detect structural changes in system behavior
-          before equipment failures occur.
+          Neraium helps industrial operators detect system change before failures occur.
         </p>
 
         <div class="button-row">
@@ -69,16 +77,12 @@
 
         <div class="section-copy">
           <p>
-            Industrial facilities generate enormous amounts of sensor data, yet many
-            equipment failures still appear to happen unexpectedly. In reality, failures
-            are usually preceded by subtle changes in how different parts of the system
-            behave together.
+            Industrial failures rarely begin as obvious alarms. They are often preceded
+            by subtle changes in how systems behave together across time.
           </p>
           <p>
-            Neraium provides Systemic Infrastructure Intelligence, an approach that
-            analyzes how signals across an industrial system interact over time. When
-            these relationships begin to shift, it can indicate that degradation or
-            instability is emerging even when individual sensors still appear normal.
+            Neraium analyzes those changing relationships to help teams identify
+            developing issues earlier.
           </p>
         </div>
       </div>
@@ -88,14 +92,13 @@
       <div class="container section-grid">
         <div class="section-intro">
           <div class="eyebrow">The Problem</div>
-          <h2 id="problem-heading">Why conventional monitoring misses early change</h2>
+          <h2 id="problem-heading">Traditional monitoring often misses early change</h2>
         </div>
 
         <div class="section-copy">
           <p>
-            Most monitoring systems evaluate equipment using thresholds or anomaly
-            detection on individual sensors. These tools work well for obvious issues
-            but often miss the early stages of developing problems.
+            Thresholds and single-sensor anomaly detection work well for obvious issues,
+            but they can miss the early stages of developing problems in complex environments.
           </p>
 
           <ul class="feature-list">
@@ -104,11 +107,6 @@
             <li>Unstable process dynamics across multiple subsystems</li>
             <li>Mechanical systems behaving differently under varying loads</li>
           </ul>
-
-          <p>
-            These signals can be difficult to detect when sensors are analyzed
-            individually. Neraium focuses on identifying changes in system behavior itself.
-          </p>
         </div>
       </div>
     </section>
@@ -117,20 +115,17 @@
       <div class="container section-grid">
         <div class="section-intro">
           <div class="eyebrow">Approach</div>
-          <h2 id="approach-heading">A new intelligence layer for industrial infrastructure</h2>
+          <h2 id="approach-heading">A read-only intelligence layer for industrial infrastructure</h2>
         </div>
 
         <div class="section-copy">
           <p>
-            Neraium analyzes industrial systems as networks of interacting signals. The
-            platform continuously evaluates relationships between sensors, stability of
-            system behavior over time, emerging patterns that indicate degradation, and
-            shifts in operating dynamics.
+            Neraium analyzes industrial systems as networks of interacting signals.
+            When structural changes appear, the platform highlights equipment or
+            processes that may require attention.
           </p>
           <p>
-            When meaningful structural changes appear, the system highlights the
-            equipment or processes that may require attention. This allows reliability
-            teams to move from reactive maintenance to proactive intervention.
+            The goal is earlier insight, lower deployment risk, and more disciplined review.
           </p>
         </div>
       </div>
@@ -201,6 +196,7 @@
     const navToggle = document.getElementById('nav-toggle');
     const mainNav = document.getElementById('main-nav');
     const navLinks = document.querySelectorAll('.nav-link');
+    const heroMedia = document.getElementById('hero-media');
 
     function closeNav() {
       navToggle.setAttribute('aria-expanded', 'false');
@@ -236,6 +232,15 @@
         link.setAttribute('aria-current', 'page');
       }
     });
+
+    function updateHeroParallax() {
+      if (!heroMedia) return;
+      const offset = window.scrollY * 0.18;
+      heroMedia.style.transform = `translateY(${offset}px) scale(1.04)`;
+    }
+
+    window.addEventListener('scroll', updateHeroParallax, { passive: true });
+    updateHeroParallax();
   </script>
 </body>
 </html>

@@ -1,245 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Neraium | Systemic Infrastructure Intelligence</title>
-
-<meta name="description"
-content="Neraium helps industrial operators detect structural changes in system behavior before equipment failures occur.">
-
-<link rel="stylesheet" href="styles.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neraium | Systemic Infrastructure Intelligence</title>
+  <meta
+    name="description"
+    content="Neraium helps industrial operators detect structural changes in system behavior before equipment failures occur."
+  />
+  <meta name="theme-color" content="#000000" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body data-page="index">
-
-<header class="site-header">
-
-<div class="container site-header__inner">
-
-<a href="index.html" class="brand">
-<span class="brand-text">Neraium</span>
-</a>
-
-<nav class="nav">
-
-<a href="index.html" class="nav-link">Home</a>
-<a href="platform.html" class="nav-link">Platform</a>
-<a href="technical.html" class="nav-link">Technical</a>
-<a href="governance.html" class="nav-link">Governance</a>
-<a href="contact.html" class="nav-link">Contact</a>
-
-</nav>
-
-</div>
-
-</header>
-
-<main id="main-content">
-
-<section class="hero hero-image">
-
-<div class="container hero-content">
-
-<h1>Earlier visibility into industrial system change</h1>
-
-<p class="hero-description">
-
-Neraium provides Systemic Infrastructure Intelligence, helping operators detect
-structural changes in industrial systems before equipment failures occur.
-
-</p>
-
-<div class="button-row">
-
-<a class="button button--primary" href="platform.html">Explore Platform</a>
-
-<a class="button button--secondary" href="contact.html">Contact</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="section">
-
-<div class="container">
-
-<h2>Turning maintenance from reactive to proactive</h2>
-
-<p>
-
-Industrial facilities generate enormous amounts of sensor data, yet many equipment failures still appear to happen unexpectedly. In reality, failures are usually preceded by subtle changes in how different parts of the system behave together.
-
-</p>
-
-<p>
-
-Neraium analyzes how signals across an industrial system interact over time. When these relationships begin to shift, it can indicate that degradation or instability is emerging even when individual sensors still appear normal.
-
-</p>
-
-</div>
-
-</section>
-
-
-
-<section class="section section-dark">
-
-<div class="container">
-
-<h2>The Problem</h2>
-
-<p>
-
-Most monitoring systems evaluate equipment using thresholds or anomaly detection on individual sensors. These tools work well for obvious issues but often miss the early stages of developing problems.
-
-</p>
-
-<ul class="feature-list">
-
-<li>Changing relationships between power, load, and temperature</li>
-<li>Cooling performance drifting relative to operating conditions</li>
-<li>Unstable process dynamics across multiple subsystems</li>
-<li>Mechanical systems behaving differently under varying loads</li>
-
-</ul>
-
-<p>
-
-These signals can be difficult to detect when sensors are analyzed individually.
-
-</p>
-
-</div>
-
-</section>
-
-
-
-<section class="section">
-
-<div class="container">
-
-<h2>The Neraium Approach</h2>
-
-<p>
-
-Neraium analyzes industrial systems as networks of interacting signals.
-
-</p>
-
-<p>
-
-The platform continuously evaluates relationships between sensors, stability of system behavior over time, and emerging patterns that indicate degradation.
-
-</p>
-
-<p>
-
-When structural changes appear, the system highlights equipment or processes that may require attention.
-
-</p>
-
-</div>
-
-</section>
-
-
-
-<section class="section section-dark">
-
-<div class="container">
-
-<h2>Deployment</h2>
-
-<p>
-
-Neraium runs as a read-only intelligence layer that analyzes existing plant telemetry. The system reads existing sensor and process data but does not interact with control systems or modify plant operations.
-
-</p>
-
-<p>
-
-This allows the platform to operate alongside existing monitoring infrastructure with minimal deployment risk.
-
-</p>
-
-</div>
-
-</section>
-
-
-
-<section class="section">
-
-<div class="container">
-
-<h2>Where This Applies</h2>
-
-<ul class="feature-list">
-
-<li>Steel production and melt shops</li>
-<li>Heavy manufacturing facilities</li>
-<li>Energy and power infrastructure</li>
-<li>Large mechanical and thermal systems</li>
-
-</ul>
-
-</div>
-
-</section>
-
-
-
-<section class="section section-cta">
-
-<div class="container">
-
-<h2>Pilot Approach</h2>
-
-<p>
-
-Organizations can deploy Neraium using existing plant telemetry to evaluate whether structural signals reveal developing issues earlier than conventional monitoring tools.
-
-</p>
-
-<a class="button button--primary" href="contact.html">Contact</a>
-
-</div>
-
-</section>
-
-</main>
-
-
-
-<footer class="footer">
-
-<div class="container footer__inner">
-
-<div>© <span id="year"></span> Neraium</div>
-
-<div>Systemic Infrastructure Intelligence</div>
-
-</div>
-
-</footer>
-
-
-
-<script>
-
-document.getElementById('year').textContent = new Date().getFullYear();
-
-</script>
-
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand" aria-label="Neraium Home">
+        <span class="brand-text">Neraium</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+        type="button"
+      >
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+      </button>
+
+      <nav class="nav" id="main-nav" aria-label="Primary navigation">
+        <a href="index.html" class="nav-link" data-page="index">Home</a>
+        <a href="platform.html" class="nav-link" data-page="platform">Platform</a>
+        <a href="technical.html" class="nav-link" data-page="technical">Technical</a>
+        <a href="governance.html" class="nav-link" data-page="governance">Governance</a>
+        <a href="contact.html" class="nav-link" data-page="contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero hero-image" aria-labelledby="hero-title">
+      <div class="container hero-content hero-content--narrow">
+        <div class="eyebrow">Systemic Infrastructure Intelligence</div>
+        <h1 id="hero-title">Earlier visibility into industrial system change</h1>
+        <p class="hero-description">
+          Neraium helps industrial operators detect structural changes in system behavior
+          before equipment failures occur.
+        </p>
+
+        <div class="button-row">
+          <a class="button button--primary" href="platform.html">Explore Platform</a>
+          <a class="button button--secondary" href="contact.html">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="overview-heading">
+      <div class="container section-grid">
+        <div class="section-intro">
+          <div class="eyebrow">Overview</div>
+          <h2 id="overview-heading">Turning maintenance from reactive to proactive</h2>
+        </div>
+
+        <div class="section-copy">
+          <p>
+            Industrial facilities generate enormous amounts of sensor data, yet many
+            equipment failures still appear to happen unexpectedly. In reality, failures
+            are usually preceded by subtle changes in how different parts of the system
+            behave together.
+          </p>
+          <p>
+            Neraium provides Systemic Infrastructure Intelligence, an approach that
+            analyzes how signals across an industrial system interact over time. When
+            these relationships begin to shift, it can indicate that degradation or
+            instability is emerging even when individual sensors still appear normal.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" aria-labelledby="problem-heading">
+      <div class="container section-grid">
+        <div class="section-intro">
+          <div class="eyebrow">The Problem</div>
+          <h2 id="problem-heading">Why conventional monitoring misses early change</h2>
+        </div>
+
+        <div class="section-copy">
+          <p>
+            Most monitoring systems evaluate equipment using thresholds or anomaly
+            detection on individual sensors. These tools work well for obvious issues
+            but often miss the early stages of developing problems.
+          </p>
+
+          <ul class="feature-list">
+            <li>Changing relationships between power, load, and temperature</li>
+            <li>Cooling performance drifting relative to operating conditions</li>
+            <li>Unstable process dynamics across multiple subsystems</li>
+            <li>Mechanical systems behaving differently under varying loads</li>
+          </ul>
+
+          <p>
+            These signals can be difficult to detect when sensors are analyzed
+            individually. Neraium focuses on identifying changes in system behavior itself.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="approach-heading">
+      <div class="container section-grid">
+        <div class="section-intro">
+          <div class="eyebrow">Approach</div>
+          <h2 id="approach-heading">A new intelligence layer for industrial infrastructure</h2>
+        </div>
+
+        <div class="section-copy">
+          <p>
+            Neraium analyzes industrial systems as networks of interacting signals. The
+            platform continuously evaluates relationships between sensors, stability of
+            system behavior over time, emerging patterns that indicate degradation, and
+            shifts in operating dynamics.
+          </p>
+          <p>
+            When meaningful structural changes appear, the system highlights the
+            equipment or processes that may require attention. This allows reliability
+            teams to move from reactive maintenance to proactive intervention.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-links" aria-labelledby="explore-heading">
+      <div class="container">
+        <div class="section-intro section-intro--center">
+          <div class="eyebrow">Explore</div>
+          <h2 id="explore-heading">Learn more about Neraium</h2>
+        </div>
+
+        <div class="link-card-grid">
+          <a href="platform.html" class="link-card">
+            <span class="link-card__label">Platform</span>
+            <span class="link-card__text">How Neraium fits alongside existing plant systems.</span>
+          </a>
+
+          <a href="technical.html" class="link-card">
+            <span class="link-card__label">Technical</span>
+            <span class="link-card__text">How structural changes are identified across telemetry.</span>
+          </a>
+
+          <a href="governance.html" class="link-card">
+            <span class="link-card__label">Governance</span>
+            <span class="link-card__text">How findings remain bounded, reviewable, and defensible.</span>
+          </a>
+
+          <a href="contact.html" class="link-card">
+            <span class="link-card__label">Contact</span>
+            <span class="link-card__text">Start a conversation about deployment or pilot evaluation.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cta" aria-labelledby="pilot-heading">
+      <div class="container section-grid">
+        <div class="section-intro">
+          <div class="eyebrow">Pilot Approach</div>
+          <h2 id="pilot-heading">Evaluate early signals using existing plant telemetry</h2>
+        </div>
+
+        <div class="section-copy">
+          <p>
+            An initial deployment allows organizations to evaluate whether structural
+            signals help identify developing issues earlier than conventional monitoring tools.
+          </p>
+
+          <div class="button-row">
+            <a class="button button--primary" href="contact.html">Discuss Neraium</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer-text">© <span id="year"></span> Neraium. All rights reserved.</div>
+      <div class="footer-tagline">Systemic Infrastructure Intelligence</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const navToggle = document.getElementById('nav-toggle');
+    const mainNav = document.getElementById('main-nav');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function closeNav() {
+      navToggle.setAttribute('aria-expanded', 'false');
+      mainNav.classList.remove('nav--open');
+    }
+
+    function openNav() {
+      navToggle.setAttribute('aria-expanded', 'true');
+      mainNav.classList.add('nav--open');
+    }
+
+    navToggle.addEventListener('click', () => {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      isExpanded ? closeNav() : openNav();
+    });
+
+    navLinks.forEach((link) => link.addEventListener('click', closeNav));
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeNav();
+    });
+
+    document.addEventListener('click', (event) => {
+      const clickedInsideNav = mainNav.contains(event.target);
+      const clickedToggle = navToggle.contains(event.target);
+      if (!clickedInsideNav && !clickedToggle) closeNav();
+    });
+
+    const currentPageAttr = document.body.getAttribute('data-page');
+    navLinks.forEach((link) => {
+      if (link.getAttribute('data-page') === currentPageAttr) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+  </script>
 </body>
 </html>

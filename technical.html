@@ -25,7 +25,7 @@
         <span class="brand-text">Neraium</span>
       </a>
 
-      <nav class="nav" aria-label="Main navigation">
+      <nav class="nav" id="main-navigation" aria-label="Main navigation">
         <a href="index.html" class="nav-link">Home</a>
         <a href="platform.html" class="nav-link">Platform</a>
         <a href="technical.html" class="nav-link active">Technical</a>
@@ -33,7 +33,7 @@
         <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
-      <button class="nav-toggle" aria-label="Toggle navigation" onclick="this.previousElementSibling.classList.toggle('open')">
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="main-navigation" aria-expanded="false">
         <span class="nav-toggle__bar"></span>
         <span class="nav-toggle__bar"></span>
         <span class="nav-toggle__bar"></span>
@@ -140,9 +140,7 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <script src="scripts.js" defer></script>
 </body>
 
 </html>

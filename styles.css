@@ -1090,6 +1090,14 @@ h3 {
     padding: 0 20px;
   }
 
+  .brand {
+    gap: 0;
+  }
+
+  .brand .brand-text {
+    display: none;
+  }
+
   .nav-toggle {
     display: block;
   }

@@ -15,9 +15,21 @@
     toggleButton.setAttribute("aria-expanded", String(isExpanded));
   };
 
-  toggleButton.addEventListener("click", () => {
+  toggleButton.addEventListener("click", (e) => {
+    e.stopPropagation();
     const isOpen = nav.classList.toggle("open");
     setExpanded(isOpen);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!nav.classList.contains("open")) {
+      return;
+    }
+    if (toggleButton.contains(e.target) || nav.contains(e.target)) {
+      return;
+    }
+    nav.classList.remove("open");
+    setExpanded(false);
   });
 
   nav.querySelectorAll("a").forEach((link) => {

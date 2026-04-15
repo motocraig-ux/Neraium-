@@ -1,0 +1,3 @@
+Contact: mailto:craig@neraium.com
+Preferred-Languages: en
+Canonical: https://www.neraium.com/.well-known/security.txt

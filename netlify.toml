@@ -1,0 +1,81 @@
+# Netlify deployment configuration for neraium.com
+
+[build]
+  publish = "."
+
+# ── Security headers applied to every response ──────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options            = "DENY"
+    X-Content-Type-Options     = "nosniff"
+    Referrer-Policy            = "strict-origin-when-cross-origin"
+    Permissions-Policy         = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security  = "max-age=31536000; includeSubDomains; preload"
+    # CSP allows:
+    #   scripts  – only from self (scripts.js)
+    #   styles   – self + Google Fonts CSS + Font Awesome CSS
+    #   fonts    – self + Google Fonts files + Font Awesome webfonts
+    #   images   – self + data URIs (no external image embeds)
+    #   forms    – self + mailto: action (contact page)
+    Content-Security-Policy    = "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; form-action 'self' mailto:;"
+
+# ── Cache-control rules ──────────────────────────────────────────────────────
+
+# HTML pages: always revalidate so users get fresh content
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Versioned CSS/JS (query-string cache-busted): cache for one year
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# Images: one month
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# Favicon: one week (changes rarely but small)
+[[headers]]
+  for = "/*.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Manifest and sitemap: revalidate
+[[headers]]
+  for = "/*.webmanifest"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ── Redirect rules ───────────────────────────────────────────────────────────
+
+# Custom 404 page
+[[redirects]]
+  from   = "/*"
+  to     = "/404.html"
+  status = 404

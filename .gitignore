@@ -19,3 +19,8 @@ desktop.ini
 
 # Archives (if you generate zips locally)
 *.zip
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo

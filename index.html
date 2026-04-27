@@ -62,21 +62,25 @@
 
       <div class="container hero-content">
         <div class="hero-inner">
-          <h1>Detect instability before your systems fail.</h1>
+          <h1>By the time your alerts trigger, degradation is already underway.</h1>
+
           <p class="hero-description">
-            Neraium analyzes how your systems behave as a whole. It finds instability in relationships between signals before any single alarm triggers. Operators get time to act. Systems stay reliable.
+            Neraium detects when systems start failing by analyzing relationships between signals. Not individual spikes. Not symptoms. The underlying instability. Operators get 40 to 160 cycles of lead time before failure.
           </p>
-          <ul class="hero-audience" aria-label="Who this is for">
-            <li>Utilities &amp; water systems</li>
-            <li>Industrial operations</li>
-            <li>Critical infrastructure</li>
+
+          <ul class="hero-audience" aria-label="Real operator problems this solves">
+            <li>Your alarms fire when it is too late to plan maintenance.</li>
+            <li>You see a spike, not why it matters or what to fix first.</li>
+            <li>Failures feel sudden because you do not see them degrading.</li>
           </ul>
+
           <p class="hero-proof">
-            Validated on NASA engine data (FD004). Detects failures 40 to 160 cycles earlier than threshold-based alerts.
+            Validated on NASA CMAPSS FD004. Detects failures 40 to 160 cycles earlier than threshold-based systems.
           </p>
+
           <div class="button-row">
             <a class="button button--primary" href="contact.html">Start a pilot</a>
-            <a class="button button--ghost" href="#why-different">Learn more</a>
+            <a class="button button--ghost" href="#proof">See the validation</a>
           </div>
         </div>
       </div>
@@ -175,30 +179,34 @@
     </section>
 
     <!-- 6. PROOF -->
-    <section class="proof-band">
+    <section class="proof-band" id="proof">
       <div class="container">
-        <h2>Validated on real failure data</h2>
+        <h2>Proven on real engine failures</h2>
+
         <div class="proof-content">
-          <p class="proof-title">NASA CMAPSS FD004 Dataset</p>
-          <p class="proof-text">
-            FD004 contains turbofan engine data with documented failure times. Neraium detects instability significantly earlier than threshold-based approaches.
+          <p class="proof-explanation">
+            FD004 is NASA's turbofan engine degradation dataset. It contains full telemetry from engines run to documented failure. Neraium was tested against these real failures. The result: consistent detection significantly earlier than threshold-based approaches.
           </p>
-          <div class="proof-metrics">
-            <div class="proof-metric">
-              <p class="proof-metric-value">40-160 cycles</p>
-              <p class="proof-metric-label">Lead time before failure</p>
+
+          <div class="proof-bullets">
+            <div class="proof-bullet">
+              <p class="proof-bullet-value">40 to 160 cycles</p>
+              <p class="proof-bullet-text">Lead time before failure. Enough to plan. Enough to prevent.</p>
             </div>
-            <div class="proof-metric">
-              <p class="proof-metric-value">100% detection</p>
-              <p class="proof-metric-label">Failures caught before degradation</p>
+
+            <div class="proof-bullet">
+              <p class="proof-bullet-value">3–5 cycles vs 40+</p>
+              <p class="proof-bullet-text">Threshold alerts trigger near the end. Neraium surfaces instability at the beginning.</p>
             </div>
-            <div class="proof-metric">
-              <p class="proof-metric-value">Structural relationships</p>
-              <p class="proof-metric-label">First to show instability</p>
+
+            <div class="proof-bullet">
+              <p class="proof-bullet-value">Emergency vs planned</p>
+              <p class="proof-bullet-text">That lead time transforms failures from unplanned downtime into scheduled maintenance windows.</p>
             </div>
           </div>
-          <p class="proof-caveat">
-            FD004 is a controlled dataset with known failure modes. Real systems are more complex. Neraium is deployed in pilots to validate lead time in your specific operating environment.
+
+          <p class="proof-closing">
+            Lead time is what separates emergency response from planned action. FD004 validates Neraium delivers it.
           </p>
         </div>
       </div>

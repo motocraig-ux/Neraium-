@@ -377,21 +377,30 @@ h3 {
 
 .hero-audience {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 18px;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+  margin-bottom: 24px;
   max-width: 740px;
 }
 
 .hero-audience li {
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.03);
-  padding: 8px 10px;
-  border-radius: 999px;
+  font-size: 14px;
+  color: var(--text-soft);
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.6;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.hero-audience li:before {
+  content: "•";
+  color: var(--accent);
+  margin-right: 12px;
+  flex-shrink: 0;
+  font-weight: 600;
 }
 
 .hero-rule {
@@ -1206,61 +1215,53 @@ h3 {
 }
 
 .proof-content {
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 960px;
 }
 
-.proof-title {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 12px;
-}
-
-.proof-text {
-  font-size: 16px;
+.proof-explanation {
+  font-size: 15px;
   color: var(--text-soft);
   line-height: 1.8;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
+  max-width: 75ch;
 }
 
-.proof-metrics {
+.proof-bullets {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  margin-bottom: 32px;
+  gap: 28px;
+  margin-bottom: 40px;
   padding: 32px;
   border: 1px solid rgba(216, 177, 111, 0.2);
   border-radius: var(--radius);
   background: rgba(216, 177, 111, 0.04);
 }
 
-.proof-metric {
-  text-align: center;
+.proof-bullet {
+  text-align: left;
 }
 
-.proof-metric-value {
-  font-size: 20px;
+.proof-bullet-value {
+  font-size: 16px;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 8px;
 }
 
-.proof-metric-label {
+.proof-bullet-text {
   font-size: 13px;
   color: var(--text-soft);
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
 }
 
-.proof-caveat {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.7;
-  font-style: italic;
+.proof-closing {
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.8;
+  max-width: 72ch;
   margin: 0;
+  font-weight: 500;
 }
 
 /* Outcomes band */
@@ -1419,7 +1420,7 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .proof-metrics {
+  .proof-bullets {
     grid-template-columns: 1fr;
   }
 

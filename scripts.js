@@ -71,7 +71,7 @@
       const willOpen = trigger.getAttribute("aria-expanded") !== "true";
       trigger.setAttribute("aria-expanded", String(willOpen));
       panel.hidden = !willOpen;
-      icon.textContent = willOpen ? "−" : "+";
+      icon.textContent = willOpen ? "\u2212" : "+";
     });
   });
 })();

@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap">
-  <link rel="stylesheet" href="styles.css?v=20260408">
+  <link rel="stylesheet" href="styles.css?v=20260422">
   <link rel="manifest" href="site.webmanifest">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.neraium.com/#organization","name":"Neraium","url":"https://www.neraium.com","description":"Neraium provides Systemic Infrastructure Intelligence, early failure detection through structural relationship modeling in multivariate telemetry."},{"@type":"WebSite","@id":"https://www.neraium.com/#website","url":"https://www.neraium.com","name":"Neraium","publisher":{"@id":"https://www.neraium.com/#organization"}},{"@type":"WebPage","@id":"https://www.neraium.com/platform.html#webpage","url":"https://www.neraium.com/platform.html","name":"Platform","isPartOf":{"@id":"https://www.neraium.com/#website"},"about":{"@id":"https://www.neraium.com/#organization"}}]}</script>
 </head>
@@ -52,11 +52,6 @@
       </button>
     </div>
   </header>
-  <div class="site-notice">
-    <div class="container">
-      <p><strong>Site refresh live:</strong> Platform refresh live: redesigned layout and updated deployment messaging.</p>
-    </div>
-  </div>
 
   <main id="main">
     <section class="page-hero">
@@ -116,6 +111,46 @@
       </div>
     </section>
 
+    <section class="editorial editorial--dark" id="where-it-fits">
+      <div class="container editorial__grid">
+        <div class="editorial__label">
+          <span class="eyebrow">Where it fits</span>
+        </div>
+        <div class="editorial__body">
+          <h2>Deploy beside your monitoring stack</h2>
+          <p>
+            Neraium operates in read-only mode beside your existing instrumentation, historians, and monitoring tools. Start small in one environment, validate lead time, then expand once your team trusts the findings.
+          </p>
+          <figure>
+            <div class="media-frame">
+              <img src="diagram-where-it-fits.jpeg" alt="Diagram showing where Neraium fits alongside telemetry sources and operational workflows" loading="lazy" decoding="async">
+            </div>
+            <figcaption class="media-caption">A practical integration view: read-only telemetry in, reviewable findings out.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="editorial" id="why-structure">
+      <div class="container editorial__grid">
+        <div class="editorial__label">
+          <span class="eyebrow">Why structure</span>
+        </div>
+        <div class="editorial__body">
+          <h2>See degradation before thresholds move</h2>
+          <p>
+            Threshold alerts are essential, but they often trigger after damage accumulates. Structural monitoring surfaces the relationship shifts that appear earlier, while systems still look nominal in absolute terms.
+          </p>
+          <figure>
+            <div class="media-frame">
+              <img src="diagram-threshold-vs-relationships.jpeg" alt="Diagram comparing threshold alerts versus relationship monitoring for early failure detection" loading="lazy" decoding="async">
+            </div>
+            <figcaption class="media-caption">Relationship monitoring finds the shape of change, not only the size of a single signal.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <section class="cta-band">
       <div class="container">
         <div class="cta-band__inner">
@@ -141,11 +176,11 @@
         <a href="technical.html" class="footer__link">Use Cases</a>
         <a href="contact.html" class="footer__link">Contact</a>
       </nav>
-      <div class="footer__copy">© <span id="year"></span> Neraium</div>
+      <div class="footer__copy">&copy; <span id="year"></span> Neraium</div>
     </div>
   </footer>
 
-  <script src="scripts.js?v=20260408" defer></script>
+  <script src="scripts.js?v=20260422" defer></script>
 </body>
 
 </html>

@@ -239,9 +239,9 @@ h3 {
 /* Buttons */
 
 .button-row {
-  margin-top: 34px;
+  margin-top: 38px;
   display: flex;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -250,10 +250,10 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 13px 22px;
-  font-size: 12px;
+  padding: 15px 26px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   border-radius: 999px;
   border: 1px solid transparent;
@@ -423,7 +423,7 @@ h3 {
 /* Bands */
 
 .launch-band {
-  padding: 28px 0;
+  padding: 40px 0;
   border-bottom: 1px solid var(--line);
   background: linear-gradient(90deg, rgba(216, 177, 111, 0.14), rgba(92, 121, 181, 0.08));
 }
@@ -448,33 +448,33 @@ h3 {
 }
 
 .value-pillars {
-  padding: 56px 0 18px;
+  padding: 72px 0 72px;
   border-bottom: 1px solid var(--line);
 }
 
 .value-pillars__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  gap: 32px;
 }
 
 .value-pillars__card {
-  padding-left: 16px;
-  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  padding-left: 20px;
+  border-left: 2px solid rgba(216, 177, 111, 0.4);
 }
 
 .value-pillars__title {
   font-size: 15px;
   font-weight: 600;
   color: rgba(244, 228, 196, 0.95);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .value-pillars__text {
   font-size: 15px;
   font-weight: 300;
   color: var(--text-soft);
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
 .statement-band {
@@ -495,7 +495,7 @@ h3 {
 }
 
 .strip {
-  padding: 18px 0;
+  padding: 28px 0;
   border-bottom: 1px solid var(--line);
   background: rgba(11, 18, 32, 0.78);
 }
@@ -562,12 +562,13 @@ h3 {
 }
 
 .section-heading {
-  margin-bottom: 26px;
+  margin-bottom: 40px;
 }
 
 .section-heading h2 {
-  margin-top: 12px;
+  margin-top: 14px;
   margin-bottom: 0;
+  font-size: clamp(28px, 4vw, 48px);
 }
 
 .feature-list {
@@ -639,11 +640,12 @@ h3 {
 
 .link-card {
   border-top: 1px solid var(--line);
-  padding-top: 16px;
+  padding-top: 20px;
+  padding-bottom: 4px;
   transition: transform var(--transition), color var(--transition);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .link-card:hover {
@@ -672,9 +674,9 @@ h3 {
 
 .outcome-grid,
 .metrics-grid {
-  margin-top: 26px;
+  margin-top: 32px;
   display: grid;
-  gap: 14px;
+  gap: 24px;
 }
 
 .outcome-grid {
@@ -725,8 +727,8 @@ h3 {
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 22px;
+  gap: 12px;
+  margin-top: 28px;
 }
 
 .faq-item {
@@ -741,13 +743,14 @@ h3 {
   background: transparent;
   color: var(--text);
   text-align: left;
-  padding: 16px 18px;
+  padding: 18px 18px;
   font-size: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .faq-icon {
@@ -758,7 +761,7 @@ h3 {
 
 .faq-panel {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 12px 18px 16px;
+  padding: 16px 18px 18px;
 }
 
 .faq-panel p {

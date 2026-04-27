@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap">
   <link rel="stylesheet" href="styles.css?v=20260422">
   <link rel="manifest" href="site.webmanifest">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.neraium.com/#organization","name":"Neraium","url":"https://www.neraium.com","description":"Neraium provides Systemic Infrastructure Intelligence, early failure detection through structural relationship modeling in multivariate telemetry."},{"@type":"WebSite","@id":"https://www.neraium.com/#website","url":"https://www.neraium.com","name":"Neraium","publisher":{"@id":"https://www.neraium.com/#organization"}},{"@type":"WebPage","@id":"https://www.neraium.com/technical.html#webpage","url":"https://www.neraium.com/technical.html","name":"Use Cases","isPartOf":{"@id":"https://www.neraium.com/#website"},"about":{"@id":"https://www.neraium.com/#organization"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.neraium.com/#organization","name":"Neraium","url":"https://www.neraium.com","description":"Neraium provides Systemic Infrastructure Intelligence, early instability detection through structural relationship modeling in multivariate telemetry."},{"@type":"WebSite","@id":"https://www.neraium.com/#website","url":"https://www.neraium.com","name":"Neraium","publisher":{"@id":"https://www.neraium.com/#organization"}},{"@type":"WebPage","@id":"https://www.neraium.com/technical.html#webpage","url":"https://www.neraium.com/technical.html","name":"Use Cases","isPartOf":{"@id":"https://www.neraium.com/#website"},"about":{"@id":"https://www.neraium.com/#organization"}}]}</script>
 </head>
 
 <body>
@@ -82,26 +82,64 @@
           <span class="eyebrow">Pilot outputs</span>
         </div>
         <div class="editorial__body">
-          <h2>Reviewable findings your team can validate</h2>
+          <h2>Structured findings operators can act on</h2>
           <p>
-            A pilot produces interpretable, inspectable findings: which relationships moved, when they shifted, and where to start looking first. Below are example visual summaries teams use to triage drift and instability.
+            A finding is not a score or a chart. It is a structured explanation of emerging system instability: what relationships are breaking, how fast, how certain, and what action window remains.
           </p>
-          <div class="media-grid" aria-label="Example pilot result visuals">
-            <figure>
-              <div class="media-frame">
-                <img src="results-drift.jpeg" alt="Example plot showing structural drift detected over time" loading="lazy" decoding="async">
+
+          <div class="finding-example">
+            <div class="finding-example__header">
+              <span class="finding-example__label">System State</span>
+              <span class="finding-example__value">Drifting</span>
+            </div>
+
+            <div class="finding-example__section">
+              <span class="finding-example__label">Structural Drift</span>
+              <span class="finding-example__value">0.58 (↑ accelerating)</span>
+              <p class="finding-example__note">Magnitude and direction of change</p>
+            </div>
+
+            <div class="finding-example__section">
+              <span class="finding-example__label">Primary Finding</span>
+              <span class="finding-example__text">Pressure–temperature relationship weakening in cooling subsystem</span>
+              <p class="finding-example__note">Not a sensor reading. A relationship change.</p>
+            </div>
+
+            <div class="finding-example__section">
+              <span class="finding-example__label">Time Context</span>
+              <div class="finding-example__timeline">
+                <p>Instability detected 36 cycles ago</p>
+                <p>Acceleration observed over last 8 cycles</p>
               </div>
-              <figcaption class="media-caption">Structural drift: relationships change while individual signals can remain in-range.</figcaption>
-            </figure>
-            <figure>
-              <div class="media-frame">
-                <img src="results-instability.jpeg" alt="Example plot showing relationship instability detected over time" loading="lazy" decoding="async">
+              <p class="finding-example__note">When it started and how it is evolving</p>
+            </div>
+
+            <div class="finding-example__section">
+              <span class="finding-example__label">Urgency &amp; Action Window</span>
+              <span class="finding-example__value">Moderate → High</span>
+              <p class="finding-example__text">Estimated intervention window: 60–120 cycles</p>
+              <p class="finding-example__note">Not a prediction. Time to decide and act.</p>
+            </div>
+
+            <div class="finding-example__section">
+              <span class="finding-example__label">Confidence</span>
+              <span class="finding-example__value">0.82</span>
+              <p class="finding-example__text">Persistent drift + relational breakdown + covariance shift</p>
+              <p class="finding-example__note">Evidence strength. Why you should trust this.</p>
+            </div>
+
+            <div class="finding-example__section">
+              <span class="finding-example__label">Operator Focus</span>
+              <div class="finding-example__list">
+                <p>Cooling loop integrity</p>
+                <p>Flow consistency across load conditions</p>
               </div>
-              <figcaption class="media-caption">Instability: coupling patterns become erratic, often before visible symptoms.</figcaption>
-            </figure>
+              <p class="finding-example__note">Decision support, not automation</p>
+            </div>
           </div>
+
           <div class="micro-cta">
-            <a class="button button--ghost" href="sample-finding-pack.pdf">Download a sample finding pack</a>
+            <a class="button button--ghost" href="sample-finding-pack.pdf">Download sample findings</a>
           </div>
         </div>
       </div>

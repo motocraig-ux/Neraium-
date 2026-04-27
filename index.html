@@ -62,20 +62,20 @@
 
       <div class="container hero-content">
         <div class="hero-inner">
-          <h1>Failures do not start with an alarm. They start with drift.</h1>
+          <h1>Detect system degradation before alarms trigger.</h1>
 
           <p class="hero-description">
-            Neraium detects when your systems start degrading by watching how their components interact. Not spikes. Not thresholds. The underlying drift. Operators get 40 to 160 cycles to act before failure happens.
+            Neraium analyzes how your system's components behave together. When their interactions change in ways that precede failure, you see it first. Not after alarms. Not after visible problems. Before.
           </p>
 
-          <ul class="hero-audience" aria-label="What this changes">
-            <li>Your current alarms trigger too late to plan maintenance.</li>
-            <li>You see something is wrong, but not what it is or how to fix it.</li>
-            <li>Failures feel sudden because you do not see the degradation coming.</li>
+          <ul class="hero-audience" aria-label="Key benefits">
+            <li>Read-only. No control systems touched. No operational risk.</li>
+            <li>Deployed in days, not months. Validate in your own environment.</li>
+            <li>Findings explain what changed and why it matters.</li>
           </ul>
 
           <p class="hero-proof">
-            Validated on NASA CMAPSS FD004. Detects failures 40 to 160 cycles earlier than threshold-based alerts.
+            Validated on NASA CMAPSS FD004: Earlier detection than threshold-based alerts. Observed lead times of 40 to 160 cycles before failure.
           </p>
 
           <div class="button-row">
@@ -92,43 +92,43 @@
       </div>
     </section>
 
-    <!-- 2. WHAT OPERATORS EXPERIENCE TODAY -->
+    <!-- 2. HOW SYSTEMS ACTUALLY FAIL -->
     <section class="problem-band">
       <div class="container">
-        <h2>The reality operators face every day</h2>
+        <h2>How systems actually fail</h2>
         <div class="problem-grid">
           <div class="problem-item">
-            <p class="problem-title">Alarms arrive too late.</p>
-            <p class="problem-text">By the time thresholds trigger, degradation is already advanced. You react instead of plan.</p>
+            <p class="problem-title">Alarms trigger too late.</p>
+            <p class="problem-text">When threshold alerts fire, degradation is already advanced. You have minutes to respond, not hours or days. Emergency response becomes your only option.</p>
           </div>
           <div class="problem-item">
-            <p class="problem-title">Dashboards show symptoms, not causes.</p>
-            <p class="problem-text">You see a spike or a dip, but not why. Triage takes time you do not have.</p>
+            <p class="problem-title">You see a symptom, not the cause.</p>
+            <p class="problem-text">A pressure spike. A temperature deviation. You know something changed. You do not know what broke or why. Triage takes time you do not have.</p>
           </div>
           <div class="problem-item">
-            <p class="problem-title">Failures feel sudden but are not.</p>
-            <p class="problem-text">Systems degrade gradually in their relationships before visible failure. You miss the window to intervene.</p>
+            <p class="problem-title">Failures feel sudden.</p>
+            <p class="problem-text">They are not. Your systems degraded gradually. Components stopped working together the way they should. You just could not see it happening.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. WHAT THIS CHANGES -->
+    <!-- 3. THE APPROACH -->
     <section class="solution-band">
       <div class="container">
-        <h2>What changes with Neraium</h2>
+        <h2>The approach</h2>
         <div class="solution-grid">
           <div class="solution-item">
-            <p class="solution-title">See instability before alarms fire.</p>
-            <p class="solution-text">Neraium detects structural drift in system behavior while conventional alerts still show nominal operation.</p>
+            <p class="solution-title">Ingest your telemetry.</p>
+            <p class="solution-text">Connect to your existing sensors and data streams. No modifications to production systems. No control integration.</p>
           </div>
           <div class="solution-item">
-            <p class="solution-title">Know what is drifting, not just that something is.</p>
-            <p class="solution-text">Which relationships are breaking. How fast they are changing. What to inspect first.</p>
+            <p class="solution-title">Analyze component interactions.</p>
+            <p class="solution-text">How does pressure relate to temperature? How do vibration and load move together? We establish how your system normally behaves.</p>
           </div>
           <div class="solution-item">
-            <p class="solution-title">Get time to act before degradation becomes failure.</p>
-            <p class="solution-text">An action window of 40 to 160 cycles. Enough time to plan maintenance, not scramble.</p>
+            <p class="solution-title">Detect behavioral changes.</p>
+            <p class="solution-text">When normal relationships shift, degradation is beginning. Before thresholds trigger. Before alarms fire.</p>
           </div>
         </div>
       </div>
@@ -178,35 +178,35 @@
       </div>
     </section>
 
-    <!-- 6. PROOF -->
+    <!-- 6. VALIDATION -->
     <section class="proof-band" id="proof">
       <div class="container">
-        <h2>Proven on real engine failures</h2>
+        <h2>Validated on real failure data</h2>
 
         <div class="proof-content">
           <p class="proof-explanation">
-            FD004 is NASA's turbofan engine degradation dataset. It contains full telemetry from engines run to documented failure. Neraium was tested against these real failures. Result: consistent detection significantly earlier than traditional alerts.
+            NASA CMAPSS FD004 contains turbofan engine telemetry from engines run to failure. We tested Neraium against this dataset with known failure times and confirmed degradation patterns.
           </p>
 
           <div class="proof-bullets">
             <div class="proof-bullet">
-              <p class="proof-bullet-value">40 to 160 cycles</p>
-              <p class="proof-bullet-text">Lead time before failure. Time to schedule maintenance. Time to prevent catastrophe.</p>
+              <p class="proof-bullet-value">Earlier detection</p>
+              <p class="proof-bullet-text">Neraium consistently detected degradation patterns before conventional threshold alerts triggered on FD004 data.</p>
             </div>
 
             <div class="proof-bullet">
-              <p class="proof-bullet-value">3–5 cycles vs 40+</p>
-              <p class="proof-bullet-text">Traditional alerts trigger near the end. Neraium surfaces instability at the beginning.</p>
+              <p class="proof-bullet-value">40 to 160 cycles lead time</p>
+              <p class="proof-bullet-text">In FD004 testing, this provided 40 to 160 cycles before failure. The range reflects different failure modes within the dataset.</p>
             </div>
 
             <div class="proof-bullet">
-              <p class="proof-bullet-value">Emergency vs planned</p>
-              <p class="proof-bullet-text">That lead time transforms failures from unplanned downtime into scheduled maintenance.</p>
+              <p class="proof-bullet-value">What this means for your systems</p>
+              <p class="proof-bullet-text">Lead time varies by failure mode and operating conditions. FD004 proves the approach is sound. Your pilot validates what it means for your specific systems.</p>
             </div>
           </div>
 
           <p class="proof-closing">
-            Lead time is everything in operations. FD004 proves Neraium delivers it.
+            FD004 is proof the concept is sound. Your deployment is validation it works for your systems.
           </p>
         </div>
       </div>
@@ -233,7 +233,7 @@
       </div>
     </section>
 
-    <!-- 8. WHY IT IS DIFFERENT -->
+    <!-- 8. HOW NERAIUM IS DIFFERENT -->
     <section class="editorial editorial--dark" id="why-different">
       <div class="container editorial__grid">
         <div class="editorial__label">
@@ -244,15 +244,15 @@
           <div class="comparison-list">
             <div class="comparison-item">
               <p class="comparison-label">Observability tools</p>
-              <p class="comparison-text">Track individual signals. Show what is happening. Not why or when it will fail.</p>
+              <p class="comparison-text">Track individual signals. Show what is happening. Do not indicate when degradation is beginning. You see a spike, not what it means.</p>
             </div>
             <div class="comparison-item">
-              <p class="comparison-label">Predictive models</p>
-              <p class="comparison-text">Predict failure probability. Usually too late. Often require massive training data and full retraining on new systems.</p>
+              <p class="comparison-label">Threshold-based alerts</p>
+              <p class="comparison-text">Trigger when limits are breached. By then, degradation is far advanced. You have limited time to respond. Designed for reactive alerting, not early warning.</p>
             </div>
             <div class="comparison-item">
               <p class="comparison-label">Neraium</p>
-              <p class="comparison-text">Detects instability in system behavior through relationship changes. Works early. Works across system types. No prediction. No black box.</p>
+              <p class="comparison-text">Detects when systems stop behaving normally by analyzing component interactions. Works early in degradation. Works across different system types. Provides lead time to plan, not just react.</p>
             </div>
           </div>
         </div>
@@ -266,19 +266,19 @@
         <div class="deployment-features">
           <div class="feature">
             <p class="feature-title">Read-only by design</p>
-            <p class="feature-text">Monitors telemetry. Does not command systems. No control plane integration. No attack surface.</p>
+            <p class="feature-text">Monitors telemetry. Does not send commands. Does not integrate with control systems. No operational risk.</p>
           </div>
           <div class="feature">
-            <p class="feature-title">Fast to pilot</p>
-            <p class="feature-text">Deploy in days, not months. Validate lead time in your specific environment. Expand when your team trusts the findings.</p>
+            <p class="feature-title">Integrates with existing infrastructure</p>
+            <p class="feature-text">Connects to your telemetry pipeline. Requires no modifications to production systems. Does not disrupt ongoing operations.</p>
           </div>
           <div class="feature">
-            <p class="feature-title">Works with existing infrastructure</p>
-            <p class="feature-text">Connects to your telemetry pipeline. No system modifications. No disruption to production operations.</p>
+            <p class="feature-title">Pilot in days, not months</p>
+            <p class="feature-text">Deployable in minimal time. Validate early. Expand when confidence is established. Low risk to try.</p>
           </div>
           <div class="feature">
-            <p class="feature-title">Audit-friendly outputs</p>
-            <p class="feature-text">Findings explain exactly what changed, when, and the evidence. No black box. Inspectable by your team.</p>
+            <p class="feature-title">Findings are inspectable</p>
+            <p class="feature-text">No black box. Operators see what changed, evidence supporting the finding, and what to check. Clear enough for technical teams to understand and verify.</p>
           </div>
         </div>
       </div>
@@ -288,11 +288,11 @@
     <section class="cta-band">
       <div class="container">
         <div class="cta-band__inner">
-          <h2>The only thing more valuable than money is time.</h2>
-          <p class="cta-band__text">Neraium gives you time.</p>
+          <h2>Systems degrade gradually. Alarms trigger late.</h2>
+          <p class="cta-band__text">Neraium detects degradation early. Proven on NASA CMAPSS FD004. Ready to validate in your environment.</p>
           <div class="button-row button-row--cta">
-            <a href="contact.html" class="button button--primary">Talk to us</a>
-            <a href="technical.html" class="button button--ghost">See use cases</a>
+            <a href="contact.html" class="button button--primary">Schedule a pilot</a>
+            <a href="technical.html" class="button button--ghost">Technical details</a>
           </div>
         </div>
       </div>

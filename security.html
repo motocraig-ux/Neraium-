@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#06070a">
-  <title>Neraium Methodology | Simulated Benchmark Evaluation</title>
-  <meta name="description" content="Methodology for Neraium simulated benchmark evaluation, assumptions, and how pilot validation is measured in live infrastructure operations.">
-  <meta property="og:title" content="Neraium Methodology | Simulated Benchmark Evaluation">
-  <meta property="og:description" content="How benchmark simulations were run and how production pilot validation is measured.">
+  <title>Neraium Security | Data Handling and Read-Only Deployment</title>
+  <meta name="description" content="Neraium security and data handling overview: read-only architecture, scoped access, retention boundaries, and pilot deployment controls.">
+  <meta property="og:title" content="Neraium Security | Data Handling and Read-Only Deployment">
+  <meta property="og:description" content="Security posture and data handling for pilot and production-style deployments.">
   <meta property="og:image" content="https://www.neraium.com/hero.png">
-  <meta property="og:url" content="https://www.neraium.com/methodology.html">
+  <meta property="og:url" content="https://www.neraium.com/security.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Neraium Methodology">
-  <meta name="twitter:description" content="Benchmark assumptions, measurement process, and pilot validation approach.">
-  
+  <meta name="twitter:title" content="Neraium Security">
+  <meta name="twitter:description" content="Read-only architecture, data boundaries, and operational access model.">
+  <meta name="twitter:image" content="https://www.neraium.com/hero.png">
   <meta name='ga4-measurement-id' content='G-XXXXXXXXXX'>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="canonical" href="https://www.neraium.com/methodology.html">
+  <link rel="canonical" href="https://www.neraium.com/security.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap">
@@ -38,7 +38,7 @@
         <a href="platform.html" class="nav-link">Platform</a>
         <a href="technical.html" class="nav-link">Use Cases</a>
         <a href="pilot.html" class="nav-link">Pilot</a>
-        <a href="methodology.html" class="nav-link active" aria-current="page">Methodology</a>
+        <a href="methodology.html" class="nav-link">Methodology</a>
         <a href="contact.html" class="nav-link">Contact</a>
       </nav>
       <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="main-navigation" aria-expanded="false">
@@ -51,53 +51,42 @@
   <main id="main">
     <section class="page-hero">
       <div class="container">
-        <span class="eyebrow">Methodology</span>
-        <h1 class="page-hero__title">How benchmark results are produced</h1>
-        <p class="page-hero__sub">All benchmark performance figures shown are from simulated datasets and do not represent production deployment results.</p>
+        <span class="eyebrow">Security</span>
+        <h1 class="page-hero__title">Read-only by design</h1>
+        <p class="page-hero__sub">Neraium is designed for observational analysis and operator decision support, not control-layer writes.</p>
       </div>
     </section>
     <section class="section">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Data Basis</p>
-          <h2>Simulated benchmark datasets</h2>
+          <p class="eyebrow">Architecture</p>
+          <h2>Data access boundaries</h2>
         </div>
         <ul class="bullet-list">
-          <li>Public simulation datasets (for example, CMAPSS variants) are used for controlled evaluation.</li>
-          <li>Evaluation focuses on lead-time behavior and structural drift signals before failure labels.</li>
-          <li>Results are reported as benchmark indicators, not guarantees of field performance.</li>
+          <li>Read-only connectors to existing telemetry/historian sources.</li>
+          <li>No automated control actions or writeback commands to operational systems.</li>
+          <li>Scoped source mapping and explicit access controls per environment.</li>
         </ul>
       </div>
     </section>
     <section class="section section--band">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Assumptions</p>
-          <h2>What benchmark numbers mean</h2>
+          <p class="eyebrow">Handling</p>
+          <h2>Data governance in pilot mode</h2>
         </div>
         <ul class="bullet-list">
-          <li>Lead-time values are measured in dataset-native units (for example, cycles).</li>
-          <li>Detection metrics depend on baseline windows, persistence gates, and drift thresholds.</li>
-          <li>Dataset operating conditions may not match your exact environment or failure profile.</li>
+          <li>Pilot scope defines datasets, retention windows, and role permissions.</li>
+          <li>Operator-facing findings can be reviewed without granting plant control privileges.</li>
+          <li>Environment boundaries are documented before ingestion begins.</li>
         </ul>
       </div>
     </section>
     <section class="section">
       <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Pilot Validation</p>
-          <h2>How production value is measured</h2>
-        </div>
-        <ul class="bullet-list">
-          <li>Scope to one target system with documented operator risk priorities.</li>
-          <li>Track early-warning findings against known incidents/events in your environment.</li>
-          <li>Report measured warning windows, confidence indicators, and actionability outcomes.</li>
-        </ul>
         <div class="button-row">
-          <a class="button button--primary" href="pilot.html">View Pilot Plan</a>
-          <a class="button button--ghost" href="security.html">Security and Data Handling</a>
-          <a class="button button--ghost" href="operator-brief.html">Operator One-Pager</a>
-          <a class="button button--ghost" href="contact.html">Start Pilot Intake</a>
+          <a class="button button--primary" href="contact.html">Discuss Security Requirements</a>
+          <a class="button button--ghost" href="pilot.html">Return to Pilot</a>
         </div>
       </div>
     </section>
@@ -120,9 +109,7 @@
       <div class="footer__copy">&copy; <span id="year"></span> Neraium</div>
     </div>
   </footer>
-  <a class="mobile-sticky-cta" href="contact.html" data-track="mobile_sticky_methodology">Start Pilot Intake</a>
+  <a class="mobile-sticky-cta" href="contact.html" data-track="mobile_sticky_security">Contact</a>
   <script src="scripts.js?v=20260522" defer></script>
 </body>
 </html>
-
-

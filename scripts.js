@@ -1,4 +1,19 @@
 (() => {
+  const gaMeta = document.querySelector('meta[name="ga4-measurement-id"]');
+  const gaMeasurementId = gaMeta?.getAttribute("content")?.trim();
+  if (gaMeasurementId && gaMeasurementId !== "G-XXXXXXXXXX") {
+    const gaScript = document.createElement("script");
+    gaScript.async = true;
+    gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(gaMeasurementId)}`;
+    document.head.appendChild(gaScript);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function gtag() {
+      window.dataLayer.push(arguments);
+    };
+    window.gtag("js", new Date());
+    window.gtag("config", gaMeasurementId, { anonymize_ip: true });
+  }
+
   const analyticsState = {
     maxScrollBucket: 0
   };

@@ -696,32 +696,8 @@ h3 {
   margin-top: 10px;
 }
 
-.demo-strip {
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.demo-cycle img {
-  width: 100%;
-  border-radius: 10px;
-  border: 1px solid var(--line-bright);
-  animation: demo-pulse 5s ease-in-out infinite;
-}
-
-.demo-cycle:nth-child(2) img {
-  animation-delay: 0.6s;
-}
-
 .mobile-sticky-cta {
   display: none;
-}
-
-@keyframes demo-pulse {
-  0% { transform: scale(1); opacity: 0.86; }
-  50% { transform: scale(1.015); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.86; }
 }
 
 .contact-form label {
@@ -832,10 +808,6 @@ h3 {
   }
 
   .visual-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .demo-strip {
     grid-template-columns: 1fr;
   }
 

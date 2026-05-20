@@ -62,23 +62,37 @@
           <p class="eyebrow">Architecture</p>
           <h2>Data access boundaries</h2>
         </div>
-        <ul class="bullet-list">
-          <li>Read-only connectors to existing telemetry/historian sources.</li>
-          <li>No automated control actions or writeback commands to operational systems.</li>
-          <li>Scoped source mapping and explicit access controls per environment.</li>
-        </ul>
+        <div class="trust-center-grid">
+          <article class="card">
+            <h3>Read-only telemetry model</h3>
+            <p class="copy">Connectors ingest observational data only. Neraium does not write into control systems.</p>
+          </article>
+          <article class="card">
+            <h3>Scoped access controls</h3>
+            <p class="copy">Source mappings and role boundaries are defined per environment before pilot start.</p>
+          </article>
+          <article class="card">
+            <h3>Operator-first outputs</h3>
+            <p class="copy">Findings are designed for review and human decision making, not autonomous control actions.</p>
+          </article>
+          <article class="card">
+            <h3>Deployment boundaries</h3>
+            <p class="copy">Pilot scope documents approved data sources, retention windows, and review workflows.</p>
+          </article>
+        </div>
       </div>
     </section>
     <section class="section section--band">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Handling</p>
-          <h2>Data governance in pilot mode</h2>
+          <p class="eyebrow">Controls</p>
+          <h2>Trust-center checklist</h2>
         </div>
         <ul class="bullet-list">
-          <li>Pilot scope defines datasets, retention windows, and role permissions.</li>
-          <li>Operator-facing findings can be reviewed without granting plant control privileges.</li>
-          <li>Environment boundaries are documented before ingestion begins.</li>
+          <li>Data access approved by environment owner before ingestion.</li>
+          <li>No production write paths enabled during pilot.</li>
+          <li>Role-permission mapping reviewed with operator stakeholders.</li>
+          <li>Simulated benchmark results clearly separated from production claims.</li>
         </ul>
       </div>
     </section>

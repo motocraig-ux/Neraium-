@@ -21,7 +21,7 @@
   <link rel='preconnect' href='https://fonts.googleapis.com'>
   <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap'>
-  <link rel='stylesheet' href='styles.css?v=20260520'>
+  <link rel='stylesheet' href='styles.css?v=20260521'>
   <link rel='manifest' href='site.webmanifest'>
 </head>
 <body>
@@ -53,16 +53,32 @@
     <section class='hero section'>
       <div class='container'>
         <p class='eyebrow'>Systemic Infrastructure Intelligence</p>
-        <h1>Infrastructure does not fail instantly.</h1>
-        <p class='lead'>Neraium shows operators where instability begins before alarms, visible symptoms, or operational failure.</p>
+        <h1>See instability before failure.</h1>
+        <p class='lead'>Neraium detects structural drift early, so operators can act before alarms and downtime.</p>
         <div class='button-row'>
           <a class='button button--primary' href='contact.html'>Request Pilot</a>
           <a class='button button--ghost' href='#how-it-works'>See How It Works</a>
         </div>
         <div class='trust-strip' aria-label='Proof points'>
-          <div class='trust-item'><span class='trust-item__kicker'>Validated</span><span class='trust-item__value'>707 engine units tested</span></div>
+          <div class='trust-item'><span class='trust-item__kicker'>Benchmark</span><span class='trust-item__value'>707 simulated engine trajectories</span></div>
           <div class='trust-item'><span class='trust-item__kicker'>Lead time</span><span class='trust-item__value'>Up to 520 cycles early warning</span></div>
           <div class='trust-item'><span class='trust-item__kicker'>Deployment</span><span class='trust-item__value'>Read-only beside existing stack</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class='section'>
+      <div class='container'>
+        <div class='section-heading'>
+          <p class='eyebrow'>Proof Snapshot</p>
+          <h2>One benchmark case, clear operator window</h2>
+        </div>
+        <div class='card proof-panel'>
+          <p class='copy'><strong>Scenario:</strong> NASA CMAPSS simulated engine degradation.</p>
+          <p class='copy'><strong>Signal:</strong> Persistent relational drift appears while standard thresholds still look nominal.</p>
+          <p class='copy'><strong>Lead time:</strong> 198 cycles average, up to 520 cycles.</p>
+          <p class='copy'><strong>Operator action:</strong> Inspect subsystem behavior, schedule maintenance, and avoid forced outage windows.</p>
+          <p class='note'>Benchmark simulation result. Not a real-world production claim.</p>
         </div>
       </div>
     </section>
@@ -81,7 +97,7 @@
       <div class='container'>
         <div class='section-heading'>
           <p class='eyebrow'>How It Works</p>
-          <h2>From telemetry history to live operational visibility</h2>
+          <h2>From telemetry history to live alerts</h2>
         </div>
         <div class='grid grid--3'>
           <article class='card'>
@@ -97,6 +113,15 @@
             <h3>Live operational visibility</h3>
           </article>
         </div>
+        <div class='visual-grid'>
+          <figure class='media-frame'>
+            <img src='results-drift.jpeg' alt='Structural drift benchmark visualization' loading='lazy' decoding='async'>
+          </figure>
+          <figure class='media-frame'>
+            <img src='results-instability.jpeg' alt='Instability progression benchmark visualization' loading='lazy' decoding='async'>
+          </figure>
+        </div>
+        <p class='note'>Example benchmark outputs from simulated datasets.</p>
       </div>
     </section>
 
@@ -133,7 +158,7 @@
       <div class='container'>
         <div class='section-heading'>
           <p class='eyebrow'>Validation</p>
-          <h2>Observed early instability detection in simulated benchmark datasets</h2>
+          <h2>Simulated benchmarks show early instability detection</h2>
         </div>
         <div class='grid grid--2'>
           <article class='card'>

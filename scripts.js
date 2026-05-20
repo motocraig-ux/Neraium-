@@ -57,11 +57,53 @@
   const formStartedAt = document.getElementById("form-started-at");
   const honeypot = document.getElementById("company-website");
   if (contactForm && formFeedback && formStartedAt) {
+    const stepOne = contactForm.querySelector('[data-step="1"]');
+    const stepTwo = contactForm.querySelector('[data-step="2"]');
+    const nextButton = document.getElementById("contact-next");
+    const backButton = document.getElementById("contact-back");
+
     formStartedAt.value = String(Date.now());
 
     const setFeedback = (message) => {
       formFeedback.innerHTML = message;
     };
+
+    const showStep = (stepNumber) => {
+      if (!stepOne || !stepTwo) {
+        return;
+      }
+      const isStepOne = stepNumber === 1;
+      stepOne.hidden = !isStepOne;
+      stepTwo.hidden = isStepOne;
+      stepOne.classList.toggle("is-active", isStepOne);
+      stepTwo.classList.toggle("is-active", !isStepOne);
+      setFeedback("");
+    };
+
+    if (nextButton) {
+      nextButton.addEventListener("click", () => {
+        const fullName = document.getElementById("name")?.value.trim() || "";
+        const workEmail = document.getElementById("email")?.value.trim() || "";
+        const company = document.getElementById("company")?.value.trim() || "";
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!fullName || !workEmail || !company) {
+          setFeedback("Please complete name, email, and company to continue.");
+          return;
+        }
+        if (!emailPattern.test(workEmail)) {
+          setFeedback("Please enter a valid work email address.");
+          return;
+        }
+        showStep(2);
+      });
+    }
+
+    if (backButton) {
+      backButton.addEventListener("click", () => {
+        showStep(1);
+      });
+    }
 
     contactForm.addEventListener("submit", async (event) => {
       event.preventDefault();

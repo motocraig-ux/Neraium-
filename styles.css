@@ -647,6 +647,11 @@ h3 {
   padding: 20px;
 }
 
+.form-step {
+  display: grid;
+  gap: 6px;
+}
+
 .contact-form label {
   display: block;
   margin: 10px 0 6px;

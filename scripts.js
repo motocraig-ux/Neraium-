@@ -1,4 +1,22 @@
 (() => {
+  const analyticsState = {
+    maxScrollBucket: 0
+  };
+
+  const trackEvent = (name, payload = {}) => {
+    const detail = { name, payload, ts: Date.now() };
+    window.dispatchEvent(new CustomEvent("neraium:analytics", { detail }));
+    if (Array.isArray(window.dataLayer)) {
+      window.dataLayer.push({ event: name, ...payload });
+    }
+    if (typeof window.gtag === "function") {
+      window.gtag("event", name, payload);
+    }
+    if (window.console && window.console.debug) {
+      window.console.debug("[analytics]", name, payload);
+    }
+  };
+
   const year = document.getElementById("year");
   if (year) {
     year.textContent = new Date().getFullYear();
@@ -52,6 +70,31 @@
     });
   }
 
+  document.querySelectorAll("a.button, .nav a, [data-track]").forEach((el) => {
+    el.addEventListener("click", () => {
+      const label = el.getAttribute("data-track") || el.textContent.trim();
+      trackEvent("cta_click", {
+        label,
+        href: el.getAttribute("href") || "",
+        path: window.location.pathname
+      });
+    });
+  });
+
+  const onScrollDepth = () => {
+    const doc = document.documentElement;
+    const scrollTop = window.scrollY || doc.scrollTop || 0;
+    const max = Math.max(doc.scrollHeight - window.innerHeight, 1);
+    const pct = Math.min(100, Math.round((scrollTop / max) * 100));
+    const bucket = Math.floor(pct / 25) * 25;
+    if (bucket > analyticsState.maxScrollBucket && bucket > 0) {
+      analyticsState.maxScrollBucket = bucket;
+      trackEvent("scroll_depth", { bucket, path: window.location.pathname });
+    }
+  };
+  window.addEventListener("scroll", onScrollDepth, { passive: true });
+  onScrollDepth();
+
   const contactForm = document.getElementById("contact-form");
   const formFeedback = document.getElementById("form-feedback");
   const formStartedAt = document.getElementById("form-started-at");
@@ -78,6 +121,7 @@
       stepOne.classList.toggle("is-active", isStepOne);
       stepTwo.classList.toggle("is-active", !isStepOne);
       setFeedback("");
+      trackEvent("contact_step_view", { step: stepNumber });
     };
 
     if (nextButton) {
@@ -95,6 +139,7 @@
           setFeedback("Please enter a valid work email address.");
           return;
         }
+        trackEvent("contact_step_1_complete", { path: window.location.pathname });
         showStep(2);
       });
     }
@@ -132,6 +177,7 @@
       }
 
       setFeedback("Sending your request...");
+      trackEvent("contact_submit_attempt", { path: window.location.pathname });
       const payload = new URLSearchParams({
         "form-name": "pilot-request",
         form_started_at: formStartedAt.value,
@@ -159,10 +205,36 @@
         contactForm.reset();
         formStartedAt.value = String(Date.now());
         setFeedback("Thanks, your pilot request is in. We typically reply within 1 business day.");
+        trackEvent("contact_submit_success", { path: window.location.pathname });
       } catch (_err) {
         setFeedback("Submission did not go through. Please try again or email <a href=\"mailto:craig@neraium.com\">craig@neraium.com</a> directly.");
+        trackEvent("contact_submit_error", { path: window.location.pathname });
       }
     });
+  }
+
+  const roiCalc = document.getElementById("roi-calc");
+  if (roiCalc) {
+    const incidentCost = document.getElementById("roi-incident-cost");
+    const incidentRate = document.getElementById("roi-incident-rate");
+    const preventRate = document.getElementById("roi-prevent-rate");
+    const result = document.getElementById("roi-result");
+    const output = () => {
+      const cost = Number(incidentCost?.value || 0);
+      const rate = Number(incidentRate?.value || 0);
+      const prevent = Number(preventRate?.value || 0) / 100;
+      const annual = Math.max(0, cost * rate * prevent);
+      if (result) {
+        result.textContent = `$${annual.toLocaleString()} potential annual avoided loss`;
+      }
+      trackEvent("roi_calculated", { cost, rate, prevent });
+    };
+    [incidentCost, incidentRate, preventRate].forEach((el) => {
+      if (el) {
+        el.addEventListener("input", output);
+      }
+    });
+    output();
   }
 
   const faqList = document.querySelector("[data-faq-list]");

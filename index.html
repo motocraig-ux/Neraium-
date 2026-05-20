@@ -4,8 +4,8 @@
   <meta charset='UTF-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <meta name='theme-color' content='#040404'>
-  <title>Neraium | Systemic Infrastructure Intelligence</title>
-  <meta name='description' content='Neraium is a Systemic Infrastructure Intelligence platform for early instability detection across infrastructure operations.'>
+  <title>Neraium | Early Instability Detection for Infrastructure</title>
+  <meta name='description' content='Early instability detection for infrastructure operations. Simulated benchmark lead-time evidence with operator-ready pilot deployment.'>
   <meta property='og:title' content='Neraium | Systemic Infrastructure Intelligence'>
   <meta property='og:description' content='Neraium helps operators detect structural drift in system behavior before alarms trigger or operations break.'>
   <meta property='og:image' content='https://www.neraium.com/hero.png'>
@@ -39,6 +39,7 @@
         <a href='platform.html' class='nav-link'>Platform</a>
         <a href='technical.html' class='nav-link'>Use Cases</a>
         <a href='pilot.html' class='nav-link'>Pilot</a>
+        <a href='methodology.html' class='nav-link'>Methodology</a>
         <a href='contact.html' class='nav-link'>Contact</a>
       </nav>
 
@@ -57,7 +58,7 @@
         <h1>See instability before failure.</h1>
         <p class='lead'>Neraium detects structural drift early, so operators can act before alarms and downtime.</p>
         <div class='button-row'>
-          <a class='button button--primary' href='pilot.html'>Request Pilot</a>
+          <a class='button button--primary' href='pilot.html' data-track='hero_request_pilot'>Request Pilot</a>
           <a class='button button--ghost' href='#how-it-works'>See How It Works</a>
         </div>
         <div class='trust-strip' aria-label='Proof points'>
@@ -81,6 +82,7 @@
           <p class='copy'><strong>Lead time:</strong> 198 cycles average, up to 520 cycles.</p>
           <p class='copy'><strong>Operator action:</strong> Inspect subsystem behavior, schedule maintenance, and avoid forced outage windows.</p>
           <p class='note'>Benchmark simulation result. Not a real-world production claim.</p>
+          <p class='copy'><a href='methodology.html' class='button button--ghost' data-track='proof_methodology'>Review Methodology</a></p>
         </div>
       </div>
     </section>
@@ -122,6 +124,16 @@
           <figure class='media-frame'>
             <img src='results-instability.jpeg' alt='Instability progression benchmark visualization' loading='lazy' decoding='async'>
           </figure>
+        </div>
+        <div class='demo-strip' aria-label='Animated workflow preview'>
+          <picture class='demo-cycle'>
+            <source srcset='results-drift.webp' type='image/webp'>
+            <img src='results-drift.jpeg' alt='Workflow preview frame one'>
+          </picture>
+          <picture class='demo-cycle'>
+            <source srcset='results-instability.webp' type='image/webp'>
+            <img src='results-instability.jpeg' alt='Workflow preview frame two'>
+          </picture>
         </div>
         <p class='note'>Example benchmark outputs from simulated datasets.</p>
       </div>
@@ -288,15 +300,19 @@
         <a href='platform.html' class='footer__link'>Platform</a>
         <a href='technical.html' class='footer__link'>Use Cases</a>
         <a href='pilot.html' class='footer__link'>Pilot</a>
+        <a href='methodology.html' class='footer__link'>Methodology</a>
         <a href='contact.html' class='footer__link'>Contact</a>
       </nav>
       <div class='footer__copy'>&copy; <span id='year'></span> Neraium</div>
     </div>
   </footer>
 
-  <script src='scripts.js?v=20260521' defer></script>
+  <a class='mobile-sticky-cta' href='pilot.html' data-track='mobile_sticky_pilot'>Start Pilot</a>
+
+  <script src='scripts.js?v=20260522' defer></script>
 </body>
 </html>
+
 
 
 

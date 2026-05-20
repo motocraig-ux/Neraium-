@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#06070a">
-  <title>Neraium Pilot | Scope, Timeline, and Deliverables</title>
-  <meta name="description" content="See how a Neraium pilot works: scope, timeline, deliverables, and success criteria for structural instability detection.">
+  <title>Neraium Pilot | 60-Day Infrastructure Pilot Plan</title>
+  <meta name="description" content="Buyer-intent pilot page: scope, timeline, deliverables, FAQ, and ROI calculator for infrastructure lead-time validation.">
   <meta property="og:title" content="Neraium Pilot | Scope, Timeline, and Deliverables">
   <meta property="og:description" content="Pilot plan for telemetry fit, lead-time validation, and operator-ready findings.">
   <meta property="og:image" content="https://www.neraium.com/hero.png">
@@ -40,6 +40,7 @@
         <a href="platform.html" class="nav-link">Platform</a>
         <a href="technical.html" class="nav-link">Use Cases</a>
         <a href="pilot.html" class="nav-link active" aria-current="page">Pilot</a>
+        <a href="methodology.html" class="nav-link">Methodology</a>
         <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
@@ -148,6 +149,77 @@
       </div>
     </section>
 
+    <section class="section section--band" id="roi-calc">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Pilot ROI Calculator</p>
+          <h2>Estimate avoided annual loss</h2>
+        </div>
+        <div class="grid grid--3">
+          <article class="card">
+            <label for="roi-incident-cost">Average incident cost (USD)</label>
+            <input id="roi-incident-cost" type="number" value="120000" min="0">
+          </article>
+          <article class="card">
+            <label for="roi-incident-rate">Incidents per year</label>
+            <input id="roi-incident-rate" type="number" value="4" min="0" step="1">
+          </article>
+          <article class="card">
+            <label for="roi-prevent-rate">Preventable with earlier warning (%)</label>
+            <input id="roi-prevent-rate" type="number" value="30" min="0" max="100">
+          </article>
+        </div>
+        <p id="roi-result" class="copy-large"></p>
+      </div>
+    </section>
+
+    <section class="section" data-faq-list>
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Pilot FAQ</p>
+          <h2>Common operator and engineering questions</h2>
+        </div>
+        <article class="card faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">How much integration effort is required? <span class="faq-icon">+</span></button>
+          <div class="faq-panel" hidden>
+            <p class="copy">Read-only deployment. We start with existing historians/telemetry exports and scope to one environment first.</p>
+          </div>
+        </article>
+        <article class="card faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">Do you need raw production control access? <span class="faq-icon">+</span></button>
+          <div class="faq-panel" hidden>
+            <p class="copy">No control writes. Pilot is designed for observational analysis and operator-facing findings.</p>
+          </div>
+        </article>
+        <article class="card faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">How is security handled? <span class="faq-icon">+</span></button>
+          <div class="faq-panel" hidden>
+            <p class="copy">Scoped data access, read-only connectors, and clear boundary mapping before ingestion begins.</p>
+          </div>
+        </article>
+        <article class="card faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">When do we see time-to-value? <span class="faq-icon">+</span></button>
+          <div class="faq-panel" hidden>
+            <p class="copy">Most teams see initial directional findings in weeks 3-4, with structured validation by pilot close.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Operator Brief</p>
+          <h2>Download the one-page pilot brief</h2>
+        </div>
+        <p class="copy-large">Share this with operators and plant leadership: problem, approach, pilot plan, and simulation disclosure.</p>
+        <div class="button-row">
+          <a class="button button--ghost" href="sample-finding-pack.pdf" data-track="download_one_pager">Download Operator One-Pager</a>
+          <a class="button button--ghost" href="methodology.html">Read Methodology</a>
+        </div>
+      </div>
+    </section>
+
     <section class="cta-band">
       <div class="container">
         <div class="cta-band__inner">
@@ -172,14 +244,18 @@
         <a href="platform.html" class="footer__link">Platform</a>
         <a href="technical.html" class="footer__link">Use Cases</a>
         <a href="pilot.html" class="footer__link">Pilot</a>
+        <a href="methodology.html" class="footer__link">Methodology</a>
         <a href="contact.html" class="footer__link">Contact</a>
       </nav>
       <div class="footer__copy">&copy; <span id="year"></span> Neraium</div>
     </div>
   </footer>
 
-  <script src="scripts.js?v=20260521" defer></script>
+  <a class="mobile-sticky-cta" href="contact.html" data-track="mobile_sticky_intake">Start Pilot Intake</a>
+
+  <script src="scripts.js?v=20260522" defer></script>
 </body>
 
 </html>
+
 
